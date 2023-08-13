@@ -6,16 +6,21 @@ using Random = UnityEngine.Random;
 
 public class WorldGenerator : MonoBehaviour
 {
+    [Header("Options Scriptable Object")]
     [SerializeField] WorldGenOptions options;
+    
+    [Header("Hardcoded Tile Resources")]
     [SerializeField] private Tilemap groundMap;
     [SerializeField] private Sprite[] groundTiles;
     [SerializeField] private Tilemap environmentMap;
     [SerializeField] private Sprite[] environmentTiles;
 
+    [Header("For Debug Visual Only")]
     [SerializeField] private string seed = "BREENSEERAYYANG";
     [SerializeField] private float seedFloat = 0f;
     
     // Possibly Internalized Later
+    [Header("Might be Hard Coded in Script Later")]
     [SerializeField] private float scale = 0.1f;
 
     private float _InternalEnvironmentSeedOffset = 423554f;
@@ -33,11 +38,6 @@ public class WorldGenerator : MonoBehaviour
     {
         ConvertSeed();
         
-        // Adjust Environment Tilemap
-        GameObject a = new GameObject();
-        a.transform.LookAt(Camera.main.transform);
-        environmentMap.orientationMatrix = Matrix4x4.Rotate(a.transform.rotation);
-
         // Ground Tiles
         Tile grassTile = CreateTile(groundTiles[0],new Color(0,0.4f,0));
         Tile waterTile = CreateTile(groundTiles[1], Color.cyan);
@@ -49,17 +49,18 @@ public class WorldGenerator : MonoBehaviour
         {
             for (int y = -options.worldSize.y/2; y < options.worldSize.y/2; ++y)
             {
-                float groundLevel = Mathf.PerlinNoise(x * scale + seedFloat, y * scale + seedFloat);
+                float xJustified = (x + seedFloat) * scale;
+                float yJustified = (y + seedFloat) * scale;
+                
+                // Determine Ground Tile Level
+                float groundLevel = Mathf.PerlinNoise(xJustified, yJustified);
                 if (groundLevel > options.seaLevel)
                     groundMap.SetTile(new Vector3Int(x,y,0), grassTile);
                 else
                     groundMap.SetTile(new Vector3Int(x,y,0), waterTile);
                 
-                float environmentLevel = Mathf.PerlinNoise(x * scale + _InternalEnvironmentSeedOffset + seedFloat,
-                    y * scale + _InternalEnvironmentSeedOffset + seedFloat);
-
                 if (groundLevel <= options.seaLevel) continue;
-                if (environmentLevel > options.treeLevel) environmentMap.SetTile(new Vector3Int(x,y,0),treeTile);
+                if (groundLevel > options.treeLevel) environmentMap.SetTile(new Vector3Int(x,y,0),treeTile);
             }
         }
         
@@ -70,23 +71,14 @@ public class WorldGenerator : MonoBehaviour
     {
         if (seed.Length <= 0)
         {
-            seedFloat = Random.value * Int32.MaxValue;
-        }
-        seedFloat = 0f;
-        List<float> debugList = new List<float>();
-        foreach (var c in seed)
-        {
-            seedFloat += c;
-            debugList.Add(c);
+            seedFloat = Random.value * Single.MaxValue;
+            return;
         }
 
-        string debugListResult = "";
-        foreach (var f in debugList)
+        foreach (var letter in seed)
         {
-            debugListResult += f.ToString() + " ";
+            seedFloat += Convert.ToInt32(letter);
         }
-        
-        Debug.Log(debugListResult);
     }
     
     // Start is called before the first frame update
