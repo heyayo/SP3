@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
@@ -17,9 +19,19 @@ public class WorldGenerator : MonoBehaviour
 
     [Header("For Debug Visual Only")]
     [SerializeField] private float seedFloat = 0f;
+
+    [Header("Events")]
+    public UnityEvent onWorldBeginGen;
+    public UnityEvent onWorldEndGen;
     
     // Possibly Internalized Later
     private float scale = 0.025f;
+
+    private void Awake()
+    {
+        onWorldBeginGen = new UnityEvent();
+        onWorldEndGen = new UnityEvent();
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -54,6 +66,8 @@ public class WorldGenerator : MonoBehaviour
 
     public void GenerateWorld()
     {
+        onWorldBeginGen.Invoke();
+        
         ConvertSeed();
         
         // Ground Tiles
@@ -83,6 +97,8 @@ public class WorldGenerator : MonoBehaviour
         }
         
         groundMap.RefreshAllTiles();
+        
+        onWorldEndGen.Invoke();
     }
 
     public void ConvertSeed()
