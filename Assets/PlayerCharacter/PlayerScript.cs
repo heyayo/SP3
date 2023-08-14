@@ -4,6 +4,7 @@ using UnityEngine;
 // Unity ScriptTags to auto add Components
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Mortality))]
 public class PlayerScript : MonoBehaviour
 {
     private Configuration _config;

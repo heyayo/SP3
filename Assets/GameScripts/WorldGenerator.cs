@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
@@ -16,14 +18,20 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField] private Sprite[] environmentTiles;
 
     [Header("For Debug Visual Only")]
-    [SerializeField] private string seed = "BREENSEERAYYANG";
     [SerializeField] private float seedFloat = 0f;
+
+    [Header("Events")]
+    public UnityEvent onWorldBeginGen;
+    public UnityEvent onWorldEndGen;
     
     // Possibly Internalized Later
-    [Header("Might be Hard Coded in Script Later")]
-    [SerializeField] private float scale = 0.1f;
+    private float scale = 0.025f;
 
-    private float _InternalEnvironmentSeedOffset = 423554f;
+    private void Awake()
+    {
+        onWorldBeginGen = new UnityEvent();
+        onWorldEndGen = new UnityEvent();
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -58,6 +66,8 @@ public class WorldGenerator : MonoBehaviour
 
     public void GenerateWorld()
     {
+        onWorldBeginGen.Invoke();
+        
         ConvertSeed();
         
         // Ground Tiles
@@ -87,17 +97,19 @@ public class WorldGenerator : MonoBehaviour
         }
         
         groundMap.RefreshAllTiles();
+        
+        onWorldEndGen.Invoke();
     }
 
     public void ConvertSeed()
     {
-        if (seed.Length <= 0)
+        if (options.seedString.Length <= 0)
         {
             seedFloat = Random.value * Single.MaxValue;
             return;
         }
 
-        foreach (var letter in seed)
+        foreach (var letter in options.seedString)
         {
             seedFloat += Convert.ToInt32(letter);
         }

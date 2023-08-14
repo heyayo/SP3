@@ -7,7 +7,7 @@ public class Configuration : ScriptableObject
 {
 	public static Configuration FetchConfig()
 	{
-		return Resources.Load<Configuration>("configs/cfg");
+		return Resources.Load<Configuration>("configs/game_cfg");
 	}
 
 	public KeyCode Up = KeyCode.W;
