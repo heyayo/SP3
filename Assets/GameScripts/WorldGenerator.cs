@@ -24,7 +24,29 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField] private float scale = 0.1f;
 
     private float _InternalEnvironmentSeedOffset = 423554f;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Fetch Components
+        groundMap = transform.GetChild(0).GetComponent<Tilemap>();
+        environmentMap = transform.GetChild(1).GetComponent<Tilemap>();
 
+        if (groundTiles.Length == 0)
+        {
+            Debug.LogError("No Ground Tiles");
+            Debug.Break();
+        }
+
+        if (environmentTiles.Length == 0)
+        {
+            Debug.LogError("No Environment Tiles");
+            Debug.Break();
+        }
+
+        GenerateWorld();
+    }
+    
     private Tile CreateTile(Sprite sprite, Color color)
     {
         Tile tile = ScriptableObject.CreateInstance<Tile>();
@@ -79,11 +101,5 @@ public class WorldGenerator : MonoBehaviour
         {
             seedFloat += Convert.ToInt32(letter);
         }
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        GenerateWorld();
     }
 }
