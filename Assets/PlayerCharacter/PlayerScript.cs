@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     private Configuration _config;
     private Rigidbody2D _rb;
     private SpriteRenderer _sprite;
+    private Animator _animator;
 
     [SerializeField] private float movementSpeed = 1f;
     [SerializeField] private float maxSpeed = 5f;
@@ -21,10 +22,15 @@ public class PlayerScript : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
         _config = Configuration.FetchConfig();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        // Walking animation and idle animation and runnning aniamtion
+        _animator.SetFloat("xVelocity", _rb.velocity.x);
+        _animator.SetFloat("yVelocity", _rb.velocity.y);
+
         /*
          * Gather Input Values from Key Presses
          * "Convert.ToSingle" is to type cast into a float
