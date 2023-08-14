@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class Mortality : MonoBehaviour
 {
@@ -20,36 +19,56 @@ public class Mortality : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private float regen;
     [SerializeField] private float healthMax;
+    
+    public float ActiveEnergy
+    {
+        get => activeEnergy;
+        set
+        {
+            activeEnergy = value;
+            activeEnergy = Math.Clamp(activeEnergy, 0, activeMax);
+            onActiveEnergyAdjust.Invoke();
+        }
+    }
+    public float StoredEnergy
+    {
+        get => storedEnergy;
+        set
+        {
+            storedEnergy = value;
+            storedEnergy = Math.Clamp(storedEnergy, 0, storedMax);
+            onStoredEnergyAdjust.Invoke();
+        }
+    }
+
+    public float Health
+    {
+        get => health;
+        set
+        {
+            health = value;
+            health = Math.Clamp(health, 0, healthMax);
+            onHealthAdjust.Invoke();
+        }
+    }
 
     [Header("Events")]
-    public UnityEvent onHealthNone;
-    public UnityEvent onHealthRegen;
-    public UnityEvent onHealthFull;
-    public UnityEvent onActiveEnergyTired;
-    public UnityEvent onActiveEnergyRegen;
-    public UnityEvent onActiveEnergyFull;
-    public UnityEvent onStoredEnergyTired;
-    public UnityEvent onStoredEnergyRegen;
-    public UnityEvent onStoredEnergyFull;
+    public UnityEvent onHealthAdjust;
+    public UnityEvent onActiveEnergyAdjust;
+    public UnityEvent onStoredEnergyAdjust;
     
     private List<Affliction> _afflictions = new List<Affliction>();
 
     private void Awake()
     {
         // Create the events
-        onHealthNone = new UnityEvent();
-        onHealthRegen = new UnityEvent();
-        onHealthFull = new UnityEvent();
-        onActiveEnergyTired = new UnityEvent();
-        onActiveEnergyRegen = new UnityEvent();
-        onActiveEnergyFull = new UnityEvent();
-        onStoredEnergyTired = new UnityEvent();
-        onStoredEnergyRegen = new UnityEvent();
-        onStoredEnergyFull = new UnityEvent();
+        onHealthAdjust = new UnityEvent();
+        onActiveEnergyAdjust = new UnityEvent();
+        onStoredEnergyAdjust = new UnityEvent();
     }
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         activeEnergy = activeMax;
         storedEnergy = storedMax;
@@ -57,7 +76,7 @@ public class Mortality : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // Mortality Regeneration
         activeEnergy += activeRegen * Time.deltaTime;
@@ -73,50 +92,24 @@ public class Mortality : MonoBehaviour
         }
     }
 
-    public float ActiveEnergy
-    {
-        get => activeEnergy;
-        set
-        {
-            activeEnergy = value;
-            activeEnergy = Math.Clamp(activeEnergy, 0, activeMax);
-        }
-    }
-    public float StoredEnergy
-    {
-        get => storedEnergy;
-        set
-        {
-            storedEnergy = value;
-            storedEnergy = Math.Clamp(storedEnergy, 0, storedMax);
-        }
-    }
-
-    public float Health
-    {
-        get => health;
-        set
-        {
-            health = value;
-            health = Math.Clamp(health, 0, healthMax);
-        }
-    }
-    
+    // Apply StoredEnergyDrain Affliction
     public void DrainStoredEnergy(float cost, float rate)
     {
         _afflictions.Add(new StoredEnergyDrain(cost,rate,this));
     }
-
+    // Apply ActiveEnergy Affliction
     public void DrainActiveEnergy(float cost, float rate)
     {
         _afflictions.Add(new ActiveEnergyDrain(cost,rate,this));
     }
-
+    // Apply HealthDrain Affliction
     public void DrainHealth(float cost, float rate)
     {
         _afflictions.Add(new HealthDrain(cost,rate,this));
     }
-
+    
+    // Unity Inspector Debug Functions
+    
     [ContextMenu("DEBUG_FullStoredEnergy")]
     private void DEBUG_FullStoredEnergy()
     {

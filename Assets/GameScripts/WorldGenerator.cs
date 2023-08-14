@@ -16,14 +16,10 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField] private Sprite[] environmentTiles;
 
     [Header("For Debug Visual Only")]
-    [SerializeField] private string seed = "BREENSEERAYYANG";
     [SerializeField] private float seedFloat = 0f;
     
     // Possibly Internalized Later
-    [Header("Might be Hard Coded in Script Later")]
-    [SerializeField] private float scale = 0.1f;
-
-    private float _InternalEnvironmentSeedOffset = 423554f;
+    private float scale = 0.025f;
     
     // Start is called before the first frame update
     void Start()
@@ -91,13 +87,13 @@ public class WorldGenerator : MonoBehaviour
 
     public void ConvertSeed()
     {
-        if (seed.Length <= 0)
+        if (options.seedString.Length <= 0)
         {
             seedFloat = Random.value * Single.MaxValue;
             return;
         }
 
-        foreach (var letter in seed)
+        foreach (var letter in options.seedString)
         {
             seedFloat += Convert.ToInt32(letter);
         }
