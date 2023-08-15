@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Items/Items")]
+[CreateAssetMenu(menuName = "Items/Item")]
 public class Item : ScriptableObject
 {
     [Header("Item Data")]
@@ -18,6 +18,7 @@ public class Item : ScriptableObject
     [SerializeField]
     public int itemCount;
 
+    [TextArea]
     [SerializeField]
     public string itemDescription = "null";
 
