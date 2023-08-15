@@ -14,20 +14,27 @@ public class TargetDummyEnemy : MonoBehaviour
     private float currentHealth = 0.0f; // Initial health value
     public GameObject damageTextPrefab; // Assign the TextMesh prefab in the Inspector
 
+
+    private Mortality mortality;
+
     private Color originalColor;
     private SpriteRenderer spriteRenderer;
     private void Start()
     {
+        mortality = GetComponent<Mortality>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color; // Store the original sprite color
         originalPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
         StartMovement();
-        currentHealth = MaxHealth;
+        
+
+
     }
 
     private void Update()
     {
+        currentHealth = mortality.Health;
         if (!isPaused)
         {
             Move();
@@ -36,7 +43,7 @@ public class TargetDummyEnemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+    //    currentHealth -= damage;
         StartCoroutine(FlashRed());
 
         // Show damage pop-up
@@ -44,7 +51,7 @@ public class TargetDummyEnemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+           Die();
         }
     }
 

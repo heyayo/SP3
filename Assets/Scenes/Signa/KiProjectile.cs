@@ -6,7 +6,7 @@ public class KiProjectile : MonoBehaviour
 {
     public LayerMask enemyLayer;
     public float damageAmount = 10.0f;
-    public float niggasigna;
+    public float damn;
     private Rigidbody2D rb;
     private bool isPaused = false;
     private Vector2 previousVelocity; // Store the previous velocity
@@ -23,25 +23,6 @@ public class KiProjectile : MonoBehaviour
         CheckForCollision();
     }
 
-    //public void PauseMovement()
-    //{
-    //    previousVelocity = rb.velocity; // Store the previous velocity
-    //    isPaused = true;
-    //    rb.isKinematic = true;
-    //    rb.velocity = Vector2.zero; // Stop the projectile
-    //}
-
-    //public void ResumeMovement()
-    //{
-    //    isPaused = false;
-    //    StartMovement();
-    //}
-
-    //private void StartMovement()
-    //{
-    //    rb.isKinematic = false;
-    //    rb.velocity = previousVelocity; // Restore the previous velocity
-    //}
     void CheckForCollision()
     {
         Vector2 currentPosition = transform.position;
@@ -52,9 +33,12 @@ public class KiProjectile : MonoBehaviour
         if (hit.collider != null)
         {
             // Check if the hit collider belongs to an enemy
+            // Check if the hit collider belongs to an enemy
+            Mortality enemyHp = hit.collider.GetComponent<Mortality>();
             TargetDummyEnemy enemy = hit.collider.GetComponent<TargetDummyEnemy>();
             if (enemy != null)
             {
+                enemyHp.Health -= damageAmount;
                 enemy.TakeDamage(damageAmount);
                 Destroy(gameObject); // Destroy the projectile
             }
