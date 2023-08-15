@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bffa78f66954f384ba60979b2916161f, type: 3}
+  m_Script: {fileID: 11500000, guid: 76a326507efbd68479baaeba27b7ab24, type: 3}
   m_Name: Chainmail_Chestplate
   m_EditorClassIdentifier: 
   recipeR1:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  recipeR2:
-  - {fileID: 0}
   - {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
+  recipeR2:
+  - {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
+  - {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
+  - {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
   recipeR3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
+  - {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
+  - {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
   yieldItem: {fileID: 11400000, guid: 88cda3de719a82247b00b8a8725d62a7, type: 2}

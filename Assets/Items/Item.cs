@@ -13,7 +13,7 @@ public class Item : ScriptableObject
     public Sprite itemSprite;
 
     [SerializeField]
-    public bool isEquippable;
+    public EQUIPTYPE EquipType;
 
     [SerializeField]
     public int itemCount;
@@ -21,6 +21,21 @@ public class Item : ScriptableObject
     [TextArea]
     [SerializeField]
     public string itemDescription = "null";
+
+    public enum EQUIPTYPE
+    { 
+        NONE,
+        HEAD,
+        CHEST,
+        LEGS,
+        FEET,
+        PET
+    }
+
+    void OnEnable()
+    {
+        itemCount = 0;
+    }
 
     public void SetData(Sprite itemSprite, int itemCount)
     {

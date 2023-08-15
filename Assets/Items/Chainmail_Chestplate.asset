@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Chainmail Chestplate
   itemSprite: {fileID: 21300000, guid: b5a7f6d13d1cb2f41adf6df5471b60ef, type: 3}
-  isEquippable: 0
+  EquipType: 2
   itemCount: 0
   itemDescription: 'Chainmail Chestplate:
 

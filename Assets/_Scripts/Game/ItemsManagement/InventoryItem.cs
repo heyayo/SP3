@@ -54,7 +54,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
 
         if (!transform.parent.gameObject.CompareTag("InventorySlot"))
@@ -62,5 +61,25 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             transform.SetParent(oldParent);
             transform.position = oldParent.position;
         }
+        else
+        {
+            // Center the object within the inventory slot
+            RectTransform slotTransform = transform.parent.GetComponent<RectTransform>();
+            Vector3 centerPosition = slotTransform.position;
+            transform.position = centerPosition;
+        }
+
+        //image.raycastTarget = true;
+        //transform.SetParent(parentAfterDrag);
+
+        //if (!transform.parent.gameObject.CompareTag("InventorySlot"))
+        //{
+        //    //transform.SetParent(oldParent);
+        //    //transform.position = oldParent.position;
+        //    // Center the object within the inventory slot
+        //    RectTransform slotTransform = transform.parent.GetComponent<RectTransform>();
+        //    Vector3 centerPosition = slotTransform.position;
+        //    transform.position = centerPosition;
+        //}
     }
 }

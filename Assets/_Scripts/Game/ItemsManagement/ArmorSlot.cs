@@ -2,25 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
-using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
+public class ArmorSlot : InventorySlot, IDropHandler
 {
+    [Header("Equip Type")]
     [SerializeField]
-    protected TMP_Text description;
+    private Item.EQUIPTYPE equipType;
 
-    [SerializeField]
-    protected Image descriptionImg;
-
-    virtual public void OnDrop(PointerEventData eventData)
+    override public void OnDrop(PointerEventData eventData)
     {
         InventoryItem draggedItem = eventData.pointerDrag.GetComponent<InventoryItem>();
 
-        // There's an item being dragged
+        // There's an item being dragged and it fits the armor slot type
         if (draggedItem != null)
         {
             InventoryItem existingItem = GetComponentInChildren<InventoryItem>();
+
+            if (draggedItem.item.EquipType != equipType)
+                return;
 
             // Slot is empty
             if (existingItem == null)
@@ -41,11 +40,14 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
             }
         }
 
-        //// There's an item being dragged
+        //// No item in slot
         //if (transform.childCount == 0)
         //{
         //    InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
-        //    inventoryItem.parentAfterDrag = gameObject.transform;
+
+        //    // Check equip type before being able to put it there
+        //    if (inventoryItem.GetComponent<InventoryItem>().item.EquipType == equipType)
+        //        inventoryItem.parentAfterDrag = gameObject.transform;
         //}
 
         //// Item in slot (Swap)
@@ -54,22 +56,12 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
         //    InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
         //    InventoryItem swapItem = transform.GetComponentInChildren<InventoryItem>();
 
-        //    swapItem.transform.SetParent(inventoryItem.transform.parent);
-        //    inventoryItem.parentAfterDrag = gameObject.transform;
+        //    // Check equip type before being able to put it there
+        //    if (inventoryItem.GetComponent<InventoryItem>().item.EquipType == equipType)
+        //    {
+        //        swapItem.transform.SetParent(inventoryItem.transform.parent);
+        //        inventoryItem.parentAfterDrag = gameObject.transform;
+        //    }
         //}
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        // Update item description and image
-        if (GetComponentInChildren<InventoryItem>() != null)
-        {
-            description.text = GetComponentInChildren<InventoryItem>().item.itemDescription;
-            descriptionImg.sprite = GetComponentInChildren<InventoryItem>().item.itemSprite;
-            return;
-        }
-
-        description.text = "";
-        descriptionImg.sprite = null;
     }
 }
