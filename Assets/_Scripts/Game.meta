@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6cb823c83ab403dea87385d83bfb6693
 PrefabImporter:
+=======
+guid: 5ac53034535f95e4582cbcaa2d8561ba
+folderAsset: yes
+DefaultImporter:
+>>>>>>> refs/remotes/origin/master
   externalObjects: {}
   userData: 
   assetBundleName: 
