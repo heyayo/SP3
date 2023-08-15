@@ -17,4 +17,6 @@ public class Configuration : ScriptableObject
 	public KeyCode right = KeyCode.D;
 	public KeyCode pause = KeyCode.Escape;
 	public KeyCode run = KeyCode.LeftShift;
+	public KeyCode interact = KeyCode.E;
+	public KeyCode attack = KeyCode.Mouse0;
 }
