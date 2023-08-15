@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 9106322590901288494}
   - component: {fileID: 8803050081033037925}
   - component: {fileID: 2709727046816197280}
+  - component: {fileID: 8971218038127805419}
   - component: {fileID: 1531247521661309201}
   - component: {fileID: 5205213281708104345}
   - component: {fileID: 7061755813719921413}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +96,23 @@ MonoBehaviour:
   <YInput>k__BackingField: 0
   <MovementSpeed>k__BackingField: 25
   <MaxSpeed>k__BackingField: 25
+  <RunModifier>k__BackingField: 2
+--- !u!114 &8971218038127805419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901304030162120166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3f3b464ad99518da88c0bd37c338e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  <InteractDistance>k__BackingField: 3
 --- !u!212 &1531247521661309201
 SpriteRenderer:
   m_ObjectHideFlags: 0
