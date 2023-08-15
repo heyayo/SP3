@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
@@ -16,6 +14,7 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField] private Sprite[] groundTiles;
     [SerializeField] private Tilemap environmentMap;
     [SerializeField] private Sprite[] environmentTiles;
+    [SerializeField] private ForestTree forestTree;
 
     [Header("For Debug Visual Only")]
     [SerializeField] private float seedFloat = 0f;
@@ -31,21 +30,19 @@ public class WorldGenerator : MonoBehaviour
     {
         onWorldBeginGen = new UnityEvent();
         onWorldEndGen = new UnityEvent();
+        // Fetch Components
+        groundMap = transform.GetChild(0).GetComponent<Tilemap>();
+        environmentMap = transform.GetChild(1).GetComponent<Tilemap>();
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        // Fetch Components
-        groundMap = transform.GetChild(0).GetComponent<Tilemap>();
-        environmentMap = transform.GetChild(1).GetComponent<Tilemap>();
-
         if (groundTiles.Length == 0)
         {
             Debug.LogError("No Ground Tiles");
             Debug.Break();
         }
-
         if (environmentTiles.Length == 0)
         {
             Debug.LogError("No Environment Tiles");
@@ -64,7 +61,7 @@ public class WorldGenerator : MonoBehaviour
         return tile;
     }
 
-    public void GenerateWorld()
+    private void GenerateWorld()
     {
         onWorldBeginGen.Invoke();
         
@@ -81,18 +78,27 @@ public class WorldGenerator : MonoBehaviour
         {
             for (int y = -options.worldSize.y/2; y < options.worldSize.y/2; ++y)
             {
+                // Determine Ground Tile Level
                 float xJustified = (x + seedFloat) * scale;
                 float yJustified = (y + seedFloat) * scale;
-                
-                // Determine Ground Tile Level
                 float groundLevel = Mathf.PerlinNoise(xJustified, yJustified);
-                if (groundLevel > options.seaLevel)
-                    groundMap.SetTile(new Vector3Int(x,y,0), grassTile);
-                else
-                    groundMap.SetTile(new Vector3Int(x,y,0), waterTile);
+                // Current Tile Location
+                Vector3Int tileLoc = new Vector3Int(x, y, 0);
                 
+                // Place Ground Tiles
+                if (groundLevel > options.seaLevel)
+                    groundMap.SetTile(tileLoc, grassTile);
+                else
+                    groundMap.SetTile(tileLoc, waterTile);
+                
+                // Prevent Environment Tiles on Water
                 if (groundLevel <= options.seaLevel) continue;
-                if (groundLevel > options.treeLevel) environmentMap.SetTile(new Vector3Int(x,y,0),treeTile);
+                
+                // Place Environment Tiles
+                if (groundLevel > options.treeLevel)
+                {
+                    Instantiate(forestTree, tileLoc, Quaternion.identity);
+                }
             }
         }
         
@@ -101,7 +107,7 @@ public class WorldGenerator : MonoBehaviour
         onWorldEndGen.Invoke();
     }
 
-    public void ConvertSeed()
+    private void ConvertSeed()
     {
         if (options.seedString.Length <= 0)
         {
