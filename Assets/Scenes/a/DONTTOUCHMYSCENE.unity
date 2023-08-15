@@ -136,10 +136,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2709727046816197280, guid: 255e6ba1004f0a1319394c69f93a90ac, type: 3}
-      propertyPath: <RunModifier>k__BackingField
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5901304030162120166, guid: 255e6ba1004f0a1319394c69f93a90ac, type: 3}
       propertyPath: m_Name
       value: Player
@@ -197,6 +193,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 133068403742045771, guid: d0b015a878cc77d32913a069940c17da, type: 3}
+      propertyPath: m_SortOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665612374089444394, guid: d0b015a878cc77d32913a069940c17da, type: 3}
+      propertyPath: forestTree
+      value: 
+      objectReference: {fileID: 103373115393753852, guid: 754db950b5c3c1f84a6a3fda1c01d71a, type: 3}
     - target: {fileID: 4177698138347769947, guid: d0b015a878cc77d32913a069940c17da, type: 3}
       propertyPath: m_Name
       value: WorldGrid
