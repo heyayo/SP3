@@ -359,14 +359,20 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3789012525162852001, guid: 09d22b2b51ba7514c903e7dca98309a6, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1907347206514542034}
+    - targetCorrespondingSourceObject: {fileID: 3789012525162852001, guid: 09d22b2b51ba7514c903e7dca98309a6, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1907347206514542029}
+    - targetCorrespondingSourceObject: {fileID: 3789012525162852001, guid: 09d22b2b51ba7514c903e7dca98309a6, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1907347206514542033}
+    - targetCorrespondingSourceObject: {fileID: 3789012525162852001, guid: 09d22b2b51ba7514c903e7dca98309a6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1907347206514542028}
     - targetCorrespondingSourceObject: {fileID: 3789012525162852001, guid: 09d22b2b51ba7514c903e7dca98309a6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1907347206514542030}
-    - targetCorrespondingSourceObject: {fileID: 3789012525162852001, guid: 09d22b2b51ba7514c903e7dca98309a6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1907347206514542029}
   m_SourcePrefab: {fileID: 100100000, guid: 09d22b2b51ba7514c903e7dca98309a6, type: 3}
 --- !u!1 &1907347206514542027 stripped
 GameObject:
@@ -406,8 +412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1746bbde968e92041b1aa1b97d2b805f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
-  maxSpeed: 5
 --- !u!50 &1907347206514542030
 Rigidbody2D:
   serializedVersion: 4
@@ -440,6 +444,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6009821551157374767, guid: 09d22b2b51ba7514c903e7dca98309a6, type: 3}
   m_PrefabInstance: {fileID: 1907347206514542026}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1907347206514542033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907347206514542027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686094ce4fcec1c989d624b20775949d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <XInput>k__BackingField: 0
+  <YInput>k__BackingField: 0
+  <MovementSpeed>k__BackingField: 0
+  <MaxSpeed>k__BackingField: 0
+--- !u!114 &1907347206514542034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907347206514542027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeEnergy: 0
+  activeRegen: 0
+  activeMax: 0
+  storedEnergy: 0
+  storedRegen: 0
+  storedMax: 0
+  health: 0
+  regen: 0
+  healthMax: 0
+  onHealthAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onActiveEnergyAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onStoredEnergyAdjust:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
