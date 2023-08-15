@@ -116,4 +116,8 @@ public class hashMap<Key, Value>
                 entries.Remove(e);
         }
     }
+<<<<<<< HEAD:Assets/GameScripts/hashMap.cs
 }
+=======
+}
+>>>>>>> 5ca99dca7d8d9171718088ab2dc96eba9ead8e6e:Assets/Scripts/Game/hashMap.cs
