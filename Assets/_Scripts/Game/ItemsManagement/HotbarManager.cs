@@ -8,6 +8,9 @@ public class HotbarManager : MonoBehaviour
     [SerializeField]
     private InventorySlot[] hotbarSlots;
 
+    [SerializeField]
+    private GameObject selector;
+
     // Private variables
     private InventorySlot activeSlot;
 
@@ -46,7 +49,10 @@ public class HotbarManager : MonoBehaviour
             slot.GetComponent<Image>().color = new Color(255, 255, 255);
         }
 
-        // Excep the selected one
+        // Except the selected one
         activeSlot.GetComponent<Image>().color = new Color(100, 100, 100);
+
+        // Change selector position
+        selector.transform.SetParent(activeSlot.transform);
     }
 }

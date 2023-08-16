@@ -52,10 +52,14 @@ public class CraftingTable : MonoBehaviour
             }
         }
 
-        if (CompareRecipe(recipes[0].Recipe()))
+        // Checking through which recipe matches
+        foreach (CraftingRecipe recipe in recipes)
         {
-            inventoryManager.Add(recipes[0].YieldItem());
-            ClearTable();
+            if (CompareRecipe(recipe.Recipe()))
+            {
+                inventoryManager.Add(recipe.YieldItem());
+                ClearTable();
+            }
         }
     }
 
