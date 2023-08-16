@@ -13,6 +13,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     [SerializeField]
     protected Image descriptionImg;
     
+    [field:SerializeField] public InventoryItem HeldItem { get; set; }
+    
     public Image img
     {
         get => descriptionImg;
