@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
@@ -6,13 +7,18 @@ using Random = UnityEngine.Random;
 
 public class WorldGenerator : MonoBehaviour
 {
+    public static WorldGenerator instance { get; private set; }
+    
     [Header("Options Scriptable Object")]
     [SerializeField] WorldGenOptions options;
     
-    [Header("Hardcoded Tile Resources")]
+    [Header("Tilemaps")]
     [SerializeField] private Tilemap groundMap;
-    [SerializeField] private Sprite[] groundTiles;
     [SerializeField] private Tilemap environmentMap;
+
+    [Header("Hardcoded Tile Resources")]
+    [SerializeField] private Tile grassTile;
+    [SerializeField] private Tile waterTile;
     [SerializeField] private Sprite[] environmentTiles;
     [SerializeField] private ForestTree forestTree;
 
@@ -28,6 +34,12 @@ public class WorldGenerator : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogError("Multiple World Generators In Scene");
+            Debug.Break();
+        }
+        instance = this;
         onWorldBeginGen = new UnityEvent();
         onWorldEndGen = new UnityEvent();
         // Fetch Components
@@ -38,11 +50,6 @@ public class WorldGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (groundTiles.Length == 0)
-        {
-            Debug.LogError("No Ground Tiles");
-            Debug.Break();
-        }
         if (environmentTiles.Length == 0)
         {
             Debug.LogError("No Environment Tiles");
@@ -57,19 +64,16 @@ public class WorldGenerator : MonoBehaviour
         Tile tile = ScriptableObject.CreateInstance<Tile>();
         tile.sprite = sprite;
         tile.color = color;
-        Debug.Log("Loaded Tile | " + sprite.name);
+        Debug.Log("Loaded Tile | " + tile.name);
         return tile;
     }
 
+    [ContextMenu("DEBUG_GENERATEWORLD")]
     private void GenerateWorld()
     {
         onWorldBeginGen.Invoke();
         
         ConvertSeed();
-        
-        // Ground Tiles
-        Tile grassTile = CreateTile(groundTiles[0],new Color(0,0.4f,0));
-        Tile waterTile = CreateTile(groundTiles[1], Color.cyan);
         
         // Environment Tiles
         Tile treeTile = CreateTile(environmentTiles[0], Color.green);
@@ -118,6 +122,55 @@ public class WorldGenerator : MonoBehaviour
         foreach (var letter in options.seedString)
         {
             seedFloat += Convert.ToInt32(letter);
+        }
+    }
+
+    public List<List<SaveGame.TileID>> GetMapTileIDs()
+    {
+        List<List<SaveGame.TileID>> result = new List<List<SaveGame.TileID>>();
+        for (int i = 0; i < options.worldSize.x; ++i)
+        {
+            result.Add(new List<SaveGame.TileID>());
+            for (int j = 0; j < options.worldSize.y; ++j)
+            {
+                Vector3Int tileLoc = new Vector3Int(i - options.worldSize.x/2, j - options.worldSize.y/2, 0);
+                var tile = groundMap.GetTile(tileLoc);
+
+                if (tile == grassTile)
+                    result[i].Add(SaveGame.TileID.GRASS);
+                else if (tile == waterTile)
+                    result[i].Add(SaveGame.TileID.WATER);
+            }
+        }
+
+        return result;
+    }
+
+    [ContextMenu("DEBUG_LOADFROMSAVE")]
+    public void LoadWorldFromSave()
+    {
+        SaveGame.Instance.Load();
+        
+        for (int i = 0; i < options.worldSize.x; ++i)
+        {
+            for (int j = 0; j < options.worldSize.y; ++j)
+            {
+                Vector3Int tileLoc = new Vector3Int(i - options.worldSize.x/2, j - options.worldSize.y/2, 0);
+                SaveGame.TileID tileID = SaveGame.Instance.tiles[i][j];
+                switch (tileID)
+                {
+                    case SaveGame.TileID.GRASS:
+                    {
+                        groundMap.SetTile(tileLoc,grassTile);
+                        break;
+                    }
+                    case SaveGame.TileID.WATER:
+                    {
+                        groundMap.SetTile(tileLoc,waterTile);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

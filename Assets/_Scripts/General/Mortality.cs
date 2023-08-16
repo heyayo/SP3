@@ -19,6 +19,11 @@ public class Mortality : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private float regen;
     [SerializeField] private float healthMax;
+
+    [Header("Resistances")]
+    [SerializeField] private float armour;
+    [SerializeField] private float resist;
+    [SerializeField] private AnimationCurve scaling;
     
     public float ActiveEnergy
     {
@@ -40,7 +45,6 @@ public class Mortality : MonoBehaviour
             onStoredEnergyAdjust.Invoke();
         }
     }
-
     public float Health
     {
         get => health;
@@ -59,6 +63,19 @@ public class Mortality : MonoBehaviour
     
     private List<Affliction> _afflictions = new List<Affliction>();
 
+    /*
+     * Enumerator for handling Armour/Health Piercing Types
+     * None | No Piercing, no matter the number
+     * Flat | The Number provided will be deducted flat
+     * Percentage | The Number should Range from 0-1 (0-100%) and will deduct as a percentage
+     */
+    public enum PierceType
+    {
+        None,
+        Flat,
+        Percentage
+    }
+
     private void Awake()
     {
         // Create the events
@@ -67,7 +84,6 @@ public class Mortality : MonoBehaviour
         onStoredEnergyAdjust = new UnityEvent();
     }
     
-    // Start is called before the first frame update
     private void Start()
     {
         activeEnergy = activeMax;
@@ -75,7 +91,6 @@ public class Mortality : MonoBehaviour
         health = healthMax;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         // Mortality Regeneration
@@ -92,17 +107,68 @@ public class Mortality : MonoBehaviour
         }
     }
 
-    // Apply StoredEnergyDrain Affliction
+    private float CalculateReduction(float resistance, float pierce, PierceType pierceType)
+    {
+        float adjustedResistance = resistance;
+        switch (pierceType)
+        {
+            case PierceType.Flat:
+            {
+                /*
+                 * Reduce Armour by Pierce
+                 * Prevent Armour from going negative
+                 */
+                adjustedResistance = resistance - pierce;
+                adjustedResistance = adjustedResistance < 0 ? 0 : adjustedResistance;
+                break;
+            }
+            case PierceType.Percentage:
+            {
+                /*
+                 * Clamp ePierce between 0-1 to prevent over mitigation resulting in healing
+                 * Adjust Armour value to account for piercing
+                 */
+                pierce = Math.Clamp(pierce, 0, 1);
+                adjustedResistance = resistance - (resistance * pierce);
+                break;
+            }
+        }
+
+        float rating = adjustedResistance / 1000f;
+        return scaling.Evaluate(rating);
+    }
+    
+    /*
+     * Apply Damage with Consideration for Armour/Shields and other possible effects
+     * Damage | Total Damage Energy Damage dealt to the Player
+     * ePierce | How much to ignore energy resistance (Armour Piercing)
+     * PierceType | The type of piercing to use, either Flat or Percentage Based
+     */
+    public void ApplyEnergyDamage(float damage, float pierce = 0f, PierceType pierceType = PierceType.Flat)
+    {
+        float totalReduction = CalculateReduction(resist, pierce, pierceType);
+        float finalDamage = damage - (damage * totalReduction);
+        ActiveEnergy -= finalDamage;
+    }
+
+    public void ApplyHealthDamage(float damage, float pierce = 0f, PierceType pierceType = PierceType.Flat)
+    {
+        float totalReduction = CalculateReduction(armour, pierce, pierceType);
+        float finalDamage = damage - (damage * totalReduction);
+        Health -= finalDamage;
+    }
+
+    // Apply StoredEnergyDrain Affliction (Deals True StoredEnergy Damage)
     public void DrainStoredEnergy(float cost, float rate)
     {
         _afflictions.Add(new StoredEnergyDrain(cost,rate,this));
     }
-    // Apply ActiveEnergy Affliction
+    // Apply ActiveEnergy Affliction (Deals True ActiveEnergy Damage)
     public void DrainActiveEnergy(float cost, float rate)
     {
         _afflictions.Add(new ActiveEnergyDrain(cost,rate,this));
     }
-    // Apply HealthDrain Affliction
+    // Apply HealthDrain Affliction (Deals True Health Damage)
     public void DrainHealth(float cost, float rate)
     {
         _afflictions.Add(new HealthDrain(cost,rate,this));
@@ -120,6 +186,11 @@ public class Mortality : MonoBehaviour
     {
         activeEnergy = activeMax;
     }
+    [ContextMenu("DEBUG_FullHealth")]
+    private void DEBUG_FullHealth()
+    {
+        health = healthMax;
+    }
     [ContextMenu("DEBUG_DrainStoredEnergy")]
     private void DEBUG_DrainStoredEnergy()
     {
@@ -130,14 +201,42 @@ public class Mortality : MonoBehaviour
     {
         DrainActiveEnergy(100,5);
     }
-    [ContextMenu("DEBUG_FullHealth")]
-    private void DEBUG_FullHealth()
-    {
-        health = healthMax;
-    }
     [ContextMenu("DEBUG_DrainHealth")]
     private void DEBUG_DrainHealth()
     {
         DrainHealth(50,5);
+    }
+
+    [Header("DEBUG | Energy Damager")]
+    [SerializeField] private float DEBUG_EnergyDamage;
+    [SerializeField] private float DEBUG_EnergyPierce;
+    [SerializeField] private PierceType DEBUG_EnergyPierceType;
+
+    [ContextMenu("DEBUG_DealEnergyDamage")]
+    private void DEBUG_DealEnergyDamage()
+    {
+        ApplyEnergyDamage(DEBUG_EnergyDamage,DEBUG_EnergyPierce,DEBUG_EnergyPierceType);
+    }
+
+    [Header("DEBUG | Health Damager")]
+    [SerializeField] private float DEBUG_HealthDamage;
+    [SerializeField] private float DEBUG_HealthPierce;
+    [SerializeField] private PierceType DEBUG_HealthPierceType;
+
+    [ContextMenu("DEBUG_DealHealthDamage")]
+    private void DEBUG_DealHealthDamage()
+    {
+        ApplyHealthDamage(DEBUG_HealthDamage,DEBUG_HealthPierce,DEBUG_HealthPierceType);
+    }
+
+    [Header("DEBUG | Preview Reduction Numbers")]
+    [SerializeField] private float DEBUG_AdjustedArmour;
+    [SerializeField] private float DEBUG_AdjustedResist;
+    
+    [ContextMenu("DEBUG_PreviewReductionNumbers")]
+    private void DEBUG_PreviewReductionNumbers()
+    {
+        DEBUG_AdjustedArmour = CalculateReduction(armour, DEBUG_HealthPierce, DEBUG_HealthPierceType);
+        DEBUG_AdjustedResist = CalculateReduction(resist, DEBUG_EnergyDamage, DEBUG_EnergyPierceType);
     }
 }

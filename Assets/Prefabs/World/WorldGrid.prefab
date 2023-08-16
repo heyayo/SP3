@@ -182,12 +182,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   options: {fileID: 11400000, guid: 2069e93cc76e67e4385adacbdbf5860c, type: 2}
   groundMap: {fileID: 0}
-  groundTiles:
-  - {fileID: 21300000, guid: ed9b7dccd1ce23d4d9914064dd94702a, type: 3}
-  - {fileID: 145332770, guid: ae05008b23ddb5944b2a74cb3068380f, type: 3}
   environmentMap: {fileID: 0}
+  grassTile: {fileID: 11400000, guid: 6c4ad8253c5ee5883859f77326bde695, type: 2}
+  waterTile: {fileID: 11400000, guid: d361de0c68363376e992e8bb3ee2ccf3, type: 2}
   environmentTiles:
   - {fileID: 21300000, guid: b2a094aca21120846abfad9e2a4f1946, type: 3}
+  forestTree: {fileID: 0}
   seedFloat: 0
   onWorldBeginGen:
     m_PersistentCalls:
