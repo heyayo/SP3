@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemySingleStraightProjectile : EnemyAttackSOBase
 {
     [SerializeField] private Rigidbody2D bulletPrefab;
-    [SerializeField] private float _timeBetweenShots = 1.5f;
+    [SerializeField] private float _timeBetweenShots = 0.1f;
     [SerializeField] private float _timeTillExit = 2f;
-    [SerializeField] private float _distanceToCountExit = 3f;
+    [SerializeField] private float _distanceToCountExit = 4f;
     [SerializeField] private float _bulletSpeed = 10f;
 
     private float _timer;
@@ -31,12 +31,15 @@ public class EnemySingleStraightProjectile : EnemyAttackSOBase
     {
         base.DoFrameUpdateLogic();
         enemy.MoveEnemy(Vector2.zero);
+        _timer += Time.deltaTime;
         if (_timer > _timeBetweenShots)
         {
             _timer = 0f;
-            Vector2 dir = (playerTransform.position - enemy.transform.position).normalized;
-            Rigidbody2D bullet = GameObject.Instantiate(bulletPrefab, enemy.transform.position, Quaternion.identity);
-            bullet.velocity = dir * _bulletSpeed;
+            #region Bullet spawn commented out code
+            //Vector2 dir = (playerTransform.position - enemy.transform.position).normalized;
+            //Rigidbody2D bullet = GameObject.Instantiate(bulletPrefab, enemy.transform.position, Quaternion.identity);
+            //bullet.velocity = dir * _bulletSpeed;
+            #endregion
             enemy.enemyAnimator.SetBool("isAttacking", true);
         }
         else
@@ -56,9 +59,7 @@ public class EnemySingleStraightProjectile : EnemyAttackSOBase
         {
             _exitTimer = 0f;
         }
-        _timer += Time.deltaTime;
     }
-
     public override void DoPhysicsLogic()
     {
         base.DoPhysicsLogic();
