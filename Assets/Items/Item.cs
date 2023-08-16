@@ -46,6 +46,5 @@ public class Item : ScriptableObject
     // Virtual function
     virtual public void Use()
     {
-        Debug.Log("NIGGA DEBUG");
     }
 }

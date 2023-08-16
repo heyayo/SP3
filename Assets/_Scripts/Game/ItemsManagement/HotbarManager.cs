@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HotbarManager : MonoBehaviour
 {
+    private Configuration _config;
+    
     [SerializeField]
     private InventorySlot[] hotbarSlots;
 
@@ -14,6 +16,11 @@ public class HotbarManager : MonoBehaviour
     // Private variables
     private InventorySlot activeSlot;
 
+    private void Awake()
+    {
+        _config = Configuration.FetchConfig();
+    }
+    
     private void Start()
     {
         Select(1);
@@ -22,13 +29,13 @@ public class HotbarManager : MonoBehaviour
     void Update()
     {
         // Changing inventory slots
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(_config.hotbar1))
             Select(1);
-        else if (Input.GetKeyDown(KeyCode.X))
+        else if (Input.GetKeyDown(_config.hotbar2))
             Select(2);
-        else if (Input.GetKeyDown(KeyCode.C))
+        else if (Input.GetKeyDown(_config.hotbar3))
             Select(3);
-        else if (Input.GetKeyDown(KeyCode.V))
+        else if (Input.GetKeyDown(_config.hotbar4))
             Select(4);
 
         // Using item
@@ -46,11 +53,11 @@ public class HotbarManager : MonoBehaviour
         // Default all color of all slots
         foreach (InventorySlot slot in hotbarSlots)
         {
-            slot.GetComponent<Image>().color = new Color(255, 255, 255);
+            slot.img.color = Color.white;
         }
 
         // Except the selected one
-        activeSlot.GetComponent<Image>().color = new Color(100, 100, 100);
+        activeSlot.img.color = new Color(100, 100, 100);
 
         // Change selector position
         selector.transform.SetParent(activeSlot.transform);

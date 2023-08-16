@@ -12,6 +12,12 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     [SerializeField]
     protected Image descriptionImg;
+    
+    public Image img
+    {
+        get => descriptionImg;
+        set { descriptionImg = value; }
+    }
 
     virtual public void OnDrop(PointerEventData eventData)
     {

@@ -19,4 +19,8 @@ public class Configuration : ScriptableObject
 	public KeyCode run = KeyCode.LeftShift;
 	public KeyCode interact = KeyCode.E;
 	public KeyCode attack = KeyCode.Mouse0;
+	public KeyCode hotbar1 = KeyCode.Alpha1
+	public KeyCode hotbar2 = KeyCode.Alpha2
+	public KeyCode hotbar3 = KeyCode.Alpha3
+	public KeyCode hotbar4 = KeyCode.Alpha4
 }
