@@ -1,63 +1,99 @@
+
+//peak v3
+
 using UnityEngine;
 
 public class KamehamehaAttack : MonoBehaviour
 {
-    public GameObject kamehamehaPrefab; // Assign the Kamehameha beam prefab in the Inspector
-    public Transform firePoint; // The point from where the Kamehameha is fired
-    public float beamWidth = 0.1f;
-    public float beamMaxLength = 2000f;
+    public GameObject kamehamehaParticleEffect;
+    public GameObject beamPrefab;
+    public Transform firePoint; // Assign the fire point transform in the Inspector
+    private GameObject currentBeam;
+    private bool charging;
+    private bool beamActive;
+    private float chargeStartTime;
+    private float beamExistenceTime = 5f; // Time the beam can exist after release
 
-    private LineRenderer activeLineRenderer; // To store the active LineRenderer while firing
-    private bool isFiring = false; // To track if the Kamehameha is currently firing
+    public float maxScale = 20f; // Maximum scale of the beam
+    public float chargeRate = 70.5f; // Rate at which the beam grows
+    private CameraController cameraController;
 
-    private void Update()
+    private void Start()
     {
-        // Check for input to start or stop firing the Kamehameha
-        if (Input.GetKeyDown(KeyCode.Space))
+        cameraController = FindObjectOfType<CameraController>();
+        if (cameraController == null)
         {
-            StartFiring();
+            Debug.LogError("CameraController not found in the scene.");
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !charging && !beamActive)
         {
-            StopFiring();
+            charging = true;
+            chargeStartTime = Time.time;
+            kamehamehaParticleEffect.SetActive(true);
         }
 
-        // If firing, update the beam's endpoint based on the mouse position
-        if (isFiring)
+        if (Input.GetKeyUp(KeyCode.Space) && charging && !beamActive)
         {
+            charging = false;
+            beamActive = true;
+            currentBeam = Instantiate(beamPrefab, firePoint.position, Quaternion.identity);
+            // Play the charging particle effect
+            kamehamehaParticleEffect.SetActive(false);
+        }
+        if (beamActive && currentBeam != null)
+        {
+            // Calculate the direction from firePoint to mouse position
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 direction = (mousePosition - firePoint.position).normalized;
+            Vector3 direction = mousePosition - firePoint.position;
 
-            // Ensure the beam is always at its maximum length
-            Vector3 beamEndpoint = firePoint.position + direction * beamMaxLength;
+            // Calculate the angle based on the direction
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            activeLineRenderer.SetPosition(1, beamEndpoint);
+            // Set the rotation of the beam
+            Quaternion beamRotation = Quaternion.Euler(0f, 0f, angle);
+
+            // Update the beam's rotation and position to match firePoint's position and the calculated rotation
+            currentBeam.transform.position = firePoint.position;
+            currentBeam.transform.rotation = beamRotation;
+
+            // Calculate the scale of the beam based on charging duration
+            float chargeDuration = Time.time - chargeStartTime;
+
+            float beamScale = Mathf.Clamp(chargeDuration * chargeRate, 0f, maxScale);
+            // Calculate the scale of the beam along the y-axis based on charging duration
+            float beamScaleY = Mathf.Clamp(chargeDuration * chargeRate, 0f, 2); // You'll need to define maxScaleY
+
+            // Update the scale of the beam GameObject
+            currentBeam.transform.localScale = new Vector3(beamScale, beamScale, 1f);
+
+            // Add random rotation for the shaking effect
+            float shakeAmount = 1.0f; // Adjust the amount of shake as needed
+            Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(-shakeAmount, shakeAmount));
+            currentBeam.transform.rotation *= randomRotation;
+
+            if (cameraController != null)
+            {
+                cameraController.StartCameraShake();
+            }
         }
-    }
 
-    private void StartFiring()
-    {
-        if (!isFiring)
+        // Countdown and delete beam when its existence time runs out
+        if (beamActive && currentBeam != null)
         {
-            isFiring = true;
-            GameObject kamehameha = Instantiate(kamehamehaPrefab, firePoint.position, Quaternion.identity);
-            activeLineRenderer = kamehameha.GetComponent<LineRenderer>();
-
-            // Set the beam width
-            activeLineRenderer.startWidth = beamWidth;
-            activeLineRenderer.endWidth = beamWidth;
-
-            // Set the LineRenderer starting position
-            activeLineRenderer.SetPosition(0, firePoint.position);
-        }
-    }
-
-    private void StopFiring()
-    {
-        if (isFiring)
-        {
-            isFiring = false;
-            Destroy(activeLineRenderer.gameObject);
+            beamExistenceTime -= Time.deltaTime;
+            if (beamExistenceTime <= 0f)
+            {
+                beamActive = false;
+                Destroy(currentBeam);
+                beamExistenceTime = 5f; // Reset beam existence time
+            }
         }
     }
 }
+
+
+

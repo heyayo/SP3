@@ -9,6 +9,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Item item;
     public Image image;
 
+    // Save old parent when dragging
+    private Transform oldParent;
+
     [HideInInspector]
     public Transform parentAfterDrag;
 
@@ -37,6 +40,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        oldParent = transform.parent;
+
         image.raycastTarget = false;
         parentAfterDrag = transform.parent;
         transform.SetParent(parentAfterDrag);
@@ -49,7 +54,32 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
+
+        if (!transform.parent.gameObject.CompareTag("InventorySlot"))
+        {
+            transform.SetParent(oldParent);
+            transform.position = oldParent.position;
+        }
+        else
+        {
+            // Center the object within the inventory slot
+            RectTransform slotTransform = transform.parent.GetComponent<RectTransform>();
+            Vector3 centerPosition = slotTransform.position;
+            transform.position = centerPosition;
+        }
+
+        //image.raycastTarget = true;
+        //transform.SetParent(parentAfterDrag);
+
+        //if (!transform.parent.gameObject.CompareTag("InventorySlot"))
+        //{
+        //    //transform.SetParent(oldParent);
+        //    //transform.position = oldParent.position;
+        //    // Center the object within the inventory slot
+        //    RectTransform slotTransform = transform.parent.GetComponent<RectTransform>();
+        //    Vector3 centerPosition = slotTransform.position;
+        //    transform.position = centerPosition;
+        //}
     }
 }

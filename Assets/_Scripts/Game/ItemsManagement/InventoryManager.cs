@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour
     {
         foreach (InventorySlot slot in inventorySlots)
         {
-            if (slot.gameObject.GetComponentInChildren<InventoryItem>().item == null)
+            if (slot.GetComponentInChildren<InventoryItem>() == null)
             {
                 SpawnNewItem(item, slot);
                 return;
