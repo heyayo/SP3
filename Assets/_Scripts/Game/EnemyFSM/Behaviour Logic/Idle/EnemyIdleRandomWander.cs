@@ -18,11 +18,13 @@ public class EnemyIdleRandomWander : EnemyIdleSOBase
     {
         base.DoEnterLogic();
         _targetPos = GetRandomPointInCircle();
+        enemy.enemyAnimator.SetBool("isWalking", true); // Play walk animation when idle state is initiated
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+        enemy.enemyAnimator.SetBool("isWalking", false);
     }
 
     public override void DoFrameUpdateLogic()

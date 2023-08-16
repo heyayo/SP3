@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField]
+    public static InventoryManager Instance { get; private set; }
+    
+    [Header("Slot Access")]
     public InventorySlot[] inventorySlots;
+    public ArmorSlot[] armourSlots;
 
     [SerializeField]
     public GameObject inventoryItemPrefab;
@@ -16,6 +19,16 @@ public class InventoryManager : MonoBehaviour
     // Private Variables
     private bool toggle = false;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("Multiple Inventory Managers In Scene");
+            Debug.Break();
+        }
+        Instance = this;
+    }
+    
     public void Add(Item item)
     {
         foreach (InventorySlot slot in inventorySlots)
