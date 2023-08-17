@@ -30,9 +30,7 @@ public class EnemyIdleRandomWander : EnemyIdleSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
- 
         _direction = (_targetPos - enemy.transform.position).normalized; // Calculate the unit vector from player to enemy
-        enemy.MoveEnemy(_direction * randomMovementSpeed);
         if ((enemy.transform.position - _targetPos).sqrMagnitude < 0.01f)
         {
             _targetPos = GetRandomPointInCircle();
@@ -42,6 +40,7 @@ public class EnemyIdleRandomWander : EnemyIdleSOBase
     public override void DoPhysicsLogic()
     {
         base.DoPhysicsLogic();
+        enemy.MoveEnemy(_direction * randomMovementSpeed);
     }
 
     public override void Init(GameObject gameObject, Enemy enemy)

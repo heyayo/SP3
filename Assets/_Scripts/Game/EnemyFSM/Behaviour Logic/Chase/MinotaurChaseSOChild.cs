@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Chase-Direct Chase", menuName = "Enemy Logic/Chase Logic/Direct Chase")]
-public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
+
+public class MinotaurChaseSOChild : EnemyChaseSOBase
 {
-    [SerializeField] private float _movementSpeed = 5f;
-    private Vector2 _moveDir;
+    protected Minotaur minotaur;
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
         base.DoAnimationTriggerEventLogic(triggerType);
@@ -24,13 +23,17 @@ public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
+        if (!enemy.isAggroed)
+        {
+            minotaur.stateMachine.ChangeState(minotaur.healingState);
+            //enemy.stateMachine.ChangeState(enemy.idleState);
+            enemy.enemyAnimator.SetBool("isDashing", false);
+        }
     }
 
     public override void DoPhysicsLogic()
     {
         base.DoPhysicsLogic();
-        _moveDir = (playerTransform.position - enemy.transform.position).normalized; // Find vector between enemy and player
-        enemy.MoveEnemy(_moveDir * _movementSpeed); // Move enemy towards vector
     }
 
     public override void Init(GameObject gameObject, Enemy enemy)
