@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   damageAmount: 10
   homingForce: 50
   animator: {fileID: 0}
