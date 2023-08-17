@@ -24,7 +24,7 @@ public class Mortality : MonoBehaviour
     [SerializeField] public float armour;
     [SerializeField] public float resist;
     [SerializeField] private AnimationCurve scaling;
-    
+
     public float ActiveEnergy
     {
         get => activeEnergy;
@@ -52,6 +52,16 @@ public class Mortality : MonoBehaviour
         {
             health = value;
             health = Math.Clamp(health, 0, healthMax);
+            onHealthAdjust.Invoke();
+        }
+    }
+
+    public float HealthMax
+    {
+        get => healthMax;
+        set
+        {
+            healthMax = value;
             onHealthAdjust.Invoke();
         }
     }

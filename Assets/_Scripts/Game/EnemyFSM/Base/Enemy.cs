@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public EnemyAttackSOBase enemyAttackStateInstance { get; set; }
     #endregion
 
-    protected void InitAwake()
+    virtual protected void InitAwake()
     {
         enemyIdleBaseInstance = Instantiate(EnemyIdleBase);
         enemyChaseBaseInstance = Instantiate(EnemyChaseBase);
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         chaseState = new EnemyChaseState(this, stateMachine);
         attackState = new EnemyAttackState(this, stateMachine);
     }
-    protected void InitStart()
+    virtual protected void InitStart()
     {
         enemyIdleBaseInstance.Init(gameObject, this);
         enemyChaseBaseInstance.Init(gameObject, this);
