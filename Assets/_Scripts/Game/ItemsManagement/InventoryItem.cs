@@ -20,16 +20,13 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         InitializeItem(item);
     }
 
-    public void Add(Item item, int count)
+    public void Add(Item item)
     {
         if (item == null)
         {
             InitializeItem(item);
-            item.itemCount = count;
             return;
         }
-
-        item.itemCount += count;
     }
 
     public void InitializeItem(Item newItem)

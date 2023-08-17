@@ -21,8 +21,8 @@ public class Mortality : MonoBehaviour
     [SerializeField] private float healthMax;
 
     [Header("Resistances")]
-    [SerializeField] private float armour;
-    [SerializeField] private float resist;
+    [SerializeField] public float armour;
+    [SerializeField] public float resist;
     [SerializeField] private AnimationCurve scaling;
     
     public float ActiveEnergy

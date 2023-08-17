@@ -12,15 +12,19 @@ public class Item : ScriptableObject
     [SerializeField]
     public Sprite itemSprite;
 
+    [TextArea]
+    [SerializeField]
+    public string itemDescription = "null";
+
+    [Header("Equpiment")]
     [SerializeField]
     public EQUIPTYPE EquipType;
 
     [SerializeField]
-    public int itemCount;
+    public float armor = 1f;
 
-    [TextArea]
     [SerializeField]
-    public string itemDescription = "null";
+    public float resist = 1f;
 
     public enum EQUIPTYPE
     { 
@@ -32,19 +36,9 @@ public class Item : ScriptableObject
         PET
     }
 
-    void OnEnable()
-    {
-        itemCount = 0;
-    }
-
-    public void SetData(Sprite itemSprite, int itemCount)
-    {
-        this.itemSprite = itemSprite;
-        this.itemCount = itemCount;
-    }
-
     // Virtual function
     virtual public void Use()
     {
+        Debug.Log("This Item does not have a use");
     }
 }

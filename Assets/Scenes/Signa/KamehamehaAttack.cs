@@ -29,14 +29,14 @@ public class KamehamehaAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !charging && !beamActive)
+        if (Input.GetKeyDown(KeyCode.R) && !charging && !beamActive)
         {
             charging = true;
             chargeStartTime = Time.time;
             kamehamehaParticleEffect.SetActive(true);
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && charging && !beamActive)
+        if (Input.GetKeyUp(KeyCode.R) && charging && !beamActive)
         {
             charging = false;
             beamActive = true;

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chopProgress: 0
   treeStrength: 5
+  yieldItem: {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
 --- !u!70 &8163322559473483156
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
