@@ -28,6 +28,11 @@ public class InventoryManager : MonoBehaviour
         }
         Instance = this;
     }
+
+    private void Start()
+    {
+        inventoryParent.SetActive(false);
+    }
     
     public void Add(Item item)
     {

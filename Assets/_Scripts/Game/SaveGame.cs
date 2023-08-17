@@ -26,16 +26,29 @@ public class SaveGame : MonoBehaviour
         }
     }
 
-    public enum TileID
+    public enum GroundTileID
     {
         GRASS,
         WATER
     }
 
+    public enum EnvironmentTileID
+    {
+        TallGrass
+    }
+
+    public enum Interactable
+    {
+        ForestTree,
+        DragonBall
+    }
+
     public string saveName = "";
     public int width;
     public int height;
-    public List<List<TileID>> tiles;
+    public List<List<GroundTileID>> groundTiles;
+    public List<List<EnvironmentTileID>> environmentTiles;
+    public List<List<Interactable>> interactables;
 
     [ContextMenu("DEBUG_SAVE")]
     public void Save()
@@ -45,7 +58,8 @@ public class SaveGame : MonoBehaviour
         saveName = "TESTSAVE";
         width = config.worldSize.x;
         height = config.worldSize.y;
-        tiles = generator.GetMapTileIDs();
+        groundTiles = generator.GetGroundMapTileIDs();
+        environmentTiles = generator.GetEnvironmentMapTileIDs();
 
         string path = SaveLocation + saveName + ".sav";
 
@@ -56,7 +70,16 @@ public class SaveGame : MonoBehaviour
                 writer.Write(saveName); // Write Name
                 writer.Write(width); // Write World Width
                 writer.Write(height); // Write World Height
-                foreach (var x in tiles)
+                // Write Ground Tiles
+                foreach (var x in groundTiles)
+                {
+                    foreach (var y in x)
+                    {
+                        writer.Write((int)y); // Write Tile
+                    }
+                }
+                // Write Environment Tiles
+                foreach (var x in groundTiles)
                 {
                     foreach (var y in x)
                     {
@@ -71,7 +94,9 @@ public class SaveGame : MonoBehaviour
     public void Load()
     {
         string path = SaveLocation + saveName + ".sav";
-        tiles = new List<List<TileID>>();
+        PrepareList(ref groundTiles, width);
+        PrepareList(ref environmentTiles, width);
+        
 
         using (var stream = File.Open(path, FileMode.Open))
         {
@@ -82,14 +107,22 @@ public class SaveGame : MonoBehaviour
                 height = reader.ReadInt32();
                 for (int i = 0; i < width; ++i)
                 {
-                    tiles.Add(new List<TileID>());
                     for (int j = 0; j < height; ++j)
                     {
-                        tiles[i].Add((TileID)reader.ReadInt32());
+                        groundTiles[i].Add((GroundTileID)reader.ReadInt32());
                     }
                 }
             }
         }
         Debug.Log("Save Read");
+    }
+
+    private void PrepareList<T>(ref List<List<T>> list, int size)
+    {
+        list = new List<List<T>>();
+        for (int i = 0; i < size; ++i)
+        {
+            list.Add(new List<T>());
+        }
     }
 }

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7edc02ea1e8ec542ab0efd92b088290, type: 3}
   m_Name: worldgen_cfg
   m_EditorClassIdentifier: 
-  worldSize: {x: 100, y: 100}
+  worldSize: {x: 80, y: 80}
   seaLevel: 0.4
   treeLevel: 0.65
+  grassLevel: 0.5
   seedString: BREENSEERAYYANG
