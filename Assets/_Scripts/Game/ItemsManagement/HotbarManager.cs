@@ -71,4 +71,11 @@ public class HotbarManager : MonoBehaviour
         // Change selector position
         selector.transform.SetParent(activeSlot.transform);
     }
+
+    public Item GetActiveItem()
+    {
+        if (activeSlot.HeldItem != null)
+            return activeSlot.HeldItem.item;
+        return null;
+    }
 }

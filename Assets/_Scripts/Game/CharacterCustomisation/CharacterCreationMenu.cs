@@ -12,4 +12,9 @@ public class CharacterCreationMenu : MonoBehaviour
             changer.Randomise();
         }
     }
+
+    public void ApplyCharacter()
+    {
+        PlayerManager.hoodSprite = outfitChangers[0].bodyPart.sprite;
+    }
 }

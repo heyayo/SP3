@@ -94,9 +94,9 @@ public class Mortality : MonoBehaviour
     private void Update()
     {
         // Mortality Regeneration
-        activeEnergy += activeRegen * Time.deltaTime;
-        storedEnergy += storedRegen * Time.deltaTime;
-        health += regen * Time.deltaTime;
+        ActiveEnergy += activeRegen * Time.deltaTime;
+        StoredEnergy += storedRegen * Time.deltaTime;
+        Health += regen * Time.deltaTime;
 
         for (int i = 0; i < _afflictions.Count; ++i)
         {
