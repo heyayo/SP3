@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
         }
         _options.seedString = seedInput.text;
         
-        LoadingScreen.LoadGameWorld();
+        LoadingScreen.LoadPlayerCustomizer();
     }
 
     public void OpenWorldMenu()

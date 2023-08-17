@@ -15,16 +15,17 @@ public class PlayerManager : MonoBehaviour
     private Interactor _interactor;
     private Movement _movement;
 
-    private SpriteRenderer _hood;
-    private SpriteRenderer _face;
-    private SpriteRenderer _torso;
-    private SpriteRenderer _pelvis;
-    private SpriteRenderer _leftShoulder;
-    private SpriteRenderer _leftHand;
-    private SpriteRenderer _leftBoot;
-    private SpriteRenderer _rightShoulder;
-    private SpriteRenderer _rightHand;
-    private SpriteRenderer _rightBoot;
+    [Header("Body Parts")]
+    [SerializeField] private SpriteRenderer _hood;
+    [SerializeField] private SpriteRenderer _face;
+    [SerializeField] private SpriteRenderer _torso;
+    [SerializeField] private SpriteRenderer _pelvis;
+    [SerializeField] private SpriteRenderer _leftShoulder;
+    [SerializeField] private SpriteRenderer _leftHand;
+    [SerializeField] private SpriteRenderer _leftBoot;
+    [SerializeField] private SpriteRenderer _rightShoulder;
+    [SerializeField] private SpriteRenderer _rightHand;
+    [SerializeField] private SpriteRenderer _rightBoot;
     
     public static Sprite hoodSprite;
     public static Sprite faceSprite;

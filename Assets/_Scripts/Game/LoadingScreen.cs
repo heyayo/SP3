@@ -46,4 +46,9 @@ public class LoadingScreen : MonoBehaviour
     {
         LoadScene("TheRealGame");
     }
+
+    public static void LoadPlayerCustomizer()
+    {
+        LoadScene("Customizer");
+    }
 }

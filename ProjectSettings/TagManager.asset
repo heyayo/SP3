@@ -6,27 +6,16 @@ TagManager:
   tags:
   - InventorySlot
   - Projectile
-<<<<<<< HEAD
-  - particle
-=======
->>>>>>> 33ffb088b0b30188dadcc75b869fbe580e2282ed
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-<<<<<<< HEAD
-  - TopLayerUI
-  - Interactable
-=======
-  - Boss
   - Enemy
+  - Player
   - Interactable
-  - 
->>>>>>> 33ffb088b0b30188dadcc75b869fbe580e2282ed
-  - 
   - 
   - 
   - 
