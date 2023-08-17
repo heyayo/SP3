@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
+    // ***************
+    // Interfaces -  IDamageable, IEnemyMoveable, ITriggerCheckable contains optional methods for cleaner code
+    // Base Enemy Script that handles creates and initiates all states
+    // ***************
     [field: SerializeField] public float maxHealth { get; set; } = 100f;
     public Rigidbody2D _rb { get; set; }
     public float currentHealth { get; set; }
@@ -32,6 +36,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     virtual protected void InitAwake()
     {
+        // Since our states are in a script thats not monobehaviour, we have to manually instantiate
         enemyIdleBaseInstance = Instantiate(EnemyIdleBase);
         enemyChaseBaseInstance = Instantiate(EnemyChaseBase);
         enemyAttackStateInstance = Instantiate(EnemyAttackBase);
@@ -41,6 +46,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         chaseState = new EnemyChaseState(this, stateMachine);
         attackState = new EnemyAttackState(this, stateMachine);
     }
+
     virtual protected void InitStart()
     {
         enemyIdleBaseInstance.Init(gameObject, this);
@@ -54,13 +60,13 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         enemyAnimator = GetComponent<Animator>();
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate()  // Handle physics calculations in fixed update
     {
         stateMachine.
             currentEnemyState.
             PhysicsUpdate(); 
     }
-    private void Update()
+    private void Update() // Handles main logic in frame update
     {
         stateMachine.currentEnemyState.FrameUpdate();
     }
@@ -105,7 +111,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     }
     #endregion 
 
-    private void _AnimationTriggerEvent(AnimationTriggerType triggerType)
+    private void _AnimationTriggerEvent(AnimationTriggerType triggerType) // Animation trigger enum to handle enemy animations callback
     {
         stateMachine.currentEnemyState.AnimationTriggerEvent(triggerType);
     }

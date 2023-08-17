@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HotbarManager : MonoBehaviour
 {
+    public static HotbarManager Instance { get; private set; }
+    
     private Configuration _config;
     
     [SerializeField]
@@ -18,6 +21,12 @@ public class HotbarManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Debug.LogError("Multiple Hotbar Managers In Scene");
+            Debug.Break();
+        }
+        Instance = this;
         _config = Configuration.FetchConfig();
     }
     
@@ -54,5 +63,12 @@ public class HotbarManager : MonoBehaviour
 
         // Change selector position
         selector.transform.position = activeSlot.transform.position;
+    }
+
+    public Item GetActiveItem()
+    {
+        if (activeSlot.HeldItem != null)
+            return activeSlot.HeldItem.item;
+        return null;
     }
 }
