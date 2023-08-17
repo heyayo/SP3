@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -57,20 +58,26 @@ public class PlayerManager : MonoBehaviour
         UpdateSprites();
     }
 
+    private Sprite LoadSprite(string name)
+    {
+        string path = Path.Combine("Sprites/Rogue", name);
+        return Resources.Load<Sprite>(path);
+    }
+
     private void UpdateSprites()
     {
-        _hood.sprite = hoodSprite;
-        _face.sprite = faceSprite;
-        _torso.sprite = torsoSprite;
-        _pelvis.sprite = pelvisSprite;
+        _hood.sprite = hoodSprite != null ? hoodSprite : LoadSprite("Rogue_hood_01");
+        _face.sprite = faceSprite != null ? faceSprite : LoadSprite("Rogue_face_01");
+        _torso.sprite = torsoSprite != null ? torsoSprite : LoadSprite("Rogue_torso_01");
+        _pelvis.sprite = pelvisSprite != null ? pelvisSprite : LoadSprite("Rogue_pelvis_01");
 
-        _leftShoulder.sprite = leftShoulderSprite;
-        _leftHand.sprite = leftHandSprite;
-        _leftBoot.sprite = leftBootSprite;
+        _leftShoulder.sprite = leftShoulderSprite != null ? leftShoulderSprite : LoadSprite("Rogue_shoulder_l_01");
+        _leftHand.sprite = leftHandSprite != null ? leftHandSprite : LoadSprite("Rogue_elbow_l_01");
+        _leftBoot.sprite = leftBootSprite != null ? leftBootSprite : LoadSprite("Rogue_boot_l_01");
         
-        _rightShoulder.sprite = rightShoulderSprite;
-        _rightHand.sprite = rightHandSprite;
-        _rightBoot.sprite = rightBootSprite;
+        _rightShoulder.sprite = rightShoulderSprite != null ? rightShoulderSprite : LoadSprite("Rogue_shoulder_r_01");
+        _rightHand.sprite = rightHandSprite != null ? rightHandSprite : LoadSprite("Rogue_elbow_r_01");
+        _rightBoot.sprite = rightBootSprite != null ? rightBootSprite : LoadSprite("Rogue_boot_r_01");
     }
 
     public void FreezePlayer()

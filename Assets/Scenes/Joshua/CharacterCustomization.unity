@@ -424,6 +424,10 @@ PrefabInstance:
       propertyPath: bodyPart
       value: 
       objectReference: {fileID: 211890077}
+    - target: {fileID: 924847403362590398, guid: 1e7ab89f6a65db341a41564a1ab6f628, type: 3}
+      propertyPath: options.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1323779577089779173, guid: 1e7ab89f6a65db341a41564a1ab6f628, type: 3}
       propertyPath: bodyPart
       value: 
