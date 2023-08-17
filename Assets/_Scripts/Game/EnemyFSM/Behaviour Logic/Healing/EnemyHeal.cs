@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Chase-Direct Chase", menuName = "Enemy Logic/Chase Logic/Direct Chase")]
-public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
+[CreateAssetMenu(fileName = "Healing", menuName = "Enemy Logic/Healing Logic/Enemy Heal - Post Damage")]
+public class EnemyHeal : EnemyHealSOBase
 {
-    [SerializeField] private float _movementSpeed = 5f;
-    private Vector2 _moveDir;
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
         base.DoAnimationTriggerEventLogic(triggerType);
@@ -24,13 +22,12 @@ public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
+        Debug.Log("YESSIRRRRR");
     }
 
     public override void DoPhysicsLogic()
     {
         base.DoPhysicsLogic();
-        _moveDir = (playerTransform.position - enemy.transform.position).normalized; // Find vector between enemy and player
-        enemy.MoveEnemy(_moveDir * _movementSpeed); // Move enemy towards vector
     }
 
     public override void Init(GameObject gameObject, Enemy enemy)

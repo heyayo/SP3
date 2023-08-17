@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChaseSOBase : ScriptableObject
+public class EnemyHealSOBase : ScriptableObject
 {
     protected Enemy enemy;
-    protected Transform transform;
     protected GameObject gameObject;
+    [HideInInspector] protected Transform transform;
 
-    protected Transform playerTransform;
+    public Transform playerTransform;
 
     public virtual void Init(GameObject gameObject, Enemy enemy)
     {
@@ -19,20 +19,15 @@ public class EnemyChaseSOBase : ScriptableObject
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    public virtual void DoEnterLogic() { }
+    public virtual void DoEnterLogic() { Debug.Log("Entered Healing State"); }
     public virtual void DoExitLogic() { ResetValue(); }
     public virtual void DoFrameUpdateLogic()
     {
-        enemy.enemyAnimator.SetBool("isDashing", true);
-        if (enemy.isInStrikingDistance) // If enemy collides with striking distance collider, then change to attack state
-        {
-            enemy.stateMachine.ChangeState(enemy.attackState);
-        }
-        if (!enemy.isAggroed)
-        {
-            //enemy.stateMachine.ChangeState(enemy.idleState);
-            enemy.enemyAnimator.SetBool("isDashing", false);
-        }
+        //if (!enemy.isAggroed)
+        //{
+        //    Debug.Log("Entered Chase State");
+        //    enemy.stateMachine.ChangeState(enemy.idleState);
+        //}
     }
     public virtual void DoPhysicsLogic() { }
     public virtual void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType) { }

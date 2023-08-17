@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76bc7c0b5b00c3b4c9375cd801e6f77a, type: 3}
-  m_Name: AttackSingleProjectile
+  m_Script: {fileID: 11500000, guid: 422365536859afe49bb09fdc8a650b7c, type: 3}
+  m_Name: EnemyHeal
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1204334416158425772, guid: 63e95665131b50c49958a3811efb68ad, type: 3}
-  _timeBetweenShots: 0.5
-  _timeTillExit: 2
-  _distanceToCountExit: 3
-  _bulletSpeed: 10
+  playerTransform: {fileID: 0}

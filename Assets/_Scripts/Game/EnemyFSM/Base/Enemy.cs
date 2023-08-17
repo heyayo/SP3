@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     [field: SerializeField] public EnemyIdleState idleState { get; set; }
     [field: SerializeField] public EnemyChaseState chaseState { get; set; }
     [field: SerializeField] public EnemyAttackState attackState { get; set; }
+
     public bool isAggroed { get; set; }
     public bool isInStrikingDistance { get; set; }
 

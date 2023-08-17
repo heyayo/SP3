@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Chase-Direct Chase", menuName = "Enemy Logic/Chase Logic/Direct Chase")]
-public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
+using System.Threading.Tasks;
+[CreateAssetMenu(fileName = "Melee-Attack", menuName = "Enemy Logic/Attack Logic/Standard Melee Attack")]
+public class EnemyMeleeAttack : EnemyAttackSOBase
 {
-    [SerializeField] private float _movementSpeed = 5f;
-    private Vector2 _moveDir;
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
         base.DoAnimationTriggerEventLogic(triggerType);
@@ -13,7 +12,7 @@ public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
 
     public override void DoEnterLogic()
     {
-        base.DoEnterLogic();
+        base.DoEnterLogic();   
     }
 
     public override void DoExitLogic()
@@ -24,13 +23,12 @@ public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
+        CHENNN();
     }
 
     public override void DoPhysicsLogic()
     {
         base.DoPhysicsLogic();
-        _moveDir = (playerTransform.position - enemy.transform.position).normalized; // Find vector between enemy and player
-        enemy.MoveEnemy(_moveDir * _movementSpeed); // Move enemy towards vector
     }
 
     public override void Init(GameObject gameObject, Enemy enemy)
@@ -41,5 +39,12 @@ public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
     public override void ResetValue()
     {
         base.ResetValue();
+    }
+
+    private async Task CHENNN()
+    {
+        enemy.enemyAnimator.SetBool("isAttacking", true);
+        await Task.Delay(1000);
+        enemy.enemyAnimator.SetBool("isAttacking", false);
     }
 }

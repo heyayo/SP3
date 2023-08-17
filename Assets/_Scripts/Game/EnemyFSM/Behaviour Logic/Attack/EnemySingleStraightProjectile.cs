@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemySingleStraightProjectile : EnemyAttackSOBase
 {
     [SerializeField] private Rigidbody2D bulletPrefab;
-    [SerializeField] private float _timeBetweenShots = 0.1f;
-    [SerializeField] private float _timeTillExit = 2f;
+    [SerializeField] private float _timeBetweenShots = 2f;
+    [SerializeField] private float _timeTillExit = 3f;
     [SerializeField] private float _distanceToCountExit = 4f;
     [SerializeField] private float _bulletSpeed = 10f;
 
@@ -20,32 +20,19 @@ public class EnemySingleStraightProjectile : EnemyAttackSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+        bulletPrefab.gameObject.SetActive(false);
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+        bulletPrefab.gameObject.SetActive(false);
     }
 
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
-        enemy.MoveEnemy(Vector2.zero);
-        _timer += Time.deltaTime;
-        if (_timer > _timeBetweenShots)
-        {
-            _timer = 0f;
-            #region Bullet spawn commented out code
-            //Vector2 dir = (playerTransform.position - enemy.transform.position).normalized;
-            //Rigidbody2D bullet = GameObject.Instantiate(bulletPrefab, enemy.transform.position, Quaternion.identity);
-            //bullet.velocity = dir * _bulletSpeed;
-            #endregion
-            enemy.enemyAnimator.SetBool("isAttacking", true);
-        }
-        else
-        {
-            enemy.enemyAnimator.SetBool("isAttacking", false);
-        }
+        bulletPrefab.gameObject.SetActive(true);
         if (Vector2.Distance(playerTransform.position, enemy.transform.position) > _distanceToCountExit)
         {
             Debug.Log("Player is outside attacking range");
@@ -63,6 +50,15 @@ public class EnemySingleStraightProjectile : EnemyAttackSOBase
     public override void DoPhysicsLogic()
     {
         base.DoPhysicsLogic();
+        enemy.MoveEnemy(Vector2.zero);
+        if (_timer > _timeBetweenShots)
+        {
+            _timer = 0f;
+            Rigidbody2D bullet = GameObject.Instantiate(bulletPrefab, enemy.transform.position, Quaternion.identity);
+            Vector2 dir = (playerTransform.position - enemy.transform.position).normalized;
+            bullet.velocity = dir * _bulletSpeed;
+        }
+        _timer += Time.deltaTime;
     }
 
     public override void Init(GameObject gameObject, Enemy enemy)
