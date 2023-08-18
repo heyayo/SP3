@@ -35,7 +35,7 @@ public class EnemySingleStraightProjectile : EnemyAttackSOBase
         bulletPrefab.gameObject.SetActive(true);
         if (Vector2.Distance(playerTransform.position, enemy.transform.position) > _distanceToCountExit)
         {
-            Debug.Log("Player is outside attacking range");
+            //Debug.Log("Player is outside attacking range");
             _exitTimer += Time.deltaTime;
             if (_exitTimer > _timeTillExit) // Check if player is outside striking range for a certain time
             {

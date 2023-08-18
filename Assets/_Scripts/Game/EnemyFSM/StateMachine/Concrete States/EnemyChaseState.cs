@@ -1,42 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemyChaseState : EnemyState
 {
-    public EnemyChaseState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    private Enemy _enemy;
+    
+    public EnemyChaseState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
     {
-
+        _enemy = enemy;
     }
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
-        base.AnimationTriggerEvent(triggerType);
-        enemy.enemyChaseBaseInstance.DoAnimationTriggerEventLogic(triggerType);
     }
 
     public override void EnterState()
     {
-        base.EnterState();
         Debug.Log("Entered chase state");
-        enemy.enemyChaseBaseInstance.DoEnterLogic();
     }
 
     public override void ExitState()
     { 
-        base.ExitState();
-        enemy.enemyChaseBaseInstance.DoExitLogic();
     }
 
     public override void FrameUpdate()
     {
-        base.FrameUpdate();
-        enemy.enemyChaseBaseInstance.DoFrameUpdateLogic();
+        _enemy.enemyAnimator.SetBool("isDashing", true);
+        if (_enemy.isInStrikingDistance) // If _enemy collides with striking distance collider, then change to attack state
+        {
+            _stateMachine.ChangeState(_enemy.attackState);
+        }
+        if (!_enemy.isAggroed)
+        {
+            //_enemy.stateMachine.ChangeState(_enemy.idleState);
+            _enemy.enemyAnimator.SetBool("isDashing", false);
+        }
     }   
 
     public override void PhysicsUpdate()
     {
-        base.PhysicsUpdate();
-        enemy.enemyChaseBaseInstance.DoPhysicsLogic();
     }
 }

@@ -21,7 +21,7 @@ public abstract class MortalityDrain : Affliction
 public class StoredEnergyDrain : MortalityDrain
 {
     public StoredEnergyDrain(float total, float lifetime, Mortality target) : base(total, lifetime, target) {}
-
+    public override void Begin() { }
     public override void Update()
     {
         float drain = _drainRate * Time.deltaTime;
@@ -35,13 +35,14 @@ public class StoredEnergyDrain : MortalityDrain
 
         target.StoredEnergy -= drain;
     }
+    public override void End() { }
 }
 
 [Serializable]
 public class ActiveEnergyDrain : MortalityDrain
 {
     public ActiveEnergyDrain(float total, float lifetime, Mortality target) : base(total, lifetime, target) {}
-
+    public override void Begin() { }
     public override void Update()
     {
         float drain = _drainRate * Time.deltaTime;
@@ -55,13 +56,14 @@ public class ActiveEnergyDrain : MortalityDrain
 
         target.ActiveEnergy -= drain;
     }
+    public override void End() { }
 }
 
 [Serializable]
 public class HealthDrain : MortalityDrain
 {
     public HealthDrain(float total, float lifetime, Mortality target) : base(total, lifetime, target) {}
-
+    public override void Begin() { }
     public override void Update()
     {
         float drain = _drainRate * Time.deltaTime;
@@ -75,4 +77,27 @@ public class HealthDrain : MortalityDrain
 
         target.Health -= drain;
     }
+    public override void End() { }
+}
+
+public class Immunity : Affliction
+{
+    public Immunity(float lifetime, Mortality target) : base(lifetime, target) {}
+    public override void Begin() { }
+    public override void Update()
+    {
+        target.EnableImmunity();
+    }
+    public override void End() { target.DisableImmunity(); target.ApplyAffliction(new ImmunityBurn(1,target)); }
+}
+
+public class ImmunityBurn : Affliction
+{
+    public ImmunityBurn(float pLifetime, Mortality pTarget) : base(pLifetime, pTarget) { }
+    public override void Begin() { }
+    public override void Update()
+    {
+        target.DisableImmunity();
+    }
+    public override void End() { }
 }

@@ -112,7 +112,7 @@ public class PlanteraFSM : MonoBehaviour
         if (!enraged)
         {
             // Transform at 50 % hp
-            if (mortality.Health <= mortality.HealthMax / 2)
+            if (mortality.Health <= mortality.__HealthMax / 2)
             {
                 enraged = true;
                 animator.SetBool("Enraged", true);

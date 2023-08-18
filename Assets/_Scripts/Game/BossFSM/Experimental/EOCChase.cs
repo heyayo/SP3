@@ -48,4 +48,5 @@ public class EOCChase : BossState
         if (col != null)
             playerMortality.ApplyHealthDamage(10);
     }
+
 }

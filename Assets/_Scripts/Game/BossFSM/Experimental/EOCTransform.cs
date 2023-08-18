@@ -39,7 +39,7 @@ public class EOCTransform : BossState
 
     public override bool isReadyToTransform()
     {
-        return mortality.Health <= mortality.HealthMax / 2;
+        return mortality.Health <= mortality.__HealthMax / 2;
     }
 
     private void HitboxDamage()

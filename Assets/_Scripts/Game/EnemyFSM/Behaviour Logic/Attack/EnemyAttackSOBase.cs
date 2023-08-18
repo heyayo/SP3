@@ -22,13 +22,7 @@ public class EnemyAttackSOBase : ScriptableObject
     public virtual void DoEnterLogic() { Debug.Log("Entered Attack State"); }
     public virtual void DoExitLogic() { ResetValue(); }
     public virtual void DoFrameUpdateLogic() 
-    {
-        if (!enemy.isAggroed)
-        {
-            Debug.Log("Entered Chase State");
-            enemy.stateMachine.ChangeState(enemy.idleState);
-        }
-    }
+    { }
     public virtual void DoPhysicsLogic() { }
     public virtual void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType) { }
     public virtual void ResetValue() { }

@@ -119,7 +119,7 @@ public class BrainOfCthulhuFSM : MonoBehaviour
         if (!enraged)
         {
             // Transform at 50% hp
-            if (mortality.Health <= mortality.HealthMax / 2)
+            if (mortality.Health <= mortality.__HealthMax / 2)
             {
                 enraged = true;
                 animator.SetBool("Enraged", true);
@@ -332,7 +332,7 @@ public class BrainOfCthulhuFSM : MonoBehaviour
             GameObject clone = Instantiate(brainOfCthulhuClone, new Vector3(TeleportPosition(new Vector2(-1, 1)).x,
                 TeleportPosition(new Vector2(-1, 1)).y, 0), Quaternion.identity);
             // Changing it's visibility based on remaining health
-            clone.GetComponent<BOCCloneFSM>().opacity = opacity - 1 / (mortality.HealthMax / mortality.Health);
+            clone.GetComponent<BOCCloneFSM>().opacity = opacity - 1 / (mortality.__HealthMax / mortality.Health);
         }
 
         // Top Right clone
@@ -341,7 +341,7 @@ public class BrainOfCthulhuFSM : MonoBehaviour
             GameObject clone = Instantiate(brainOfCthulhuClone, new Vector3(TeleportPosition(new Vector2(1, 1)).x,
                 TeleportPosition(new Vector2(1, 1)).y, 0), Quaternion.identity);
             // Changing it's visibility based on remaining health
-            clone.GetComponent<BOCCloneFSM>().opacity = opacity - 1 / (mortality.HealthMax / mortality.Health);
+            clone.GetComponent<BOCCloneFSM>().opacity = opacity - 1 / (mortality.__HealthMax / mortality.Health);
         }
 
         // Bottom left clone
@@ -350,7 +350,7 @@ public class BrainOfCthulhuFSM : MonoBehaviour
             GameObject clone = Instantiate(brainOfCthulhuClone, new Vector3(TeleportPosition(new Vector2(-1, -1)).x,
                 TeleportPosition(new Vector2(-1, -1)).y, 0), Quaternion.identity);
             // Changing it's visibility based on remaining health
-            clone.GetComponent<BOCCloneFSM>().opacity = opacity - 1 / (mortality.HealthMax / mortality.Health);
+            clone.GetComponent<BOCCloneFSM>().opacity = opacity - 1 / (mortality.__HealthMax / mortality.Health);
         }
             
         // Bottom right clone
@@ -359,7 +359,7 @@ public class BrainOfCthulhuFSM : MonoBehaviour
             GameObject clone = Instantiate(brainOfCthulhuClone, new Vector3(TeleportPosition(new Vector2(1, -1)).x,
                 TeleportPosition(new Vector2(1, -1)).y, 0), Quaternion.identity);
             // Changing it's visibility based on remaining health
-            clone.GetComponent<BOCCloneFSM>().opacity = opacity - 1 / (mortality.HealthMax / mortality.Health);
+            clone.GetComponent<BOCCloneFSM>().opacity = opacity - 1 / (mortality.__HealthMax / mortality.Health);
         }
 
         attackTimer = 200;

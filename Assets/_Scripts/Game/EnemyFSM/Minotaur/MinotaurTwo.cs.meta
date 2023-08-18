@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Scripts/Game/BossFSM/Experimental/BossFSM.cs.meta
+guid: cddfc430e588a2243a76559d5c94f03c
+========
+guid: b537bd4b19754a4d697688a97e9168f5
+>>>>>>>> 0334556402fda7a78d4728774d2e647b532ce403:Assets/_Scripts/Game/EnemyFSM/Minotaur/MinotaurTwo.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

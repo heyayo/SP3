@@ -31,10 +31,10 @@ public class PickupItem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 dir = GameObject.FindGameObjectWithTag("Player").transform.position - transform.position;
+        Vector2 dir = PlayerManager.Instance.transform.position - transform.position;
         if (dir.magnitude < 3f)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(dir / 2);
+            _rb.AddForce(dir / 2);
         }
     }
 
@@ -42,6 +42,7 @@ public class PickupItem : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (item == null) return;
             inventoryManager.Add(item);
             Destroy(gameObject);
         }

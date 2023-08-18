@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyChaseSOBase : ScriptableObject
 {
     protected Enemy enemy;
+    protected Minotaur minotaur;
     protected Transform transform;
     protected GameObject gameObject;
 
@@ -19,6 +20,11 @@ public class EnemyChaseSOBase : ScriptableObject
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
+    public virtual void InitMinotaur(Minotaur minotaur)
+    {
+        this.minotaur = minotaur;
+    }
+
     public virtual void DoEnterLogic() { }
     public virtual void DoExitLogic() { ResetValue(); }
     public virtual void DoFrameUpdateLogic()
@@ -30,7 +36,7 @@ public class EnemyChaseSOBase : ScriptableObject
         }
         if (!enemy.isAggroed)
         {
-            //enemy.stateMachine.ChangeState(enemy.idleState);
+            enemy.stateMachine.ChangeState(enemy.idleState);
             enemy.enemyAnimator.SetBool("isDashing", false);
         }
     }

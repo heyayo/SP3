@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyState
+public abstract class EnemyState
 {
-    protected Enemy enemy;
-    protected EyeOfCthulhu EOC;
-    protected EnemyStateMachine enemyStateMachine;
+    protected EnemyStateMachine _stateMachine;
 
-    public EnemyState(Enemy enemy, EnemyStateMachine enemyStateMachine)
+    public EnemyState(EnemyStateMachine stateMachine)
     {
-        this.enemy = enemy;
-        this.enemyStateMachine = enemyStateMachine;
+        this._stateMachine = stateMachine;
     }
-    public virtual void EnterState() {}
-    public virtual void ExitState() { }
-    public virtual void FrameUpdate() { }
-    public virtual void PhysicsUpdate() { }
-    public virtual void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType) { }
+
+    public abstract void EnterState();
+    public abstract void ExitState();
+    public abstract void FrameUpdate();
+    public abstract void PhysicsUpdate();
+    public abstract void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType);
 }
  
