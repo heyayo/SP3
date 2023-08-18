@@ -47,9 +47,9 @@ public class EyeOfCthulhuFSM : MonoBehaviour
     private void Start()
     {
         enraged = false;
-        EnterState(STATES.TRANSFORM);
+        EnterState(STATES.CHASE);
 
-        gameObject.GetComponent<Mortality>();
+        mortality = gameObject.GetComponent<Mortality>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         playerMortality = GameObject.FindGameObjectWithTag("Player").GetComponent<Mortality>();
         rb = GetComponent<Rigidbody2D>();
@@ -99,11 +99,11 @@ public class EyeOfCthulhuFSM : MonoBehaviour
         // First form
         if (!enraged)
         {
-            // Transform at 50% hp
-            //if (mortality.Health <= mortality.HealthMax / 2)
-            //{
-            //    EnterState(STATES.TRANSFORM);
-            //}
+            // Transform at 50 % hp
+            if (mortality.Health <= mortality.HealthMax / 2)
+            {
+                EnterState(STATES.TRANSFORM);
+            }
             // Switch to attack
             if (currentState == STATES.CHASE && chaseTimer <= 0)
             {

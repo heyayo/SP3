@@ -21,6 +21,7 @@ public class HotbarManager : MonoBehaviour
 
     private void Awake()
     {
+        selector.SetActive(false);
         if (Instance != null)
         {
             Debug.LogError("Multiple Hotbar Managers In Scene");
@@ -32,7 +33,6 @@ public class HotbarManager : MonoBehaviour
     
     private void Start()
     {
-        activeSlot = hotbarSlots[0];
     }
 
     void Update()
@@ -67,6 +67,9 @@ public class HotbarManager : MonoBehaviour
 
     public Item GetActiveItem()
     {
+        if (activeSlot == null)
+            return null;
+
         if (activeSlot.HeldItem != null)
             return activeSlot.HeldItem.item;
         return null;

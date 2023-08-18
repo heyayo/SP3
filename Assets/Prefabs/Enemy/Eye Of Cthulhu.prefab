@@ -151,7 +151,7 @@ MonoBehaviour:
   servantOfCthulhu: {fileID: 1335763241840206802, guid: ab006dbc331917e44af113a59cb7edf5, type: 3}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
 --- !u!114 &2818887195021460658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   storedMax: 0
   health: 0
   regen: 0
-  healthMax: 1000
+  healthMax: 1200
   armour: 5
   resist: 0
   scaling:
