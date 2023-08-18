@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 45b18796032f9944c9609902e05178ea
+guid: 9644632bb67cd2e419a9db281906494e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NPC_262_0
+      name: Projectile_275_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1078
-        width: 116
-        height: 154
+        y: 24
+        width: 14
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,146 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e76699eb6d48a3468693bea9e6c2fbd
-      internalID: -506897763
+      spriteID: b6d2fe1e43b2ce5458c168d79b1f7ae9
+      internalID: 439951851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_262_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 924
-        width: 116
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81f69b8fa57608947a906fa04626441d
-      internalID: 797345117
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC_262_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 770
-        width: 116
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08c953ea20bd42b4babfeb48e8627188
-      internalID: -1085552013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC_262_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 616
-        width: 116
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3298da49f7fef1b44b5b7c427f9daa41
-      internalID: 1939030923
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC_262_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 462
-        width: 116
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5437fd5f9456f8749823d50f5264ac5a
-      internalID: 1581968648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC_262_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 308
-        width: 116
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcb353d7002428d4ea6cef61a9ad1ea7
-      internalID: -46964881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC_262_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 154
-        width: 116
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dad18bb78640bea4897d51308eb0c292
-      internalID: -1927559079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NPC_262_7
+      name: Projectile_275_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 116
-        height: 154
+        width: 14
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e013558d2e37b4542a8155f7cd392724
-      internalID: 1314913394
+      spriteID: 0763a7e57d95aea4eabcb24e1f3ffa3e
+      internalID: 1441032544
       vertices: []
       indices: 
       edges: []
@@ -288,14 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      NPC_262_0: -506897763
-      NPC_262_1: 797345117
-      NPC_262_2: -1085552013
-      NPC_262_3: 1939030923
-      NPC_262_4: 1581968648
-      NPC_262_5: -46964881
-      NPC_262_6: -1927559079
-      NPC_262_7: 1314913394
+      Projectile_275_0: 439951851
+      Projectile_275_1: 1441032544
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

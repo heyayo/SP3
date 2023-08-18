@@ -6,37 +6,37 @@ public class EyeOfCthulhu : Enemy, IDamageable, IEnemyMoveable, ITriggerCheckabl
 {
     #region State Machine variables
 
-    [field: SerializeField] public EOCTransformState transformState { get; set; }
+    //[field: SerializeField] public EOCTransformState transformState { get; set; }
     [field: SerializeField] public EOCEnragedChaseState enragedChaseState { get; set; }
     #endregion
 
     #region Scriptable object Variables
    
-    [SerializeField] public EOCTransformSOBase TransformBase;
+    //[SerializeField] public EOCTransformSOBase TransformBase;
     [SerializeField] public EOCEnragedChaseSOBase EnragedChaseBase;
 
-    public EOCTransformSOBase transformBaseInstance { get; set; }
+    //public EOCTransformSOBase transformBaseInstance { get; set; }
     public EOCEnragedChaseSOBase enragedChaseBaseInstance { get; set; }
     #endregion
 
     override protected void InitAwake()
     {
        
-        transformBaseInstance = Instantiate(TransformBase);
+       // transformBaseInstance = Instantiate(TransformBase);
         enragedChaseBaseInstance = Instantiate(EnragedChaseBase);
 
         stateMachine = new EnemyStateMachine();
         
-        transformState = new EOCTransformState(this, stateMachine);
+        //transformState = new EOCTransformState(this, stateMachine);
         enragedChaseState = new EOCEnragedChaseState(this, stateMachine);
     }
     override protected void InitStart()
     {
-        transformBaseInstance.Init(gameObject, this);
+        //transformBaseInstance.Init(gameObject, this);
 
         currentHealth = maxHealth; 
         _rb = GetComponent<Rigidbody2D>();
-        stateMachine.Init(transformState); // Init state machine with idle animation
+       // stateMachine.Init(transformState); // Init state machine with idle animation
         enemyAnimator = GetComponent<Animator>();
     }
 
