@@ -1,30 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Items/Item")]
 public class Item : ScriptableObject
 {
     [Header("Item Data")]
-    [SerializeField]
-    public string itemName;
-    
-    [SerializeField]
-    public Sprite itemSprite;
-
-    [TextArea]
-    [SerializeField]
+    [SerializeField] public string itemName;
+    [SerializeField] public Sprite itemSprite;
+    [TextArea] [SerializeField]
     public string itemDescription = "null";
 
     [Header("Equpiment")]
-    [SerializeField]
-    public EQUIPTYPE EquipType;
-
-    [SerializeField]
-    public float armor = 1f;
-
-    [SerializeField]
-    public float resist = 1f;
+    [SerializeField] public EQUIPTYPE EquipType;
+    [SerializeField] public float armor = 0f;
+    [SerializeField] public float resist = 0f;
 
     public enum EQUIPTYPE
     { 
@@ -37,7 +25,7 @@ public class Item : ScriptableObject
     }
 
     // Virtual function
-    virtual public void Use()
+    public virtual void Use()
     {
         Debug.Log("This Item does not have a use");
     }

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class HotbarManager : MonoBehaviour
 {
     public static HotbarManager Instance { get; private set; }
-    
     private Configuration _config;
     
     [SerializeField]
@@ -63,12 +62,5 @@ public class HotbarManager : MonoBehaviour
 
         // Change selector position
         selector.transform.position = activeSlot.transform.position;
-    }
-
-    public Item GetActiveItem()
-    {
-        if (activeSlot.HeldItem != null)
-            return activeSlot.HeldItem.item;
-        return null;
     }
 }
