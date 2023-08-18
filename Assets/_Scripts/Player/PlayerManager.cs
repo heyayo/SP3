@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Mortality))]
 [RequireComponent(typeof(Interactor))]
@@ -11,32 +12,33 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance { get; private set; }
     
-    private Mortality _mortality;
-    private Interactor _interactor;
-    private Movement _movement;
+    [field:SerializeField] public Mortality MortalityScript { get; private set; }
+    [field:SerializeField] public Interactor InteractorScript { get; private set; }
+    [field:SerializeField] public Movement MovementScript { get; private set; }
+    [field:SerializeField] public AnimationController AnimationScript { get; private set; }
 
     [Header("Body Parts")]
-    [SerializeField] private SpriteRenderer _hood;
-    [SerializeField] private SpriteRenderer _face;
-    [SerializeField] private SpriteRenderer _torso;
-    [SerializeField] private SpriteRenderer _pelvis;
-    [SerializeField] private SpriteRenderer _leftShoulder;
-    [SerializeField] private SpriteRenderer _leftHand;
-    [SerializeField] private SpriteRenderer _leftBoot;
-    [SerializeField] private SpriteRenderer _rightShoulder;
-    [SerializeField] private SpriteRenderer _rightHand;
-    [SerializeField] private SpriteRenderer _rightBoot;
+    [SerializeField] private SpriteRenderer hood;
+    [SerializeField] private SpriteRenderer face;
+    [SerializeField] private SpriteRenderer torso;
+    [SerializeField] private SpriteRenderer pelvis;
+    [SerializeField] private SpriteRenderer leftShoulder;
+    [SerializeField] private SpriteRenderer leftHand;
+    [SerializeField] private SpriteRenderer leftBoot;
+    [SerializeField] private SpriteRenderer rightShoulder;
+    [SerializeField] private SpriteRenderer rightHand;
+    [SerializeField] private SpriteRenderer rightBoot;
     
-    public static Sprite hoodSprite;
-    public static Sprite faceSprite;
-    public static Sprite torsoSprite;
-    public static Sprite pelvisSprite;
-    public static Sprite leftShoulderSprite;
-    public static Sprite leftHandSprite;
-    public static Sprite leftBootSprite;
-    public static Sprite rightShoulderSprite;
-    public static Sprite rightHandSprite;
-    public static Sprite rightBootSprite;
+    public static Sprite HoodSprite;
+    public static Sprite FaceSprite;
+    public static Sprite TorsoSprite;
+    public static Sprite PelvisSprite;
+    public static Sprite LeftShoulderSprite;
+    public static Sprite LeftHandSprite;
+    public static Sprite LeftBootSprite;
+    public static Sprite RightShoulderSprite;
+    public static Sprite RightHandSprite;
+    public static Sprite RightBootSprite;
 
     private void Awake()
     {
@@ -47,9 +49,10 @@ public class PlayerManager : MonoBehaviour
         }
         Instance = this;
         
-        _mortality = GetComponent<Mortality>();
-        _interactor = GetComponent<Interactor>();
-        _movement = GetComponent<Movement>();
+        MortalityScript = GetComponent<Mortality>();
+        InteractorScript = GetComponent<Interactor>();
+        MovementScript = GetComponent<Movement>();
+        AnimationScript = GetComponent<AnimationController>();
 
         gameObject.tag = "Player";
     }
@@ -67,31 +70,31 @@ public class PlayerManager : MonoBehaviour
 
     private void UpdateSprites()
     {
-        _hood.sprite = hoodSprite != null ? hoodSprite : LoadSprite("Rogue_hood_01");
-        _face.sprite = faceSprite != null ? faceSprite : LoadSprite("Rogue_face_01");
-        _torso.sprite = torsoSprite != null ? torsoSprite : LoadSprite("Rogue_torso_01");
-        _pelvis.sprite = pelvisSprite != null ? pelvisSprite : LoadSprite("Rogue_pelvis_01");
+        hood.sprite = HoodSprite != null ? HoodSprite : LoadSprite("Rogue_hood_01");
+        face.sprite = FaceSprite != null ? FaceSprite : LoadSprite("Rogue_face_01");
+        torso.sprite = TorsoSprite != null ? TorsoSprite : LoadSprite("Rogue_torso_01");
+        pelvis.sprite = PelvisSprite != null ? PelvisSprite : LoadSprite("Rogue_pelvis_01");
 
-        _leftShoulder.sprite = leftShoulderSprite != null ? leftShoulderSprite : LoadSprite("Rogue_shoulder_l_01");
-        _leftHand.sprite = leftHandSprite != null ? leftHandSprite : LoadSprite("Rogue_elbow_l_01");
-        _leftBoot.sprite = leftBootSprite != null ? leftBootSprite : LoadSprite("Rogue_boot_l_01");
+        leftShoulder.sprite = LeftShoulderSprite != null ? LeftShoulderSprite : LoadSprite("Rogue_shoulder_l_01");
+        leftHand.sprite = LeftHandSprite != null ? LeftHandSprite : LoadSprite("Rogue_elbow_l_01");
+        leftBoot.sprite = LeftBootSprite != null ? LeftBootSprite : LoadSprite("Rogue_boot_l_01");
         
-        _rightShoulder.sprite = rightShoulderSprite != null ? rightShoulderSprite : LoadSprite("Rogue_shoulder_r_01");
-        _rightHand.sprite = rightHandSprite != null ? rightHandSprite : LoadSprite("Rogue_elbow_r_01");
-        _rightBoot.sprite = rightBootSprite != null ? rightBootSprite : LoadSprite("Rogue_boot_r_01");
+        rightShoulder.sprite = RightShoulderSprite != null ? RightShoulderSprite : LoadSprite("Rogue_shoulder_r_01");
+        rightHand.sprite = RightHandSprite != null ? RightHandSprite : LoadSprite("Rogue_elbow_r_01");
+        rightBoot.sprite = RightBootSprite != null ? RightBootSprite : LoadSprite("Rogue_boot_r_01");
     }
 
     public void FreezePlayer()
     {
-        _mortality.enabled = false;
-        _movement.enabled = false;
-        _interactor.enabled = false;
+        MortalityScript.enabled = false;
+        MovementScript.enabled = false;
+        InteractorScript.enabled = false;
     }
 
     public void UnFreezePlayer()
     {
-        _mortality.enabled = true;
-        _movement.enabled = true;
-        _interactor.enabled = true;
+        MortalityScript.enabled = true;
+        MovementScript.enabled = true;
+        InteractorScript.enabled = true;
     }
 }

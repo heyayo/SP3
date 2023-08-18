@@ -2,25 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PickupItem : MonoBehaviour
 {
-    [SerializeField]
-    public Item item;
+    [SerializeField] public Item item;
 
     // Private Variables
     private InventoryManager inventoryManager;
+    private SpriteRenderer _spriteRenderer;
+    private Rigidbody2D _rb;
 
+    private void Awake()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    
     void Start()
     {
-        inventoryManager = GameObject.FindObjectOfType<InventoryManager>();
+        inventoryManager = InventoryManager.Instance;
 
-        if (gameObject.GetComponentInChildren<Rigidbody2D>() == null)
-        {
-            Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();  // Every pickupItem should have a rigidbody
-            rb.gravityScale = 0;
-            rb.drag = 2;
-        }
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.gravityScale = 0;
+        _rb.drag = 2;
     }
+
+    public void SetSprite(Sprite sprite)
+    { _spriteRenderer.sprite = sprite; }
 
     private void FixedUpdate()
     {
