@@ -11,37 +11,31 @@ public class EnemyHealingState : EnemyState
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
         base.AnimationTriggerEvent(triggerType);
+        minotaur.enemyHealingStateInstance.DoAnimationTriggerEventLogic(triggerType);
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        minotaur = enemy.GetComponent<Minotaur>();
+        minotaur.enemyHealingStateInstance.DoEnterLogic();
     }
 
     public override void ExitState()
     {
         base.ExitState();
+        minotaur.enemyHealingStateInstance.DoExitLogic();
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
+        minotaur.enemyHealingStateInstance.DoFrameUpdateLogic();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        minotaur.enemyHealingStateInstance.DoFrameUpdateLogic();
     }
 }

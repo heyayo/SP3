@@ -15,7 +15,7 @@ public class Minotaur : Enemy
 
     private void Awake()
     {
-        InitAwake(); 
+        InitAwake();
         enemyHealingStateInstance = Instantiate(EnemyHealingState);
         healingState = new EnemyHealingState(this, stateMachine);
     }

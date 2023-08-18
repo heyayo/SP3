@@ -30,9 +30,9 @@ public class EnemyHeal : EnemyHealSOBase
         base.DoPhysicsLogic();
     }
 
-    public override void Init(GameObject gameObject, Enemy enemy)
+    public override void Init(GameObject gameObject, Minotaur minotaur)
     {
-        base.Init(gameObject, enemy);
+        base.Init(gameObject, minotaur);
     }
 
     public override void ResetValue()

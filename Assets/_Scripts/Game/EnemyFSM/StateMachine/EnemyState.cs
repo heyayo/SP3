@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyState
 {
     protected Enemy enemy;
+    protected Minotaur minotaur;
     protected EyeOfCthulhu EOC;
     protected EnemyStateMachine enemyStateMachine;
 

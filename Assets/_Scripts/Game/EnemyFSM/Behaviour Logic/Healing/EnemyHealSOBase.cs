@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class EnemyHealSOBase : ScriptableObject
 {
-    protected Enemy enemy;
+    protected Minotaur minotaur; 
     protected GameObject gameObject;
     [HideInInspector] protected Transform transform;
 
     public Transform playerTransform;
 
-    public virtual void Init(GameObject gameObject, Enemy enemy)
+    public virtual void Init(GameObject gameObject, Minotaur minotaur)
     {
         this.gameObject = gameObject;
         transform = gameObject.transform;
-        this.enemy = enemy;
+        this.minotaur = minotaur;
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -23,13 +23,10 @@ public class EnemyHealSOBase : ScriptableObject
     public virtual void DoExitLogic() { ResetValue(); }
     public virtual void DoFrameUpdateLogic()
     {
-        //if (!enemy.isAggroed)
-        //{
-        //    Debug.Log("Entered Chase State");
-        //    enemy.stateMachine.ChangeState(enemy.idleState);
-        //}
+
     }
     public virtual void DoPhysicsLogic() { }
     public virtual void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType) { }
     public virtual void ResetValue() { }
+    public Minotaur ReturnMinotaur() { return minotaur; }
 }

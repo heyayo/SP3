@@ -35,6 +35,7 @@ public class PickupItem : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (item == null) return;
             inventoryManager.Add(item);
             Destroy(gameObject);
         }

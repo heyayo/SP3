@@ -1617,7 +1617,7 @@ MonoBehaviour:
   <maxHealth>k__BackingField: 100
   enemyAnimator: {fileID: 160528764650441569}
   EnemyIdleBase: {fileID: 11400000, guid: 6ff7a245a9fab3340b2e9181cc675a8c, type: 2}
-  EnemyChaseBase: {fileID: 11400000, guid: bcb7602aad2f89e49a23c8015a947d4a, type: 2}
+  EnemyChaseBase: {fileID: 11400000, guid: 1f04b52d4c41c044d960c96d3d192073, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: 335273f14a8699a4da4e8d3ce337c64b, type: 2}
   EnemyHealingState: {fileID: 11400000, guid: 113efada1cce72445972da8abf06c9b1, type: 2}
 --- !u!4 &160528764650441575 stripped
@@ -1794,6 +1794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686094ce4fcec1c989d624b20775949d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facing: {x: 0, y: 0}
   <XInput>k__BackingField: 0
   <YInput>k__BackingField: 0
   <MovementSpeed>k__BackingField: 25
