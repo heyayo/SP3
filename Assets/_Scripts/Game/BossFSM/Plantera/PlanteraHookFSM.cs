@@ -86,8 +86,6 @@ public class PlanteraHookFSM : MonoBehaviour
     {
         currentState = toState;
 
-        Debug.Log(toState);
-
         switch (toState)
         {
             case STATES.IDLE:

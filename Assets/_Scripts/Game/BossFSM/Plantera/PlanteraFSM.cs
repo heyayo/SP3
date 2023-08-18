@@ -56,7 +56,7 @@ public class PlanteraFSM : MonoBehaviour
         animator = GetComponent<Animator>();
 
         // Init hooks
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 8; i++)
         {
             // Spawn Randomly around Plantera
             float angle = Random.Range(0f, 360f);

@@ -165,22 +165,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeEnergy: 0
+  nativeActiveRegen: 0
   activeRegen: 0
   activeMax: 0
   storedEnergy: 0
+  nativeStoredRegen: 0
   storedRegen: 0
   storedMax: 0
   health: 0
+  nativeRegen: 0
   regen: 0
   healthMax: 1200
-  armour: 5
-  resist: 0
+  nativeArmour: 100
+  nativeResist: 100
+  effectiveArmour: 0
+  effectiveResist: 0
   scaling:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  immune: 0
   onHealthAdjust:
     m_PersistentCalls:
       m_Calls: []
