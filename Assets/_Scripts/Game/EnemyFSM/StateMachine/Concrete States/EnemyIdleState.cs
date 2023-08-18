@@ -4,38 +4,36 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyState
 {
-    public EnemyIdleState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    private Enemy _enemy;
+    
+    public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine) : base(stateMachine)
     {
+        _enemy = enemy;
     }
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
-        base.AnimationTriggerEvent(triggerType);
-        enemy.enemyIdleBaseInstance.DoAnimationTriggerEventLogic(triggerType);
     }
 
     public override void EnterState()
     {
-        base.EnterState();
-        Debug.Log("Entered Idle State");
-        enemy.enemyIdleBaseInstance.DoEnterLogic(); 
     }
 
     public override void ExitState()
     {
-        base.ExitState();
-        enemy.enemyIdleBaseInstance.DoExitLogic();
+        
     }
 
     public override void FrameUpdate()  
     {
-        base.FrameUpdate();
-        enemy.enemyIdleBaseInstance.DoFrameUpdateLogic();
+        if (_enemy.isAggroed)
+        {
+            Debug.Log("Entered Chase State");
+            _enemy.stateMachine.ChangeState(_enemy.chaseState);
+        }
     }
 
     public override void PhysicsUpdate()
     {
-        base.PhysicsUpdate();
-        enemy.enemyIdleBaseInstance.DoPhysicsLogic();
     }
 }

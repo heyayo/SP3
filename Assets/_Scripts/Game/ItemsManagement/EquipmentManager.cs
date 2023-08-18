@@ -17,8 +17,8 @@ public class EquipmentManager : MonoBehaviour
 
     private void Start()
     {
-        defaultArmor = mortality.armour;
-        defaultResist = mortality.resist;
+        defaultArmor = mortality.Armour;
+        defaultResist = mortality.Resist;
 
         for (int i = 0; i < armorSlots.Length; i++)
         {
@@ -37,15 +37,15 @@ public class EquipmentManager : MonoBehaviour
             InventoryItem current = armorSlots[i].GetComponentInChildren<InventoryItem>();
             if (current != null)
             {
-                mortality.armour += current.item.armor;
-                mortality.resist += current.item.resist;
+                mortality.Armour += current.item.armor;
+                mortality.Resist += current.item.resist;
             }
         }
     }
 
     private void ClearStats()
     {
-        mortality.armour = defaultArmor;
-        mortality.resist = defaultResist;
+        mortality.Armour = defaultArmor;
+        mortality.Resist = defaultResist;
     }
 }

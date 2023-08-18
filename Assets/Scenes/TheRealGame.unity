@@ -2846,11 +2846,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2418097644359159326, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06633854
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2418097644359159326, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17736852
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2418097644359159326, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2886,7 +2886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5674558161679562206, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: m_Name
-      value: Rogue_01
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7510008394242141182, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: m_ConstrainProportionsScale

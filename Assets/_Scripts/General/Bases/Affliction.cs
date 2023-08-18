@@ -11,5 +11,7 @@ public abstract class Affliction
         lifetime = pLifetime;
         target = pTarget;
     }
+    public abstract void Begin();
     public abstract void Update();
+    public abstract void End();
 }

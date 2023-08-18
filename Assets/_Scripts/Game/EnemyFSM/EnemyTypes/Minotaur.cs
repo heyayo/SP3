@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class Minotaur : Enemy
 {
-    // CREATING ADDITIONAL STATES FOR SEPERATE ENEMIES
-    #region Additional State Machine Variables
-    [field: SerializeField] public EnemyHealingState healingState { get; set; }
-    #endregion
-    #region Additional SO Variables
+    [field:SerializeField] public MinoHealState healingState { get; set; }
     [SerializeField] private EnemyHealSOBase EnemyHealingState;
     public EnemyHealSOBase enemyHealingStateInstance { get; set; }
-    #endregion
 
     private void Awake()
     {
-        InitAwake();
+        base.Awake(); 
         enemyHealingStateInstance = Instantiate(EnemyHealingState);
-        healingState = new EnemyHealingState(this, stateMachine);
     }
     // Start is called before the first frame update
     void Start()
     {   
-        InitStart();
+        base.Start();
         enemyHealingStateInstance.Init(gameObject, this);
     }
 }
