@@ -7,18 +7,18 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
-    [SerializeField]
-    protected TMP_Text description;
+    [SerializeField] protected TMP_Text description;
+    [SerializeField] protected Image descriptionImg;
 
-    [SerializeField]
-    protected Image descriptionImg;
-    
-    [field:SerializeField] public InventoryItem HeldItem { get; set; }
-    
     public Image img
     {
         get => descriptionImg;
         set { descriptionImg = value; }
+    }
+
+    public InventoryItem GetHeldItem()
+    {
+        return GetComponentInChildren<InventoryItem>();
     }
 
     virtual public void OnDrop(PointerEventData eventData)

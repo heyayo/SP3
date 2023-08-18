@@ -1057,16 +1057,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f803c75f73c50e717ad52362d3f029a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hood: {fileID: 7605803115173508422}
-  _face: {fileID: 276381802251175974}
-  _torso: {fileID: 2211089557023377216}
-  _pelvis: {fileID: 7583779480430036973}
-  _leftShoulder: {fileID: 6487274232490797123}
-  _leftHand: {fileID: 2505049774017785917}
-  _leftBoot: {fileID: 6078247676528054154}
-  _rightShoulder: {fileID: 1007323534026443080}
-  _rightHand: {fileID: 5513320795371619546}
-  _rightBoot: {fileID: 1015513625048715509}
+  <MortalityScript>k__BackingField: {fileID: 0}
+  <InteractorScript>k__BackingField: {fileID: 0}
+  <MovementScript>k__BackingField: {fileID: 0}
+  <AnimationScript>k__BackingField: {fileID: 0}
+  hood: {fileID: 7605803115173508422}
+  face: {fileID: 276381802251175974}
+  torso: {fileID: 2211089557023377216}
+  pelvis: {fileID: 7583779480430036973}
+  leftShoulder: {fileID: 6487274232490797123}
+  leftHand: {fileID: 2505049774017785917}
+  leftBoot: {fileID: 6078247676528054154}
+  rightShoulder: {fileID: 1007323534026443080}
+  rightHand: {fileID: 5513320795371619546}
+  rightBoot: {fileID: 1015513625048715509}
 --- !u!114 &1579393493429420541
 MonoBehaviour:
   m_ObjectHideFlags: 0

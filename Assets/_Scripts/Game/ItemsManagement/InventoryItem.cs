@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -12,8 +10,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     // Save old parent when dragging
     private Transform oldParent;
 
-    [HideInInspector]
-    public Transform parentAfterDrag;
+    [HideInInspector] public Transform parentAfterDrag;
 
     void Start()
     {
@@ -25,7 +22,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (item == null)
         {
             InitializeItem(item);
-            return;
         }
     }
 
@@ -65,18 +61,5 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             Vector3 centerPosition = slotTransform.position;
             transform.position = centerPosition;
         }
-
-        //image.raycastTarget = true;
-        //transform.SetParent(parentAfterDrag);
-
-        //if (!transform.parent.gameObject.CompareTag("InventorySlot"))
-        //{
-        //    //transform.SetParent(oldParent);
-        //    //transform.position = oldParent.position;
-        //    // Center the object within the inventory slot
-        //    RectTransform slotTransform = transform.parent.GetComponent<RectTransform>();
-        //    Vector3 centerPosition = slotTransform.position;
-        //    transform.position = centerPosition;
-        //}
     }
 }
