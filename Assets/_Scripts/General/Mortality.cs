@@ -52,7 +52,6 @@ public class Mortality : MonoBehaviour
     [SerializeField] private float effectiveResist;
     [SerializeField] private AnimationCurve scaling;
 
-    [FormerlySerializedAs("Immune")]
     [Header("Immunity")]
     [SerializeField] private bool immune = false;
     
