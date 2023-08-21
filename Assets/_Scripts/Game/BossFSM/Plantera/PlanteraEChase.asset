@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PlanteraEChase
   m_EditorClassIdentifier: 
   isTransformState: 0
+  spore: {fileID: 8787618413426860351, guid: 1340e666fc1301f4bba572a9ccf820f0, type: 3}

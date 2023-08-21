@@ -9,14 +9,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3814139416165471032}
+  - component: {fileID: 2877767520488174395}
+  - component: {fileID: 2958757041912238421}
+  - component: {fileID: 6733703842922513121}
   - component: {fileID: 4329072901403845588}
   - component: {fileID: 5656701101053602645}
   - component: {fileID: 8343710595555107258}
-  - component: {fileID: 2877767520488174395}
-  - component: {fileID: 7070759461379028552}
+  - component: {fileID: 2857372127231226052}
+  - component: {fileID: -3318826772667500046}
   m_Layer: 0
   m_Name: Plantera
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +39,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2877767520488174395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408207500018932619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeEnergy: 0
+  nativeActiveRegen: 0
+  activeRegen: 0
+  activeMax: 0
+  storedEnergy: 0
+  nativeStoredRegen: 0
+  storedRegen: 0
+  storedMax: 0
+  health: 0
+  nativeRegen: 0
+  regen: 0
+  healthMax: 9500
+  nativeArmour: 400
+  nativeResist: 400
+  effectiveArmour: 0
+  effectiveResist: 0
+  scaling:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  immune: 0
+  onHealthAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onActiveEnergyAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onStoredEnergyAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onArmourAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onResistAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  DEBUG_EnergyDamage: 0
+  DEBUG_EnergyPierce: 0
+  DEBUG_EnergyPierceType: 0
+  DEBUG_HealthDamage: 0
+  DEBUG_HealthPierce: 0
+  DEBUG_HealthPierceType: 0
+  DEBUG_AdjustedArmour: 0
+  DEBUG_AdjustedResist: 0
+  DEBUG_AddArmour: 0
+  DEBUG_AddResist: 0
+--- !u!114 &2958757041912238421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408207500018932619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 2877767520488174395}
+  immunityTime: 0.25
+  immune: 0
+--- !u!114 &6733703842922513121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408207500018932619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 40
+  activeEnergyDamage: 1200
+  armourPen: 25
+  resistPen: 60
+  armourPenType: 2
+  resistPenType: 2
+  bleedOverPercentage: 40
 --- !u!212 &4329072901403845588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -136,59 +236,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2877767520488174395
-MonoBehaviour:
+--- !u!58 &2857372127231226052
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408207500018932619}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 9500
-  nativeArmour: 300
-  nativeResist: 300
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
     serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
---- !u!114 &7070759461379028552
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.2}
+  serializedVersion: 2
+  m_Radius: 0.57
+--- !u!114 &-3318826772667500046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

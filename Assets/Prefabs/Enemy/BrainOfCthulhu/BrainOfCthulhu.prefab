@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4985655519166937831}
   - component: {fileID: 3659388367144765021}
   - component: {fileID: 5505460586577807647}
+  - component: {fileID: 6250245784602867205}
+  - component: {fileID: 8282469030179773914}
   m_Layer: 0
   m_Name: BrainOfCthulhu
   m_TagString: Untagged
@@ -159,6 +161,15 @@ MonoBehaviour:
   onStoredEnergyAdjust:
     m_PersistentCalls:
       m_Calls: []
+  onArmourAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onResistAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
   DEBUG_EnergyDamage: 0
   DEBUG_EnergyPierce: 0
   DEBUG_EnergyPierceType: 0
@@ -167,6 +178,8 @@ MonoBehaviour:
   DEBUG_HealthPierceType: 0
   DEBUG_AdjustedArmour: 0
   DEBUG_AdjustedResist: 0
+  DEBUG_AddArmour: 0
+  DEBUG_AddResist: 0
 --- !u!95 &3659388367144765021
 Animator:
   serializedVersion: 5
@@ -211,3 +224,57 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
   - {fileID: 11400000, guid: 5cc7a989e09e8764eb8f22eab45278df, type: 2}
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
+--- !u!114 &6250245784602867205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948531592001244772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 250
+  armourPen: 10
+  resistPen: 10
+  armourPenType: 2
+  resistPenType: 2
+  bleedOverPercentage: 30
+--- !u!58 &8282469030179773914
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948531592001244772}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1

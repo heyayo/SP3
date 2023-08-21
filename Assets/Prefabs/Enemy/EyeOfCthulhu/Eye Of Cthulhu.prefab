@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5246895116322496129}
   - component: {fileID: 2818887195021460658}
   - component: {fileID: 3620450292529288846}
+  - component: {fileID: 5035288113788546619}
+  - component: {fileID: 4105138690058095621}
   m_Layer: 0
   m_Name: Eye Of Cthulhu
   m_TagString: Untagged
@@ -180,6 +182,15 @@ MonoBehaviour:
   onStoredEnergyAdjust:
     m_PersistentCalls:
       m_Calls: []
+  onArmourAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onResistAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
   DEBUG_EnergyDamage: 0
   DEBUG_EnergyPierce: 0
   DEBUG_EnergyPierceType: 0
@@ -188,6 +199,8 @@ MonoBehaviour:
   DEBUG_HealthPierceType: 0
   DEBUG_AdjustedArmour: 0
   DEBUG_AdjustedResist: 0
+  DEBUG_AddArmour: 0
+  DEBUG_AddResist: 0
 --- !u!114 &3620450292529288846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1702d40d410efd7429f1eb5895429194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossInit: {fileID: 0}
   states:
   - {fileID: 11400000, guid: 28eb14e770a93d64d99ede996b70e5dd, type: 2}
   - {fileID: 11400000, guid: d329e938bab6b9e409392f94e7fb35f7, type: 2}
@@ -207,3 +221,57 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 87c946b43684bc847866501208a53f56, type: 2}
   - {fileID: 11400000, guid: 0d8d33bb5a12ea94395d78ec3a91e744, type: 2}
   - {fileID: 11400000, guid: e1c3249fb054349448e6990aa63f8910, type: 2}
+--- !u!114 &5035288113788546619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222542775091152465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 120
+  armourPen: 15
+  resistPen: 15
+  armourPenType: 2
+  resistPenType: 2
+  bleedOverPercentage: 25
+--- !u!58 &4105138690058095621
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222542775091152465}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.26}
+  serializedVersion: 2
+  m_Radius: 0.59
