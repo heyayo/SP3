@@ -1016,15 +1016,17 @@ GameObject:
   - component: {fileID: 2418097644359159326}
   - component: {fileID: 4683811891614670668}
   - component: {fileID: 1579393493429420541}
+  - component: {fileID: 2916021623287539464}
   - component: {fileID: 6733982612956102854}
   - component: {fileID: 2709523522225587468}
   - component: {fileID: 7939730614621604382}
   - component: {fileID: 4221641624269164793}
   - component: {fileID: 356968736687717019}
   - component: {fileID: 4184924878811296553}
-  m_Layer: 0
+  - component: {fileID: 3024495546009432811}
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1084,16 +1086,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeEnergy: 0
+  nativeActiveRegen: 0
   activeRegen: 0
   activeMax: 500
   storedEnergy: 0
+  nativeStoredRegen: 0
   storedRegen: 0
   storedMax: 200
   health: 0
+  nativeRegen: 0
   regen: 0
-  healthMax: 100
-  armour: 0
-  resist: 0
+  healthMax: 250
+  nativeArmour: 0
+  nativeResist: 0
+  effectiveArmour: 0
+  effectiveResist: 0
   scaling:
     serializedVersion: 2
     m_Curve:
@@ -1154,6 +1161,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  immune: 0
   onHealthAdjust:
     m_PersistentCalls:
       m_Calls: []
@@ -1161,6 +1169,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onStoredEnergyAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onArmourAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onResistAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onImmunityChange:
     m_PersistentCalls:
       m_Calls: []
   DEBUG_EnergyDamage: 0
@@ -1171,6 +1188,23 @@ MonoBehaviour:
   DEBUG_HealthPierceType: 0
   DEBUG_AdjustedArmour: 0
   DEBUG_AdjustedResist: 0
+  DEBUG_AddArmour: 0
+  DEBUG_AddResist: 0
+--- !u!114 &2916021623287539464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674558161679562206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 1579393493429420541}
+  immunityTime: 0.5
+  immune: 0
 --- !u!114 &6733982612956102854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,7 +1297,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &4184924878811296553
 CapsuleCollider2D:
@@ -1294,12 +1328,57 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 3.85}
+  m_Size: {x: 4.04, y: 7.3}
+  m_Direction: 0
+--- !u!61 &3024495546009432811
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674558161679562206}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: 3.85}
-  m_Size: {x: 4.68, y: 8.11}
-  m_Direction: 0
+  m_Offset: {x: -0.25, y: 0.12}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.97, y: 0.64}
+  m_EdgeRadius: 0
 --- !u!1 &5819656711076087618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1941,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.01, y: 2.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1809955986577737575}
   - {fileID: 9159850816512644397}
