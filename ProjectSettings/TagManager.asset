@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InventorySlot
   - Projectile
+  - Damagable
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Enemy
   - Player
   - Interactable
-  - 
-  - 
+  - Damagable
+  - DamageSource
   - 
   - 
   - 
