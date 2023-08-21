@@ -7,6 +7,9 @@ public class MinoIdleState : EnemyState
 {
     private MinotaurTwo _minotaur;
 
+    private Vector3 _targetPos;
+    private Vector2 _direction;
+
     public MinoIdleState(MinotaurTwo mino, EnemyStateMachine stateMachine) : base(stateMachine)
     {
         _minotaur = mino;
@@ -15,6 +18,8 @@ public class MinoIdleState : EnemyState
     public override void EnterState()
     {
         Debug.Log("Enter Minotaur Idle State");
+        _targetPos = GetRandomPointInCircle();
+        _direction = (_targetPos - _minotaur.transform.position).normalized; // Calculate the unit vector from player to enemy
     }
 
     public override void ExitState()
@@ -35,14 +40,26 @@ public class MinoIdleState : EnemyState
         {
             _stateMachine.ChangeState(_minotaur.HealState);
         }
+
+        if ((_minotaur.transform.position - _targetPos).sqrMagnitude < 0.01f)
+        {
+            _targetPos = GetRandomPointInCircle();
+            _direction = (_targetPos - _minotaur.transform.position).normalized; // Calculate the unit vector from player to enemy
+        }
     }
 
     public override void PhysicsUpdate()
     {
+        _minotaur.MoveEnemy(_direction * _minotaur.moveSpeed);
     }
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
+    }
+
+    private Vector3 GetRandomPointInCircle()
+    {
+        return _minotaur.spawnLocation + (Vector2)UnityEngine.Random.insideUnitCircle * _minotaur.wanderRange;
     }
 }
 
@@ -79,10 +96,9 @@ public class MinoChaseState : EnemyState
 
     public override void PhysicsUpdate()
     {
-        Vector2 d2p = _minotaur.target.position - _minotaur.transform.position;
-        d2p.Normalize();
-        
-        _minotaur.rb.AddForce(d2p * _minotaur.moveSpeed);
+        Vector2 d2p = (_minotaur.target.position - _minotaur.transform.position).normalized;
+
+        _minotaur.MoveEnemy(d2p * _minotaur.moveSpeed);
     }
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
@@ -147,6 +163,8 @@ public class MinoHealState : EnemyState
 
     public override void EnterState()
     {
+        _minotaur.Mortality.ApplyAffliction(new HealthHeal(50, 2, _minotaur.Mortality));
+        DelayState();
     }
 
     public override void ExitState()
@@ -155,8 +173,7 @@ public class MinoHealState : EnemyState
 
     public override void FrameUpdate()
     {
-        _minotaur.Mortality.Health = _minotaur.Mortality.__HealthMax;
-        _stateMachine.ChangeState(_minotaur.IdleState);
+        //_minotaur.Mortality.Health = _minotaur.Mortality.__HealthMax;
     }
 
     public override void PhysicsUpdate()
@@ -165,5 +182,11 @@ public class MinoHealState : EnemyState
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
+    }
+
+    private async void DelayState()
+    {
+        await Task.Delay(1000);
+        _stateMachine.ChangeState(_minotaur.IdleState);
     }
 }

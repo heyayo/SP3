@@ -5,10 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
 {
-    [field:Header("Scripts")]
-    [field:SerializeField] public Rigidbody2D rb { get; set; }
-    [field:SerializeField] public Mortality Mortality { get; private set; }
-    
+    [field: Header("External Scripts")]
+    [field: SerializeField] public Rigidbody2D rb { get; set; }
+    [field: SerializeField] public Mortality Mortality { get; private set; }
+
     // ***************
     // Interfaces -  IDamageable, IEnemyMoveable, ITriggerCheckable contains optional methods for cleaner code
     // Base Enemy Script that handles creates and initiates all states
@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
     [field: SerializeField] public Animator enemyAnimator; // Every Enemy will have this
     public float currentHealth { get; set; }
     public bool isFacingRight { get; set; } = true;
-
+        
     #region State Machine variables
     [field: SerializeField] public EnemyStateMachine stateMachine { get; set; }
     [field: SerializeField] public EnemyIdleState idleState { get; set; }
@@ -29,46 +29,22 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
 
     #endregion
 
-    #region Scriptable object Variables
-    [SerializeField] private EnemyIdleSOBase EnemyIdleBase;
-    [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
-    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
-
-    public EnemyIdleSOBase enemyIdleBaseInstance{ get; set; }
-    public EnemyChaseSOBase enemyChaseBaseInstance { get; set;}
-    public EnemyAttackSOBase enemyAttackStateInstance { get; set; }
-    #endregion
-
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         Mortality = GetComponent<Mortality>();
         enemyAnimator = GetComponent<Animator>();
-        
-        // Since our states are in a script thats not monobehaviour, we have to manually instantiate
-        enemyIdleBaseInstance = Instantiate(EnemyIdleBase);
-        enemyChaseBaseInstance = Instantiate(EnemyChaseBase);
-        enemyAttackStateInstance = Instantiate(EnemyAttackBase);
 
         stateMachine = new EnemyStateMachine();
-        idleState = new EnemyIdleState(this, stateMachine);
-        chaseState = new EnemyChaseState(this, stateMachine);
-        attackState = new EnemyAttackState(this, stateMachine);
     }
 
     protected virtual void Start()
-    {
-        enemyIdleBaseInstance.Init(gameObject, this);
-        enemyChaseBaseInstance.Init(gameObject, this);
-        enemyAttackStateInstance.Init(gameObject, this);
-
-        stateMachine.Init(idleState); // Init state machine with idle animation
-    }
+    { }
 
     private void FixedUpdate()  // Handle physics calculations in fixed update
-    { stateMachine. currentEnemyState. PhysicsUpdate(); }
+    { stateMachine.currentEnemyState.PhysicsUpdate(); }
     private void Update() // Handles main logic in frame update
-    { stateMachine.currentEnemyState.FrameUpdate(); ChildUpdate();}
+    { stateMachine.currentEnemyState.FrameUpdate(); ChildUpdate();} 
 
     protected virtual void ChildUpdate()
     { }

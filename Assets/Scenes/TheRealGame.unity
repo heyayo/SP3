@@ -527,6 +527,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259111786}
   m_CullTransparentMesh: 1
+--- !u!1001 &310731711
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.3197355
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.059893
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1668544
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305661593297754402, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222542775091152465, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_Name
+      value: Eye Of Cthulhu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222542775091152465, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
 --- !u!1001 &316113172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -608,7 +669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &380454865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2730,6 +2791,67 @@ MonoBehaviour:
   followSpeed: 5
   shakeDuration: 5
   shakeIntensity: 0.1
+--- !u!1001 &1646900093
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.1749144
+      objectReference: {fileID: 0}
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.9719222
+      objectReference: {fileID: 0}
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416076381920605609, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948531592001244772, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_Name
+      value: BrainOfCthulhu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948531592001244772, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
 --- !u!1001 &1806666955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2869,3 +2991,5 @@ SceneRoots:
   - {fileID: 2126659753}
   - {fileID: 1806666955}
   - {fileID: 380454866}
+  - {fileID: 310731711}
+  - {fileID: 1646900093}

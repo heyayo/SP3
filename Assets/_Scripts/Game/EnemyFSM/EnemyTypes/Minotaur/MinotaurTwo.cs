@@ -9,8 +9,10 @@ public class MinotaurTwo : Enemy
     public MinoHealState HealState;
 
     public Transform target;
-
+        
     public float moveSpeed = 8;
+    public float wanderRange = 8;
+    public Vector2 spawnLocation;
 
     private Vector3 _originalScale;
     private int _moveSpeedHash;
@@ -32,6 +34,7 @@ public class MinotaurTwo : Enemy
 
         target = PlayerManager.Instance.transform;
         _originalScale = transform.localScale;
+        spawnLocation = transform.position;
     }
 
     protected override void ChildUpdate()
