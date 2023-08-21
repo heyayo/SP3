@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6329690748214324566}
   - component: {fileID: 5696576308655411762}
   - component: {fileID: 5246895116322496129}
-  - component: {fileID: 4091295636995204029}
   - component: {fileID: 2818887195021460658}
+  - component: {fileID: 3620450292529288846}
   m_Layer: 0
   m_Name: Eye Of Cthulhu
   m_TagString: Untagged
@@ -136,22 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4091295636995204029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7222542775091152465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9340394ca7e3484ab14eac84f2e2c6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  servantOfCthulhu: {fileID: 1335763241840206802, guid: ab006dbc331917e44af113a59cb7edf5, type: 3}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &2818887195021460658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,8 +160,8 @@ MonoBehaviour:
   nativeRegen: 0
   regen: 0
   healthMax: 1200
-  nativeArmour: 100
-  nativeResist: 100
+  nativeArmour: 60
+  nativeResist: 60
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
@@ -204,3 +188,22 @@ MonoBehaviour:
   DEBUG_HealthPierceType: 0
   DEBUG_AdjustedArmour: 0
   DEBUG_AdjustedResist: 0
+--- !u!114 &3620450292529288846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222542775091152465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1702d40d410efd7429f1eb5895429194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: 11400000, guid: 28eb14e770a93d64d99ede996b70e5dd, type: 2}
+  - {fileID: 11400000, guid: d329e938bab6b9e409392f94e7fb35f7, type: 2}
+  - {fileID: 11400000, guid: f35c222d44ad2fa41b0c86d505cfa15f, type: 2}
+  - {fileID: 11400000, guid: 87c946b43684bc847866501208a53f56, type: 2}
+  - {fileID: 11400000, guid: 0d8d33bb5a12ea94395d78ec3a91e744, type: 2}
+  - {fileID: 11400000, guid: e1c3249fb054349448e6990aa63f8910, type: 2}

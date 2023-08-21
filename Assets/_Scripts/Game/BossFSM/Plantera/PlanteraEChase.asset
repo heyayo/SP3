@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f06432fa78d9df34397b8bebf138ced3, type: 3}
-  m_Name: EOCTransform
+  m_Script: {fileID: 11500000, guid: 3fa511d6ffcc8ec4aab0b9f48309cc34, type: 3}
+  m_Name: PlanteraEChase
   m_EditorClassIdentifier: 
-  isTransformState: 1
-  servantOfCthulhu: {fileID: 0}
+  isTransformState: 0

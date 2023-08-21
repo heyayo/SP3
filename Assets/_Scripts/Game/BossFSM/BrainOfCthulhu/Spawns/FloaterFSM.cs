@@ -63,7 +63,12 @@ public class FloaterFSM : MonoBehaviour
 
     private void DetermineState()
     {
-        if (currentState == STATES.FLOATING && (playerTransform.position - transform.position).magnitude < 5)
+        // If the brain dies then perma chase the player
+        if (currentState == STATES.FLOATING && brainTransform == null)
+        {
+            EnterState(STATES.CHASE); 
+        }
+        else if (currentState == STATES.FLOATING && (playerTransform.position - transform.position).magnitude < 4)
         {
             EnterState(STATES.CHASE);
         }

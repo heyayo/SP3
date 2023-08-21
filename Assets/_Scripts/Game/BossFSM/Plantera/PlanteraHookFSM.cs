@@ -33,6 +33,7 @@ public class PlanteraHookFSM : MonoBehaviour
 
     // Timers
     private int idleTimer;
+    private int moveTimer;
 
     private void Start()
     {
@@ -71,12 +72,12 @@ public class PlanteraHookFSM : MonoBehaviour
 
     private void DetermineState()
     {
-        if (currentState == STATES.IDLE && idleTimer <= 0 && (transform.position - planteraTransform.position).magnitude > 15f)
+        if (currentState == STATES.IDLE && idleTimer <= 0 && (transform.position - planteraTransform.position).magnitude > 12f &&
+             (transform.position - playerTransform.position).magnitude > 12f)
         {
             EnterState(STATES.HOOK);
         }
-        else if (currentState == STATES.HOOK && (new Vector2(transform.position.x, 
-            transform.position.y) - hookPosition).magnitude < 0.2f)
+        else if (currentState == STATES.HOOK && moveTimer <= 0)
         {
             EnterState(STATES.IDLE);
         }
@@ -93,6 +94,7 @@ public class PlanteraHookFSM : MonoBehaviour
                 break;
 
             case STATES.HOOK:
+                moveTimer = Random.Range(75, 150);
                 hookPosition = HookPosition();
                 break;
 
@@ -119,18 +121,19 @@ public class PlanteraHookFSM : MonoBehaviour
     private void FaceFromPlantera()
     {
         dir = (planteraTransform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(dir.y + Random.Range(0f, 0.2f), dir.x + Random.Range(0f, 0.2f)) * Mathf.Rad2Deg;  // Offset a little bit randomly
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
 
     private Vector2 HookPosition()
     {
         float angle = Random.Range(0f, 360f);
-        float x = 10f * Mathf.Cos(angle);
-        float y = 10f * Mathf.Sin(angle);
+        float x = 12f * Mathf.Cos(angle);
+        float y = 12f * Mathf.Sin(angle);
         Vector2 pos = new Vector2(x, y) + new Vector2(playerTransform.position.x, playerTransform.position.y);
+        Vector2 offset = (playerTransform.position - planteraTransform.position).normalized * 2f;
 
-        return pos;
+        return pos + offset;
     }
 
     // ***********************************************************
@@ -148,9 +151,10 @@ public class PlanteraHookFSM : MonoBehaviour
 
     private void HookState()
     {
+        moveTimer--;
         FaceFromPlantera();
 
-        transform.position = Vector3.MoveTowards(transform.position, hookPosition, 0.1f);
+        transform.position = Vector3.MoveTowards(transform.position, hookPosition, 0.2f);
     }
 
     private void HandleVines()

@@ -180,7 +180,7 @@ public class PlanteraFSM : MonoBehaviour
     {
         // Hitbox stats
         Vector2 hitboxPos = transform.position + new Vector3(0, 0.5f, 0);
-        float hitboxRadius = 1.8f;
+        float hitboxRadius = 2f;
         Collider2D col = Physics2D.OverlapCircle(hitboxPos, hitboxRadius, playerLayer);
         if (col != null)
             playerMortality.ApplyHealthDamage(10);
@@ -188,7 +188,7 @@ public class PlanteraFSM : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0, 0.5f, 0), 1.8f);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0, 0.5f, 0), 2f);
     }
 
     private void FacePlayer()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7532641287238898194}
   - component: {fileID: 4985655519166937831}
   - component: {fileID: 3659388367144765021}
-  - component: {fileID: 2843763003450506089}
+  - component: {fileID: 5505460586577807647}
   m_Layer: 0
   m_Name: BrainOfCthulhu
   m_TagString: Untagged
@@ -139,8 +139,8 @@ MonoBehaviour:
   nativeRegen: 0
   regen: 0
   healthMax: 2800
-  nativeArmour: 10
-  nativeResist: 10
+  nativeArmour: 100
+  nativeResist: 100
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
@@ -188,7 +188,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2843763003450506089
+--- !u!114 &5505460586577807647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,11 +197,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1948531592001244772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eece72c68425fba48b1f81c76acd9d31, type: 3}
+  m_Script: {fileID: 11500000, guid: 1702d40d410efd7429f1eb5895429194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floaterPrefab: {fileID: 5123581209840884539, guid: 4878ade83a94e5b4a8fc6fa46b76125b, type: 3}
-  brainOfCthulhuClone: {fileID: 4402271865196467914, guid: 44557fdd7cba42f4ab01886af5d19a31, type: 3}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  bossInit: {fileID: 11400000, guid: b7288fcfcfd7bf34a99a168e901a7254, type: 2}
+  states:
+  - {fileID: 11400000, guid: e98f01d6a8ba72246ac1ed33825fa087, type: 2}
+  - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
+  - {fileID: 11400000, guid: 9d5fcd07f4e7cd34c8c419bd8ffa40af, type: 2}
+  - {fileID: 11400000, guid: 289ef98d79eec3e449d4da91c4766915, type: 2}
+  - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
+  - {fileID: 11400000, guid: 289ef98d79eec3e449d4da91c4766915, type: 2}
+  - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
+  - {fileID: 11400000, guid: 5cc7a989e09e8764eb8f22eab45278df, type: 2}
+  - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}

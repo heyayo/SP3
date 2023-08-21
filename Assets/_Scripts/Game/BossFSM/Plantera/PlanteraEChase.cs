@@ -2,32 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EOC States/Transform")]
-public class EOCTransform : BossState
+[CreateAssetMenu(menuName = "Plantera States/E_Chase")]
+public class PlanteraEChase : BossState
 {
-    private float rotatedAmount;
+    private int chaseTimer;
+    private int shootTimer;
 
     override public void EnterState()
     {
-        rotatedAmount = 0f;
+        chaseTimer = 450;
     }
 
     override public bool DoState()
     {
-        float rotationSpeed = 5f;
-        float rotationAmount = 500f;
+        chaseTimer--;
+        HitboxDamage();
 
-        // Slow > fast rotation
-        if (rotatedAmount < rotationAmount)
-            rb.AddTorque(rotationSpeed);
+        // Move toward player
+        FacePlayer();
+        rb.AddForce(dir * 12f);
 
-        rotatedAmount += rotationSpeed;
-
-        if (rotatedAmount >= rotationAmount && rb.angularVelocity <= 20f)
-        {
-            animator.SetBool("Enraged", true);
+        if (chaseTimer <= 0)
             return true;
-        }
 
         return false;
     }
@@ -37,9 +33,11 @@ public class EOCTransform : BossState
 
     }
 
-    public override bool isReadyToTransform()
+    override protected void FacePlayer()
     {
-        return mortality.Health <= mortality.__HealthMax / 2;
+        dir = (playerTransform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
 
     private void HitboxDamage()

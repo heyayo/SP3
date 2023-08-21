@@ -29,6 +29,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         item = newItem;
         image.sprite = newItem.itemSprite;
+
+        item.consumed.AddListener(deleteItem);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -61,5 +63,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             Vector3 centerPosition = slotTransform.position;
             transform.position = centerPosition;
         }
+    }
+
+    private void deleteItem()
+    {
+        Destroy(gameObject);
     }
 }

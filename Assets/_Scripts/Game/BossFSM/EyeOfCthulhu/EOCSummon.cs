@@ -22,16 +22,15 @@ public class EOCSummon : BossState
         summonTimer--;
         HitboxDamage();
 
-        summonTimer--;
         spawnTimer--;
 
         FacePlayer();
-        Vector2 moveDir = ((playerTransform.position + new Vector3(0, 4, 0)) - transform.position).normalized;
+        Vector2 moveDir = ((playerTransform.position + new Vector3(0, 6, 0)) - transform.position).normalized;
         rb.AddForce(moveDir * 5);
 
         if (spawnTimer <= 0)
         {
-            Instantiate(servantOfCthulhu, transform.position + new Vector3(dir.x, dir.y, 0) * 5f, Quaternion.identity);
+            Instantiate(servantOfCthulhu, transform.position + new Vector3(dir.x, dir.y, 0) * 2f, Quaternion.identity);
             spawnTimer = 150;
         }
 

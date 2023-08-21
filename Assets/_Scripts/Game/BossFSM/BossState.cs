@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
 public class BossState : ScriptableObject
 {
     [SerializeField]
@@ -20,11 +19,10 @@ public class BossState : ScriptableObject
     protected Rigidbody2D rb;
     protected Animator animator;
     protected Transform transform;
-
-    ///private float rotatedAmount;
+    protected SpriteRenderer sr;
 
     public void InitState(Mortality mortality, Transform playerTransform, Mortality playerMortality, 
-        Rigidbody2D rb, Transform transform, LayerMask playerLayer, Animator animator)
+        Rigidbody2D rb, Transform transform, LayerMask playerLayer, Animator animator, SpriteRenderer sr)
     {
         // GetComponents
         this.mortality = mortality;
@@ -34,8 +32,7 @@ public class BossState : ScriptableObject
         this.transform = transform;
         this.playerLayer = playerLayer;
         this.animator = animator;
-
-        EnterState();
+        this.sr = sr;
     }
 
     virtual public void EnterState()

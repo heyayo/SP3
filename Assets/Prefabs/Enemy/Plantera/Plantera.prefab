@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5656701101053602645}
   - component: {fileID: 8343710595555107258}
   - component: {fileID: 2877767520488174395}
-  - component: {fileID: 3544771904208657577}
+  - component: {fileID: 7070759461379028552}
   m_Layer: 0
   m_Name: Plantera
   m_TagString: Untagged
@@ -160,8 +160,8 @@ MonoBehaviour:
   nativeRegen: 0
   regen: 0
   healthMax: 9500
-  nativeArmour: 400
-  nativeResist: 400
+  nativeArmour: 300
+  nativeResist: 300
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
@@ -188,7 +188,7 @@ MonoBehaviour:
   DEBUG_HealthPierceType: 0
   DEBUG_AdjustedArmour: 0
   DEBUG_AdjustedResist: 0
---- !u!114 &3544771904208657577
+--- !u!114 &7070759461379028552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,11 +197,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2408207500018932619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8930a1e4a1c151f4fa4422b7e6483689, type: 3}
+  m_Script: {fileID: 11500000, guid: 1702d40d410efd7429f1eb5895429194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSeed: {fileID: 1272165271151810876, guid: d12674156028ee44097cd95f44e9bea0, type: 3}
-  hookPrefab: {fileID: 1289043127886685618, guid: c7b82826450b3aa43b74a24cb291cd70, type: 3}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  bossInit: {fileID: 11400000, guid: 52ffd144da6c7234b994bbb3a635195b, type: 2}
+  states:
+  - {fileID: 11400000, guid: 51ea424bbd69ece419ef9735710dbfab, type: 2}
+  - {fileID: 11400000, guid: 657a8911b870099479dc558e570a11cd, type: 2}
+  - {fileID: 11400000, guid: 7f6c2ce5e9035894a97a39cf04a88828, type: 2}
+  - {fileID: 11400000, guid: fdce4a1fd47749247846dc8a07c18f0e, type: 2}
+  - {fileID: 11400000, guid: 88ffeb9672b355940bb79f63193bb52b, type: 2}

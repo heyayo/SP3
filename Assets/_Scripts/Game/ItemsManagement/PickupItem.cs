@@ -24,6 +24,9 @@ public class PickupItem : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0;
         _rb.drag = 2;
+
+        // Set sprite
+        _spriteRenderer.sprite = item.itemSprite;
     }
 
     public void SetSprite(Sprite sprite)

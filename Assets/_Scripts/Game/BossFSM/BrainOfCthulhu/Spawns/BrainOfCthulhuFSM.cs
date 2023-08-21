@@ -190,6 +190,7 @@ public class BrainOfCthulhuFSM : MonoBehaviour
                 attacked = false;
                 attackCount = 0;
                 teleportCount = 2;
+                teleported = false;
                 break;
 
             default:
@@ -260,14 +261,14 @@ public class BrainOfCthulhuFSM : MonoBehaviour
         chaseTimer--;
 
         FacePlayer();
-        rb.AddForce(dir * 5f);
+        rb.AddForce(dir * 3f);
     }
 
     private void TeleportState()
     {
         // Constantly mvoing to player
         FacePlayer();
-        rb.AddForce(dir * 5f);
+        rb.AddForce(dir * 3f);
 
         // Fading to invisible
         if (sr.color.a > 0 && !teleported)
@@ -322,8 +323,16 @@ public class BrainOfCthulhuFSM : MonoBehaviour
             return;
         }
 
+        // Fading to invisible
+        if (sr.color.a > 0 && teleported == false)
+        {
+            sr.color -= new Color(0, 0, 0, 0.025f);
+            return;
+        }
+
         // Teleport
         gameObject.transform.position = TeleportPosition(RandomTeleportDirection());
+        sr.color = new Color(255, 255, 255, opacity);
         rb.velocity = Vector2.zero;
 
         // Top left clone

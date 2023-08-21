@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Items/Item")]
 public class Item : ScriptableObject
@@ -9,10 +10,12 @@ public class Item : ScriptableObject
     [TextArea] [SerializeField]
     public string itemDescription = "null";
 
-    [Header("Equpiment")]
+    [Header("Equipment")]
     [SerializeField] public EQUIPTYPE EquipType;
     [SerializeField] public float armor = 0f;
     [SerializeField] public float resist = 0f;
+
+    public UnityEvent consumed;
 
     public enum EQUIPTYPE
     { 
@@ -22,6 +25,12 @@ public class Item : ScriptableObject
         LEGS,
         FEET,
         PET
+    }
+
+    private void OnEnable()
+    {
+        if (consumed == null)
+            consumed = new UnityEvent();
     }
 
     // Virtual function
