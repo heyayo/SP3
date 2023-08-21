@@ -21,6 +21,7 @@ public class BossFSM : MonoBehaviour
     protected Transform playerTransform;
     protected Mortality playerMortality;
     protected LayerMask playerLayer;
+    protected DamageSource damageSource;
 
     // Private variables
     //Vector2 dir;
@@ -35,6 +36,7 @@ public class BossFSM : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         playerMortality = GameObject.FindGameObjectWithTag("Player").GetComponent<Mortality>();
         rb = GetComponent<Rigidbody2D>();
+        damageSource = GetComponent<DamageSource>();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 

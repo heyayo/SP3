@@ -53,8 +53,6 @@ public class PlayerManager : MonoBehaviour
         InteractorScript = GetComponent<Interactor>();
         MovementScript = GetComponent<Movement>();
         AnimationScript = GetComponent<AnimationController>();
-
-        gameObject.tag = "Player";
     }
 
     private void Start()

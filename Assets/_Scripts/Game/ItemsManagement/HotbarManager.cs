@@ -47,7 +47,7 @@ public class HotbarManager : MonoBehaviour
             Select(4);
 
         // Using item
-        if (Input.GetKeyDown(KeyCode.E) && 
+        if (Input.GetKeyDown(_config.interact) && 
             (activeSlot.GetComponentInChildren<InventoryItem>() != null))
             activeSlot.GetComponentInChildren<InventoryItem>().item.Use();
     }

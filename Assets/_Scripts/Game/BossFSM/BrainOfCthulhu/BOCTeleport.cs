@@ -25,7 +25,6 @@ public class BOCTeleport : BossState
         // Constantly mvoing to player
         FacePlayer();
         rb.AddForce(dir * 3f);
-        HitboxDamage();
 
         // Fading to invisible
         if (sr.color.a > 0 && !teleported)
@@ -62,16 +61,6 @@ public class BOCTeleport : BossState
     override public void ExitState()
     {
 
-    }
-
-    private void HitboxDamage()
-    {
-        // Hitbox stats
-        Vector2 hitboxPos = transform.position - new Vector3(0, 0, 0);
-        float hitboxRadius = 3f;
-        Collider2D col = Physics2D.OverlapCircle(hitboxPos, hitboxRadius, playerLayer);
-        if (col != null)
-            playerMortality.ApplyHealthDamage(10);
     }
 
     private Vector2 TeleportPosition(Vector2 direction)

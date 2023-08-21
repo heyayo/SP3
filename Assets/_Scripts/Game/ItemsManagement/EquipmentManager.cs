@@ -5,11 +5,8 @@ using UnityEngine.EventSystems;
 
 public class EquipmentManager : MonoBehaviour
 {
-    [SerializeField]
-    private ArmorSlot[] armorSlots;
-
-    [SerializeField]
-    private Mortality mortality;
+    [SerializeField] private ArmorSlot[] armorSlots;
+    [SerializeField] private Mortality mortality;
 
     // Private Variables
     float defaultArmor = 0f;
@@ -45,7 +42,7 @@ public class EquipmentManager : MonoBehaviour
 
     private void ClearStats()
     {
-        mortality.Armour = defaultArmor;
-        mortality.Resist = defaultResist;
+        mortality.Armour = mortality.__NativeArmour;
+        mortality.Resist = mortality.__NativeResist;
     }
 }

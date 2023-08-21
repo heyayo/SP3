@@ -18,7 +18,6 @@ public class EOCEChase : BossState
     {
         chaseTimer--;
         dashTimer--;
-        HitboxDamage();
 
         // Move toward player
         if (dashTimer <= 0)
@@ -42,15 +41,5 @@ public class EOCEChase : BossState
     override public void ExitState()
     {
 
-    }
-
-    private void HitboxDamage()
-    {
-        // Hitbox stats
-        Vector2 hitboxPos = transform.position - new Vector3(0, 0.5f, 0);
-        float hitboxRadius = 1.2f;
-        Collider2D col = Physics2D.OverlapCircle(hitboxPos, hitboxRadius, playerLayer);
-        if (col != null)
-            playerMortality.ApplyHealthDamage(10);
     }
 }

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 /*
  * Active Energy
@@ -52,7 +52,6 @@ public class Mortality : MonoBehaviour
     [SerializeField] private float effectiveResist;
     [SerializeField] private AnimationCurve scaling;
 
-    [FormerlySerializedAs("Immune")]
     [Header("Immunity")]
     [SerializeField] private bool immune = false;
     
@@ -147,30 +146,59 @@ public class Mortality : MonoBehaviour
     public float Armour
     {
         get => effectiveArmour;
-        set { effectiveArmour = value; }
+        set
+        {
+            onArmourAdjust.Invoke();
+            effectiveArmour = value;
+        }
     }
     public float Resist
     {
         get => effectiveResist;
-        set { effectiveResist = value; }
+        set
+        {
+            onResistAdjust.Invoke();
+            effectiveResist = value;
+        }
     }
     public float __NativeArmour
     {
         get => nativeArmour;
         set
-        { nativeArmour = value > 1000 ? 1000 : value; }
+        {
+            float delta = value - nativeArmour;
+            Armour += delta;
+            nativeArmour = value > 1000 ? 1000 : value;
+        }
     }
     public float __NativeResist
     {
         get => nativeResist;
         set
-        { nativeResist = value > 1000 ? 1000 : value; }
+        {
+            float delta = value - nativeResist;
+            Resist += delta;
+            nativeResist = value > 1000 ? 1000 : value;
+        }
     }
 
-    [Header("Events")]
+    public bool Immunity
+    {
+        get => immune;
+        set
+        {
+            immune = value;
+            onImmunityChange.Invoke();
+        }
+    }
+
+        [Header("Events")]
     public UnityEvent onHealthAdjust;
     public UnityEvent onActiveEnergyAdjust;
     public UnityEvent onStoredEnergyAdjust;
+    public UnityEvent onArmourAdjust;
+    public UnityEvent onResistAdjust;
+    public UnityEvent onImmunityChange;
     // Make UnityEvent for Armour and Resist Increase
     
     private List<Affliction> _afflictions = new List<Affliction>();
@@ -194,6 +222,9 @@ public class Mortality : MonoBehaviour
         onHealthAdjust = new UnityEvent();
         onActiveEnergyAdjust = new UnityEvent();
         onStoredEnergyAdjust = new UnityEvent();
+        onArmourAdjust = new UnityEvent();
+        onResistAdjust = new UnityEvent();
+        onImmunityChange = new UnityEvent();
     }
     
     private void Start()
@@ -232,12 +263,17 @@ public class Mortality : MonoBehaviour
      * Damage | Total Damage Energy Damage dealt to the Player
      * ePierce | How much to ignore energy resistance (Armour Piercing)
      * PierceType | The type of piercing to use, either Flat or Percentage Based
+     * bleed | Percentage of energy damage bleeds over into Health
      */
-    public void ApplyEnergyDamage(float damage, float pierce = 0f, PierceType pierceType = PierceType.Flat)
+    public void ApplyEnergyDamage(float damage, float pierce = 0f, PierceType pierceType = PierceType.Flat, float bleed = 0, float hpPierce = 0, PierceType hpPierceType = PierceType.Flat)
     {
         float totalReduction = CalculateReduction(effectiveResist, pierce, pierceType);
         float finalDamage = damage - (damage * totalReduction);
         ActiveEnergy -= finalDamage;
+        bleed /= 100f;
+        bleed = Math.Clamp(bleed, 0, 1);
+        float bleedOver = finalDamage * bleed;
+        ApplyHealthDamage(bleedOver,hpPierce,hpPierceType);
     }
 
     public void ApplyHealthDamage(float damage, float pierce = 0f, PierceType pierceType = PierceType.Flat)
@@ -255,14 +291,14 @@ public class Mortality : MonoBehaviour
      * AfflictImmunity, Applies an Affliction that gives Immunity
      */
     public void EnableImmunity()
-    { immune = true; }
+    { Immunity = true; }
     public void DisableImmunity()
-    { immune = false; }
+    { Immunity = false; }
     public void ToggleImmunity()
-    { immune = !immune; }
-    public void AfflictImmunity()
+    { Immunity = !Immunity; }
+    public void AfflictImmunity(float time)
     {
-        
+        ApplyAffliction(new Immunity(time,this));
     }
     
     // Apply StoredEnergyDrain Affliction (Deals True StoredEnergy Damage)
@@ -284,6 +320,7 @@ public class Mortality : MonoBehaviour
     // Calculate Damage Reduction
     private float CalculateReduction(float resistance, float pierce, PierceType pierceType)
     {
+        pierce /= 100f;
         float adjustedResistance = resistance;
         switch (pierceType)
         {
@@ -377,5 +414,23 @@ public class Mortality : MonoBehaviour
     {
         DEBUG_AdjustedArmour = CalculateReduction(effectiveArmour, DEBUG_HealthPierce, DEBUG_HealthPierceType);
         DEBUG_AdjustedResist = CalculateReduction(effectiveResist, DEBUG_EnergyDamage, DEBUG_EnergyPierceType);
+    }
+
+    [Header("DEBUG | Resistance Adder")]
+    [SerializeField] private float DEBUG_AddArmour;
+    [SerializeField] private float DEBUG_AddResist;
+
+    [ContextMenu("DEBUG_AddResistances")]
+    private void DEBUG_AddResistances()
+    {
+        Armour += DEBUG_AddArmour;
+        Resist += DEBUG_AddResist;
+    }
+
+    [ContextMenu("DEBUG_AddNativeResistances")]
+    private void DEBUG_AddNativeResistances()
+    {
+        __NativeArmour += DEBUG_AddArmour;
+        __NativeResist += DEBUG_AddResist;
     }
 }

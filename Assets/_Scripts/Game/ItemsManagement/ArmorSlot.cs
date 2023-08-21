@@ -13,8 +13,9 @@ public class ArmorSlot : InventorySlot, IDropHandler, IBeginDragHandler
     // Event
     public UnityEvent slotEdited;
     public UnityEvent slotRemove;
-
-    void Start()
+    
+    // Changed to awake to prevent usage in Start() functions before initialization
+    private void Awake()
     {
         if (slotEdited == null)
             slotEdited = new UnityEvent();

@@ -43,8 +43,6 @@ public class FloaterFSM : MonoBehaviour
     {
         DetermineState();
 
-        HitboxDamage();
-
         switch (currentState)
         {
             case STATES.FLOATING:
@@ -81,16 +79,6 @@ public class FloaterFSM : MonoBehaviour
     private void EnterState(STATES toState)
     {
         currentState = toState;
-    }
-
-    private void HitboxDamage()
-    {
-        // Hitbox stats
-        Vector2 hitboxPos = transform.position - new Vector3(0, 0, 0);
-        float hitboxRadius = 0.75f;
-        Collider2D col = Physics2D.OverlapCircle(hitboxPos, hitboxRadius, playerLayer);
-        if (col != null)
-            playerMortality.ApplyHealthDamage(10);
     }
 
     private void OnDrawGizmos()

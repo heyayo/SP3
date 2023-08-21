@@ -80,6 +80,27 @@ public class HealthDrain : MortalityDrain
     public override void End() { }
 }
 
+[Serializable]
+public class HealthHeal : MortalityDrain
+{
+    public HealthHeal(float total, float lifetime, Mortality target) : base(total, lifetime, target) { }
+    public override void Begin() { }
+    public override void Update()
+    {
+        float drain = _drainRate * Time.deltaTime;
+        _drainTracker += drain;
+        // Prevent Lag Spike Issues
+        if (_drainTracker > totalDrain)
+        {
+            lifetime = 0;
+            drain = _drainTracker - totalDrain;
+        }
+
+        target.Health += drain;
+    }
+    public override void End() { }
+}
+
 public class Immunity : Affliction
 {
     public Immunity(float lifetime, Mortality target) : base(lifetime, target) {}
