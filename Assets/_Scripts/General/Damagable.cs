@@ -10,7 +10,9 @@ public class Damagable : MonoBehaviour
     [SerializeField] private bool immune;
 
     private void Awake()
-    { gameObject.layer = LayerMask.NameToLayer("Damagable"); }
+    {
+        mortality = GetComponent<Mortality>();
+    }
 
     /*
      * hpDamage | Damage dealt to Health
