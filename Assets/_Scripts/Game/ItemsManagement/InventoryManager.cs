@@ -86,7 +86,7 @@ public class InventoryManager : MonoBehaviour
         // Direction to drop
         Vector2 direction = new Vector2(0, 0);
         //direction = player.gameObject.GetComponent<Movement>().facing;
-        direction.x = _player.InteractorScript.GetFacingDirection();
+        direction.x = _player.transform.localScale.x;
 
         PickupItem pickupItem = Instantiate(pickupItemPrefab,
             (Vector2)player.position + direction * 5,
