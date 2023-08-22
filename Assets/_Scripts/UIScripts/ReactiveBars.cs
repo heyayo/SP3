@@ -26,11 +26,11 @@ public class ReactiveBars : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mortality = PlayerManager.Instance.MortalityScript;
+
         mortality.onHealthAdjust.AddListener(ResetHPTimer);
         mortality.onStoredEnergyAdjust.AddListener(ResetSETimer);
         mortality.onActiveEnergyAdjust.AddListener(ResetAETimer);
-
-        mortality = PlayerManager.Instance.MortalityScript;
     }
 
     // Update is called once per frame

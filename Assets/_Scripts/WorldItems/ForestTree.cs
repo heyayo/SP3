@@ -7,15 +7,14 @@ public class ForestTree : Interactable
     [SerializeField] private int treeStrength;
 
     [Header("Necessary Stuff")]
-    [SerializeField]
-    private Item yieldItem;
+    [SerializeField] private Item yieldItem;
 
     // Inventory Manager
     private InventoryManager inventoryManager;
 
     private void Start()
     {
-        inventoryManager = GameObject.FindObjectOfType<InventoryManager>();
+        inventoryManager = InventoryManager.Instance;
     }
 
     public override void OnInteract()
@@ -26,5 +25,13 @@ public class ForestTree : Interactable
             inventoryManager.Add(yieldItem);
             Destroy(gameObject);
         }
+    }
+
+    public override void OnMouseEnter()
+    {
+    }
+
+    public override void OnMouseExit()
+    {
     }
 }

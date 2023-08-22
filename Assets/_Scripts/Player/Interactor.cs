@@ -27,7 +27,7 @@ public class Interactor : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(_config.attack))
+        if (Input.GetKeyDown(_config.interact))
             InteractRay();
     }
 

@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HotbarManager : MonoBehaviour
 {
@@ -29,9 +25,10 @@ public class HotbarManager : MonoBehaviour
         Instance = this;
         _config = Configuration.FetchConfig();
     }
-    
+
     private void Start()
     {
+        Select(1);
     }
 
     void Update()
@@ -45,9 +42,10 @@ public class HotbarManager : MonoBehaviour
             Select(3);
         else if (Input.GetKeyDown(_config.hotbar4))
             Select(4);
-
+        
         // Using item
-        if (Input.GetKeyDown(_config.interact) && 
+        if (
+            Input.GetKeyDown(_config.interact) && 
             (activeSlot.GetComponentInChildren<InventoryItem>() != null))
             activeSlot.GetComponentInChildren<InventoryItem>().item.Use();
     }
