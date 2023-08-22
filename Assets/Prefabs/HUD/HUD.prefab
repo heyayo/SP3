@@ -4342,7 +4342,7 @@ MonoBehaviour:
   - {fileID: 0}
   inventoryItemPrefab: {fileID: 4942298635754716537, guid: 6ad937a90a294394b8f7a50a1b1bdc6c, type: 3}
   inventoryParent: {fileID: 7903257772311628382}
-  pickupItemPrefab: {fileID: 0}
+  pickupItemPrefab: {fileID: 8788482475389405746, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
 --- !u!114 &7939653186016478600
 MonoBehaviour:
   m_ObjectHideFlags: 0

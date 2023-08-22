@@ -17,7 +17,9 @@ MonoBehaviour:
   itemDescription: 'Fragment:
 
     I''ve seen this somewhere before...'
-  itemCount: 0
   EquipType: 0
   armor: 1
   resist: 1
+  consumed:
+    m_PersistentCalls:
+      m_Calls: []

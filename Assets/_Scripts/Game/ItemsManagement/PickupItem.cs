@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,6 +13,7 @@ public class PickupItem : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        gameObject.layer = LayerMask.NameToLayer("Interactable");
     }
     
     void Start()
@@ -43,11 +42,8 @@ public class PickupItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            if (item == null) return;
-            inventoryManager.Add(item);
-            Destroy(gameObject);
-        }
+        if (item == null) return;
+        inventoryManager.Add(item);
+        Destroy(gameObject);
     }
 }
