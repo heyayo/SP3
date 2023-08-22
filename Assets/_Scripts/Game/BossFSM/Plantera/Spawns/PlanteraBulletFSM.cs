@@ -25,7 +25,7 @@ public class PlanteraBulletFSM : MonoBehaviour
         EnterState(STATES.CHASE);
 
         gameObject.GetComponent<Mortality>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -72,8 +72,8 @@ public class PlanteraBulletFSM : MonoBehaviour
     {
         chaseTimer--;
 
-        FacePlayer();
-        rb.AddForce(dir * 5f);
+        //FacePlayer();
+        //rb.AddForce(dir);
 
         if (chaseTimer <= 0)
             Destroy(gameObject);

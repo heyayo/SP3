@@ -20,15 +20,14 @@ public class PlanteraHookFSM : MonoBehaviour
     private STATES currentState;
     private Transform playerTransform;
     private LineRenderer lineRenderer;
+
+    [SerializeField] 
     private Animator animator;
 
     // Private variables
     private Vector2 dir;
     private Rigidbody2D rb;
     private Vector2 hookPosition;  // Set in EnterState
-
-    // Hitbox stats
-    private Vector2 hitboxPos;
 
     // Timers
     private int idleTimer;
@@ -38,7 +37,6 @@ public class PlanteraHookFSM : MonoBehaviour
     {
         EnterState(STATES.IDLE);
 
-        gameObject.GetComponent<Mortality>();
         playerTransform = PlayerManager.Instance.transform;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
