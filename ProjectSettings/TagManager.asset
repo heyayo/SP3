@@ -7,6 +7,7 @@ TagManager:
   - InventorySlot
   - Projectile
   - Damagable
+  - DupeEnemy
   layers:
   - Default
   - TransparentFX

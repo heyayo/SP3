@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatEnemy : Enemy
+public class GolemEnemy : Enemy
 {
     [HideInInspector] public float timeBetweenShots = 0.1f;
     [HideInInspector] public float timeTillExit = 3f;
@@ -13,11 +13,10 @@ public class BatEnemy : Enemy
     [HideInInspector] public DamageSource _damageSource;
     [HideInInspector] public SpriteRenderer _sr;
 
-    [field: Header("Bat States")]
-    public BatIdle IdleState;
-    public BatChase ChaseState;
-    public BatAttack AttackState;
-    public BatBleed BleedState;
+    [field: Header("Golem States")]
+    public GolemIdle IdleState;
+    public GolemChase ChaseState;
+    public GolemAttack AttackState;
 
     [field:Header("State Settings")]
     public float wanderRange = 8f;
@@ -31,17 +30,16 @@ public class BatEnemy : Enemy
     public Transform target;
     public float moveSpeed = 8f;
 
-    //[field: Header("Bat Animator")]
+    //[field: Header("Golem Animator")]
     //public Animator anim;
 
     private Vector3 _originalScale;
     private void Awake()
     {
         base.Awake();
-        IdleState = new BatIdle(this, stateMachine);
-        ChaseState = new BatChase(this, stateMachine);
-        AttackState = new BatAttack(this, stateMachine);
-        BleedState = new BatBleed(this, stateMachine);
+        IdleState = new GolemIdle(this, stateMachine);
+        ChaseState = new GolemChase(this, stateMachine);
+        AttackState = new GolemAttack(this, stateMachine);
     }
 
     // Start is called before the first frame update

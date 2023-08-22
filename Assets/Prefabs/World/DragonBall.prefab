@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2932941308794736199}
   - component: {fileID: -8632007439250349572}
   - component: {fileID: -4883098627630244491}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: DragonBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

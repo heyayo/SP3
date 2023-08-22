@@ -42,7 +42,7 @@ public class PickupItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (item == null) return;
+        Debug.Log("Inventory Manager:" + inventoryManager);
         inventoryManager.Add(item);
         Destroy(gameObject);
     }
