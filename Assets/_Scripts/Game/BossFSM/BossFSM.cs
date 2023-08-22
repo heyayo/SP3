@@ -34,7 +34,7 @@ public class BossFSM : MonoBehaviour
         // GetComponents
         mortality = gameObject.GetComponent<Mortality>();
         playerTransform = PlayerManager.Instance.transform;
-        playerMortality = GameObject.FindGameObjectWithTag("Player").GetComponent<Mortality>();
+        playerMortality = PlayerManager.Instance.GetComponent<Mortality>();
         rb = GetComponent<Rigidbody2D>();
         damageSource = GetComponent<DamageSource>();
         animator = GetComponent<Animator>();
