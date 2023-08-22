@@ -38,4 +38,9 @@ public class Item : ScriptableObject
     {
         Debug.Log("This Item does not have a use");
     }
+
+    public virtual void Setup(GameObject pickupItem)
+    {
+        
+    }
 }

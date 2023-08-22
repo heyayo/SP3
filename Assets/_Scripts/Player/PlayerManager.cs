@@ -13,7 +13,6 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance { get; private set; }
     
     [field:SerializeField] public Mortality MortalityScript { get; private set; }
-    [field:SerializeField] public Interactor InteractorScript { get; private set; }
     [field:SerializeField] public Movement MovementScript { get; private set; }
     [field:SerializeField] public AnimationController AnimationScript { get; private set; }
 
@@ -50,7 +49,6 @@ public class PlayerManager : MonoBehaviour
         Instance = this;
         
         MortalityScript = GetComponent<Mortality>();
-        InteractorScript = GetComponent<Interactor>();
         MovementScript = GetComponent<Movement>();
         AnimationScript = GetComponent<AnimationController>();
     }
@@ -86,13 +84,11 @@ public class PlayerManager : MonoBehaviour
     {
         MortalityScript.enabled = false;
         MovementScript.enabled = false;
-        InteractorScript.enabled = false;
     }
 
     public void UnFreezePlayer()
     {
         MortalityScript.enabled = true;
         MovementScript.enabled = true;
-        InteractorScript.enabled = true;
     }
 }
