@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!50 &2634369498896155772
 Rigidbody2D:
   serializedVersion: 4
