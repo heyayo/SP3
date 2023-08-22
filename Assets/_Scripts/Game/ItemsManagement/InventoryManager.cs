@@ -94,5 +94,6 @@ public class InventoryManager : MonoBehaviour
         pickupItem.item = item; // Assign Item
         pickupItem.SetSprite(item.itemSprite); // Assign Sprite
         pickupItem.GetComponent<Rigidbody2D>().AddForce(direction * 25,ForceMode2D.Impulse); // Apply Throw Force
+        pickupItem.item.Setup(pickupItem.gameObject);
     }
 }

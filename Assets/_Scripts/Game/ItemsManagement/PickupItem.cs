@@ -46,4 +46,11 @@ public class PickupItem : MonoBehaviour
         inventoryManager.Add(item);
         Destroy(gameObject);
     }
+
+    public void Setup(Item item)
+    {
+        this.item = item;
+        SetSprite(item.itemSprite);
+        this.item.Setup(gameObject);
+    }
 }

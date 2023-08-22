@@ -36,13 +36,13 @@ public class PlanteraHookFSM : MonoBehaviour
 
     private void Start()
     {
-        EnterState(STATES.IDLE);
-
         gameObject.GetComponent<Mortality>();
         playerTransform = PlayerManager.Instance.transform;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         lineRenderer = GetComponent<LineRenderer>();
+
+        EnterState(STATES.IDLE);
     }
 
     private void FixedUpdate()

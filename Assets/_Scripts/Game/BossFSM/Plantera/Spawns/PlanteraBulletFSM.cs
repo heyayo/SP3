@@ -25,7 +25,7 @@ public class PlanteraBulletFSM : MonoBehaviour
         EnterState(STATES.CHASE);
 
         gameObject.GetComponent<Mortality>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
     }
 
