@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     [field: SerializeField]  public Animator enemyAnimator; // Every Enemy will have this
     #endregion
 
+   
     #region Scriptable object Variables
     [SerializeField] private EnemyIdleSOBase EnemyIdleBase;
     [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
@@ -55,7 +56,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         currentHealth = maxHealth; 
         _rb = GetComponent<Rigidbody2D>();
         Debug.Log(idleState);
-        stateMachine.Init(idleState); // Init state machine with idle animation
+        stateMachine.Init(chaseState); // Init state machine with idle animation
         enemyAnimator = GetComponent<Animator>();
     }
 

@@ -16,6 +16,7 @@ public class EnemyStrikingDistanceCheck : MonoBehaviour
     {
         if (collision.gameObject == player)
         {
+            Debug.Log(_enemy);
             _enemy.SetStrikingDistance(true);
         }
     }
