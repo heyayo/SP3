@@ -2,12 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
-public class ArmorSlot : InventorySlot, IDropHandler
+public class ArmorSlot : InventorySlot, IDropHandler, IBeginDragHandler
 {
     [Header("Equip Type")]
     [SerializeField]
     private Item.EQUIPTYPE equipType;
+
+    // Event
+    public UnityEvent slotEdited;
+    public UnityEvent slotRemove;
+    
+    // Changed to awake to prevent usage in Start() functions before initialization
+    private void Awake()
+    {
+        if (slotEdited == null)
+            slotEdited = new UnityEvent();
+
+        if (slotRemove == null)
+            slotRemove = new UnityEvent();
+    }
 
     override public void OnDrop(PointerEventData eventData)
     {
@@ -38,6 +53,9 @@ public class ArmorSlot : InventorySlot, IDropHandler
                 draggedItem.transform.SetParent(existingItem.parentAfterDrag);
                 existingItem.transform.SetParent(oldParent);
             }
+
+            // Invoke event
+            slotEdited.Invoke();
         }
 
         //// No item in slot
@@ -63,5 +81,11 @@ public class ArmorSlot : InventorySlot, IDropHandler
         //        inventoryItem.parentAfterDrag = gameObject.transform;
         //    }
         //}
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        slotRemove.Invoke();
+        slotEdited.Invoke();
     }
 }

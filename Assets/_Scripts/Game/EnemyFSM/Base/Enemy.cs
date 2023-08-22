@@ -1,75 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
+[RequireComponent(typeof(Mortality))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
 {
+    [field: Header("External Scripts")]
+    [field: SerializeField] public Rigidbody2D rb { get; set; }
+    [field: SerializeField] public Mortality Mortality { get; private set; }
+
     // ***************
     // Interfaces -  IDamageable, IEnemyMoveable, ITriggerCheckable contains optional methods for cleaner code
     // Base Enemy Script that handles creates and initiates all states
     // ***************
     [field: SerializeField] public float maxHealth { get; set; } = 100f;
-    public Rigidbody2D _rb { get; set; }
+    [field: SerializeField] public Animator enemyAnimator; // Every Enemy will have this
     public float currentHealth { get; set; }
     public bool isFacingRight { get; set; } = true;
-
+        
     #region State Machine variables
     [field: SerializeField] public EnemyStateMachine stateMachine { get; set; }
     [field: SerializeField] public EnemyIdleState idleState { get; set; }
     [field: SerializeField] public EnemyChaseState chaseState { get; set; }
     [field: SerializeField] public EnemyAttackState attackState { get; set; }
+
     public bool isAggroed { get; set; }
     public bool isInStrikingDistance { get; set; }
 
-    [field: SerializeField]  public Animator enemyAnimator; // Every Enemy will have this
     #endregion
 
-   
-    #region Scriptable object Variables
-    [SerializeField] private EnemyIdleSOBase EnemyIdleBase;
-    [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
-    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
-
-    public EnemyIdleSOBase enemyIdleBaseInstance{ get; set; }
-    public EnemyChaseSOBase enemyChaseBaseInstance { get; set;}
-    public EnemyAttackSOBase enemyAttackStateInstance { get; set; }
-    #endregion
-
-    protected void InitAwake() // InitAwake is called in the awake function in the scripts that inherit from this class
+    protected virtual void Awake()
     {
-        // Since our states are in a script thats not monobehaviour, we have to manually instantiate
-        enemyIdleBaseInstance = Instantiate(EnemyIdleBase);
-        enemyChaseBaseInstance = Instantiate(EnemyChaseBase);
-        enemyAttackStateInstance = Instantiate(EnemyAttackBase);
+        rb = GetComponent<Rigidbody2D>();
+        Mortality = GetComponent<Mortality>();
+        enemyAnimator = GetComponent<Animator>();
 
         stateMachine = new EnemyStateMachine();
-        idleState = new EnemyIdleState(this, stateMachine);
-        chaseState = new EnemyChaseState(this, stateMachine);
-        attackState = new EnemyAttackState(this, stateMachine);
     }
-    protected void InitStart() // InitStart is called in the start function in the scripts that inherit from this class
-    {
-        enemyIdleBaseInstance.Init(gameObject, this);
-        enemyChaseBaseInstance.Init(gameObject, this);
-        enemyAttackStateInstance.Init(gameObject, this);
 
-        currentHealth = maxHealth; 
-        _rb = GetComponent<Rigidbody2D>();
-        Debug.Log(idleState);
-        stateMachine.Init(chaseState); // Init state machine with idle animation
-        enemyAnimator = GetComponent<Animator>();
-    }
+    protected virtual void Start()
+    { }
 
     private void FixedUpdate()  // Handle physics calculations in fixed update
-    {
-        stateMachine.
-            currentEnemyState.
-            PhysicsUpdate(); 
-    }
+    { stateMachine.currentEnemyState.PhysicsUpdate(); }
     private void Update() // Handles main logic in frame update
-    {
-        stateMachine.currentEnemyState.FrameUpdate();
-    }
+    { stateMachine.currentEnemyState.FrameUpdate(); ChildUpdate();} 
+
+    protected virtual void ChildUpdate()
+    { }
 
     #region Health / Die functions
     public void Damage(float dmgtotake)
@@ -89,7 +67,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     #region Movement functions
     public void MoveEnemy(Vector2 velocity)
     {
-        _rb.velocity = velocity;
+        rb.velocity = velocity;
         CheckLeftOrRightFacing(velocity);
         enemyAnimator.SetTrigger("isWalking");
     }

@@ -6,7 +6,7 @@ TagManager:
   tags:
   - InventorySlot
   - Projectile
-  - SkeletronHead
+  - Damagable
   layers:
   - Default
   - TransparentFX
@@ -14,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Boss
   - Enemy
-  - Interactable
   - Player
-  - TargetPoint
+  - Interactable
+  - 
+  - 
   - 
   - 
   - 

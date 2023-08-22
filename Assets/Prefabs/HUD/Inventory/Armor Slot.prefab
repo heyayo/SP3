@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7658239841252846161}
   - component: {fileID: 619551570544122683}
   - component: {fileID: 1118839142223629064}
-  - component: {fileID: 6488591100870420408}
+  - component: {fileID: 4934194080077155102}
   m_Layer: 5
   m_Name: Armor Slot
   m_TagString: InventorySlot
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &6488591100870420408
+--- !u!114 &4934194080077155102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,9 +110,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8394339446066664164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b71dc02b654e1e0408b715294d929b9e, type: 3}
+  m_Script: {fileID: 11500000, guid: b13a4f3a63ae2554096c5d81f70a87da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 0}
   descriptionImg: {fileID: 0}
+  <HeldItem>k__BackingField: {fileID: 0}
   equipType: 0
+  slotEdited:
+    m_PersistentCalls:
+      m_Calls: []
+  slotRemove:
+    m_PersistentCalls:
+      m_Calls: []

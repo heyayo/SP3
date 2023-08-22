@@ -5,19 +5,26 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
+    private Configuration _config;
+    private PlayerManager _player;
     
     [Header("Slot Access")]
     public InventorySlot[] inventorySlots;
     public ArmorSlot[] armourSlots;
 
-    [SerializeField]
-    public GameObject inventoryItemPrefab;
-
-    [SerializeField]
-    private GameObject inventoryParent;
+    [SerializeField] public InventoryItem inventoryItemPrefab;
+    [SerializeField] private GameObject inventoryParent;
+    [SerializeField] private PickupItem pickupItemPrefab;
 
     // Private Variables
     private bool toggle = false;
+
+    private void Start()
+    {
+        _config = Configuration.FetchConfig();
+        inventoryParent.SetActive(false);
+        _player = PlayerManager.Instance;
+    }
 
     private void Awake()
     {
@@ -33,17 +40,32 @@ public class InventoryManager : MonoBehaviour
     {
         foreach (InventorySlot slot in inventorySlots)
         {
-            if (slot.GetComponentInChildren<InventoryItem>() == null)
+            if (slot.GetHeldItem() == null)
             {
                 SpawnNewItem(item, slot);
                 return;
             }
         }
+
+        DropItem(item);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        // Dropping items
+        if (Input.GetKeyDown(_config.dropItem))
+        {
+            InventorySlot activeSlot = HotbarManager.Instance.activeSlot;
+            InventoryItem drop = activeSlot.GetHeldItem();
+            if (drop != null)
+            {
+                DropItem(drop.item);
+                Destroy(drop.gameObject);
+            }
+        }
+
+        // opening and closing inventory
+        if (Input.GetKeyDown(_config.openInventory))
         {
             toggle = !toggle;
             inventoryParent.SetActive(toggle);
@@ -52,8 +74,25 @@ public class InventoryManager : MonoBehaviour
 
     private void SpawnNewItem(Item item, InventorySlot slot)
     {
-        GameObject newItemGO = Instantiate(inventoryItemPrefab, slot.transform);
-        InventoryItem inventoryItem = newItemGO.GetComponent<InventoryItem>();
+        InventoryItem inventoryItem = Instantiate(inventoryItemPrefab, slot.transform);
         inventoryItem.InitializeItem(item);
+    }
+
+    private void DropItem(Item item)
+    {
+        // Drop item on the floor
+        Transform player = _player.transform;
+
+        // Direction to drop
+        Vector2 direction = new Vector2(0, 0);
+        //direction = player.gameObject.GetComponent<Movement>().facing;
+        direction.x = _player.transform.localScale.x;
+
+        PickupItem pickupItem = Instantiate(pickupItemPrefab,
+            (Vector2)player.position + direction * 5,
+            Quaternion.identity);
+        pickupItem.item = item; // Assign Item
+        pickupItem.SetSprite(item.itemSprite); // Assign Sprite
+        pickupItem.GetComponent<Rigidbody2D>().AddForce(direction * 25,ForceMode2D.Impulse); // Apply Throw Force
     }
 }

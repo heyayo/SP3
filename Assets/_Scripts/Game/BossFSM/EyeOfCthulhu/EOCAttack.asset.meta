@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Scripts/Game/BossFSM/Experimental/EOCAttack.asset.meta
+guid: d329e938bab6b9e409392f94e7fb35f7
+========
+guid: 1f04b52d4c41c044d960c96d3d192073
+>>>>>>>> 0334556402fda7a78d4728774d2e647b532ce403:Assets/_Scripts/Game/EnemyFSM/Behaviour Logic/Chase/MinoChase.asset.meta
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

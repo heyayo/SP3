@@ -1,13 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HotbarManager : MonoBehaviour
 {
     public static HotbarManager Instance { get; private set; }
-    
     private Configuration _config;
     
     [SerializeField]
@@ -16,11 +11,12 @@ public class HotbarManager : MonoBehaviour
     [SerializeField]
     private GameObject selector;
 
-    // Private variables
-    private InventorySlot activeSlot;
+    [HideInInspector]
+    public InventorySlot activeSlot;
 
     private void Awake()
     {
+        selector.SetActive(false);
         if (Instance != null)
         {
             Debug.LogError("Multiple Hotbar Managers In Scene");
@@ -29,7 +25,7 @@ public class HotbarManager : MonoBehaviour
         Instance = this;
         _config = Configuration.FetchConfig();
     }
-    
+
     private void Start()
     {
         Select(1);
@@ -46,29 +42,23 @@ public class HotbarManager : MonoBehaviour
             Select(3);
         else if (Input.GetKeyDown(_config.hotbar4))
             Select(4);
-
+        
         // Using item
-        if (Input.GetKeyDown(KeyCode.E) && (activeSlot
-            .GetComponentInChildren<InventoryItem>() != null))
+        if (
+            Input.GetKeyDown(_config.interact) && 
+            (activeSlot.GetComponentInChildren<InventoryItem>() != null))
             activeSlot.GetComponentInChildren<InventoryItem>().item.Use();
     }
 
     private void Select(int index)
     {
+        selector.SetActive(true);
+
         // Select the slot
         int selected = index - 1;
         activeSlot = hotbarSlots[selected];
 
-        // Default all color of all slots
-        foreach (InventorySlot slot in hotbarSlots)
-        {
-            slot.img.color = Color.white;
-        }
-
-        // Except the selected one
-        activeSlot.img.color = new Color(100, 100, 100);
-
         // Change selector position
-        selector.transform.SetParent(activeSlot.transform);
+        selector.transform.position = activeSlot.transform.position;
     }
 }

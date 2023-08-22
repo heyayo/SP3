@@ -17,7 +17,6 @@ public class Interactor : MonoBehaviour
     private Configuration _config;
 
     [SerializeField] private LayerMask interactLayer;
-    
     [field:SerializeField] public float InteractDistance { get; private set; }
 
     private void Awake()
@@ -25,18 +24,16 @@ public class Interactor : MonoBehaviour
         _cam = Camera.main;
         _config = Configuration.FetchConfig();
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Input.GetKeyDown(_config.attack))
+        if (Input.GetKeyDown(_config.interact))
             InteractRay();
+    }
+
+    public float GetFacingDirection()
+    {
+        return transform.localScale.x;
     }
 
     private void InteractRay()

@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private Configuration _config;
+    public Vector2 facing;
 
     [field:SerializeField] public float XInput { get; private set; }
     [field:SerializeField] public float YInput { get; private set; }
@@ -42,6 +43,16 @@ public class Movement : MonoBehaviour
             _animator.speed = 2;
         }
         else _animator.speed = 1;
+
+        // Getting the player facing direction
+        if (Input.GetKey(_config.right))
+            facing = new Vector2(1, 0);
+        else if (Input.GetKey(_config.left))
+            facing = new Vector2(-1, 0);
+        else if (Input.GetKey(_config.up))
+            facing = new Vector2(0, 1);
+        else if (Input.GetKey(_config.down))
+            facing = new Vector2(0, -1);
     }
 
     private void FixedUpdate()

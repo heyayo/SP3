@@ -20,4 +20,6 @@ public class Configuration : ScriptableObject
 	public KeyCode hotbar2 = KeyCode.Alpha2;
 	public KeyCode hotbar3 = KeyCode.Alpha3;
 	public KeyCode hotbar4 = KeyCode.Alpha4;
+	public KeyCode dropItem = KeyCode.G;
+	public KeyCode openInventory = KeyCode.Tab;
 }
