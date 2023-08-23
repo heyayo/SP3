@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class GolemEnemy : Enemy
 {
     [HideInInspector] public float timeBetweenShots = 0.1f;
-    [HideInInspector] public float timeTillExit = 3f;
+    [HideInInspector] public float timeTillExit = 1f;
     [HideInInspector] public float distanceToCountExit = 4f;
     [HideInInspector] public float exitTimer;
     [HideInInspector] public float timer;
@@ -21,17 +21,20 @@ public class GolemEnemy : Enemy
     [field:Header("State Settings")]
     public float wanderRange = 8f;
 
-    [field: Header("Projectile Settings")]
-    public Rigidbody2D bulletPrefab;
-    public float bulletSpeed = 50f;
-    public float deviationMagnitude = 5f;
-
     [field:Header("Player Settinsgs")]
     public Transform target;
     public float moveSpeed = 8f;
 
-    //[field: Header("Golem Animator")]
-    //public Animator anim;
+    [field: Header("Spike Gameobject")]
+    public GameObject spike;
+    [field: Header("Spike Animator")]
+    public Animator spikeAnim;
+    [field: Header("Projectile")]
+    public Rigidbody2D projectilePrefab;
+    public float bulletSpeed;
+
+    [field: Header("UI Elements")]
+    public GameObject warningText;
 
     private Vector3 _originalScale;
     private void Awake()
@@ -47,9 +50,11 @@ public class GolemEnemy : Enemy
     {
         target = PlayerManager.Instance.transform;
         spawnLocation = transform.position;
-        _originalScale = transform.localScale;
         _damageSource = GetComponent<DamageSource>();
+        _originalScale = transform.localScale;
         _sr = GetComponent<SpriteRenderer>();
+        spikeAnim = GameObject.Find("GolemSpikes").GetComponent<Animator>();
         stateMachine.Init(IdleState);
+        spike.SetActive(false);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Threading.Tasks;
 [SerializeField]
 public class GolemIdle : EnemyState
 {
@@ -34,6 +35,7 @@ public class GolemIdle : EnemyState
             _targetPos = GetRandomPointInCircle();
             _direction = (_targetPos - _golem.transform.position).normalized; // Calculate the unit vector from player to enemy
         }
+        _golem.CheckLeftOrRightFacing(_direction);
     }
 
     public override void PhysicsUpdate()
@@ -81,6 +83,7 @@ public class GolemChase : EnemyState
         {
            _golem.stateMachine.ChangeState(_golem.AttackState);
         }
+        _golem.CheckLeftOrRightFacing(_direction);
     }
 
     public override void PhysicsUpdate()
@@ -98,9 +101,7 @@ public class GolemChase : EnemyState
 public class GolemAttack : EnemyState
 {
     public GolemEnemy _golem;
-
-    private float _shootTimer = 0f;
-
+     
     public GolemAttack(GolemEnemy golem, EnemyStateMachine stateMachine) : base(stateMachine)
     {
         _golem = golem;
@@ -108,50 +109,63 @@ public class GolemAttack : EnemyState
 
     public override void EnterState()
     {
-        _golem.bulletPrefab.gameObject.SetActive(false);
-        _shootTimer = 0f;
+        _golem.enemyAnimator.SetBool("isAttacking", true);
+        _golem.projectilePrefab.gameObject.SetActive(false);
     }
 
     public override void ExitState()
     {
-        _golem.bulletPrefab.gameObject.SetActive(false);
+        _golem.projectilePrefab.gameObject.SetActive(false);
     }
 
     public override void FrameUpdate()
     {
-        if (Vector2.Distance(_golem.target.position, _golem.transform.position) > _golem.distanceToCountExit)
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
         {
-            _golem.exitTimer += Time.deltaTime;
-            if (_golem.exitTimer > _golem.timeTillExit)
+            if (Vector2.Distance(_golem.target.position, _golem.transform.position) > _golem.distanceToCountExit)
             {
-                _golem.stateMachine.ChangeState(_golem.ChaseState);
+                _golem.exitTimer += Time.deltaTime;
+                _golem.projectilePrefab.gameObject.SetActive(true);
+                Rigidbody2D bullet = GameObject.Instantiate(_golem.projectilePrefab, _golem.transform.position, Quaternion.identity);
+                Vector2 dir = (_golem.target.position - _golem.transform.position).normalized;
+                bullet.velocity = dir * _golem.bulletSpeed;
+                if (_golem.exitTimer > _golem.timeTillExit)
+                {
+                    _golem.stateMachine.ChangeState(_golem.ChaseState);
+                }
+            }
+            else
+            {
+                _golem.exitTimer = 0f;
             }
         }
-        else
+        else if (rand == 1)
         {
-            _golem.exitTimer = 0f;
+            if(!_golem.warningText.activeInHierarchy)
+                WarningDelay();
         }
     }
 
     public override void PhysicsUpdate()
     {
         _golem.MoveEnemy(Vector2.zero);
-        if (_shootTimer >= _golem.timeBetweenShots)
-        {
-            _golem.bulletPrefab.gameObject.SetActive(true);
-            Rigidbody2D bullet = GameObject.Instantiate(_golem.bulletPrefab, _golem.transform.position, Quaternion.identity);
-            Vector2 dir = (_golem.target.position - _golem.transform.position).normalized;
-            bullet.velocity = dir * _golem.bulletSpeed;
-            _shootTimer = 0f;
-        }
-        else
-        {
-            _golem.bulletPrefab.gameObject.SetActive(false);
-        }
-        _shootTimer += Time.deltaTime;
     }
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
+    }
+
+    private async void WarningDelay()
+    {
+        _golem.warningText.SetActive(true);
+        await Task.Delay(1500);
+        _golem.warningText.SetActive(false);
+        _golem.spikeAnim.SetTrigger("isSpike");
+        _golem.spike.transform.position = _golem.target.transform.position;
+        await Task.Delay(500);
+        _golem.spike.SetActive(true);
+        //_golem.spikeAnim.SetTrigger("isSpike");
+        _golem.enemyAnimator.SetBool("isAttacking", false);
     }
 }

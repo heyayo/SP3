@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
     {
         rb.velocity = velocity;
         CheckLeftOrRightFacing(velocity);
-        enemyAnimator.SetTrigger("isWalking");
+        //enemyAnimator.SetTrigger("isWalking");
     }
 
     public void CheckLeftOrRightFacing(Vector2 velocity)
