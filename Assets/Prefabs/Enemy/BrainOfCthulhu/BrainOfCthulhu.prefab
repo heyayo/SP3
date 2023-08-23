@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossInit: {fileID: 11400000, guid: b7288fcfcfd7bf34a99a168e901a7254, type: 2}
+  BossID: 1
   states:
   - {fileID: 11400000, guid: e98f01d6a8ba72246ac1ed33825fa087, type: 2}
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}

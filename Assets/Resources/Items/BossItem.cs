@@ -4,11 +4,8 @@ using UnityEngine;
 public class BossItem : Item
 {
     [Header("Spawns this boss")]
-    [SerializeField]
-    private GameObject bossPrefab;
-
-    [SerializeField]
-    public string bossName;
+    [SerializeField] private BossManager.Bosses BossID;
+    [SerializeField] public string bossName;
 
     public override void Use()
     {
@@ -20,8 +17,13 @@ public class BossItem : Item
         float y = 20f * Mathf.Sin(angle);
         Vector2 spawnPos = new Vector2(x, y);
 
+        /*
         Instantiate(bossPrefab, new Vector2(playerTransform.position.x, playerTransform.position.y)
             + spawnPos, Quaternion.identity);
+         */
+        
+        BossManager.Instance.Summon(BossID,
+            new Vector2(playerTransform.position.x, playerTransform.position.y) + spawnPos);
 
         consumed.Invoke();
     }

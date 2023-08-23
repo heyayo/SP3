@@ -55,14 +55,17 @@ MonoBehaviour:
   nativeActiveRegen: 0
   activeRegen: 0
   activeMax: 0
+  nativeActiveMax: 0
   storedEnergy: 0
   nativeStoredRegen: 0
   storedRegen: 0
   storedMax: 0
+  nativeStoredMax: 0
   health: 0
   nativeRegen: 0
   regen: 0
   healthMax: 9500
+  nativeHealthMax: 0
   nativeArmour: 400
   nativeResist: 400
   effectiveArmour: 0
@@ -90,6 +93,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
     m_PersistentCalls:
       m_Calls: []
   DEBUG_EnergyDamage: 0
@@ -131,11 +143,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpDamage: 40
   activeEnergyDamage: 1200
+  nativeHPDamage: 0
+  nativeActiveEnergyDamage: 0
   armourPen: 25
   resistPen: 60
+  nativeArmourPen: 0
+  nativeResistPen: 0
   armourPenType: 2
   resistPenType: 2
   bleedOverPercentage: 40
+  nativeBleedOverPercentage: 0
 --- !u!212 &4329072901403845588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -284,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossInit: {fileID: 11400000, guid: 52ffd144da6c7234b994bbb3a635195b, type: 2}
+  BossID: 2
   states:
   - {fileID: 11400000, guid: 51ea424bbd69ece419ef9735710dbfab, type: 2}
   - {fileID: 11400000, guid: 657a8911b870099479dc558e570a11cd, type: 2}
