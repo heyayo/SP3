@@ -199,7 +199,8 @@ public class Mortality : MonoBehaviour
     public UnityEvent onArmourAdjust;
     public UnityEvent onResistAdjust;
     public UnityEvent onImmunityChange;
-    // Make UnityEvent for Armour and Resist Increase
+    public UnityEvent onAfflictionAdd;
+    public UnityEvent onAfflictionExpire;
     
     private List<Affliction> _afflictions = new List<Affliction>();
 
@@ -225,6 +226,8 @@ public class Mortality : MonoBehaviour
         onArmourAdjust = new UnityEvent();
         onResistAdjust = new UnityEvent();
         onImmunityChange = new UnityEvent();
+        onAfflictionAdd = new UnityEvent();
+        onAfflictionExpire = new UnityEvent();
     }
     
     private void Start()
@@ -248,7 +251,11 @@ public class Mortality : MonoBehaviour
             _afflictions[i].Update();
             _afflictions[i].lifetime -= Time.deltaTime;
             if (_afflictions[i].lifetime <= 0)
+            {
+                _afflictions[i].End();
                 _afflictions.RemoveAt(i);
+                onAfflictionExpire.Invoke();
+            }
         }
     }
 
@@ -256,6 +263,8 @@ public class Mortality : MonoBehaviour
     public void ApplyAffliction(Affliction affliction)
     {
         _afflictions.Add(affliction);
+        affliction.Begin();
+        onAfflictionAdd.Invoke();
     }
     
     /*
@@ -304,17 +313,23 @@ public class Mortality : MonoBehaviour
     // Apply StoredEnergyDrain Affliction (Deals True StoredEnergy Damage)
     public void DrainStoredEnergy(float cost, float rate)
     {
-        _afflictions.Add(new StoredEnergyDrain(cost,rate,this));
+        ApplyAffliction(new StoredEnergyDrain(cost,rate,this));
     }
     // Apply ActiveEnergy Affliction (Deals True ActiveEnergy Damage)
     public void DrainActiveEnergy(float cost, float rate)
     {
-        _afflictions.Add(new ActiveEnergyDrain(cost,rate,this));
+        ApplyAffliction(new ActiveEnergyDrain(cost,rate,this));
     }
     // Apply HealthDrain Affliction (Deals True Health Damage)
     public void DrainHealth(float cost, float rate)
     {
-        _afflictions.Add(new HealthDrain(cost,rate,this));
+        ApplyAffliction(new HealthDrain(cost,rate,this));
+    }
+    
+    // External Affliction Access
+    public Affliction[] GetAfflictions()
+    {
+        return _afflictions.ToArray();
     }
     
     // Calculate Damage Reduction
