@@ -72,8 +72,8 @@ public class PlanteraBulletFSM : MonoBehaviour
     {
         chaseTimer--;
 
-        FacePlayer();
-        rb.AddForce(dir * 5f);
+        //FacePlayer();
+        //rb.AddForce(dir);
 
         if (chaseTimer <= 0)
             Destroy(gameObject);

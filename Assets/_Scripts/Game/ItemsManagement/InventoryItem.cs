@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -62,6 +64,20 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             RectTransform slotTransform = transform.parent.GetComponent<RectTransform>();
             Vector3 centerPosition = slotTransform.position;
             transform.position = centerPosition;
+
+            // Raycast to find the InventorySlot under the mouse cursor
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
+            foreach (RaycastResult result in results)
+            {
+                // Check if the raycast hit an InventorySlot
+                InventorySlot targetSlot = result.gameObject.GetComponent<InventorySlot>();
+                if (targetSlot != null)
+                {
+                    targetSlot.OnDropItem(this);
+                    return;
+                }
+            }
         }
     }
 

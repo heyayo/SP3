@@ -34,8 +34,7 @@ public class FloaterFSM : MonoBehaviour
         EnterState(STATES.FLOATING);
 
         gameObject.GetComponent<Mortality>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        playerMortality = GameObject.FindGameObjectWithTag("Player").GetComponent<Mortality>();
+        playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
     }
 

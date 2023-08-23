@@ -17,32 +17,25 @@ public class BOCCloneFSM : MonoBehaviour
     }
 
     private STATES currentState;
-    private Mortality mortality;
     private Transform playerTransform;
     private Mortality playerMortality;
 
     // Private variables
     Vector2 dir;
     Rigidbody2D rb;
-    private Animator animator;
     private float rotatedAmount;
     private SpriteRenderer sr;
 
     // Disappear and chase variables
     private int chaseTimer;
 
-    // Hitbox stats
-    Vector2 hitboxPos;
-
     private void Start()
     {
         EnterState(STATES.CHASE);
 
         gameObject.GetComponent<Mortality>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        playerMortality = GameObject.FindGameObjectWithTag("Player").GetComponent<Mortality>();
+        playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         sr = gameObject.GetComponent<SpriteRenderer>();
 
         sr.color *= new Color(1, 1, 1, opacity);  // Set opacity

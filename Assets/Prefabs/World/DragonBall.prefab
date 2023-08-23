@@ -9,14 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8361526108113381314}
-  - component: {fileID: 7052478871422578810}
   - component: {fileID: 8330005161448764117}
   - component: {fileID: 2932941308794736199}
   - component: {fileID: -8632007439250349572}
   - component: {fileID: -4883098627630244491}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: DragonBall
-  m_TagString: Untagged
+  m_TagString: DragonBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,18 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7052478871422578810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4663716831438561357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15fae542b32979b06b72d46221248c46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8330005161448764117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e1ca15b29f79343ae176e7b69ac1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 1d1bc8c481676d8498eb7f1217a1aed1, type: 2}
+  item: {fileID: 11400000, guid: a402a919e7498f041800de288fbf6d3f, type: 2}
 --- !u!212 &2932941308794736199
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -61,7 +61,6 @@ public class BossFSM : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(currentIndex);
         // Always check if can transform
         doTransform();
 
@@ -110,7 +109,7 @@ public class BossFSM : MonoBehaviour
                     currentState = states[currentIndex - 1];
                     currentState.EnterState();
 
-                    currentState.isTransformState = false;  // So it no longer checks for transformation on this state
+                    //currentState.isTransformState = false;  // So it no longer checks for transformation on this state
                     break;
                 }
             }

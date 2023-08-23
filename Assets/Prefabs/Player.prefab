@@ -417,7 +417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2552985080041677374
 Transform:
   m_ObjectHideFlags: 0
@@ -1060,7 +1060,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MortalityScript>k__BackingField: {fileID: 0}
-  <InteractorScript>k__BackingField: {fileID: 0}
   <MovementScript>k__BackingField: {fileID: 0}
   <AnimationScript>k__BackingField: {fileID: 0}
   hood: {fileID: 7605803115173508422}
@@ -1230,7 +1229,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5674558161679562206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d3f3b464ad99518da88c0bd37c338e2, type: 3}
   m_Name: 
@@ -2048,7 +2047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1587806990817025532
 Transform:
   m_ObjectHideFlags: 0

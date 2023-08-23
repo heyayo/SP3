@@ -9,6 +9,7 @@ public class PickupItem : MonoBehaviour
     private InventoryManager inventoryManager;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
+    private bool canBePickedUp = true;
 
     private void Awake()
     {
@@ -42,8 +43,18 @@ public class PickupItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (item == null) return;
+        if (!canBePickedUp)
+            return;
+
         inventoryManager.Add(item);
+        canBePickedUp = false;
         Destroy(gameObject);
+    }
+
+    public void Setup(Item item)
+    {
+        this.item = item;
+        SetSprite(item.itemSprite);
+        this.item.Setup(gameObject);
     }
 }

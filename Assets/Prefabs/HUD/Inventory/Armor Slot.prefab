@@ -115,8 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: {fileID: 0}
   descriptionImg: {fileID: 0}
-  <HeldItem>k__BackingField: {fileID: 0}
-  equipType: 0
+  isArmorSlot: 1
   slotEdited:
     m_PersistentCalls:
       m_Calls: []
