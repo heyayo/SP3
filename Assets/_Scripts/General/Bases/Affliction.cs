@@ -13,7 +13,6 @@ public abstract class Affliction
         lifetime = pLifetime;
         target = pTarget;
         icon = Resources.Load<Sprite>("Sprites/Items/null");
-        Debug.Log(icon);
     }
     public abstract void Begin();
     public abstract void Update();
