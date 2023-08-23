@@ -185,8 +185,7 @@ MonoBehaviour:
   environmentMap: {fileID: 0}
   grassTile: {fileID: 11400000, guid: 6c4ad8253c5ee5883859f77326bde695, type: 2}
   waterTile: {fileID: 11400000, guid: d361de0c68363376e992e8bb3ee2ccf3, type: 2}
-  environmentTiles:
-  - {fileID: 21300000, guid: b2a094aca21120846abfad9e2a4f1946, type: 3}
+  tallGrassTile: {fileID: 0}
   forestTree: {fileID: 103373115393753852, guid: 754db950b5c3c1f84a6a3fda1c01d71a, type: 3}
   seedFloat: 0
   onWorldBeginGen:
@@ -207,9 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278f526bc762a4c0b9d729de43c522a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fragmentPrefab: {fileID: 4663716831438561357, guid: 93233b408c42b2a0fb0efd2177a9e1cd, type: 3}
+  fragmentPrefab: {fileID: 8330005161448764117, guid: 93233b408c42b2a0fb0efd2177a9e1cd, type: 3}
   fragmentSprites: []
-  fragments: []
 --- !u!1 &4931133808235743222
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public abstract class Interactable : MonoBehaviour
         {
             Vector2 d2p = _player.position - transform.position;
             float d2pf = d2p.magnitude;
-            if (d2pf <= 3)
+            if (d2pf <= 6)
                 OnInteract();
         }
     }
