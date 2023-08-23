@@ -32,18 +32,21 @@ public class Mortality : MonoBehaviour
     [SerializeField] private float nativeActiveRegen;
     [SerializeField] private float activeRegen;
     [SerializeField] private float activeMax;
+    [SerializeField] private float nativeActiveMax;
 
     [Header("Stored Energy")]
     [SerializeField] private float storedEnergy;
     [SerializeField] private float nativeStoredRegen;
     [SerializeField] private float storedRegen;
     [SerializeField] private float storedMax;
+    [SerializeField] private float nativeStoredMax;
 
     [Header("Health")]
     [SerializeField] private float health;
     [SerializeField] private float nativeRegen;
     [SerializeField] private float regen;
     [SerializeField] private float healthMax;
+    [SerializeField] private float nativeHealthMax;
 
     [Header("Resistances")] 
     [SerializeField] private float nativeArmour;
@@ -111,17 +114,32 @@ public class Mortality : MonoBehaviour
     public float __NativeHealthRegen
     {
         get => nativeRegen;
-        set { nativeRegen = value; }
+        set
+        {
+            float delta = value - nativeRegen;
+            regen += delta;
+            nativeRegen = value;
+        }
     }
     public float __NativeStoredRegen
     {
         get => nativeStoredRegen;
-        set { nativeStoredRegen = value; }
+        set
+        {
+            float delta = value - nativeStoredRegen;
+            storedRegen += delta;
+            nativeStoredRegen = value;
+        }
     }
     public float __NativeActiveRegen
     {
         get => nativeActiveRegen;
-        set { nativeActiveRegen = value; }
+        set
+        {
+            float delta = value - nativeActiveRegen;
+            activeRegen += delta;
+            nativeActiveRegen = value;
+        }
     }
     
     // Max Stat Properties
@@ -140,6 +158,36 @@ public class Mortality : MonoBehaviour
     {
         get => activeMax;
         set { activeMax = value; }
+    }
+    public float __NativeHealthMax
+    {
+        get => nativeHealthMax;
+        set
+        {
+            float delta = value - nativeHealthMax;
+            __HealthMax += delta;
+            nativeHealthMax = value;
+        }
+    }
+    public float __NativeStoredEnergyMax
+    {
+        get => nativeStoredMax;
+        set
+        {
+            float delta = value - nativeStoredMax;
+            __StoredEnergyMax += delta;
+            nativeStoredMax = value;
+        }
+    }
+    public float __NativeActiveEnergyMax
+    {
+        get => nativeActiveMax;
+        set
+        {
+            float delta = value - nativeActiveMax;
+            __ActiveEnergyMax += delta;
+            nativeActiveMax = value;
+        }
     }
 
     // Resistances Properties
