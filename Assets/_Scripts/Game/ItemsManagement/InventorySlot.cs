@@ -40,7 +40,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
             // Swap items between the slots
             else
             {
-                if (!existingItem.transform.parent.GetComponent<InventorySlot>().isArmorSlot &&
+                if (draggedItem.transform.parent.GetComponent<InventorySlot>().isArmorSlot &&
                     existingItem.item.EquipType != Item.EQUIPTYPE.EQUIPPABLE)
                     return;
 
