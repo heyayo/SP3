@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
     public bool isInStrikingDistance { get; set; }
 
     #endregion
-
+        
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

@@ -37,4 +37,16 @@ public class Item : ScriptableObject
     {
         Debug.Log("This Item does not have a use");
     }
+
+    public Item Clone()
+    {
+        Item clone = Instantiate(this);
+        clone.name = this.name; // Ensure the clone has the same name as the original
+        return clone;
+    }
+
+    public virtual void Setup(GameObject pickupItem)
+    {
+        
+    }
 }

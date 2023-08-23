@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MinotaurTwo : Enemy
 {
+    [HideInInspector] public Vector2 spawnLocation;
     // Additional States
     public MinoIdleState IdleState;
     public MinoChaseState ChaseState;
@@ -11,8 +12,7 @@ public class MinotaurTwo : Enemy
     public Transform target;
         
     public float moveSpeed = 8;
-    public float wanderRange = 8;
-    public Vector2 spawnLocation;
+    public float wanderRange = 20;
 
     private Vector3 _originalScale;
     private int _moveSpeedHash;

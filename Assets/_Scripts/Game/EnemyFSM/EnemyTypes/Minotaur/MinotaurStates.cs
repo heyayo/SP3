@@ -17,28 +17,34 @@ public class MinoIdleState : EnemyState
 
     public override void EnterState()
     {
-        Debug.Log("Enter Minotaur Idle State");
+        //Debug.Log("Enter Minotaur Idle State");
         _targetPos = GetRandomPointInCircle();
         _direction = (_targetPos - _minotaur.transform.position).normalized; // Calculate the unit vector from player to enemy
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exit Minotaur Idle State");
+        //Debug.Log("Exit Minotaur Idle State");
     }
 
     public override void FrameUpdate()
     {
-        Vector2 d2p = _minotaur.target.position - _minotaur.transform.position;
-        float d2pf = d2p.magnitude;
-        if (d2pf <= 10)
+        #region Old Code
+        //Vector2 d2p = _minotaur.target.position - _minotaur.transform.position;
+        //float d2pf = d2p.magnitude;
+        //if (d2pf <= 10)
+        //{
+        //    _stateMachine.ChangeState(_minotaur.ChaseState);
+        //}
+        #endregion
+        //Debug.Log("IS AGGROED IS: " + _minotaur.isAggroed);
+        if (_minotaur.isAggroed)
         {
-            _stateMachine.ChangeState(_minotaur.ChaseState);
+            _minotaur.stateMachine.ChangeState(_minotaur.ChaseState);
         }
-
         if (_minotaur.Mortality.Health <= 50)
         {
-            _stateMachine.ChangeState(_minotaur.HealState);
+            _minotaur.stateMachine.ChangeState(_minotaur.HealState);
         }
 
         if ((_minotaur.transform.position - _targetPos).sqrMagnitude < 0.01f)
@@ -84,14 +90,14 @@ public class MinoChaseState : EnemyState
 
     public override void FrameUpdate()
     {
-        Vector2 d2p = _minotaur.target.position - _minotaur.transform.position;
-        float d2pf = d2p.magnitude;
-        if (d2pf <= 3)
+        if (_minotaur.isInStrikingDistance)
         {
-            _stateMachine.ChangeState(_minotaur.AttackState);
+            _minotaur.stateMachine.ChangeState(_minotaur.AttackState);
         }
-        if (d2pf >= 10)
-            _stateMachine.ChangeState(_minotaur.IdleState);
+        if (!_minotaur.isAggroed)
+        {
+            _minotaur.stateMachine.ChangeState(_minotaur.IdleState);
+        }
     }
 
     public override void PhysicsUpdate()
@@ -131,7 +137,7 @@ public class MinoAttackState : EnemyState
     {
         if (canLeave)
         {
-            _stateMachine.ChangeState(_minotaur.ChaseState);
+            _minotaur.stateMachine.ChangeState(_minotaur.ChaseState);
         }
     }
 
@@ -146,7 +152,7 @@ public class MinoAttackState : EnemyState
     private async Task WaitABit()
     {
         Debug.Log("ATTACK");
-        await Task.Delay(2000);
+        await Task.Delay(1000);
         Debug.Log("ATTACK OVER");
         canLeave = true;
     }

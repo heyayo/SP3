@@ -9,22 +9,16 @@ public class EnemyAggroCheck : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = PlayerManager.Instance.gameObject;
         _enemy = GetComponentInParent<Enemy>(); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == player)
-        {
-            _enemy.SetAggroStatus(true);
-        }
+        _enemy.SetAggroStatus(true);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject == player)
-        {
-            _enemy.SetAggroStatus(false);
-        }
+         _enemy.SetAggroStatus(false);
     }
 }
