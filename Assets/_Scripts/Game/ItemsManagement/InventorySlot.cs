@@ -5,10 +5,12 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
+public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] protected TMP_Text description;
     [SerializeField] protected Image descriptionImg;
+
+    public bool isArmorSlot = false;  // Hardcode to check, find a better fix if have time
 
     public Image img
     {
@@ -21,10 +23,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
         return GetComponentInChildren<InventoryItem>();
     }
 
-    virtual public void OnDrop(PointerEventData eventData)
+    virtual public void OnDropItem(InventoryItem draggedItem)
     {
-        InventoryItem draggedItem = eventData.pointerDrag.GetComponent<InventoryItem>();
-
         // There's an item being dragged
         if (draggedItem != null)
         {
@@ -40,12 +40,21 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
             // Swap items between the slots
             else
             {
-                Transform oldParent = draggedItem.parentAfterDrag;
-                draggedItem.parentAfterDrag = existingItem.parentAfterDrag;
-                existingItem.parentAfterDrag = oldParent;
+                if (draggedItem.transform.parent.GetComponent<InventorySlot>().isArmorSlot &&
+                    existingItem.item.EquipType != Item.EQUIPTYPE.EQUIPPABLE)
+                    return;
 
-                draggedItem.transform.SetParent(existingItem.parentAfterDrag);
-                existingItem.transform.SetParent(oldParent);
+                Transform draggeditemParent = draggedItem.transform.parent;
+                Transform existingitemParent = existingItem.transform.parent;
+
+                existingItem.parentAfterDrag = draggeditemParent;
+                draggedItem.parentAfterDrag = existingitemParent;
+
+                existingItem.transform.SetParent(draggeditemParent);
+                draggedItem.transform.SetParent(existingitemParent);
+
+                existingItem.transform.position = draggeditemParent.position;
+                draggedItem.transform.position = existingitemParent.position;
             }
         }
 

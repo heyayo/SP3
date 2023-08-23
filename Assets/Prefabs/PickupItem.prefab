@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5615826400547517501}
   - component: {fileID: 8788482475389405746}
   - component: {fileID: 5363783134489771515}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PickupItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

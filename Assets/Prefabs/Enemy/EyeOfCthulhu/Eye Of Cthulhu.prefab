@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5035288113788546619}
   - component: {fileID: 4105138690058095621}
   - component: {fileID: -3647736539750749664}
+  - component: {fileID: 603751215503075951}
   m_Layer: 0
   m_Name: Eye Of Cthulhu
   m_TagString: Untagged
@@ -155,14 +156,17 @@ MonoBehaviour:
   nativeActiveRegen: 0
   activeRegen: 0
   activeMax: 0
+  nativeActiveMax: 0
   storedEnergy: 0
   nativeStoredRegen: 0
   storedRegen: 0
   storedMax: 0
+  nativeStoredMax: 0
   health: 0
   nativeRegen: 0
   regen: 0
   healthMax: 1200
+  nativeHealthMax: 0
   nativeArmour: 60
   nativeResist: 60
   effectiveArmour: 0
@@ -190,6 +194,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
     m_PersistentCalls:
       m_Calls: []
   DEBUG_EnergyDamage: 0
@@ -236,11 +249,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpDamage: 0
   activeEnergyDamage: 120
+  nativeHPDamage: 0
+  nativeActiveEnergyDamage: 0
   armourPen: 15
   resistPen: 15
+  nativeArmourPen: 0
+  nativeResistPen: 0
   armourPenType: 2
   resistPenType: 2
   bleedOverPercentage: 25
+  nativeBleedOverPercentage: 0
 --- !u!58 &4105138690058095621
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -291,3 +309,19 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
+--- !u!114 &603751215503075951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222542775091152465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
+  items:
+  - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
+  chances: 64000000

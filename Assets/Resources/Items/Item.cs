@@ -32,8 +32,13 @@ public class Item : ScriptableObject
             consumed = new UnityEvent();
     }
 
+    virtual public void WhileHolding()
+    {
+
+    }
+
     // Virtual function
-    public virtual void Use()
+    virtual public void Use()
     {
         Debug.Log("This Item does not have a use");
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ServantOfCthulhuFSM : MonoBehaviour
@@ -34,6 +32,13 @@ public class ServantOfCthulhuFSM : MonoBehaviour
         playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
+        mortality.onHealthZero.AddListener(Death);
+    }
+
+    private void Death()
+    {
+        Destroy(gameObject);
     }
 
     private void FixedUpdate()

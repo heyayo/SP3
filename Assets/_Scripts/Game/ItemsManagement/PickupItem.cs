@@ -45,7 +45,7 @@ public class PickupItem : MonoBehaviour
     {
         if (!canBePickedUp)
             return;
-
+        
         inventoryManager.Add(item);
         canBePickedUp = false;
         Destroy(gameObject);
