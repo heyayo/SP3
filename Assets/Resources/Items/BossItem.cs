@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Items/Boss Item")]
@@ -9,20 +7,13 @@ public class BossItem : Item
     [SerializeField]
     private GameObject bossPrefab;
 
-    private Transform playerTransform; // Reference to the player's transform
-
-    private void OnEnable()
-    {
-        // Find and assign the player's transform using the tag "Player"
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
-        {
-            playerTransform = playerObject.transform;
-        }
-    }
+    [SerializeField]
+    public string bossName;
 
     public override void Use()
     {
+        Transform playerTransform = PlayerManager.Instance.transform;
+
         // Spawn Randomly around player
         float angle = Random.Range(0f, 360f);
         float x = 20f * Mathf.Cos(angle);

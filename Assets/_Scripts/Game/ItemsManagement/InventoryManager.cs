@@ -42,6 +42,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot.GetHeldItem() == null)
             {
+                Debug.Log("PICKUP");
                 SpawnNewItem(item, slot);
                 return;
             }
@@ -75,7 +76,7 @@ public class InventoryManager : MonoBehaviour
     private void SpawnNewItem(Item item, InventorySlot slot)
     {
         InventoryItem inventoryItem = Instantiate(inventoryItemPrefab, slot.transform);
-        inventoryItem.InitializeItem(item);
+        inventoryItem.InitializeItem(item.Clone());
     }
 
     private void DropItem(Item item)

@@ -8,7 +8,7 @@ public class BOCTeleport : BossState
     private int timeInvisible;
     private bool teleported;
     private int previousRng;
-    private float opacity = 1f;
+    private float opacity;
 
     override public void EnterState()
     {
@@ -17,7 +17,9 @@ public class BOCTeleport : BossState
 
         // Opacity is reduced only when the brain is in enraged mode
         if (mortality.Health <= mortality.__HealthMax / 2)
-            opacity = 0.7f;
+            opacity = 0.6f + (mortality.Health / mortality.__HealthMax) / 2;
+        else
+            opacity = 1f;
     }
 
     override public bool DoState()

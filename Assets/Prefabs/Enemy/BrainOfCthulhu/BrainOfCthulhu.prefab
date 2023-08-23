@@ -16,13 +16,14 @@ GameObject:
   - component: {fileID: 5505460586577807647}
   - component: {fileID: 6250245784602867205}
   - component: {fileID: 8282469030179773914}
+  - component: {fileID: -4580236234692113790}
   m_Layer: 0
   m_Name: BrainOfCthulhu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &416076381920605609
 Transform:
   m_ObjectHideFlags: 0
@@ -278,3 +279,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &-4580236234692113790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948531592001244772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.1
+  immune: 0

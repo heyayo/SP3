@@ -13,16 +13,15 @@ MonoBehaviour:
   m_Name: LongSword
   m_EditorClassIdentifier: 
   itemName: Long Sword
-  itemSprite: {fileID: 21300000, guid: 45a9674d788668940ac26298541c4755, type: 3}
+  itemSprite: {fileID: 21300000, guid: f4ab8771888ff504c9619e882eb78980, type: 3}
   itemDescription: 'Long Sword:
 
-    Much more reliable than the makeshift wooden
-    sword.
-
-'
-  EquipType: 0
+    Reliable iron sword.'
+  EquipType: 1
+  health: 0
   armor: 0
   resist: 0
+  attack: 10
   consumed:
     m_PersistentCalls:
       m_Calls: []

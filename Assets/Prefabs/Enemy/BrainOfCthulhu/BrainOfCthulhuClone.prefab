@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 89944322685959117}
   - component: {fileID: 7366817579502344289}
   - component: {fileID: 5353361528195015525}
+  - component: {fileID: -6584038826735476024}
   m_Layer: 0
   m_Name: BrainOfCthulhuClone
   m_TagString: Untagged
@@ -159,6 +160,15 @@ MonoBehaviour:
   onStoredEnergyAdjust:
     m_PersistentCalls:
       m_Calls: []
+  onArmourAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onResistAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
   DEBUG_EnergyDamage: 0
   DEBUG_EnergyPierce: 0
   DEBUG_EnergyPierceType: 0
@@ -167,6 +177,8 @@ MonoBehaviour:
   DEBUG_HealthPierceType: 0
   DEBUG_AdjustedArmour: 0
   DEBUG_AdjustedResist: 0
+  DEBUG_AddArmour: 0
+  DEBUG_AddResist: 0
 --- !u!95 &7366817579502344289
 Animator:
   serializedVersion: 5
@@ -204,3 +216,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   opacity: 0.7
+--- !u!114 &-6584038826735476024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4402271865196467914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.1
+  immune: 0

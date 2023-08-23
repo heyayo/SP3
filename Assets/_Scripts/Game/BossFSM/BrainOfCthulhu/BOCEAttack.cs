@@ -11,12 +11,13 @@ public class BOCEAttack : BossState
     private int attackTimer;
     private int attackCount;
     private int previousRng;
-    private float opacity = 0.7f;
+    private float opacity;
 
     override public void EnterState()
     {
         attackTimer = 50;
         attackCount = 0;
+        opacity = 0.6f + (mortality.Health / mortality.__HealthMax) / 2;
     }
 
     override public bool DoState()

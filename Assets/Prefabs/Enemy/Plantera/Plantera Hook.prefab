@@ -237,6 +237,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   planteraTransform: {fileID: 0}
+  animator: {fileID: 1845912230485008177}
 --- !u!58 &1621165330115545068
 CircleCollider2D:
   m_ObjectHideFlags: 0

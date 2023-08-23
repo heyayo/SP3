@@ -12,19 +12,18 @@ public class Item : ScriptableObject
 
     [Header("Equipment")]
     [SerializeField] public EQUIPTYPE EquipType;
+    [SerializeField] public float health = 0f;
     [SerializeField] public float armor = 0f;
     [SerializeField] public float resist = 0f;
+    [SerializeField] public float attack = 0f;
 
+    [HideInInspector]
     public UnityEvent consumed;
 
     public enum EQUIPTYPE
     { 
         NONE,
-        HEAD,
-        CHEST,
-        LEGS,
-        FEET,
-        PET
+        EQUIPPABLE
     }
 
     private void OnEnable()
@@ -37,6 +36,13 @@ public class Item : ScriptableObject
     public virtual void Use()
     {
         Debug.Log("This Item does not have a use");
+    }
+
+    public Item Clone()
+    {
+        Item clone = Instantiate(this);
+        clone.name = this.name; // Ensure the clone has the same name as the original
+        return clone;
     }
 
     public virtual void Setup(GameObject pickupItem)

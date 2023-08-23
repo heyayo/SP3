@@ -25,3 +25,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   bossPrefab: {fileID: 7222542775091152465, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+  bossName: EyeOfCthulhu
