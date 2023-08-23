@@ -18,6 +18,7 @@ public class BatEnemy : Enemy
     public BatChase ChaseState;
     public BatAttack AttackState;
     public BatBleed BleedState;
+    public BatTourettes TourettesState;
 
     [field:Header("State Settings")]
     public float wanderRange = 8f;
@@ -42,6 +43,8 @@ public class BatEnemy : Enemy
         ChaseState = new BatChase(this, stateMachine);
         AttackState = new BatAttack(this, stateMachine);
         BleedState = new BatBleed(this, stateMachine);
+        TourettesState = new BatTourettes(this, stateMachine);
+        Mortality.Health = 80;
     }
 
     // Start is called before the first frame update
