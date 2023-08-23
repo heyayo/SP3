@@ -44,9 +44,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
                     existingItem.item.EquipType != Item.EQUIPTYPE.EQUIPPABLE)
                     return;
 
-                Debug.Log("INVEN PRO");
-
-
                 Transform draggeditemParent = draggedItem.transform.parent;
                 Transform existingitemParent = existingItem.transform.parent;
 
