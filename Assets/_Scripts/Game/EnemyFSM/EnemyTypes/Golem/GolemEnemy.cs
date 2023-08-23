@@ -48,10 +48,8 @@ public class GolemEnemy : Enemy
         target = PlayerManager.Instance.transform;
         spawnLocation = transform.position;
         _originalScale = transform.localScale;
-        //anim = GetComponent<Animator>();
         _damageSource = GetComponent<DamageSource>();
         _sr = GetComponent<SpriteRenderer>();
         stateMachine.Init(IdleState);
-        //stateMachine.Init(BleedState);
     }
 }

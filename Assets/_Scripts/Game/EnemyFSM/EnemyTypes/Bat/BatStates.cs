@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Threading.Tasks;
 [SerializeField]
 public class BatIdle : EnemyState
 {
@@ -34,12 +35,17 @@ public class BatIdle : EnemyState
             _targetPos = GetRandomPointInCircle();
             _direction = (_targetPos - _bat.transform.position).normalized; // Calculate the unit vector from player to enemy
         }
+        if (_bat.Mortality.Health <= 50)
+        {
+            _bat.stateMachine.ChangeState(_bat.TourettesState);
+        }
     }
 
     public override void PhysicsUpdate()
     {
         _direction = (_targetPos - _bat.transform.position).normalized; // Calculate the unit vector from player to enemy
         _bat.MoveEnemy(_direction * _bat.moveSpeed);
+        _bat.CheckLeftOrRightFacing(_direction);
     }
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
@@ -81,13 +87,17 @@ public class BatChase : EnemyState
         {
            _bat.stateMachine.ChangeState(_bat.AttackState);
         }
+        if (_bat.Mortality.Health <= 50)
+        {
+            _bat.stateMachine.ChangeState(_bat.TourettesState);
+        }
     }
 
     public override void PhysicsUpdate()
     {
         _direction = (_bat.target.position - _bat.transform.position).normalized;
-
         _bat.MoveEnemy(_direction * _bat.moveSpeed);
+        _bat.CheckLeftOrRightFacing(_direction);
     }
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
@@ -131,6 +141,10 @@ public class BatAttack : EnemyState
         {
             _bat.exitTimer = 0f;
         }
+        if (_bat.Mortality.Health <= 40)
+        {
+            _bat.stateMachine.ChangeState(_bat.TourettesState);
+        }
     }
 
     public override void PhysicsUpdate()
@@ -156,11 +170,52 @@ public class BatAttack : EnemyState
     }
 }
 
+public class BatTourettes : EnemyState
+{
+    private BatEnemy _bat;
+    private float _rotationSpeed = 500f;
+    private Vector3 _rotateAmount = new Vector3( 0f, 0f, 45f );
+    public BatTourettes(BatEnemy bat, EnemyStateMachine stateMachine) : base(stateMachine)
+    {
+        _bat = bat;
+    }
+
+    public override void EnterState()
+    {
+        Debug.Log("ENTERED THE TOURETTES STATE");
+        WaitForTourettesState();
+    }
+
+    public override void ExitState()
+    {
+        Debug.Log("EXITED THE TOURETTES STATE");
+    }
+
+    public override void FrameUpdate()
+    {
+        _bat.transform.Rotate(_rotateAmount * _rotationSpeed * Time.deltaTime);
+        if (_rotateAmount.z >= 45) _rotateAmount.z = -Mathf.Abs(_rotateAmount.z);
+    }
+
+    public override void PhysicsUpdate()
+    {
+    }
+    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    {
+
+    }
+    private async Task WaitForTourettesState()
+    {
+        await Task.Delay(4000);
+        _bat.stateMachine.ChangeState(_bat.BleedState);
+    }
+}
+
 public class BatBleed : EnemyState
 {
     public BatEnemy _bat;
     private Vector2 _direction;
-    private float _shootTimer = 0f;
+    bool isLunging = false;
     public BatBleed(BatEnemy bat, EnemyStateMachine stateMachine) : base(stateMachine)
     {
         _bat = bat;
@@ -172,6 +227,7 @@ public class BatBleed : EnemyState
         _bat.bulletPrefab.gameObject.SetActive(false);
         _bat._damageSource.bleedOverPercentage = 40;
         _bat._sr.color = Color.red;
+        _bat.transform.rotation = Quaternion.identity;
         _bat.bulletSpeed *= 2f;
     }
 
@@ -182,37 +238,24 @@ public class BatBleed : EnemyState
 
     public override void FrameUpdate()
     {
-        if (_bat.isInStrikingDistance)
-        {
-            _bat.MoveEnemy(Vector2.zero);
-        }
-        else
-        {
-            _bat.MoveEnemy(_direction * (_bat.moveSpeed / 2));
-        }
+        _direction = (_bat.target.position - _bat.transform.position).normalized;
     }
 
     public override void PhysicsUpdate()
     {
-        if (_shootTimer >= _bat.timeBetweenShots)
+        _bat.CheckLeftOrRightFacing(_direction);
+        if (!isLunging)
         {
-            _bat.bulletPrefab.gameObject.SetActive(true);
-            Rigidbody2D bullet = GameObject.Instantiate(_bat.bulletPrefab, _bat.transform.position, Quaternion.identity);
-            Vector2 dir = (_bat.target.position - _bat.transform.position).normalized;
-
-            bullet.velocity = dir * _bat.bulletSpeed;
-            _shootTimer = 0f;
+            _bat.rb.AddForce(_direction * 100, ForceMode2D.Impulse);
+            WaitForLunge();
         }
-        else
-        {
-            _bat.bulletPrefab.gameObject.SetActive(false);
-        }
-        _shootTimer += Time.deltaTime;
-        _direction = (_bat.target.position - _bat.transform.position).normalized;
-        _bat.MoveEnemy(_direction * (_bat.moveSpeed / 2));
     }
-
-
+    private async void WaitForLunge()
+    {
+        isLunging = true;
+        await Task.Delay(2000);
+        isLunging = false;
+    }
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
 

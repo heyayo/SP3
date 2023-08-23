@@ -7,6 +7,7 @@ public class MinotaurTwo : Enemy
     public MinoIdleState IdleState;
     public MinoChaseState ChaseState;
     public MinoAttackState AttackState; // Reuse Generic Attack State cause no specialization
+    public MinoFleeState FleeState;
     public MinoHealState HealState;
 
     public Transform target;
@@ -24,6 +25,7 @@ public class MinotaurTwo : Enemy
         ChaseState = new MinoChaseState(this,stateMachine);
         AttackState = new MinoAttackState(this,stateMachine);
         HealState = new MinoHealState(this,stateMachine);
+        FleeState = new MinoFleeState(this, stateMachine);
 
         _moveSpeedHash = Animator.StringToHash("moveSpeed");
     }
