@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DamageSource : MonoBehaviour
 {
@@ -12,18 +13,21 @@ public class DamageSource : MonoBehaviour
     public Mortality.PierceType resistPenType;
     [Header("Energy Damage Bleed Over Percentage")]
     public float bleedOverPercentage;
-    private void Start()
-    {
-        bleedOverPercentage = 0f;
-    }
+    
+    public delegate Affliction[] Afflicter();
+    public Afflicter afflicter = null;
+    
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.tag);
         if (other.CompareTag("Damagable"))
         {
-            Debug.Log(gameObject + "IS GETTING HIT");
             var dmg = other.GetComponent<Damagable>();
             dmg.TakeDamage(gameObject,hpDamage,armourPen,armourPenType,activeEnergyDamage,resistPen,resistPenType,bleedOverPercentage);
+            if (afflicter != null)
+            {
+                var afflictions = afflicter();
+                dmg.TakeAfflictions(afflictions);
+            }
         }
     }
 }

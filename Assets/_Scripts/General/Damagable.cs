@@ -31,6 +31,12 @@ public class Damagable : MonoBehaviour
         WaitImmunity();
     }
 
+    public void TakeAfflictions(Affliction[] afflictions)
+    {
+        foreach (var af in afflictions)
+            mortality.ApplyAffliction(af);
+    }
+
     private async Task WaitImmunity()
     {
         immune = true;
