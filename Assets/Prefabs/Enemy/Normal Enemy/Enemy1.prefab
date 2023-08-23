@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9168621658318053977}
   - component: {fileID: 5793589063633723422}
+  - component: {fileID: -1012187691616750327}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -84,3 +85,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1012187691616750327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784597489851820815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
+  items:
+  - {fileID: 11400000, guid: 2edc19f3896893741964bd00b83b49a2, type: 2}
+  - {fileID: 11400000, guid: ef5e0c3d4c4691048a0312f64384b92d, type: 2}
+  chances: 010000000a000000
