@@ -42,7 +42,7 @@ public class PickupItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (item == null) return;
+        //if (item == null) return;  // This line gives problems
         inventoryManager.Add(item);
         Destroy(gameObject);
     }

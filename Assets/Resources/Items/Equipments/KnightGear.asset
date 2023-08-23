@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590ff68ca95ca3d4eb2150b9f0eabe20, type: 3}
+  m_Name: KnightGear
+  m_EditorClassIdentifier: 
+  itemName: Knight Gear
+  itemSprite: {fileID: 21300000, guid: 128cf5c912f48074daf77827630135fc, type: 3}
+  itemDescription: 'Knight''s Gear:
+
+    Standard issue knight armor set.'
+  EquipType: 1
+  health: 0
+  armor: 40
+  resist: 5
+  attack: 0
+  consumed:
+    m_PersistentCalls:
+      m_Calls: []

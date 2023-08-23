@@ -6,10 +6,6 @@ using UnityEngine.Events;
 
 public class ArmorSlot : InventorySlot, IDropHandler, IBeginDragHandler
 {
-    [Header("Equip Type")]
-    [SerializeField]
-    private Item.EQUIPTYPE equipType;
-
     // Event
     public UnityEvent slotEdited;
     public UnityEvent slotRemove;
@@ -33,7 +29,7 @@ public class ArmorSlot : InventorySlot, IDropHandler, IBeginDragHandler
         {
             InventoryItem existingItem = GetComponentInChildren<InventoryItem>();
 
-            if (draggedItem.item.EquipType != equipType)
+            if (draggedItem.item.EquipType != Item.EQUIPTYPE.EQUIPPABLE)
                 return;
 
             // Slot is empty
