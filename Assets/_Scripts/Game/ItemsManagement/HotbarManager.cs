@@ -33,6 +33,11 @@ public class HotbarManager : MonoBehaviour
 
     void Update()
     {
+        // "Update function" for the items
+        InventoryItem activeItem = activeSlot.GetComponentInChildren<InventoryItem>();
+        if (activeItem != null)
+            activeItem.item.WhileHolding();
+
         // Changing inventory slots
         if (Input.GetKeyDown(_config.hotbar1))
             Select(1);

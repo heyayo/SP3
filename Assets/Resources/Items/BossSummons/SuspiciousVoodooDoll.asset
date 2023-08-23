@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c718699157a5ba418efdb833d5c436b, type: 3}
+  m_Name: SuspiciousVoodooDoll
+  m_EditorClassIdentifier: 
+  itemName: Suspicious Voodoo Doll
+  itemSprite: {fileID: 21300000, guid: 470adbbcbbcbfbc4ba94f6bc6765a256, type: 3}
+  itemDescription: 'Suspicious Voodoo Doll:
+
+    I wonder who''s this is.'
+  EquipType: 0
+  health: 0
+  armor: 0
+  resist: 0
+  attack: 0
+  consumed:
+    m_PersistentCalls:
+      m_Calls: []
+  bossPrefab: {fileID: 3414364164768285658, guid: 53ad406eb6f893b4ab6c4b205d733305, type: 3}
+  bossName: Skeletron
