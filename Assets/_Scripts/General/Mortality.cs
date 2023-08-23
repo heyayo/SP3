@@ -89,6 +89,8 @@ public class Mortality : MonoBehaviour
             health = value;
             health = Math.Clamp(health, 0, healthMax);
             onHealthAdjust.Invoke();
+            if (health <= 0)
+                onHealthZero.Invoke();
         }
     }
     
@@ -249,6 +251,7 @@ public class Mortality : MonoBehaviour
     public UnityEvent onImmunityChange;
     public UnityEvent onAfflictionAdd;
     public UnityEvent onAfflictionExpire;
+    public UnityEvent onHealthZero;
     
     private List<Affliction> _afflictions = new List<Affliction>();
 
@@ -276,6 +279,7 @@ public class Mortality : MonoBehaviour
         onImmunityChange = new UnityEvent();
         onAfflictionAdd = new UnityEvent();
         onAfflictionExpire = new UnityEvent();
+        onHealthZero = new UnityEvent();
     }
     
     private void Start()
