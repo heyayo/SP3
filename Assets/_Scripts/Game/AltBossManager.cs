@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossManager : MonoBehaviour
+public class AltBossManager : MonoBehaviour
 {
-    public static BossManager Instance { get; private set; }
+    public static AltBossManager Instance { get; private set; }
     private PlayerManager _player;
 
     [SerializeField] private GameObject[] bossPrefabs;

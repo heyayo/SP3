@@ -4,7 +4,7 @@ using UnityEngine;
 public class BossItem : Item
 {
     [Header("Spawns this boss")]
-    [SerializeField] private BossManager.Bosses BossID;
+    [SerializeField] private AltBossManager.Bosses BossID;
     [SerializeField] public string bossName;
 
     public override void Use()
@@ -22,7 +22,7 @@ public class BossItem : Item
             + spawnPos, Quaternion.identity);
          */
         
-        BossManager.Instance.Summon(BossID,
+        AltBossManager.Instance.Summon(BossID,
             new Vector2(playerTransform.position.x, playerTransform.position.y) + spawnPos);
 
         consumed.Invoke();

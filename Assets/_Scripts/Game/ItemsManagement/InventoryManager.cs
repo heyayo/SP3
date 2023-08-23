@@ -42,7 +42,6 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot.GetHeldItem() == null)
             {
-                Debug.Log("PICKUP");
                 SpawnNewItem(item, slot);
                 return;
             }
