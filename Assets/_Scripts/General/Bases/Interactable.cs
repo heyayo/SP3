@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
@@ -9,10 +7,12 @@ public abstract class Interactable : MonoBehaviour
     public abstract void OnMouseExit();
 
     private Configuration _config;
+    protected Mortality _mortality;
 
     private void Awake()
     {
         _config = Configuration.FetchConfig();
+        _mortality = GetComponent<Mortality>();
     }
     
     public void OnMouseOver()

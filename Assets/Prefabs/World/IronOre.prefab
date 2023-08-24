@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 156349381749962837}
   - component: {fileID: 963023056596139600}
   - component: {fileID: 3743794314911473032}
+  - component: {fileID: 7884333821008861229}
   m_Layer: 8
   m_Name: IronOre
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   chopProgress: 0
   treeStrength: 5
   yieldItem: {fileID: 11400000, guid: a827649919a9a6347893c187f831a8f0, type: 2}
+  respawnTimer: 2
 --- !u!61 &3743794314911473032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -94,6 +96,81 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7884333821008861229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804275804122456888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeEnergy: 0
+  nativeActiveRegen: 0
+  activeRegen: 0
+  activeMax: 0
+  nativeActiveMax: 0
+  storedEnergy: 0
+  nativeStoredRegen: 0
+  storedRegen: 0
+  storedMax: 0
+  nativeStoredMax: 0
+  health: 0
+  nativeRegen: 0
+  regen: 0
+  healthMax: 0
+  nativeHealthMax: 0
+  nativeArmour: 0
+  nativeResist: 0
+  effectiveArmour: 0
+  effectiveResist: 0
+  scaling:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  immune: 0
+  onHealthAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onActiveEnergyAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onStoredEnergyAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onArmourAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onResistAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
+    m_PersistentCalls:
+      m_Calls: []
+  DEBUG_EnergyDamage: 0
+  DEBUG_EnergyPierce: 0
+  DEBUG_EnergyPierceType: 0
+  DEBUG_HealthDamage: 0
+  DEBUG_HealthPierce: 0
+  DEBUG_HealthPierceType: 0
+  DEBUG_AdjustedArmour: 0
+  DEBUG_AdjustedResist: 0
+  DEBUG_AddArmour: 0
+  DEBUG_AddResist: 0
 --- !u!1 &8779553411816703406
 GameObject:
   m_ObjectHideFlags: 0

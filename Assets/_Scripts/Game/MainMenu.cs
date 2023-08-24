@@ -46,6 +46,7 @@ public class MainMenu : MonoBehaviour
             }
         }
         _options.seedString = seedInput.text;
+        Debug.Log(_options.worldSize);
         
         LoadingScreen.LoadPlayerCustomizer();
     }
@@ -63,7 +64,6 @@ public class MainMenu : MonoBehaviour
         singleplayerButton.onClick.RemoveListener(CloseWorldMenu);
         singleplayerButton.onClick.AddListener(OpenWorldMenu);
     }
-
     public void QuitGame()
     {
         Application.Quit();
