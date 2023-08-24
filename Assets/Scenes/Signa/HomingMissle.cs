@@ -64,17 +64,17 @@ public class HomingMissile : MonoBehaviour
 
     void FindClosestEnemy()
     {
-        Collider2D closestEnemy = null;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Damagable");
         float closestDistance = Mathf.Infinity;
+        GameObject closestEnemy = null;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 20.0f, enemyLayer);
-        foreach (Collider2D collider in colliders)
+        foreach (GameObject enemy in enemies)
         {
-            float distanceToEnemy = Vector2.Distance(transform.position, collider.transform.position);
+            float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < closestDistance)
             {
                 closestDistance = distanceToEnemy;
-                closestEnemy = collider;
+                closestEnemy = enemy;
             }
         }
 
@@ -91,16 +91,15 @@ public class HomingMissile : MonoBehaviour
             Vector2 currentPosition = transform.position;
             Vector2 direction = Vector2.right; // Adjust direction if needed
 
-            RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction, 1.0f, enemyLayer);
+            RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction, 1.0f);
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.CompareTag("Damagable"))
             {
                 // Check if the hit collider belongs to an enemy
                 Mortality enemy = hit.collider.GetComponent<Mortality>();
-                TargetDummyEnemy enemyui = hit.collider.GetComponent<TargetDummyEnemy>();
+
                 if (enemy != null)
                 {
-                    enemyui.TakeDamage(damageAmount);
                     hasHitEnemy = true;
                     currentState = MissileState.Hit;
                     enemy.Health -= damageAmount;

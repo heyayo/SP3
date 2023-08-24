@@ -158,7 +158,11 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
+<<<<<<< HEAD
   healthMax: 150
+=======
+  healthMax: 0
+>>>>>>> 9887bfb885653e819f69292dd2c0a12231a2e67e
   nativeHealthMax: 150
   nativeArmour: 250
   nativeResist: 250

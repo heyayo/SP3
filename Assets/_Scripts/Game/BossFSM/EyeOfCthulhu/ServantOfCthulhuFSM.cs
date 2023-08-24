@@ -35,10 +35,17 @@ public class ServantOfCthulhuFSM : MonoBehaviour
 
         mortality = GetComponent<Mortality>();
         mortality.onHealthZero.AddListener(Death);
+        GetComponent<Damagable>().hit.AddListener(HitSound);
+    }
+
+    private void HitSound()
+    {
+        SoundManager.Instance.PlaySound(1);
     }
 
     private void Death()
     {
+        SoundManager.Instance.PlaySound(3);
         Destroy(gameObject);
     }
 

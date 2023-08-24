@@ -81,7 +81,6 @@ public class BossManager : MonoBehaviour
             SoundManager.Instance.PlayBGM(0);
         }
 
-        SoundManager.Instance.PlaySound(0);
         bossList[summonedBossName].bossAlive = false;
         bossList[summonedBossName].bossDefeated = true;
         Destroy(bossList[summonedBossName].itself);

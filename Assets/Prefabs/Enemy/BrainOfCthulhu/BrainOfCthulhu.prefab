@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8282469030179773914}
   - component: {fileID: -4580236234692113790}
   - component: {fileID: 6702952746360175442}
+  - component: {fileID: 1321787344105521954}
   m_Layer: 0
   m_Name: BrainOfCthulhu
   m_TagString: Damagable
@@ -334,3 +335,28 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
   chances: 64000000
+--- !u!114 &1321787344105521954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948531592001244772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc9653ed4c90d3499490056fd6d1c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gorePrefab: {fileID: 2676641096534526394, guid: bc3cfec39b0f0c648ae66ba728756586, type: 3}
+  gore:
+  - {fileID: 21300000, guid: 8e9f0cbd8593a7a4f9d849d555a6913e, type: 3}
+  - {fileID: 21300000, guid: 3b83336740845934fa94fbfe7d89a512, type: 3}
+  - {fileID: 21300000, guid: 96d42fb81041e6642a1633fb87e9c4c0, type: 3}
+  - {fileID: 21300000, guid: 0cfba613c36ecdf48a864864c3f3f3fc, type: 3}
+  - {fileID: 21300000, guid: cfea28515b289b04aaf63325910db43d, type: 3}
+  - {fileID: 21300000, guid: 1369ed4dfdc19274ea7077c47e15fcd2, type: 3}
+  - {fileID: 21300000, guid: c77b7b20d31180a45aadc6eec947acb0, type: 3}
+  - {fileID: 21300000, guid: 32a86ea00a19d0b4fbb16a00aa77003b, type: 3}
+  - {fileID: 21300000, guid: f545da3ea28d8ff40a8b0718989a28a9, type: 3}
+  - {fileID: 21300000, guid: 3eacabefd95fff64cb1bdef760ccdc86, type: 3}
+  - {fileID: 21300000, guid: 7de3a94d15e5e194c86949a044cf3160, type: 3}
