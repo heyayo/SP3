@@ -4,22 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class ArmorSlot : InventorySlot, IBeginDragHandler
+public class ArmorSlot : InventorySlot
 {
-    // Event
-    public UnityEvent slotEdited;
-    public UnityEvent slotRemove;
-    
-    // Changed to awake to prevent usage in Start() functions before initialization
-    private void Awake()
-    {
-        if (slotEdited == null)
-            slotEdited = new UnityEvent();
-
-        if (slotRemove == null)
-            slotRemove = new UnityEvent();
-    }
-
     override public void OnDropItem(InventoryItem draggedItem)
     {
         // There's an item being dragged
@@ -55,11 +41,5 @@ public class ArmorSlot : InventorySlot, IBeginDragHandler
 
             slotEdited.Invoke();
         }
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        slotRemove.Invoke();
-        slotEdited.Invoke();
     }
 }
