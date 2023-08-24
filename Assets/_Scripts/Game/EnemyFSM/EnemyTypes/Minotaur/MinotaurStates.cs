@@ -17,7 +17,8 @@ public class MinoIdleState : EnemyState
 
     public override void EnterState()
     {
-        //Debug.Log("Enter Minotaur Idle State");
+        if (_minotaur == null) return;
+        Debug.Log("Enter Minotaur Idle State");
         _targetPos = GetRandomPointInCircle();
         _direction = (_targetPos - _minotaur.transform.position).normalized; // Calculate the unit vector from player to enemy
     }
@@ -42,7 +43,7 @@ public class MinoIdleState : EnemyState
         {
             _minotaur.stateMachine.ChangeState(_minotaur.ChaseState);
         }
-        if (_minotaur.Mortality.Health <= 50)
+        if (_minotaur.Mortality.Health <= 50f)
         {
             _minotaur.stateMachine.ChangeState(_minotaur.FleeState);
         }
@@ -51,6 +52,10 @@ public class MinoIdleState : EnemyState
         {
             _targetPos = GetRandomPointInCircle();
             _direction = (_targetPos - _minotaur.transform.position).normalized; // Calculate the unit vector from player to enemy
+        }
+        if (_minotaur.Mortality.Health <= 0f)
+        {
+            _minotaur.stateMachine.ChangeState(_minotaur.DeathState);
         }
     }
 
@@ -81,6 +86,7 @@ public class MinoChaseState : EnemyState
 
     public override void EnterState()
     {
+        if (_minotaur == null) return;
         Debug.Log("Enter Minotaur Chase State");
     }
 
@@ -102,6 +108,10 @@ public class MinoChaseState : EnemyState
         if (_minotaur.Mortality.Health <= 50)
         {
             _minotaur.stateMachine.ChangeState(_minotaur.FleeState);
+        }
+        if (_minotaur.Mortality.Health <= 0f)
+        {
+            _minotaur.stateMachine.ChangeState(_minotaur.DeathState);
         }
     }
 
@@ -129,6 +139,7 @@ public class MinoAttackState : EnemyState
 
     public override void EnterState()
     {
+        if (_minotaur == null) return;
         canLeave = false;
         WaitABit();
         _minotaur.enemyAnimator.SetTrigger("Attack");
@@ -147,6 +158,10 @@ public class MinoAttackState : EnemyState
         if (_minotaur.Mortality.Health <= 50)
         {
             _minotaur.stateMachine.ChangeState(_minotaur.FleeState);
+        }
+        if (_minotaur.Mortality.Health <= 0f)
+        {
+            _minotaur.stateMachine.ChangeState(_minotaur.DeathState);
         }
     }
 
@@ -178,6 +193,7 @@ public class MinoFleeState : EnemyState
 
     public override void EnterState()
     {
+        if (_minotaur == null) return;
         Debug.Log("Entered Flee State");
         DelayState();
     }
@@ -191,6 +207,10 @@ public class MinoFleeState : EnemyState
     {
         _direction = -(_minotaur.target.position - _minotaur.transform.position).normalized;
         _minotaur.CheckLeftOrRightFacing(_direction);
+        if (_minotaur.Mortality.Health <= 0f)
+        {
+            _minotaur.stateMachine.ChangeState(_minotaur.DeathState);
+        }
     }
 
     public override void PhysicsUpdate()
@@ -219,9 +239,11 @@ public class MinoHealState : EnemyState
 
     public override void EnterState()
     {
+        if (_minotaur == null) return;
         Debug.Log("ENTERED HEAL STATE");
         _minotaur.MoveEnemy(Vector2.zero); // Stop enemy when enter state
         _minotaur.Mortality.ApplyAffliction(new HealthHeal(50, 2, _minotaur.Mortality));
+        DetectNextState();
     }
 
     public override void ExitState()
@@ -231,7 +253,10 @@ public class MinoHealState : EnemyState
 
     public override void FrameUpdate()
     {
-
+        if (_minotaur.Mortality.Health <= 0f)
+        {
+            _minotaur.stateMachine.ChangeState(_minotaur.DeathState);
+        }
     }
 
     public override void PhysicsUpdate()
@@ -241,5 +266,54 @@ public class MinoHealState : EnemyState
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
     }
+    private async void DetectNextState()
+    {
+        await Task.Delay(2000);
+        if (_minotaur.isAggroed)
+        {
+            _minotaur.stateMachine.ChangeState(_minotaur.ChaseState);
+        }
+        else
+        {
+            _minotaur.stateMachine.ChangeState(_minotaur.IdleState);
+        }
+    }
+}
 
+public class MinoDeathState : EnemyState
+{
+    private MinotaurTwo _minotaur;
+    public MinoDeathState(MinotaurTwo minotaur, EnemyStateMachine stateMachine) : base(stateMachine)
+    {
+        _minotaur = minotaur;
+    }
+
+    public override void EnterState()
+    {
+        WaitForDeath();
+    }
+
+    public override void ExitState()
+    {
+
+    }
+
+    public override void FrameUpdate()
+    {
+    }
+
+    public override void PhysicsUpdate()
+    {
+    }
+    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    {
+
+    }
+    private async void WaitForDeath()
+    {
+        _minotaur.MoveEnemy(Vector2.zero);
+        _minotaur.enemyAnimator.SetTrigger("isDead");
+        await Task.Delay(1000);
+        GameObject.Destroy(_minotaur.gameObject);
+    }
 }

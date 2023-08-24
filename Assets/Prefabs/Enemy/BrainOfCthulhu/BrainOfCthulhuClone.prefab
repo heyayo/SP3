@@ -132,18 +132,25 @@ MonoBehaviour:
   nativeActiveRegen: 0
   activeRegen: 0
   activeMax: 0
+  nativeActiveMax: 0
   storedEnergy: 0
   nativeStoredRegen: 0
   storedRegen: 0
   storedMax: 0
+  nativeStoredMax: 0
   health: 0
   nativeRegen: 0
   regen: 0
+<<<<<<< HEAD
   healthMax: 2800
+=======
+  healthMax: 0
+>>>>>>> 9887bfb885653e819f69292dd2c0a12231a2e67e
+  nativeHealthMax: 2800
   nativeArmour: 100
   nativeResist: 100
-  effectiveArmour: 0
-  effectiveResist: 0
+  effectiveArmour: 100
+  effectiveResist: 100
   scaling:
     serializedVersion: 2
     m_Curve: []
@@ -167,6 +174,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
     m_PersistentCalls:
       m_Calls: []
   DEBUG_EnergyDamage: 0
@@ -231,3 +247,6 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []

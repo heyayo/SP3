@@ -18,17 +18,11 @@ public class BEAMHAMEHA : Item
     public float maxScale = 20f; // Maximum scale of the beam
     public float chargeRate = 70.5f; // Rate at which the beam grows
     private CameraController cameraController;
-
-    private void OnEnable()
-    {
-
-    }
     
 
     public override void WhileHolding()
     {
         firePoint = PlayerManager.Instance.gameObject.transform;
-
         cameraController = FindObjectOfType<CameraController>();
         if (cameraController == null)
         {

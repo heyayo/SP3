@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
 {
     static public SoundManager Instance;
@@ -19,7 +20,6 @@ public class SoundManager : MonoBehaviour
         Instance = this;
 
         // BGM
-        BGM = gameObject.AddComponent<AudioSource>();
         BGM.loop = true;
         PlayBGM(0);
     }

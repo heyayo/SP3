@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4105138690058095621}
   - component: {fileID: -3647736539750749664}
   - component: {fileID: 603751215503075951}
+  - component: {fileID: 5937734995611010540}
   m_Layer: 0
   m_Name: Eye Of Cthulhu
   m_TagString: Damagable
@@ -236,6 +237,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 87c946b43684bc847866501208a53f56, type: 2}
   - {fileID: 11400000, guid: 0d8d33bb5a12ea94395d78ec3a91e744, type: 2}
   - {fileID: 11400000, guid: e1c3249fb054349448e6990aa63f8910, type: 2}
+  hitSoundIndex: 1
 --- !u!114 &5035288113788546619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +313,9 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 1
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &603751215503075951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,3 +332,20 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
   chances: 64000000
+--- !u!114 &5937734995611010540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222542775091152465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc9653ed4c90d3499490056fd6d1c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gorePrefab: {fileID: 2676641096534526394, guid: bc3cfec39b0f0c648ae66ba728756586, type: 3}
+  gore:
+  - {fileID: 21300000, guid: 7bed411ad7d761e4aa9f8c7186c3ff81, type: 3}
+  - {fileID: 21300000, guid: 68727e01511481e4bbce923c6092052a, type: 3}
+  - {fileID: 21300000, guid: 14177fc79e7fe954ebcf9e449e1dd536, type: 3}

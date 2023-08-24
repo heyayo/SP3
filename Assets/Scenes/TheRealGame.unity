@@ -183,7 +183,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4177698138347769947, guid: d0b015a878cc77d32913a069940c17da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1210362728}
   m_SourcePrefab: {fileID: 100100000, guid: d0b015a878cc77d32913a069940c17da, type: 3}
 --- !u!1001 &670385482
 PrefabInstance:
@@ -725,6 +728,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3757492552347763816, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4102196765861065779, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1003,6 +1010,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7205008570055761064, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252037425773916161, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252037425773916161, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252037425773916161, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521207275545530332, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
@@ -1111,7 +1130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8524608458343320816, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 9035415779551321226, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1134,6 +1153,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+--- !u!1 &1210362723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4177698138347769947, guid: d0b015a878cc77d32913a069940c17da, type: 3}
+  m_PrefabInstance: {fileID: 316113172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &1210362728
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210362723}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!1 &1327376831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5674558161679562206, guid: f3c803d799c246f4891250d317eac094, type: 3}
+  m_PrefabInstance: {fileID: 1806666955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1327376842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327376831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05d935b36d6b0b9589c968cc27990f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 120
+  enemies:
+  - {fileID: 7222542775091152465, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+  count: 01000000
+  range: 25
 --- !u!1 &1627438326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,7 +1385,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5674558161679562206, guid: f3c803d799c246f4891250d317eac094, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1327376842}
   m_SourcePrefab: {fileID: 100100000, guid: f3c803d799c246f4891250d317eac094, type: 3}
 --- !u!1 &2126659750
 GameObject:

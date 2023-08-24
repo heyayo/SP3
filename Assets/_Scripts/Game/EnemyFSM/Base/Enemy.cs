@@ -67,6 +67,7 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
     #region Movement functions
     public void MoveEnemy(Vector2 velocity)
     {
+        if (rb == null) return;
         rb.velocity = velocity;
         CheckLeftOrRightFacing(velocity);
         //enemyAnimator.SetTrigger("isWalking");

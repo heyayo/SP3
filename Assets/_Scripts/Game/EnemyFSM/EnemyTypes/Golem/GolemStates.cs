@@ -35,6 +35,10 @@ public class GolemIdle : EnemyState
             _targetPos = GetRandomPointInCircle();
             _direction = (_targetPos - _golem.transform.position).normalized; // Calculate the unit vector from player to enemy
         }
+        if (_golem.Mortality.Health <= 0f)
+        {
+            _golem.stateMachine.ChangeState(_golem.DeathState);
+        }
         _golem.CheckLeftOrRightFacing(_direction);
     }
 
@@ -83,6 +87,10 @@ public class GolemChase : EnemyState
         {
            _golem.stateMachine.ChangeState(_golem.AttackState);
         }
+        if (_golem.Mortality.Health <= 0f)
+        {
+            _golem.stateMachine.ChangeState(_golem.DeathState);
+        }
         _golem.CheckLeftOrRightFacing(_direction);
     }
 
@@ -120,6 +128,10 @@ public class GolemAttack : EnemyState
 
     public override void FrameUpdate()
     {
+        if (_golem.Mortality.Health <= 0f)
+        {
+            _golem.stateMachine.ChangeState(_golem.DeathState);
+        }
         int rand = Random.Range(0, 2);
         if (rand == 0)
         {
@@ -167,5 +179,46 @@ public class GolemAttack : EnemyState
         _golem.spike.SetActive(true);
         //_golem.spikeAnim.SetTrigger("isSpike");
         _golem.enemyAnimator.SetBool("isAttacking", false);
+    }
+}
+
+public class GolemDeath : EnemyState
+{
+    private GolemEnemy _golem;
+    public GolemDeath(GolemEnemy golem, EnemyStateMachine stateMachine) : base(stateMachine)
+    {
+        _golem = golem;
+    }
+
+    public override void EnterState()
+    {
+        Debug.Log("ENTERED GOLEM DEATH STATE");
+        ExplodeEnemy();
+    }
+
+    public override void ExitState()
+    {
+    
+    }
+
+    public override void FrameUpdate()
+    {
+
+    }
+
+    public override void PhysicsUpdate()
+    {
+    
+    }
+    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    {
+
+    }
+    private async void ExplodeEnemy()
+    {
+        _golem.enemyAnimator.SetTrigger("isExplode");
+        await Task.Delay(2000);
+        GameObject.Destroy(_golem.gameObject);
+        GameObject.Destroy(_golem.spike);
     }
 }

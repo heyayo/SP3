@@ -19,6 +19,7 @@ public class BatEnemy : Enemy
     public BatAttack AttackState;
     public BatBleed BleedState;
     public BatTourettes TourettesState;
+    public BatDeath DeathState;
 
     [field:Header("State Settings")]
     public float wanderRange = 8f;
@@ -44,6 +45,7 @@ public class BatEnemy : Enemy
         AttackState = new BatAttack(this, stateMachine);
         BleedState = new BatBleed(this, stateMachine);
         TourettesState = new BatTourettes(this, stateMachine);
+        DeathState = new BatDeath(this, stateMachine);
         Mortality.Health = 80;
     }
 

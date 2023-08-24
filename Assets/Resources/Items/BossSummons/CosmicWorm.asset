@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Godly Worm
   itemSprite: {fileID: 21300000, guid: fdf57b00e674d804e8369a53f49a292f, type: 3}
+  droppable: 1
   itemDescription: 'Godly Worm:
 
     Extraterrastrial.'
@@ -25,5 +26,10 @@ MonoBehaviour:
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  bossPrefab: {fileID: 2979375369494042091, guid: 1e2d09ce289772a478fb29d7b3bc94ef, type: 3}
   bossName: destroyerofgods
+  bossPrefab: {fileID: 2979375369494042091, guid: 1e2d09ce289772a478fb29d7b3bc94ef, type: 3}
+  spawnSoundIndex: 0
+  bgmIndex: 4
+  summon:
+    m_PersistentCalls:
+      m_Calls: []

@@ -24,9 +24,6 @@ public class FloaterFSM : MonoBehaviour
     Vector2 dir;
     Rigidbody2D rb;
 
-    // Hitbox stats
-    Vector2 hitboxPos;
-
     private void Start()
     {
         EnterState(STATES.FLOATING);
@@ -36,7 +33,7 @@ public class FloaterFSM : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         GetComponent<Damagable>().hit.AddListener(HitSound);
-        mortality.onHealthZero.AddListener(Death);
+        GetComponent<Mortality>().onHealthZero.AddListener(Death);
     }
 
     private void HitSound()

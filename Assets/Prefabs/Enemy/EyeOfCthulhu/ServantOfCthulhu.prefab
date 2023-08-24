@@ -181,8 +181,8 @@ MonoBehaviour:
   regen: 0
   healthMax: 0
   nativeHealthMax: 10
-  nativeArmour: 0
-  nativeResist: 0
+  nativeArmour: 1
+  nativeResist: 1
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
@@ -304,3 +304,6 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []

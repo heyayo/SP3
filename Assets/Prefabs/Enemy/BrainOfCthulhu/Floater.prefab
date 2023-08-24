@@ -158,12 +158,16 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
+<<<<<<< HEAD
   healthMax: 150
-  nativeHealthMax: 0
+=======
+  healthMax: 0
+>>>>>>> 9887bfb885653e819f69292dd2c0a12231a2e67e
+  nativeHealthMax: 150
   nativeArmour: 250
   nativeResist: 250
-  effectiveArmour: 0
-  effectiveResist: 0
+  effectiveArmour: 250
+  effectiveResist: 250
   scaling:
     serializedVersion: 2
     m_Curve: []
@@ -233,6 +237,7 @@ MonoBehaviour:
   bleedOverPercentage: 0
   nativeBleedOverPercentage: 5
   isFriendly: 0
+  isHostile: 1
 --- !u!58 &475562366175048771
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -283,3 +288,6 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.25
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []

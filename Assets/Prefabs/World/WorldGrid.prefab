@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 3082778866016252737}
   - component: {fileID: 1665612374089444394}
   - component: {fileID: 1001912581213540856}
+  - component: {fileID: 4820561039903859924}
   m_Layer: 0
   m_Name: WorldGrid
   m_TagString: Untagged
@@ -209,6 +210,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragmentPrefab: {fileID: 8330005161448764117, guid: 93233b408c42b2a0fb0efd2177a9e1cd, type: 3}
   fragmentSprites: []
+--- !u!68 &4820561039903859924
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177698138347769947}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &4931133808235743222
 GameObject:
   m_ObjectHideFlags: 0

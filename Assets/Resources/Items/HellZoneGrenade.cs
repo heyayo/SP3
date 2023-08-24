@@ -19,10 +19,6 @@ public class HellZoneGrenade : Item
     private float cooldownTimer = 0f;
     private Transform player;
 
-    private void OnEnable()
-    {
-       
-    }
     public override void Use()
     {
         if (!abilityUsed && cooldownTimer <= 0f)

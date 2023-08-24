@@ -17,6 +17,7 @@ public class GolemEnemy : Enemy
     public GolemIdle IdleState;
     public GolemChase ChaseState;
     public GolemAttack AttackState;
+    public GolemDeath DeathState;
 
     [field:Header("State Settings")]
     public float wanderRange = 8f;
@@ -43,6 +44,7 @@ public class GolemEnemy : Enemy
         IdleState = new GolemIdle(this, stateMachine);
         ChaseState = new GolemChase(this, stateMachine);
         AttackState = new GolemAttack(this, stateMachine);
+        DeathState = new GolemDeath(this, stateMachine);
     }
 
     // Start is called before the first frame update
