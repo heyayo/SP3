@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Suspicious Voodoo Doll
   itemSprite: {fileID: 21300000, guid: 470adbbcbbcbfbc4ba94f6bc6765a256, type: 3}
+  droppable: 1
   itemDescription: 'Suspicious Voodoo Doll:
 
     I wonder who''s this is.'
@@ -25,5 +26,10 @@ MonoBehaviour:
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  bossPrefab: {fileID: 3414364164768285658, guid: 53ad406eb6f893b4ab6c4b205d733305, type: 3}
   bossName: Skeletron
+  bossPrefab: {fileID: 3414364164768285658, guid: 53ad406eb6f893b4ab6c4b205d733305, type: 3}
+  spawnSoundIndex: 0
+  bgmIndex: 2
+  summon:
+    m_PersistentCalls:
+      m_Calls: []

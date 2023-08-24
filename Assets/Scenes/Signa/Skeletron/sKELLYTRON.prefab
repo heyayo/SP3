@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4362474690609273023}
   - component: {fileID: 6139343951340849076}
   - component: {fileID: 2667054526903534537}
+  - component: {fileID: 8101747047010220163}
   m_Layer: 0
   m_Name: SKellyHands 1
   m_TagString: Untagged
@@ -156,6 +157,32 @@ MonoBehaviour:
   maxRotationAngle: 45
   maxVelocityMagnitude: 15
   activate: 1
+--- !u!114 &8101747047010220163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065650747699237809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 0
+  nativeHPDamage: 0
+  nativeActiveEnergyDamage: 100
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 0
+  nativeResistPen: 0
+  armourPenType: 0
+  resistPenType: 0
+  bleedOverPercentage: 5
+  nativeBleedOverPercentage: 5
+  isFriendly: 0
+  isHostile: 1
 --- !u!1 &1205574189194228344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,7 +1263,7 @@ MonoBehaviour:
   orbitRadius: 5
   orbitSpeed: 1
   waypointSwitchInterval: 5
-  Skelly: {fileID: 0}
+  Skelly: {fileID: 4787735364634832851}
 --- !u!1 &2905837190977085262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1587,7 @@ GameObject:
   - component: {fileID: 9039586926878742030}
   - component: {fileID: 928611760015736585}
   - component: {fileID: 3236212487027169961}
+  - component: {fileID: 4714582888265861507}
   m_Layer: 0
   m_Name: RIZZDEMON
   m_TagString: SkeletronHead
@@ -1703,6 +1731,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {fileID: 1896417100045145796}
+--- !u!114 &4714582888265861507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787735364634832851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 0
+  nativeHPDamage: 0
+  nativeActiveEnergyDamage: 150
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 0
+  nativeResistPen: 0
+  armourPenType: 0
+  resistPenType: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 10
+  isFriendly: 0
+  isHostile: 1
 --- !u!1 &5193080431277098344
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,6 +2440,7 @@ GameObject:
   - component: {fileID: 5410305610800061316}
   - component: {fileID: 6165528403973629045}
   - component: {fileID: 2502813223578070773}
+  - component: {fileID: 5029926009798884468}
   m_Layer: 0
   m_Name: SKellyHands 1
   m_TagString: Untagged
@@ -2529,6 +2584,32 @@ MonoBehaviour:
   maxRotationAngle: 45
   maxVelocityMagnitude: 15
   activate: 1
+--- !u!114 &5029926009798884468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9093703421504916176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 0
+  nativeHPDamage: 0
+  nativeActiveEnergyDamage: 100
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 0
+  nativeResistPen: 0
+  armourPenType: 0
+  resistPenType: 0
+  bleedOverPercentage: 5
+  nativeBleedOverPercentage: 5
+  isFriendly: 0
+  isHostile: 1
 --- !u!1 &9197255746563041844
 GameObject:
   m_ObjectHideFlags: 0
