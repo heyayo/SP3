@@ -21,17 +21,28 @@ public class HomeRunTest : MonoBehaviour
 
     private void Start()
     {
-        // Find the player object using the specified tag
         player = PlayerManager.Instance.gameObject;
-        rb = GetComponent<Rigidbody2D>();
-        initialRotation = rb.rotation;
-        targetRotation = initialRotation;
+
+        if (player == null)
+        {
+            Debug.LogError("Player object is not assigned or missing.");
+        }
+        else
+        {
+            rb = GetComponent<Rigidbody2D>();
+            initialRotation = rb.rotation;
+            targetRotation = initialRotation;
+        }
     }
 
     private void Update()
     {
-        
-        transform.position = player.transform.position;
+
+        if (player != null)
+        {
+            transform.position = player.transform.position;
+            // Rest of your code
+        }
         if (Input.GetMouseButton(0)) // Left click
         {
             Vector3 mousePosition = Input.mousePosition;
@@ -67,7 +78,7 @@ public class HomeRunTest : MonoBehaviour
         if (rotating) // Check if the object is currently rotating
         {
             // Check if the colliding object is on the "baseball" layer
-            if (collision.gameObject.layer == LayerMask.NameToLayer("baseball"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer("baseball") && collision.gameObject != null)
             {
                 Rigidbody2D baseballRB = collision.gameObject.GetComponent<Rigidbody2D>();
 

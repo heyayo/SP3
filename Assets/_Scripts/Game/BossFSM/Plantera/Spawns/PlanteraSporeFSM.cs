@@ -25,7 +25,8 @@ public class PlanteraSporeFSM : MonoBehaviour
         EnterState(STATES.CHASE);
 
         gameObject.GetComponent<Mortality>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        // This is a god dream
+        playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
     }
 
