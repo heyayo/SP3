@@ -165,8 +165,8 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
-  healthMax: 1200
-  nativeHealthMax: 0
+  healthMax: 0
+  nativeHealthMax: 1200
   nativeArmour: 60
   nativeResist: 60
   effectiveArmour: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossInit: {fileID: 0}
+  bossName: 
   states:
   - {fileID: 11400000, guid: 28eb14e770a93d64d99ede996b70e5dd, type: 2}
   - {fileID: 11400000, guid: d329e938bab6b9e409392f94e7fb35f7, type: 2}
@@ -248,17 +249,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpDamage: 0
-  activeEnergyDamage: 120
+  activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 0
+  nativeActiveEnergyDamage: 120
   armourPen: 15
   resistPen: 15
   nativeArmourPen: 0
   nativeResistPen: 0
   armourPenType: 2
   resistPenType: 2
-  bleedOverPercentage: 25
-  nativeBleedOverPercentage: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 25
 --- !u!58 &4105138690058095621
 CircleCollider2D:
   m_ObjectHideFlags: 0

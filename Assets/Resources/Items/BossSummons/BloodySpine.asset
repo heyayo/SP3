@@ -25,5 +25,8 @@ MonoBehaviour:
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  BossID: 1
   bossName: BrainOfCthulhu
+  bossPrefab: {fileID: 1948531592001244772, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+  summon:
+    m_PersistentCalls:
+      m_Calls: []

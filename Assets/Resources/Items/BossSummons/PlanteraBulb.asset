@@ -25,5 +25,8 @@ MonoBehaviour:
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  BossID: 2
   bossName: Plantera
+  bossPrefab: {fileID: 2408207500018932619, guid: 353c4969202d7364c8f8a64bb6420152, type: 3}
+  summon:
+    m_PersistentCalls:
+      m_Calls: []

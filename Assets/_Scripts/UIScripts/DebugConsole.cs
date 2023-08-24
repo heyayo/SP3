@@ -48,6 +48,7 @@ public class DebugConsole : MonoBehaviour
         if (Input.GetKeyDown(_config.consoleOpen))
         {
             _console.SetActive(!_console.activeInHierarchy);
+            Time.timeScale = Time.timeScale > 0 ? 0 : 1;
         }
     }
     
@@ -82,9 +83,11 @@ public class AddItem : Command
         var item = Resources.Load<Item>(args[1]);
         if (item == null)
         {
-            DebugConsole.Instance.outputText.text += args[1] + " Does not Exist";
+            DebugConsole.Instance.outputText.text += args[1] + " Does not Exist\n";
             return;
         }
+
+        DebugConsole.Instance.outputText.text += "Spawned " + args[1] + "\n";
         InventoryManager.Instance.Add(item);
     }   
 

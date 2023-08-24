@@ -6,7 +6,7 @@ public class BossFSM : MonoBehaviour
 {
     [Header("Init Boss")]
     [SerializeField] private BossInit bossInit;
-    [SerializeField] private AltBossManager.Bosses BossID;
+    public string bossName;
 
     [Header("States")]
     [SerializeField] private BossState[] states;
@@ -119,6 +119,6 @@ public class BossFSM : MonoBehaviour
 
     private void Death()
     {
-        AltBossManager.Instance.BossDeath(BossID);
+        mortality.onHealthZero.AddListener(()=>{BossManager.Instance.KillBoss(bossName);});
     }
 }

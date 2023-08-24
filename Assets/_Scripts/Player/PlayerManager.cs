@@ -123,4 +123,10 @@ public class PlayerManager : MonoBehaviour
         await Task.Delay((int)(AnimationController.durDeath * 1000f));
         gameObject.SetActive(false);
     }
+
+    [ContextMenu("Give SLE")]
+    private void SpawnEOC()
+    {
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/BossSummons/SuspiciousLookingEye"));
+    }
 }

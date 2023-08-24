@@ -64,8 +64,8 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
-  healthMax: 9500
-  nativeHealthMax: 0
+  healthMax: 0
+  nativeHealthMax: 9500
   nativeArmour: 400
   nativeResist: 400
   effectiveArmour: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossInit: {fileID: 11400000, guid: 52ffd144da6c7234b994bbb3a635195b, type: 2}
-  BossID: 2
+  bossName: 
   states:
   - {fileID: 11400000, guid: 51ea424bbd69ece419ef9735710dbfab, type: 2}
   - {fileID: 11400000, guid: 657a8911b870099479dc558e570a11cd, type: 2}

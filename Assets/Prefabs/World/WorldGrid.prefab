@@ -116,7 +116,7 @@ TilemapRenderer:
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
-  m_SortOrder: 0
+  m_SortOrder: 2
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
@@ -184,9 +184,10 @@ MonoBehaviour:
   groundMap: {fileID: 0}
   environmentMap: {fileID: 0}
   grassTile: {fileID: 11400000, guid: 6c4ad8253c5ee5883859f77326bde695, type: 2}
-  waterTile: {fileID: 11400000, guid: d361de0c68363376e992e8bb3ee2ccf3, type: 2}
-  tallGrassTile: {fileID: 0}
+  waterTile: {fileID: 11400000, guid: f7fbace3549d0dc7e9382b4efd14fb16, type: 2}
+  tallGrassTile: {fileID: 11400000, guid: 1b324a828d6222c2fa59d717df6fb636, type: 2}
   forestTree: {fileID: 103373115393753852, guid: 754db950b5c3c1f84a6a3fda1c01d71a, type: 3}
+  ironOre: {fileID: 963023056596139600, guid: 2566715a99e24659692547447daf1f4e, type: 3}
   seedFloat: 0
   onWorldBeginGen:
     m_PersistentCalls:

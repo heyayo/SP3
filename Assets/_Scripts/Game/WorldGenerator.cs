@@ -6,6 +6,7 @@ using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
@@ -23,13 +24,14 @@ public class WorldGenerator : MonoBehaviour
     [Header("Hardcoded Tile Resources")]
     [Header("Ground Tiles")]
     [SerializeField] private Tile grassTile;
-    [SerializeField] private Tile waterTile;
+    [SerializeField] private AnimatedTile waterTile;
 
     [Header("Environment Tiles")]
     [SerializeField] private Tile tallGrassTile;
     
     [Header("Interactable Objects")]
     [SerializeField] private ForestTree forestTree;
+    [SerializeField] private IronOre ironOre;
 
     [Header("For Debug Visual Only")]
     [SerializeField] private float seedFloat = 0f;
@@ -79,6 +81,8 @@ public class WorldGenerator : MonoBehaviour
         onWorldBeginGen.Invoke();
         
         ConvertSeed();
+
+        Vector2 offset = new Vector2(0.5f, 0.5f);
         
         int halfX = options.worldSize.x / 2;
         int halfY = options.worldSize.y / 2;
@@ -90,9 +94,11 @@ public class WorldGenerator : MonoBehaviour
                 // Determine Ground Tile Level
                 float xGround = (x + seedFloat) * _scale;
                 float yGround = (y + seedFloat) * _scale;
-                float xEnvironment = (x + seedFloat + _environmentOffset) * _scale;
-                float yEnvironment = (y + seedFloat + _environmentOffset) * _scale;
+                float xEnvironment = (x + seedFloat + _environmentOffset) * 0.4f;
+                float yEnvironment = (y + seedFloat + _environmentOffset) * 0.4f;
                 float groundLevel = Mathf.PerlinNoise(xGround, yGround);
+                float natureLevel = Mathf.PerlinNoise((x + seedFloat) * 0.2f, (y + seedFloat) * 0.2f);
+                float biomeLevel = Mathf.PerlinNoise((x + seedFloat) * 0.01f, (y + seedFloat) * 0.01f);
                 float environmentLevel = Mathf.PerlinNoise(xEnvironment, yEnvironment);
                 // Current Tile Location
                 Vector3Int tileLoc = new Vector3Int(x, y, 0);
@@ -106,13 +112,25 @@ public class WorldGenerator : MonoBehaviour
                 // Prevent Environment Tiles on Water
                 if (groundLevel <= options.seaLevel) continue;
 
-                if (environmentLevel >= options.grassLevel)
-                    environmentMap.SetTile(tileLoc, tallGrassTile);
-                    
-                // Place Tree Tiles
-                if (groundLevel > options.treeLevel)
+                if (environmentLevel >= options.grassLevel && natureLevel > options.natureLevel && biomeLevel > 0.4f && biomeLevel < 0.6f)
                 {
-                    Instantiate(forestTree, tileLoc, Quaternion.identity);
+                    environmentMap.SetTile(tileLoc, tallGrassTile);
+                    continue;
+                }
+
+                Vector2 offsetedTileLoc = (Vector2)(Vector3)tileLoc + offset;
+                // Place Tree Tiles
+                if (biomeLevel < 0.2f)
+                {
+                    if (natureLevel < options.natureLevel)
+                        Instantiate(ironOre, offsetedTileLoc, Quaternion.identity);
+                }
+                else if (biomeLevel > 0.65f)
+                {
+                    if (groundLevel > options.treeLevel && natureLevel > options.natureLevel)
+                    {
+                        Instantiate(forestTree, offsetedTileLoc, Quaternion.identity);
+                    }
                 }
             }
         }
@@ -123,59 +141,6 @@ public class WorldGenerator : MonoBehaviour
         PlayerManager.Instance.UnFreezePlayer();
     }
 
-    // Might Replace Above
-    public async Task GenerateWorldAsync()
-    {
-        PlayerManager.Instance.FreezePlayer();
-        onWorldBeginGen.Invoke();
-        
-        ConvertSeed();
-        
-        int halfX = options.worldSize.x / 2;
-        int halfY = options.worldSize.y / 2;
-
-        for (int x = -halfX; x < halfX; ++x)
-        {
-            for (int y = -halfY; y < halfY; ++y)
-            {
-                // Determine Ground Tile Level
-                float xGround = (x + seedFloat) * _scale;
-                float yGround = (y + seedFloat) * _scale;
-                float xEnvironment = (x + seedFloat + _environmentOffset) * _scale;
-                float yEnvironment = (y + seedFloat + _environmentOffset) * _scale;
-                float groundLevel = Mathf.PerlinNoise(xGround, yGround);
-                float environmentLevel = Mathf.PerlinNoise(xEnvironment, yEnvironment);
-                // Current Tile Location
-                Vector3Int tileLoc = new Vector3Int(x, y, 0);
-                
-                // Place Ground Tiles
-                if (groundLevel > options.seaLevel)
-                    groundMap.SetTile(tileLoc, grassTile);
-                else
-                    groundMap.SetTile(tileLoc, waterTile);
-                
-                // Prevent Environment Tiles on Water
-                if (groundLevel <= options.seaLevel) continue;
-
-                if (environmentLevel >= options.grassLevel)
-                    environmentMap.SetTile(tileLoc, tallGrassTile);
-                    
-                // Place Tree Tiles
-                if (groundLevel > options.treeLevel)
-                {
-                    Instantiate(forestTree, tileLoc, Quaternion.identity);
-                }
-
-                await Task.Yield();
-            }
-        }
-        
-        groundMap.RefreshAllTiles();
-        
-        onWorldEndGen.Invoke();
-        PlayerManager.Instance.UnFreezePlayer();
-    }
-    
     // Depreciated
     [ContextMenu("DEBUG_LOADFROMSAVE")]
     public void LoadWorldFromSave()
