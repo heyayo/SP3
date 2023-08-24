@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6903ec615e995484cb73d88974247bc7, type: 3}
-  m_Name: Spritbomb
+  m_Name: SPIRITBOMB
   m_EditorClassIdentifier: 
   itemName: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: -478216566, guid: 7bd55b882ce1def478bdd3794a2d71e5, type: 3}
   droppable: 1
-  itemDescription: null
+  itemDescription: 'LEND ME YOUR ENERGY!!!!!!!!!!!!
+
+'
   EquipType: 0
   health: 0
   armor: 0

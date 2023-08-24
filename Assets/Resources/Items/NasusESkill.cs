@@ -17,20 +17,10 @@ public class NasusESkill : Item
     private float timeSinceLastSkillUse = Mathf.Infinity; // Initialize with a very large value to allow immediate use
     private Mortality _playerMortality;
 
-    private void OnEnable()
-    {
-        // Update the skill layout visualization position to follow the mouse
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-
-
-        skilldemon = Instantiate(skillLayoutVisualization, mousePosition, Quaternion.identity);
-
-        skilldemon.SetActive(false);
-        _playerMortality = PlayerManager.Instance.MortalityScript;
-    }
     public override void WhileHolding()
     {
+        _playerMortality = PlayerManager.Instance.MortalityScript;
+
         if (holdingSkill)
         {
             skilldemon.SetActive(true);
@@ -57,54 +47,15 @@ public class NasusESkill : Item
         {
             skillReady = true; // Skill is ready again
         }
+
+        if (!holdingSkill)
+            Destroy(skilldemon);
     }
 
     public override void Use()
     {
         holdingSkill = !holdingSkill;
-        skilldemon.SetActive(holdingSkill);
-
-        //// Check if the skill is ready and the player is holding the skill
-        //if (skillReady)
-        //{
-        //    // Update the skill layout visualization position to follow the mouse
-        //    Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //    mousePosition.z = 0;
-
-        //    if (!holdingSkill)
-        //    {
-        //        // Instantiate the skill layout visualization if it doesn't exist
-        //        skillLayoutVisualization = Instantiate(skillEffectPrefab, mousePosition, Quaternion.identity);
-        //        holdingSkill = true;
-        //    }
-
-        //    skillLayoutVisualization.transform.position = mousePosition;
-
-        //    if (Input.GetMouseButtonDown(0))
-        //    {
-        //        // Player clicked while holding the skill button and skill is ready
-        //        // Instantiate the skill effect at the mouse position
-        //        Instantiate(skillEffectPrefab, mousePosition, Quaternion.identity);
-
-        //        // Set skill on cooldown
-        //        skillReady = false;
-        //        timeSinceLastSkillUse = Time.time;
-        //    }
-        //}
-        //else
-        //{
-        //    // Destroy the skill layout visualization if it exists
-        //    if (holdingSkill)
-        //    {
-        //        Destroy(skillLayoutVisualization);
-        //        holdingSkill = false;
-        //    }
-        //}
-
-        //// Check if cooldown has finished
-        //if (!skillReady && Time.time - timeSinceLastSkillUse >= skillCooldown)
-        //{
-        //    skillReady = true; // Skill is ready again
-        //}
+        if (holdingSkill)
+            skilldemon = Instantiate(skillLayoutVisualization, Input.mousePosition, Quaternion.identity);
     }
 }

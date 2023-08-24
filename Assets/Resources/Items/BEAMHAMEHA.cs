@@ -18,6 +18,7 @@ public class BEAMHAMEHA : Item
     public float maxScale = 20f; // Maximum scale of the beam
     public float chargeRate = 70.5f; // Rate at which the beam grows
     private CameraController cameraController;
+    
 
     public override void WhileHolding()
     {
@@ -27,6 +28,7 @@ public class BEAMHAMEHA : Item
         {
             Debug.LogError("CameraController not found in the scene.");
         }
+
         if (Input.GetKeyDown(KeyCode.R) && !charging && !beamActive)
         {
             charging = true;

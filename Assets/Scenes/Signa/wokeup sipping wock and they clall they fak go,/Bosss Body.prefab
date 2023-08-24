@@ -131,7 +131,7 @@ HingeJoint2D:
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.3}
-  m_ConnectedAnchor: {x: 0, y: -0.30000004}
+  m_ConnectedAnchor: {x: 0, y: -0.3000002}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -192,7 +192,6 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}
 --- !u!1 &1665039129344756634
 GameObject:
@@ -291,7 +290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a55557dc546dd642bbf9f907e28405b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
   circleRadius: 20
   circleSpeed: 2
   zigZagDistance: 40
@@ -432,7 +430,7 @@ HingeJoint2D:
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.3}
-  m_ConnectedAnchor: {x: 0, y: -0.30000252}
+  m_ConnectedAnchor: {x: 0, y: -0.30000228}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -493,7 +491,6 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}
 --- !u!1 &2022012666923997363
 GameObject:
@@ -509,7 +506,6 @@ GameObject:
   - component: {fileID: 9163513571274377618}
   - component: {fileID: 5055657884571008574}
   - component: {fileID: 9148888143551540318}
-  - component: {fileID: 2484094333051829469}
   m_Layer: 6
   m_Name: DevourerofGodsBody (1)
   m_TagString: Untagged
@@ -627,7 +623,7 @@ HingeJoint2D:
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.3}
-  m_ConnectedAnchor: {x: 0, y: -0.30000034}
+  m_ConnectedAnchor: {x: 0, y: -0.30000004}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -688,27 +684,7 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}
---- !u!114 &2484094333051829469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022012666923997363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f91997be4c6490647a02c36880707dfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
-  lineDuration: 0.5
-  projectileSpeed: 10
-  minAttackDelay: 4
-  maxAttackDelay: 6
-  player: {fileID: 0}
-  lineMaterial: {fileID: 0}
 --- !u!1 &2184164013092260976
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +816,7 @@ HingeJoint2D:
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.39}
-  m_ConnectedAnchor: {x: 0, y: -0.31000137}
+  m_ConnectedAnchor: {x: 0, y: -0.31000164}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -901,7 +877,6 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}
 --- !u!1 &2336364658021281163
 GameObject:
@@ -1034,7 +1009,7 @@ HingeJoint2D:
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.32}
-  m_ConnectedAnchor: {x: 0, y: 0.1438446}
+  m_ConnectedAnchor: {x: 0, y: 0.1438427}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1095,7 +1070,6 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}
 --- !u!1 &2502722998022303545
 GameObject:
@@ -1112,7 +1086,7 @@ GameObject:
   - component: {fileID: 1439655613423080029}
   - component: {fileID: 4363125593404202496}
   - component: {fileID: 504617117658808351}
-  - component: {fileID: 1587930328558935847}
+  - component: {fileID: 1117668027402620826}
   m_Layer: 0
   m_Name: DOGHead
   m_TagString: Untagged
@@ -1307,9 +1281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {fileID: 3035934594644013991}
-  moveForce: 20
+  moveForce: 25
   maxRotationAngle: 360
-  maxVelocityMagnitude: 20
+  maxVelocityMagnitude: 30
 --- !u!114 &504617117658808351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,7 +1299,7 @@ MonoBehaviour:
   prefabToInstantiate: {fileID: 6257327453771947888, guid: 24aacf15ff9309844a1396029e717e3d, type: 3}
   minInterval: 15
   maxInterval: 20
---- !u!114 &1587930328558935847
+--- !u!114 &1117668027402620826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1337,10 +1311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738f1c26861ee824db20fea95776b8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToShoot: {fileID: 6128615280904670359, guid: 79b74ce2fa1030f47a39265b38c80e2d, type: 3}
-  minShootInterval: 0
-  maxShootInterval: 1
-  shootForce: 50
+  prefabToShoot: {fileID: 6128615280904670359, guid: 300505859a9f8c449b82956e1dc51fff, type: 3}
+  minShootInterval: 3
+  maxShootInterval: 5
+  shootForce: 10
 --- !u!1 &2979375369494042091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,7 +1632,7 @@ HingeJoint2D:
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.3}
-  m_ConnectedAnchor: {x: 0, y: -0.2999995}
+  m_ConnectedAnchor: {x: 0, y: -0.2999994}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1719,7 +1693,6 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}
 --- !u!1 &3721581244155437722
 GameObject:
@@ -1852,7 +1825,7 @@ HingeJoint2D:
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.3}
-  m_ConnectedAnchor: {x: 0, y: -0.30000034}
+  m_ConnectedAnchor: {x: 0, y: -0.30000004}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1913,7 +1886,6 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}
 --- !u!1 &6052738304393918844
 GameObject:
@@ -2107,7 +2079,6 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}
 --- !u!1 &8185716706638972420
 GameObject:
@@ -2301,7 +2272,6 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}
 --- !u!1 &8666621712525018088
 GameObject:
@@ -2518,7 +2488,7 @@ HingeJoint2D:
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.3}
-  m_ConnectedAnchor: {x: 0, y: -0.29999977}
+  m_ConnectedAnchor: {x: 0, y: -0.29999954}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2579,5 +2549,4 @@ MonoBehaviour:
   projectileSpeed: 40
   minAttackDelay: 4
   maxAttackDelay: 6
-  player: {fileID: 0}
   lineMaterial: {fileID: 2100000, guid: ff894e7ded0a4f44393acbd577e362f1, type: 2}

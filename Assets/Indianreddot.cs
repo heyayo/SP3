@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Indianreddot : MonoBehaviour
 {
-    public Transform playerTransform; // Reference to the player's transform
+    private Transform playerTransform; // Reference to the player's transform
     public float circleRadius = 2.0f; // Radius of the circular motion
     public float circleSpeed = 1.0f;  // Speed of circling
 
@@ -58,6 +58,7 @@ public class Indianreddot : MonoBehaviour
 
     void Start()
     {
+        playerTransform = PlayerManager.Instance.transform;
         //SetStarPoints();
     }
     void Update()

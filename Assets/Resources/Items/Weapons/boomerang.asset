@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88b37e5c0a92cc468cc123ec7f02020, type: 3}
+  m_Name: boomerang
+  m_EditorClassIdentifier: 
+  itemName: 
+  itemSprite: {fileID: 0}
+  droppable: 1
+  itemDescription: null
+  EquipType: 0
+  health: 0
+  armor: 0
+  resist: 0
+  attack: 0
+  consumed:
+    m_PersistentCalls:
+      m_Calls: []
+  boomerangPrefab: {fileID: 2457879194376414857, guid: 32917c200efce8e48a067a29247279f3, type: 3}
+  throwForce: 10
+  returnSpeed: 5
