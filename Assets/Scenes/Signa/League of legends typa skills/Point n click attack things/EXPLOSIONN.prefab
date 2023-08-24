@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4100095040346957701}
   - component: {fileID: 3066000437857646000}
   - component: {fileID: -1381827966050871519}
+  - component: {fileID: 5912217854907220107}
   m_Layer: 0
   m_Name: EXPLOSIONN
   m_TagString: Untagged
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8955546734637590800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a00e10d7130377447b49e2084364d32b, type: 3}
   m_Name: 
@@ -159,3 +160,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32
+--- !u!114 &5912217854907220107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8955546734637590800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 0
+  nativeHPDamage: 200
+  nativeActiveEnergyDamage: 0
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 65
+  nativeResistPen: 0
+  armourPenType: 2
+  resistPenType: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 0
+  isFriendly: 1

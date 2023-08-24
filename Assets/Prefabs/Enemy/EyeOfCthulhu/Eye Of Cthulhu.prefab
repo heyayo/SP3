@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 603751215503075951}
   m_Layer: 0
   m_Name: Eye Of Cthulhu
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,6 +260,7 @@ MonoBehaviour:
   resistPenType: 2
   bleedOverPercentage: 0
   nativeBleedOverPercentage: 25
+  isFriendly: 0
 --- !u!58 &4105138690058095621
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -308,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mortality: {fileID: 0}
-  immunityTime: 0.1
+  immunityTime: 1
   immune: 0
 --- !u!114 &603751215503075951
 MonoBehaviour:
