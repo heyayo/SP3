@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class Gore : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject gorePrefab;
+    private int timer;
 
-    [SerializeField]
-    private Sprite[] gore;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        GetComponent<Mortality>().onHealthZero.AddListener(SpawnGore);
+        timer = Random.Range(900, 1100);   
     }
 
-    private void SpawnGore()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        Vector2 dir;
-
-        foreach (Sprite sprite in gore)
+        timer--;
+        if (timer <= 0)
         {
-            dir = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2)).normalized;
-            GameObject go = Instantiate(gorePrefab, gameObject.transform.position, Quaternion.identity);
-            go.GetComponent<Rigidbody2D>().AddForce(dir * Random.Range(30, 50), ForceMode2D.Impulse);
-            go.GetComponent<SpriteRenderer>().sprite = sprite;
+            if (GetComponent<SpriteRenderer>().color.a > 0)
+            {
+                GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 0.05f);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -19,6 +19,9 @@ public class BossFSM : MonoBehaviour
     [SerializeField]
     protected int hitSoundIndex = 1;
 
+    [SerializeField]
+    protected int deathSound = 3;
+
     // Audio Source
     protected AudioSource audioSource;
 
@@ -137,6 +140,7 @@ public class BossFSM : MonoBehaviour
 
     private void Death()
     {
+        SoundManager.Instance.PlaySound(deathSound);
         mortality.onHealthZero.AddListener(()=>{BossManager.Instance.KillBoss(bossName);});
     }
 }

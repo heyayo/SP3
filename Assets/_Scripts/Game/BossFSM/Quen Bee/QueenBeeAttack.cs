@@ -25,7 +25,7 @@ public class QueenBeeAttack : BossState
             rb.AddForce(dir * 1200);
             attackTimer = 120;
             attackCount--;
-           
+            SoundManager.Instance.PlaySound(0);
 ;       }
 
         if (attackCount <= 0)

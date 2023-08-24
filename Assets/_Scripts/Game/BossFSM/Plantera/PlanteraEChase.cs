@@ -29,6 +29,7 @@ public class PlanteraEChase : BossState
         if (shootTimer <= 0)
         {
             Instantiate(spore, transform.position + new Vector3(dir.x, dir.y, 0) * 2f, Quaternion.identity);
+            shootTimer = 250;
         }
 
         if (chaseTimer <= 0)

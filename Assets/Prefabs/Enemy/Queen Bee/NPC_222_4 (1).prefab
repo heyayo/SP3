@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5577286415698085918}
   - component: {fileID: 4169085944274943980}
   - component: {fileID: 2560456766531810955}
+  - component: {fileID: 3354454354884885366}
   m_Layer: 0
   m_Name: NPC_222_4 (1)
   m_TagString: Untagged
@@ -184,12 +185,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossInit: {fileID: 0}
+  bossName: 
   states:
   - {fileID: 11400000, guid: 1b484f101a584eb4f8d8d0d122a82e6f, type: 2}
   - {fileID: 11400000, guid: c06d9d6c137e572408c12d0d16edd4bb, type: 2}
   - {fileID: 11400000, guid: 5f08354a8e2b0f14487f25e35d37a11a, type: 2}
   - {fileID: 11400000, guid: 4158996bdbac7694e9a00c2afbb38fc3, type: 2}
   - {fileID: 11400000, guid: c06d9d6c137e572408c12d0d16edd4bb, type: 2}
+  hitSoundIndex: 1
+  deathSound: 3
+--- !u!114 &3354454354884885366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033128662227735868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc9653ed4c90d3499490056fd6d1c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gorePrefab: {fileID: 2676641096534526394, guid: bc3cfec39b0f0c648ae66ba728756586, type: 3}
+  gore:
+  - {fileID: 21300000, guid: e7c70dcddd3156d418cfabb2fa206307, type: 3}
+  - {fileID: 21300000, guid: 94e361e324ceac647bf3571bfa18f0c5, type: 3}
+  - {fileID: 21300000, guid: 15dff5d3906c2ae448f75549a32ee707, type: 3}
+  - {fileID: 21300000, guid: 77e5210395ecd5f43b477ae18c16a0c6, type: 3}
+  - {fileID: 21300000, guid: 4186eccca2d079f4ba260faca3adca18, type: 3}
+  - {fileID: 21300000, guid: 9157964c0be9a9b479eb74735e217bc8, type: 3}
 --- !u!1 &1904450803578110164
 GameObject:
   m_ObjectHideFlags: 0
