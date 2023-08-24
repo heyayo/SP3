@@ -9,9 +9,6 @@ public class BossItem : Item
     [SerializeField]
     public GameObject bossPrefab;
 
-    [SerializeField]
-    public string bossName;
-
     public UnityEvent summon;
 
     private void OnEnable()
