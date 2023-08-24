@@ -15,7 +15,7 @@ public class NasusESkill : Item
     public float skillCooldown = 5.0f; // Cooldown time in seconds
 
     private float timeSinceLastSkillUse = Mathf.Infinity; // Initialize with a very large value to allow immediate use
-
+    private Mortality _playerMortality;
 
     private void OnEnable()
     {
@@ -27,8 +27,9 @@ public class NasusESkill : Item
         skilldemon = Instantiate(skillLayoutVisualization, mousePosition, Quaternion.identity);
 
         skilldemon.SetActive(false);
+        _playerMortality = PlayerManager.Instance.MortalityScript;
     }
-    override public void WhileHolding()
+    public override void WhileHolding()
     {
         if (holdingSkill)
         {
@@ -44,6 +45,7 @@ public class NasusESkill : Item
                 // Instantiate the skill effect at the mouse position
                 Instantiate(skillEffectPrefab, mousePosition, Quaternion.identity);
 
+                _playerMortality.ActiveEnergy -= 120;
                 // Set skill on cooldown
                 skillReady = false;
                 timeSinceLastSkillUse = Time.time;
@@ -57,7 +59,7 @@ public class NasusESkill : Item
         }
     }
 
-    override public void Use()
+    public override void Use()
     {
         holdingSkill = !holdingSkill;
         skilldemon.SetActive(holdingSkill);

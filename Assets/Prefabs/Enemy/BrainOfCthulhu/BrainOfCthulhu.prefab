@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6702952746360175442}
   m_Layer: 0
   m_Name: BrainOfCthulhu
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   resistPenType: 2
   bleedOverPercentage: 30
   nativeBleedOverPercentage: 0
+  isFriendly: 0
 --- !u!58 &8282469030179773914
 CircleCollider2D:
   m_ObjectHideFlags: 0

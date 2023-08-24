@@ -18,6 +18,8 @@ public class DamageSource : MonoBehaviour
     public float bleedOverPercentage;
     [SerializeField] private float nativeBleedOverPercentage;
 
+    [Header("Friendly Fire Fix")] public bool isFriendly = false;
+    
     public float __NativeHPDamage
     {
         get => nativeHPDamage;
@@ -89,6 +91,10 @@ public class DamageSource : MonoBehaviour
     {
         if (other.CompareTag("Damagable"))
         {
+            var player = other.GetComponent<PlayerManager>();
+            if (player != null)
+                if (isFriendly)
+                    return;
             var dmg = other.GetComponent<Damagable>();
             dmg.TakeDamage(gameObject,hpDamage,armourPen,armourPenType,activeEnergyDamage,resistPen,resistPenType,bleedOverPercentage);
             if (afflicter != null)
