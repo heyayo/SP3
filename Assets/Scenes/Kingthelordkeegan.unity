@@ -2513,6 +2513,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5966982036600466008, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: bgms.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966982036600466008, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: audios.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966982036600466008, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: bgms.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 63f7c1e5e31cbfa4ca8de6837c5fe37e, type: 3}
+    - target: {fileID: 5966982036600466008, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: audios.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: ed0610f05ce8f7c49a3afac83202dd7f, type: 3}
+    - target: {fileID: 5966982036600466008, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: audios.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 55c9b590511fc0e4a87312937eb1a4c4, type: 3}
     - target: {fileID: 6669769232159084159, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

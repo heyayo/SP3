@@ -12,7 +12,6 @@ public class BossManager : MonoBehaviour
         public bool bossAlive;
         public bool bossDefeated;
         public BossItem boss;
-        public GameObject itself;
 
         // Creating new bossStats
         static public BossStats New(BossItem bossItem)
@@ -60,9 +59,8 @@ public class BossManager : MonoBehaviour
         float y = 20f * Mathf.Sin(angle);
         Vector2 spawnPos = new Vector2(x, y);
 
-        bossList[summonedBossName].itself = Instantiate(bossList[summonedBossName].boss.bossPrefab, new Vector2(playerTransform.position.x, playerTransform.position.y)
+        Instantiate(bossList[summonedBossName].boss.bossPrefab, new Vector2(playerTransform.position.x, playerTransform.position.y)
             + spawnPos, Quaternion.identity);
-        bossList[summonedBossName].itself.GetComponent<BossFSM>().bossName = summonedBossName;
 
         return true;
     }
@@ -83,6 +81,5 @@ public class BossManager : MonoBehaviour
 
         bossList[summonedBossName].bossAlive = false;
         bossList[summonedBossName].bossDefeated = true;
-        Destroy(bossList[summonedBossName].itself);
     }
 }
