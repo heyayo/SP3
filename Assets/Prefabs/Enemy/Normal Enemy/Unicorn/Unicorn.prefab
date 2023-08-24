@@ -98,7 +98,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.02}
   serializedVersion: 2
   m_Radius: 0.8
 --- !u!114 &4836655557026307091
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 5560926070725565834}
   - component: {fileID: 8451281761362125006}
   - component: {fileID: 2035077643869958229}
-  - component: {fileID: 509093764599334504}
+  - component: {fileID: 2003635165250737300}
   m_Layer: 0
   m_Name: Unicorn
   m_TagString: Damagable
@@ -145,7 +145,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.5, y: 3.91, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1591675394266021114}
@@ -192,12 +192,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1753163065, guid: 74f5592f929481d4fa8076b626f72446, type: 3}
+  m_Sprite: {fileID: 319057595, guid: d0cc703609f77104db150cf87c46c4fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.24, y: 0.25}
+  m_Size: {x: 0.37, y: 0.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -240,7 +240,7 @@ Animator:
   m_GameObject: {fileID: 7429195161834839952}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6f36038e093c92b41b2f702b704c2ad8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 39ed08f0ea2487840ae68417fa60e725, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   nativeRegen: 0
   regen: 0
   healthMax: 0
-  nativeHealthMax: 0
+  nativeHealthMax: 100
   nativeArmour: 0
   nativeResist: 0
   effectiveArmour: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
   resistPenType: 0
   bleedOverPercentage: 50
   nativeBleedOverPercentage: 0
---- !u!114 &509093764599334504
+--- !u!114 &2003635165250737300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,29 +359,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 7429195161834839952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a9f242d73f7c041970c5daf7a23421, type: 3}
+  m_Script: {fileID: 11500000, guid: 536db38b0fb79774a91a364a55d27380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <rb>k__BackingField: {fileID: 613850239831812203}
   <Mortality>k__BackingField: {fileID: 8451281761362125006}
   <maxHealth>k__BackingField: 100
   enemyAnimator: {fileID: 5560926070725565834}
-  timeBetweenShots: 0.1
-  timeTillExit: 3
-  distanceToCountExit: 4
-  exitTimer: 0
-  timer: 0
   spawnLocation: {x: 0, y: 0}
   _damageSource: {fileID: 0}
   _sr: {fileID: 0}
   wanderRange: 8
   target: {fileID: 0}
   moveSpeed: 8
-  spike: {fileID: 0}
-  spikeAnim: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  bulletSpeed: 10
-  warningText: {fileID: 0}
+  bat: {fileID: 7671389968319787405, guid: e20bf0107757b0d4fad337dd6bd7f818, type: 3}
 --- !u!1 &9074437512380596661
 GameObject:
   m_ObjectHideFlags: 0

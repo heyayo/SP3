@@ -35,9 +35,13 @@ public class BatIdle : EnemyState
             _targetPos = GetRandomPointInCircle();
             _direction = (_targetPos - _bat.transform.position).normalized; // Calculate the unit vector from player to enemy
         }
-        if (_bat.Mortality.Health <= 50)
+        if (_bat.Mortality.Health <= 50f)
         {
             _bat.stateMachine.ChangeState(_bat.TourettesState);
+        }
+        if (_bat.Mortality.Health <= 0f)
+        {
+            _bat.stateMachine.ChangeState(_bat.DeathState);
         }
     }
 
@@ -90,6 +94,10 @@ public class BatChase : EnemyState
         if (_bat.Mortality.Health <= 50)
         {
             _bat.stateMachine.ChangeState(_bat.TourettesState);
+        }
+        if (_bat.Mortality.Health <= 0f)
+        {
+            _bat.stateMachine.ChangeState(_bat.DeathState);
         }
     }
 
@@ -145,6 +153,10 @@ public class BatAttack : EnemyState
         {
             _bat.stateMachine.ChangeState(_bat.TourettesState);
         }
+        if (_bat.Mortality.Health <= 0f)
+        {
+            _bat.stateMachine.ChangeState(_bat.DeathState);
+        }
     }
 
     public override void PhysicsUpdate()
@@ -195,6 +207,10 @@ public class BatTourettes : EnemyState
     {
         _bat.transform.Rotate(_rotateAmount * _rotationSpeed * Time.deltaTime);
         if (_rotateAmount.z >= 45) _rotateAmount.z = -Mathf.Abs(_rotateAmount.z);
+        if (_bat.Mortality.Health <= 0f)
+        {
+            _bat.stateMachine.ChangeState(_bat.DeathState);
+        }
     }
 
     public override void PhysicsUpdate()
@@ -239,6 +255,10 @@ public class BatBleed : EnemyState
     public override void FrameUpdate()
     {
         _direction = (_bat.target.position - _bat.transform.position).normalized;
+        if (_bat.Mortality.Health <= 0f)
+        {
+            _bat.stateMachine.ChangeState(_bat.DeathState);
+        }
     }
 
     public override void PhysicsUpdate()
@@ -259,5 +279,46 @@ public class BatBleed : EnemyState
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
 
+    }
+}
+
+public class BatDeath : EnemyState
+{
+    private BatEnemy _bat;
+    public BatDeath(BatEnemy bat,EnemyStateMachine stateMachine) : base(stateMachine)
+    {
+        _bat = bat;
+    }
+
+    public override void EnterState()
+    {
+        WaitForExplode();
+    }
+
+    public override void ExitState()
+    {
+
+    }
+
+    public override void FrameUpdate()
+    {
+
+    }
+
+    public override void PhysicsUpdate()
+    {
+
+    }
+
+    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    {
+ 
+    }
+    private async void WaitForExplode()
+    {
+        _bat.enemyAnimator.SetTrigger("isExplode");
+        await Task.Delay(1000);
+        GameObject.Destroy(_bat.gameObject);
+        GameObject.Destroy(_bat.bulletPrefab);
     }
 }

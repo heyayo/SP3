@@ -89,7 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1976410460754077722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerAreas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.2, y: -2.4, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1976410460754077722}
@@ -267,14 +267,17 @@ MonoBehaviour:
   nativeActiveRegen: 0
   activeRegen: 0
   activeMax: 0
+  nativeActiveMax: 0
   storedEnergy: 0
   nativeStoredRegen: 0
   storedRegen: 0
   storedMax: 0
-  health: 0
+  nativeStoredMax: 0
+  health: 80
   nativeRegen: 0
   regen: 0
-  healthMax: 100
+  healthMax: 0
+  nativeHealthMax: 80
   nativeArmour: 0
   nativeResist: 0
   effectiveArmour: 0
@@ -285,7 +288,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  immune: 0
+  immune: 1
   onHealthAdjust:
     m_PersistentCalls:
       m_Calls: []
@@ -302,6 +305,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
     m_PersistentCalls:
       m_Calls: []
   DEBUG_EnergyDamage: 0
@@ -344,7 +356,6 @@ MonoBehaviour:
   deviationMagnitude: 5
   target: {fileID: 0}
   moveSpeed: 10
-  anim: {fileID: 4915595799060655230}
 --- !u!114 &2733038960304278668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,11 +370,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpDamage: 0
   activeEnergyDamage: 80
+  nativeHPDamage: 0
+  nativeActiveEnergyDamage: 0
   armourPen: 0
   resistPen: 0
+  nativeArmourPen: 0
+  nativeResistPen: 0
   armourPenType: 0
   resistPenType: 0
   bleedOverPercentage: 20
+  nativeBleedOverPercentage: 0
 --- !u!1 &5691504721927099256
 GameObject:
   m_ObjectHideFlags: 0

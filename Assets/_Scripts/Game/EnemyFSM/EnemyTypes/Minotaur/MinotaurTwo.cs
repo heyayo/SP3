@@ -4,14 +4,17 @@ public class MinotaurTwo : Enemy
 {
     [HideInInspector] public Vector2 spawnLocation;
     // Additional States
+    [field: Header("FSM States")]
     public MinoIdleState IdleState;
     public MinoChaseState ChaseState;
     public MinoAttackState AttackState; // Reuse Generic Attack State cause no specialization
     public MinoFleeState FleeState;
     public MinoHealState HealState;
+    public MinoDeathState DeathState;
 
     public Transform target;
         
+    [field: Header("Patrol Settings")]
     public float moveSpeed = 8;
     public float wanderRange = 20;
 
@@ -26,6 +29,7 @@ public class MinotaurTwo : Enemy
         AttackState = new MinoAttackState(this,stateMachine);
         HealState = new MinoHealState(this,stateMachine);
         FleeState = new MinoFleeState(this, stateMachine);
+        DeathState = new MinoDeathState(this, stateMachine);
 
         _moveSpeedHash = Animator.StringToHash("moveSpeed");
     }
