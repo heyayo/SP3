@@ -9,8 +9,12 @@ public class EnemyStrikingDistanceCheck : MonoBehaviour
 
     private void Awake()
     {
-        player = PlayerManager.Instance.gameObject;
         _enemy = GetComponentInParent<Enemy>();
+    }
+
+    private void Start()
+    {
+        player = PlayerManager.Instance.gameObject;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

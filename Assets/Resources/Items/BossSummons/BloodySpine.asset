@@ -18,10 +18,15 @@ MonoBehaviour:
 
     Disgusting... Summons the Brain Of Cthulhu'
   EquipType: 0
+  health: 0
   armor: 0
   resist: 0
+  attack: 0
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  bossPrefab: {fileID: 1948531592001244772, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
   bossName: BrainOfCthulhu
+  bossPrefab: {fileID: 1948531592001244772, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+  summon:
+    m_PersistentCalls:
+      m_Calls: []

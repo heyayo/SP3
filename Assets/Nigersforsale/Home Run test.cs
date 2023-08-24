@@ -46,7 +46,7 @@ public class HomeRunTest : MonoBehaviour
         if (Input.GetMouseButton(0)) // Left click
         {
             Vector3 mousePosition = Input.mousePosition;
-            Vector3 playerPosition = Camera.main.WorldToScreenPoint(player.transform.position);;
+            Vector3 playerPosition = Camera.main.WorldToScreenPoint(player.transform.position); ;
             Vector3 directionToMouse = mousePosition - playerPosition;
             if (directionToMouse.x >= 0)
             {
@@ -59,7 +59,7 @@ public class HomeRunTest : MonoBehaviour
             rotating = true;
 
         }
-      
+
         if (rotating)
         {
             rb.rotation = Mathf.MoveTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -91,36 +91,105 @@ public class HomeRunTest : MonoBehaviour
             }
         }
     }
-    
-
-
-
-
-
-
-
- 
-
-    //private void CheckHit()
-    //{
-
-
-
-    //    Vector2 direction = transform.up;
-    //    Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, boxSize, transform.rotation.eulerAngles.z, LayerMask.GetMask("baseball"));
-
-    //    foreach (Collider2D collider in colliders)
-    //    {
-    //        Debug.Log("Bat hit baseball!");
-
-    //        Rigidbody2D baseballRB = collider.GetComponent<Rigidbody2D>();
-    //        if (baseballRB != null)
-    //        {
-    //            Vector2 hitDirection = direction;
-    //            baseballRB.AddForce(hitDirection * hitForce, ForceMode2D.Impulse);
-    //        }
-    //    }
-    //}
-
-    
 }
+
+
+
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+
+//public class HomeRunTest : MonoBehaviour
+//{
+//    public float rotationSpeed = 180f; // Adjust this value to control the rotation speed
+//    public float targetRotationRightClick = 150f;
+//    public float targetRotationLeftClick = -210f;
+
+//    private Rigidbody2D rb;
+//    private float initialRotation;
+//    private float targetRotation;
+//    private Quaternion firstrotate;
+//    private bool rotatin ;
+
+//    public Vector2 boxSize = new Vector2(1f, 1f);
+//    private float hitForce; // Adjust the force as needed
+
+
+//    [SerializeField] GameObject BaseballBat;
+
+//    GameObject player;
+
+//    private void Start()
+//    {
+//        //rotatin = BaseballBat.GetComponent<BBallsBat>().rotating;
+//        player = PlayerManager.Instance.gameObject;
+
+//        if (player == null)
+//        {
+//            Debug.LogError("Player object is not assigned or missing.");
+//        }
+//        else
+//        {
+
+//            initialRotation = rb.rotation;
+//            targetRotation = initialRotation;
+//        }
+//    }
+
+//    private void Update()
+//    {
+//        rb = BaseballBat.GetComponent<Rigidbody2D>();
+//        rotatin = BaseballBat.GetComponent<BBallsBat>().rotating;
+
+//        if (player != null)
+//        {
+//            BaseballBat.transform.position = player.transform.position;
+//            // Rest of your code
+//        }
+//        if (Input.GetMouseButton(0)) // Left click
+//        {
+//            Vector3 mousePosition = Input.mousePosition;
+//            Vector3 playerPosition = Camera.main.WorldToScreenPoint(player.transform.position); ;
+//            Vector3 directionToMouse = mousePosition - playerPosition;
+//            if (directionToMouse.x >= 0)
+//            {
+//                targetRotation = targetRotationRightClick; // Rotate left
+//            }
+//            else
+//            {
+//                targetRotation = targetRotationLeftClick;
+//            }
+//            rotatin = true;
+
+//        }
+
+//        if (rotatin)
+//        {
+//            rb.rotation = Mathf.MoveTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+//            if (Mathf.Abs(rb.rotation - targetRotation) < 0.1f)
+//            {
+
+//                rotatin = false;
+//                rb.rotation = initialRotation;
+//            }
+//        }
+//    }
+
+
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

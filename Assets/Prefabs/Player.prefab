@@ -1085,19 +1085,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeEnergy: 0
-  nativeActiveRegen: 0
+  nativeActiveRegen: 20
   activeRegen: 0
-  activeMax: 500
+  activeMax: 0
+  nativeActiveMax: 500
   storedEnergy: 0
   nativeStoredRegen: 0
   storedRegen: 0
-  storedMax: 200
+  storedMax: 0
+  nativeStoredMax: 200
   health: 0
-  nativeRegen: 0
+  nativeRegen: 5
   regen: 0
-  healthMax: 250
-  nativeArmour: 0
-  nativeResist: 0
+  healthMax: 0
+  nativeHealthMax: 250
+  nativeArmour: 10
+  nativeResist: 10
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
@@ -1177,6 +1180,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
     m_PersistentCalls:
       m_Calls: []
   DEBUG_EnergyDamage: 0
@@ -1937,7 +1949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8088398736191123372}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: 2.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1

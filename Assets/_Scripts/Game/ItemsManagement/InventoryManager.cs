@@ -34,6 +34,16 @@ public class InventoryManager : MonoBehaviour
             Debug.Break();
         }
         Instance = this;
+
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            slot.slotEdited.AddListener(UpdatePlayerStats);
+        }
+
+        foreach (ArmorSlot slot in armourSlots)
+        {
+            slot.slotEdited.AddListener(UpdatePlayerStats);
+        }
     }
     
     public void Add(Item item)
@@ -42,7 +52,6 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot.GetHeldItem() == null)
             {
-                Debug.Log("PICKUP");
                 SpawnNewItem(item, slot);
                 return;
             }
@@ -58,7 +67,7 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot activeSlot = HotbarManager.Instance.activeSlot;
             InventoryItem drop = activeSlot.GetHeldItem();
-            if (drop != null)
+            if (drop != null && drop.item.droppable)
             {
                 DropItem(drop.item);
                 Destroy(drop.gameObject);
@@ -96,5 +105,40 @@ public class InventoryManager : MonoBehaviour
         pickupItem.SetSprite(item.itemSprite); // Assign Sprite
         pickupItem.GetComponent<Rigidbody2D>().AddForce(direction * 25,ForceMode2D.Impulse); // Apply Throw Force
         pickupItem.item.Setup(pickupItem.gameObject);
+    }
+
+    private void UpdatePlayerStats()
+    {
+        // Default values
+        float healthMax = 250;
+        float armor = 0;
+        float resist = 0;
+        float attack = 0;
+
+        foreach (ArmorSlot slot in armourSlots)
+        {
+            InventoryItem inventoryItem = slot.GetComponentInChildren<InventoryItem>();
+            if (inventoryItem != null)
+            {
+                Item item = inventoryItem.item;
+                if (item != null)
+                {
+                    healthMax += item.health;
+                    armor += item.armor;
+                    resist += item.resist;
+                    attack += item.attack;
+                }
+            }
+        }
+
+        Mortality playerMortality = _player.GetComponent<Mortality>();
+        playerMortality.__HealthMax = healthMax;
+        playerMortality.Armour = armor;
+        playerMortality.Resist = resist;
+        // Attack = attack;
+
+        // Reset health if it is above the max health
+        if (playerMortality.Health > playerMortality.__HealthMax)
+            playerMortality.Health = playerMortality.__HealthMax;
     }
 }

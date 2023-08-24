@@ -37,7 +37,6 @@ public class StatusEffectManager : MonoBehaviour
 
     private void RespawnIcons()
     {
-        Debug.Log("RESPAWNING ICONS");
         for (int i = 0; i < _activeIcons.Count; ++i)
         {
             _uiIcons.Release(_activeIcons[i]);

@@ -18,10 +18,15 @@ MonoBehaviour:
 
     It pulsates with much vigour, summons Plantera.'
   EquipType: 0
+  health: 0
   armor: 0
   resist: 0
+  attack: 0
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  bossPrefab: {fileID: 2408207500018932619, guid: 353c4969202d7364c8f8a64bb6420152, type: 3}
   bossName: Plantera
+  bossPrefab: {fileID: 2408207500018932619, guid: 353c4969202d7364c8f8a64bb6420152, type: 3}
+  summon:
+    m_PersistentCalls:
+      m_Calls: []

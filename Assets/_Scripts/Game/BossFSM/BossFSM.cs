@@ -5,12 +5,11 @@ using UnityEngine;
 public class BossFSM : MonoBehaviour
 {
     [Header("Init Boss")]
-    [SerializeField]
-    private BossInit bossInit;
+    [SerializeField] private BossInit bossInit;
+    public string bossName;
 
     [Header("States")]
-    [SerializeField]
-    private BossState[] states;
+    [SerializeField] private BossState[] states;
 
     private int currentIndex;
     private BossState currentState;
@@ -57,6 +56,8 @@ public class BossFSM : MonoBehaviour
         {
             state.InitState(mortality, playerTransform, playerMortality, rb, transform, playerLayer, animator, sr);
         }
+        
+        mortality.onHealthZero.AddListener(Death);
     }
 
     private void FixedUpdate()
@@ -114,5 +115,10 @@ public class BossFSM : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void Death()
+    {
+        mortality.onHealthZero.AddListener(()=>{BossManager.Instance.KillBoss(bossName);});
     }
 }

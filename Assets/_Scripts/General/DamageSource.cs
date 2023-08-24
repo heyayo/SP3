@@ -75,6 +75,15 @@ public class DamageSource : MonoBehaviour
     
     public delegate Affliction[] Afflicter();
     public Afflicter afflicter = null;
+
+    private void Start()
+    {
+        hpDamage = __NativeHPDamage;
+        activeEnergyDamage = __NativeActiveEnergyDamage;
+        armourPen = __NativeArmourPen;
+        resistPen = __NativeResistPen;
+        bleedOverPercentage = __NativeBleedOverPercentage;
+    }
     
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -88,5 +97,12 @@ public class DamageSource : MonoBehaviour
                 dmg.TakeAfflictions(afflictions);
             }
         }
+    }
+
+    [ContextMenu("DEBUG_AddDamage")]
+    private void DEBUG_AddDamage()
+    {
+        __NativeActiveEnergyDamage += 100;
+        __NativeHPDamage += 20;
     }
 }

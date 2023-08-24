@@ -1,14 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Items/Boss Item")]
 public class BossItem : Item
 {
     [Header("Spawns this boss")]
+    [SerializeField] public string bossName;
     [SerializeField]
-    private GameObject bossPrefab;
+    public GameObject bossPrefab;
 
-    [SerializeField]
-    public string bossName;
+    public UnityEvent summon;
+
+    private void OnEnable()
+    {
+        if (summon == null)
+            summon = new UnityEvent();
+    }
 
     public override void Use()
     {
@@ -20,9 +27,13 @@ public class BossItem : Item
         float y = 20f * Mathf.Sin(angle);
         Vector2 spawnPos = new Vector2(x, y);
 
+        /*
         Instantiate(bossPrefab, new Vector2(playerTransform.position.x, playerTransform.position.y)
             + spawnPos, Quaternion.identity);
-
+         */
+        
         consumed.Invoke();
+        if (BossManager.Instance.SummonBoss(bossName))
+            consumed.Invoke();
     }
 }

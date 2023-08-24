@@ -12,5 +12,6 @@ public class WorldGenOptions : ScriptableObject
     public float seaLevel = .25f;
     public float treeLevel = 0.8f;
     public float grassLevel = 0.5f;
+    public float natureLevel = 0.4f;
     public string seedString;
 }
