@@ -13,7 +13,7 @@ public class HomingSpell : Item
     private void OnEnable()
     {
         // Find and assign the player's transform using the tag "Player"
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        GameObject playerObject = PlayerManager.Instance.gameObject;
         if (playerObject != null)
         {
             playerTransform = playerObject.transform;
