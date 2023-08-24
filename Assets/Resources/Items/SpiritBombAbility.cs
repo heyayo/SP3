@@ -1,9 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class SpiritBomb: MonoBehaviour
+
+[CreateAssetMenu(menuName = "Items/Spiritbombl")]
+public class SpiritBombAbility : Item
 {
-    public float  scaleFactor = 2f; // Adjust this factor to make the scaling more noticeable
+    public float scaleFactor = 2f; // Adjust this factor to make the scaling more noticeable
 
     public float maxChargeTime = 3f; // Maximum charge time in seconds
     public float chargeSpeed = 1f; // Charging speed
@@ -20,19 +23,19 @@ public class SpiritBomb: MonoBehaviour
     private bool isOnCooldown = false; // Is the ability on cooldown?
     private float cooldownTimer = 0f; // Timer for tracking cooldown
 
-    void Start()
+    void OnEnable()
     {
         player = PlayerManager.Instance.gameObject;
         //SpiritBombPrefab = Instantiate(SpiritBombPrefab);
         //SpiritBombPrefab.SetActive(false);
     }
-
-    void Update()
+    override public void WhileHolding()
     {
         if (!isOnCooldown)
         {
             if (Input.GetMouseButtonDown(0))
-            {   SpiritBombPrefab = Instantiate(SpiritBombPrefab);
+            {
+                SpiritBombPrefab = Instantiate(SpiritBombPrefab);
                 isCharging = true;
                 SpiritBombPrefab.SetActive(true);
             }
@@ -67,6 +70,12 @@ public class SpiritBomb: MonoBehaviour
             }
         }
     }
+
+    public override void Use()
+    {
+        
+    }
+
 
     void StartCooldown()
     {

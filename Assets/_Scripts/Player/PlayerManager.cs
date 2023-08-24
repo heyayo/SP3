@@ -152,6 +152,11 @@ public class PlayerManager : MonoBehaviour
     {
         InventoryManager.Instance.Add(Resources.Load<Item>("Items/BossSummons/SuspiciousLookingEye"));
     }
+    [ContextMenu("Give BS")]
+    private void SpawnBS()
+    {
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/BossSummons/BloodySpine"));
+    }
     [ContextMenu("Give Nasus E Skill")]
     private void SpawnNasus()
     {

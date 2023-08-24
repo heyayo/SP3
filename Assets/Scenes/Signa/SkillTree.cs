@@ -10,7 +10,7 @@ public class SkillTree : MonoBehaviour
     private bool isButton1Clicked = false;
     private bool Unlocked1 = false;
 
-    private PlayerProjectileScript Kiblast;
+    
 
     [SerializeField] GameObject player;
 
@@ -18,7 +18,7 @@ public class SkillTree : MonoBehaviour
 
     private void Start()
     {
-        Kiblast = player.GetComponent<PlayerProjectileScript>();
+      
         // Add click listeners to the buttons
         button1.onClick.AddListener(OnClickButton1);
         button2.onClick.AddListener(OnClickButton2);
@@ -47,8 +47,7 @@ public class SkillTree : MonoBehaviour
     {
         if (Unlocked1 == true)
         {
-            Kiblast = player.GetComponent<PlayerProjectileScript>();
-            Kiblast.isactive = true;
+           
             // Deactivate button 2
             button2.gameObject.SetActive(false);
         }

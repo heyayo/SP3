@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ForestTree : Interactable
@@ -8,6 +9,7 @@ public class ForestTree : Interactable
 
     [Header("Necessary Stuff")]
     [SerializeField] private Item yieldItem;
+    [SerializeField] private float respawnTimer;
 
     // Inventory Manager
     private InventoryManager inventoryManager;
@@ -15,6 +17,14 @@ public class ForestTree : Interactable
     private void Start()
     {
         inventoryManager = InventoryManager.Instance;
+        _mortality.onHealthZero.AddListener(StartToRespawn);
+    }
+
+    private async void StartToRespawn()
+    {
+        gameObject.SetActive(false);
+        await Task.Delay((int)(respawnTimer * 1000f));
+        gameObject.SetActive(true);
     }
 
     public override void OnInteract()

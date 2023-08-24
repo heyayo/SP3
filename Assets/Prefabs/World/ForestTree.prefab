@@ -49,6 +49,7 @@ MonoBehaviour:
   chopProgress: 0
   treeStrength: 2
   yieldItem: {fileID: 11400000, guid: 5d811a36326ac0e4da658db450ba52c1, type: 2}
+  respawnTimer: 2
 --- !u!70 &8163322559473483156
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
