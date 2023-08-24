@@ -25,6 +25,7 @@ public class EOCAttack : BossState
             rb.AddForce(dir * 800);
             attackTimer = 120;
             attackCount--;
+            SoundManager.Instance.PlaySound(0);
         }
 
         if (attackCount <= 0)

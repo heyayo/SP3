@@ -239,6 +239,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
   - {fileID: 11400000, guid: 5cc7a989e09e8764eb8f22eab45278df, type: 2}
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
+  hitSoundIndex: 2
 --- !u!114 &6250245784602867205
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,12 +34,19 @@ public class FloaterFSM : MonoBehaviour
         gameObject.GetComponent<Mortality>();
         playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
-        
+
+        GetComponent<Damagable>().hit.AddListener(HitSound);
         mortality.onHealthZero.AddListener(Death);
+    }
+
+    private void HitSound()
+    {
+        SoundManager.Instance.PlaySound(2);
     }
 
     private void Death()
     {
+        SoundManager.Instance.PlaySound(3);
         Destroy(gameObject);
     }
 

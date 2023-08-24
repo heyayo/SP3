@@ -5,12 +5,24 @@ using UnityEngine;
 public class BossFSM : MonoBehaviour
 {
     [Header("Init Boss")]
-    [SerializeField] private BossInit bossInit;
+    [SerializeField] 
+    private BossInit bossInit;
+    
+    [HideInInspector]
     public string bossName;
 
     [Header("States")]
-    [SerializeField] private BossState[] states;
+    [SerializeField] 
+    private BossState[] states;
 
+    [Header("Sounds")]
+    [SerializeField]
+    protected int hitSoundIndex = 1;
+
+    // Audio Source
+    protected AudioSource audioSource;
+
+    // Indexes
     private int currentIndex;
     private BossState currentState;
     private int resetToState;
@@ -56,7 +68,8 @@ public class BossFSM : MonoBehaviour
         {
             state.InitState(mortality, playerTransform, playerMortality, rb, transform, playerLayer, animator, sr);
         }
-        
+
+        GetComponent<Damagable>().hit.AddListener(HitSound);
         mortality.onHealthZero.AddListener(Death);
     }
 
@@ -115,6 +128,11 @@ public class BossFSM : MonoBehaviour
                 }
             }
         }
+    }
+    
+    private void HitSound()
+    {
+        SoundManager.Instance.PlaySound(hitSoundIndex);
     }
 
     private void Death()
