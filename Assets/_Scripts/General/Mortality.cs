@@ -284,11 +284,21 @@ public class Mortality : MonoBehaviour
     
     private void Start()
     {
+        __HealthMax = __NativeHealthMax;
+        HealthRegen = __NativeHealthRegen;
+        __ActiveEnergyMax = __NativeActiveEnergyMax;
+        ActiveRegen = __NativeActiveRegen;
+        __StoredEnergyMax = __NativeStoredEnergyMax;
+        StoredRegen = __NativeStoredRegen;
+        Armour = __NativeArmour;
+        Resist = __NativeResist;
         activeEnergy = activeMax;
         storedEnergy = storedMax;
         health = healthMax;
 
         immune = false;
+        
+        
     }
 
     private void Update()
@@ -382,6 +392,14 @@ public class Mortality : MonoBehaviour
     public Affliction[] GetAfflictions()
     {
         return _afflictions.ToArray();
+    }
+    
+    // Respawning
+    public void ResetToMax()
+    {
+        Health = __HealthMax;
+        StoredEnergy = __StoredEnergyMax;
+        ActiveEnergy = __ActiveEnergyMax;
     }
     
     // Calculate Damage Reduction

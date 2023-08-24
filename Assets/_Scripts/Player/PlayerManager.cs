@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Mortality))]
 [RequireComponent(typeof(Interactor))]
@@ -39,6 +37,8 @@ public class PlayerManager : MonoBehaviour
     public static Sprite RightHandSprite;
     public static Sprite RightBootSprite;
 
+    private Animator _animator;
+
     private void Awake()
     {
         if (Instance != null)
@@ -51,11 +51,13 @@ public class PlayerManager : MonoBehaviour
         MortalityScript = GetComponent<Mortality>();
         MovementScript = GetComponent<Movement>();
         AnimationScript = GetComponent<AnimationController>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
         UpdateSprites();
+        MortalityScript.onHealthZero.AddListener(KillPlayer);
     }
 
     private Sprite LoadSprite(string name)
@@ -90,5 +92,35 @@ public class PlayerManager : MonoBehaviour
     {
         MortalityScript.enabled = true;
         MovementScript.enabled = true;
+    }
+
+    [ContextMenu("Kill")]
+    public void KillPlayer()
+    {
+        FreezePlayer();
+        AnimationScript.enabled = false;
+        _animator.CrossFade(AnimationController.animDeath,0,0);
+        WaitForDeath();
+    }
+
+    public void RespawnPlayer(Vector2 position = new Vector2())
+    {
+        UnFreezePlayer();
+        AnimationScript.enabled = true;
+        transform.position = position;
+        gameObject.SetActive(true);
+        MortalityScript.ResetToMax();
+    }
+
+    [ContextMenu("Respawn")]
+    private void Respawn()
+    {
+        RespawnPlayer();
+    }
+    
+    private async void WaitForDeath()
+    {
+        await Task.Delay((int)(AnimationController.durDeath * 1000f));
+        gameObject.SetActive(false);
     }
 }
