@@ -32,7 +32,8 @@ public class ServantOfCthulhuFSM : MonoBehaviour
         playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+
+        mortality = GetComponent<Mortality>();
         mortality.onHealthZero.AddListener(Death);
     }
 

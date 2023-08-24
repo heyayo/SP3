@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
+[RequireComponent(typeof(Mortality))]
 public class ForestTree : Interactable
 {
     [Header("Trees' stats")]

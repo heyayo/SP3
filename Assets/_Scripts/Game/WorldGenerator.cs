@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.Collections;
 using Unity.Jobs;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -44,6 +46,8 @@ public class WorldGenerator : MonoBehaviour
     private const float _scale = 0.025f;
     private const float _environmentOffset = Int16.MaxValue;
 
+    private EdgeCollider2D _border;
+
     private void Awake()
     {
         if (instance != null)
@@ -57,6 +61,7 @@ public class WorldGenerator : MonoBehaviour
         // Fetch Components
         groundMap = transform.GetChild(0).GetComponent<Tilemap>();
         environmentMap = transform.GetChild(1).GetComponent<Tilemap>();
+        _border = GetComponent<EdgeCollider2D>();
     }
     
     // Start is called before the first frame update
@@ -139,6 +144,19 @@ public class WorldGenerator : MonoBehaviour
         
         onWorldEndGen.Invoke();
         PlayerManager.Instance.UnFreezePlayer();
+        
+        MatchBorder();
+    }
+
+    private void MatchBorder()
+    {
+        List<Vector2> points = new List<Vector2>();
+        points.Add(new Vector2(-options.worldSize.x, options.worldSize.y)/2);
+        points.Add(new Vector2(options.worldSize.x, options.worldSize.y)/2);
+        points.Add(new Vector2(options.worldSize.x, -options.worldSize.y)/2);
+        points.Add(new Vector2(-options.worldSize.x, -options.worldSize.y)/2);
+        points.Add(new Vector2(-options.worldSize.x, options.worldSize.y)/2);
+        _border.SetPoints(points);
     }
 
     // Depreciated

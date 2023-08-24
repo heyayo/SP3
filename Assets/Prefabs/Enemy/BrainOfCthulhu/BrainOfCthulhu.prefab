@@ -148,8 +148,8 @@ MonoBehaviour:
   nativeHealthMax: 2800
   nativeArmour: 100
   nativeResist: 100
-  effectiveArmour: 0
-  effectiveResist: 0
+  effectiveArmour: 100
+  effectiveResist: 100
   scaling:
     serializedVersion: 2
     m_Curve: []
@@ -239,7 +239,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
   - {fileID: 11400000, guid: 5cc7a989e09e8764eb8f22eab45278df, type: 2}
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
-  hitSoundIndex: 2
 --- !u!114 &6250245784602867205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mortality: {fileID: 0}
-  immunityTime: 0.1
+  immunityTime: 0.5
   immune: 0
   hit:
     m_PersistentCalls:

@@ -185,3 +185,4 @@ MonoBehaviour:
   bleedOverPercentage: 0
   nativeBleedOverPercentage: 0
   isFriendly: 1
+  isHostile: 0
