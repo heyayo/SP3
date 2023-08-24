@@ -57,7 +57,7 @@ public class GridBehaviour : MonoBehaviour
             if (spriteRenderer != null)
             {
                 // Change the sprite's color to red
-                spriteRenderer.color = Color.red;
+                spriteRenderer.color = new Color(0.6f, 0.0f, 0.8f); // Purple color
             }
         }
     }

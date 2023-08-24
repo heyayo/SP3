@@ -10,13 +10,13 @@ public class DOGattack : MonoBehaviour
     public float minAttackDelay = 4f;
     public float maxAttackDelay = 6f;
 
-    [SerializeField] private Transform player;
+    private Transform player;
     [SerializeField] private Material lineMaterial; // Add a serialized field for the material
 
 
     void Start()
     {
-        
+        player = PlayerManager.Instance.transform;
         StartCoroutine(AttackRoutine());
     }
 

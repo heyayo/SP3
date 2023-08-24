@@ -6,9 +6,9 @@ public class DOGprojectile : MonoBehaviour
 {
     public LayerMask enemyLayer;
     public float damageAmount = 10.0f;
-    public float damn;
     private Rigidbody2D rb;
-   
+    private float rotationOffset = -90.0f; // Offset for rotation
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,24 +25,18 @@ public class DOGprojectile : MonoBehaviour
     void CheckForCollision()
     {
         Vector2 currentPosition = transform.position;
-        Vector2 direction = Vector2.right; // Adjust direction if needed
+        Vector2 direction = rb.velocity.normalized; // Use the velocity direction as the firing direction
 
         RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction, 1.0f, enemyLayer);
 
         if (hit.collider != null)
         {
-
             Destroy(gameObject); // Destroy the projectile
-            //// Check if the hit collider belongs to an enemy
-            //// Check if the hit collider belongs to an enemy
-            //Mortality enemyHp = hit.collider.GetComponent<Mortality>();
-            //TargetDummyEnemy enemy = hit.collider.GetComponent<TargetDummyEnemy>();
-            //if (enemy != null)
-            //{
-            //    enemyHp.Health -= damageAmount;
-            //    enemy.TakeDamage(damageAmount);
-            //    Destroy(gameObject); // Destroy the projectile
-            //}
+            // Handle collision logic here
         }
+
+        // Calculate the rotation angle based on the firing direction
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + rotationOffset;
+        transform.rotation = Quaternion.Euler(0, 0, angle); // Apply the rotation
     }
 }

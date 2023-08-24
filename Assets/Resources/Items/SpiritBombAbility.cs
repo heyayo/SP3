@@ -23,14 +23,15 @@ public class SpiritBombAbility : Item
     private bool isOnCooldown = false; // Is the ability on cooldown?
     private float cooldownTimer = 0f; // Timer for tracking cooldown
 
-    void OnEnable()
+    void Start()
     {
-        player = PlayerManager.Instance.gameObject;
         //SpiritBombPrefab = Instantiate(SpiritBombPrefab);
         //SpiritBombPrefab.SetActive(false);
     }
     override public void WhileHolding()
     {
+        player = PlayerManager.Instance.gameObject;
+
         if (!isOnCooldown)
         {
             if (Input.GetMouseButtonDown(0))
@@ -54,7 +55,9 @@ public class SpiritBombAbility : Item
             if (Input.GetMouseButtonUp(0))
             {
                 LaunchSpiritBomb();
-                SpiritBombPrefab.SetActive(false);
+
+                
+                //SpiritBombPrefab.SetActive(false);
                 // Start the cooldown
                 StartCooldown();
             }
@@ -73,7 +76,8 @@ public class SpiritBombAbility : Item
 
     public override void Use()
     {
-        
+
+
     }
 
 
@@ -88,7 +92,7 @@ public class SpiritBombAbility : Item
         isCharging = false;
 
         // Instantiate the Spirit Bomb prefab
-        GameObject spiritBomb = Instantiate(SpiritBombPrefab, new Vector3(player.transform.position.x, player.transform.position.y + 9, 0), Quaternion.identity);
+        GameObject spiritBomb = SpiritBombPrefab;
 
         // Calculate the launch direction based on the mouse position
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -104,7 +108,12 @@ public class SpiritBombAbility : Item
         // Reset charge values
         chargeTime = 0f;
 
-        // Destroy the Spirit Bomb after 10 seconds
-        Destroy(spiritBomb, 10f); // Change the delay duration as needed
+        Destroy(spiritBomb, 10.0f);
+
+    }
+
+    private void OnDisable()
+    {
+        
     }
 }

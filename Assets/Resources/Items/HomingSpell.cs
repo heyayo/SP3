@@ -12,16 +12,18 @@ public class HomingSpell : Item
 
     private void OnEnable()
     {
+       
+    }
+
+    public override void Use()
+    {
         // Find and assign the player's transform using the tag "Player"
         GameObject playerObject = PlayerManager.Instance.gameObject;
         if (playerObject != null)
         {
             playerTransform = playerObject.transform;
         }
-    }
 
-    public override void Use()
-    {
         if (playerTransform == null)
         {
             Debug.LogWarning("Player transform is not assigned.");

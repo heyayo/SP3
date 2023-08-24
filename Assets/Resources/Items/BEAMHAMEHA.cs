@@ -21,6 +21,12 @@ public class BEAMHAMEHA : Item
 
     private void OnEnable()
     {
+
+    }
+    
+
+    public override void WhileHolding()
+    {
         firePoint = PlayerManager.Instance.gameObject.transform;
 
         cameraController = FindObjectOfType<CameraController>();
@@ -28,11 +34,7 @@ public class BEAMHAMEHA : Item
         {
             Debug.LogError("CameraController not found in the scene.");
         }
-    }
-    
 
-    public override void WhileHolding()
-    {
         if (Input.GetKeyDown(KeyCode.R) && !charging && !beamActive)
         {
             charging = true;

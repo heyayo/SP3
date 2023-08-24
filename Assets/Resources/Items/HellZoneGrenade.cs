@@ -21,7 +21,7 @@ public class HellZoneGrenade : Item
 
     private void OnEnable()
     {
-        player = PlayerManager.Instance.gameObject.transform;
+       
     }
     public override void Use()
     {
@@ -35,6 +35,7 @@ public class HellZoneGrenade : Item
 
     public override void WhileHolding()
     {
+        player = PlayerManager.Instance.gameObject.transform;
         // Implement any behavior you want while holding the item
         // For example, checking if the ability can be used again
         if (cooldownTimer > 0f)
