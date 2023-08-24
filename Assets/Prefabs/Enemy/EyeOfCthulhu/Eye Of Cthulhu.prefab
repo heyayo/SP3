@@ -18,9 +18,10 @@ GameObject:
   - component: {fileID: 4105138690058095621}
   - component: {fileID: -3647736539750749664}
   - component: {fileID: 603751215503075951}
+  - component: {fileID: 5937734995611010540}
   m_Layer: 0
   m_Name: Eye Of Cthulhu
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,8 +166,8 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
-  healthMax: 1200
-  nativeHealthMax: 0
+  healthMax: 0
+  nativeHealthMax: 1200
   nativeArmour: 60
   nativeResist: 60
   effectiveArmour: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossInit: {fileID: 0}
+  bossName: 
   states:
   - {fileID: 11400000, guid: 28eb14e770a93d64d99ede996b70e5dd, type: 2}
   - {fileID: 11400000, guid: d329e938bab6b9e409392f94e7fb35f7, type: 2}
@@ -235,6 +237,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 87c946b43684bc847866501208a53f56, type: 2}
   - {fileID: 11400000, guid: 0d8d33bb5a12ea94395d78ec3a91e744, type: 2}
   - {fileID: 11400000, guid: e1c3249fb054349448e6990aa63f8910, type: 2}
+  hitSoundIndex: 1
 --- !u!114 &5035288113788546619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,17 +251,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpDamage: 0
-  activeEnergyDamage: 120
+  activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 0
+  nativeActiveEnergyDamage: 120
   armourPen: 15
   resistPen: 15
   nativeArmourPen: 0
   nativeResistPen: 0
   armourPenType: 2
   resistPenType: 2
-  bleedOverPercentage: 25
-  nativeBleedOverPercentage: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 25
+  isFriendly: 0
 --- !u!58 &4105138690058095621
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -307,8 +311,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mortality: {fileID: 0}
-  immunityTime: 0.1
+  immunityTime: 1
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &603751215503075951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,3 +332,20 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
   chances: 64000000
+--- !u!114 &5937734995611010540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222542775091152465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc9653ed4c90d3499490056fd6d1c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gorePrefab: {fileID: 2676641096534526394, guid: bc3cfec39b0f0c648ae66ba728756586, type: 3}
+  gore:
+  - {fileID: 21300000, guid: 7bed411ad7d761e4aa9f8c7186c3ff81, type: 3}
+  - {fileID: 21300000, guid: 68727e01511481e4bbce923c6092052a, type: 3}
+  - {fileID: 21300000, guid: 14177fc79e7fe954ebcf9e449e1dd536, type: 3}

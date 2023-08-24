@@ -14,12 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Homing Missile
   itemSprite: {fileID: -616207719, guid: 57acef7bcb8efff4e9d5d139c136943e, type: 3}
+  droppable: 0
   itemDescription: 'Homing Missile:
 
-    NIggers?!'
-  itemCount: 0
+    More powerful than regular energy balls,
+    plus they home too.'
   EquipType: 0
+  health: 0
   armor: 1
   resist: 1
+  attack: 0
+  consumed:
+    m_PersistentCalls:
+      m_Calls: []
   projectilePrefabs: {fileID: 399416027905315182, guid: d8a8f7508daa5414a8018a91ac1a3b9d, type: 3}
   projectileSpeed: 10

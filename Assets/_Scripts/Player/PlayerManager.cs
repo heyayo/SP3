@@ -39,6 +39,29 @@ public class PlayerManager : MonoBehaviour
 
     private Animator _animator;
 
+    [Header("Player Specific Attack Stats")]
+    private float _attackStat;
+    private float _nativeAttackStat;
+    public float AttackDamage
+    {
+        get => _attackStat;
+        set
+        {
+            _attackStat = value;
+        }
+    }
+
+    public float __NativeAttackDamage
+    {
+        get => _nativeAttackStat;
+        set
+        {
+            float delta = value - _nativeAttackStat;
+            AttackDamage += delta;
+            _nativeAttackStat = value;
+        }
+    }
+
     private void Awake()
     {
         if (Instance != null)
@@ -122,5 +145,21 @@ public class PlayerManager : MonoBehaviour
     {
         await Task.Delay((int)(AnimationController.durDeath * 1000f));
         gameObject.SetActive(false);
+    }
+
+    [ContextMenu("Give SLE")]
+    private void SpawnEOC()
+    {
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/BossSummons/SuspiciousLookingEye"));
+    }
+    [ContextMenu("Give BS")]
+    private void SpawnBS()
+    {
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/BossSummons/BloodySpine"));
+    }
+    [ContextMenu("Give Nasus E Skill")]
+    private void SpawnNasus()
+    {
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/Weapons/NasusESkill"));
     }
 }

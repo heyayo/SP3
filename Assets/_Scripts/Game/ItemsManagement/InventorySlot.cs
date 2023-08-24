@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
@@ -11,6 +12,16 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] protected Image descriptionImg;
 
     public bool isArmorSlot = false;  // Hardcode to check, find a better fix if have time
+
+    // Event
+    public UnityEvent slotEdited;
+
+    // Changed to awake to prevent usage in Start() functions before initialization
+    private void Awake()
+    {
+        if (slotEdited == null)
+            slotEdited = new UnityEvent();
+    }
 
     public Image img
     {
@@ -56,6 +67,8 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
                 existingItem.transform.position = draggeditemParent.position;
                 draggedItem.transform.position = existingitemParent.position;
             }
+
+            slotEdited.Invoke();
         }
 
         //// There's an item being dragged
@@ -82,11 +95,13 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         if (GetComponentInChildren<InventoryItem>() != null)
         {
             description.text = GetComponentInChildren<InventoryItem>().item.itemDescription;
+            descriptionImg.gameObject.SetActive(true);
             descriptionImg.sprite = GetComponentInChildren<InventoryItem>().item.itemSprite;
             return;
         }
 
         description.text = "";
-        descriptionImg.sprite = null;
+        descriptionImg.gameObject.SetActive(false);
+        slotEdited.Invoke();
     }
 }

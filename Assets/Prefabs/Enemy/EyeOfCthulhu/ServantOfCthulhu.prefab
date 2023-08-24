@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 8395608231710294201}
   m_Layer: 0
   m_Name: ServantOfCthulhu
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,16 +170,19 @@ MonoBehaviour:
   nativeActiveRegen: 0
   activeRegen: 0
   activeMax: 0
+  nativeActiveMax: 0
   storedEnergy: 0
   nativeStoredRegen: 0
   storedRegen: 0
   storedMax: 0
+  nativeStoredMax: 0
   health: 0
   nativeRegen: 0
   regen: 0
-  healthMax: 1
-  nativeArmour: 0
-  nativeResist: 0
+  healthMax: 0
+  nativeHealthMax: 10
+  nativeArmour: 1
+  nativeResist: 1
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
@@ -205,6 +208,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
     m_PersistentCalls:
       m_Calls: []
   DEBUG_EnergyDamage: 0
@@ -264,13 +276,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpDamage: 10
+  hpDamage: 0
   activeEnergyDamage: 0
+  nativeHPDamage: 10
+  nativeActiveEnergyDamage: 25
   armourPen: 40
   resistPen: 0
+  nativeArmourPen: 0
+  nativeResistPen: 0
   armourPenType: 2
   resistPenType: 0
   bleedOverPercentage: 0
+  nativeBleedOverPercentage: 0
+  isFriendly: 0
 --- !u!114 &8395608231710294201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,3 +304,6 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []

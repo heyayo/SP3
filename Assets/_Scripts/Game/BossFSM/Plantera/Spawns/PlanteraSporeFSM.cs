@@ -25,7 +25,8 @@ public class PlanteraSporeFSM : MonoBehaviour
         EnterState(STATES.CHASE);
 
         gameObject.GetComponent<Mortality>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        // This is a god dream
+        playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -60,7 +61,7 @@ public class PlanteraSporeFSM : MonoBehaviour
     private void FacePlayer()
     {
         dir = (playerTransform.position - transform.position).normalized;
-        transform.rotation = Quaternion.Euler(0, 0, dir.x);
+        transform.rotation = Quaternion.Euler(0, 0, dir.x * -20);
     }
 
     // ***********************************************************
@@ -74,7 +75,7 @@ public class PlanteraSporeFSM : MonoBehaviour
         chaseTimer--;
 
         FacePlayer();
-        rb.AddForce(dir * 30f);
+        rb.AddForce(dir * 10f);
 
         if (chaseTimer <= 0)
             Destroy(gameObject);

@@ -20,7 +20,6 @@ public class EquipmentManager : MonoBehaviour
         for (int i = 0; i < armorSlots.Length; i++)
         {
             armorSlots[i].slotEdited.AddListener(UpdateStats);
-            armorSlots[i].slotRemove.AddListener(ClearStats);
         }
     }
 

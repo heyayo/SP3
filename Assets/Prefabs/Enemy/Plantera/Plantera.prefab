@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8343710595555107258}
   - component: {fileID: 2857372127231226052}
   - component: {fileID: -3318826772667500046}
+  - component: {fileID: 3619573926867420713}
   m_Layer: 0
   m_Name: Plantera
   m_TagString: Damagable
@@ -64,8 +65,8 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
-  healthMax: 9500
-  nativeHealthMax: 0
+  healthMax: 0
+  nativeHealthMax: 9500
   nativeArmour: 400
   nativeResist: 400
   effectiveArmour: 0
@@ -129,6 +130,9 @@ MonoBehaviour:
   mortality: {fileID: 2877767520488174395}
   immunityTime: 0.1
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6733703842922513121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +157,8 @@ MonoBehaviour:
   resistPenType: 2
   bleedOverPercentage: 40
   nativeBleedOverPercentage: 0
+  isFriendly: 0
+  isHostile: 1
 --- !u!212 &4329072901403845588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -301,10 +307,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossInit: {fileID: 11400000, guid: 52ffd144da6c7234b994bbb3a635195b, type: 2}
-  BossID: 2
+  bossName: 
   states:
   - {fileID: 11400000, guid: 51ea424bbd69ece419ef9735710dbfab, type: 2}
   - {fileID: 11400000, guid: 657a8911b870099479dc558e570a11cd, type: 2}
   - {fileID: 11400000, guid: 7f6c2ce5e9035894a97a39cf04a88828, type: 2}
   - {fileID: 11400000, guid: fdce4a1fd47749247846dc8a07c18f0e, type: 2}
   - {fileID: 11400000, guid: 88ffeb9672b355940bb79f63193bb52b, type: 2}
+  hitSoundIndex: 1
+--- !u!114 &3619573926867420713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408207500018932619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc9653ed4c90d3499490056fd6d1c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gorePrefab: {fileID: 2676641096534526394, guid: bc3cfec39b0f0c648ae66ba728756586, type: 3}
+  gore:
+  - {fileID: 21300000, guid: 8930519d187fa75458090300925e9ef2, type: 3}
+  - {fileID: 21300000, guid: 381d4ddb68c2b474f9de6f1413edd271, type: 3}
+  - {fileID: 21300000, guid: b5786e84cac0c994498ffc0913a5920f, type: 3}
+  - {fileID: 21300000, guid: d19de265a98e2bf43b4d5ad36a7fece6, type: 3}
+  - {fileID: 21300000, guid: 0041302ca2bfaac4eaf17ea4d82f23b5, type: 3}
+  - {fileID: 21300000, guid: 7dca2d4b52522b54fb0492a7367c3e97, type: 3}
+  - {fileID: 21300000, guid: 6fc6255a974b9b045852907bcd056eac, type: 3}
+  - {fileID: 21300000, guid: d0cec43f5570e594ea970ee8aab40de0, type: 3}
+  - {fileID: 21300000, guid: 2524a9d0fada3524d9581cd3ba6ca408, type: 3}

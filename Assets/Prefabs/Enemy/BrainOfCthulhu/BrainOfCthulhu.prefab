@@ -18,9 +18,10 @@ GameObject:
   - component: {fileID: 8282469030179773914}
   - component: {fileID: -4580236234692113790}
   - component: {fileID: 6702952746360175442}
+  - component: {fileID: 1321787344105521954}
   m_Layer: 0
   m_Name: BrainOfCthulhu
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,12 +145,12 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
-  healthMax: 2800
-  nativeHealthMax: 0
+  healthMax: 0
+  nativeHealthMax: 2800
   nativeArmour: 100
   nativeResist: 100
-  effectiveArmour: 0
-  effectiveResist: 0
+  effectiveArmour: 100
+  effectiveResist: 100
   scaling:
     serializedVersion: 2
     m_Curve: []
@@ -228,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossInit: {fileID: 11400000, guid: b7288fcfcfd7bf34a99a168e901a7254, type: 2}
-  BossID: 1
+  bossName: 
   states:
   - {fileID: 11400000, guid: e98f01d6a8ba72246ac1ed33825fa087, type: 2}
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
@@ -254,15 +255,17 @@ MonoBehaviour:
   hpDamage: 0
   activeEnergyDamage: 250
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 0
+  nativeActiveEnergyDamage: 250
   armourPen: 10
   resistPen: 10
-  nativeArmourPen: 0
-  nativeResistPen: 0
+  nativeArmourPen: 100
+  nativeResistPen: 100
   armourPenType: 2
   resistPenType: 2
   bleedOverPercentage: 30
-  nativeBleedOverPercentage: 0
+  nativeBleedOverPercentage: 30
+  isFriendly: 0
+  isHostile: 1
 --- !u!58 &8282469030179773914
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -311,8 +314,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mortality: {fileID: 0}
-  immunityTime: 0.1
+  immunityTime: 0.5
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6702952746360175442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,3 +335,28 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
   chances: 64000000
+--- !u!114 &1321787344105521954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948531592001244772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc9653ed4c90d3499490056fd6d1c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gorePrefab: {fileID: 2676641096534526394, guid: bc3cfec39b0f0c648ae66ba728756586, type: 3}
+  gore:
+  - {fileID: 21300000, guid: 8e9f0cbd8593a7a4f9d849d555a6913e, type: 3}
+  - {fileID: 21300000, guid: 3b83336740845934fa94fbfe7d89a512, type: 3}
+  - {fileID: 21300000, guid: 96d42fb81041e6642a1633fb87e9c4c0, type: 3}
+  - {fileID: 21300000, guid: 0cfba613c36ecdf48a864864c3f3f3fc, type: 3}
+  - {fileID: 21300000, guid: cfea28515b289b04aaf63325910db43d, type: 3}
+  - {fileID: 21300000, guid: 1369ed4dfdc19274ea7077c47e15fcd2, type: 3}
+  - {fileID: 21300000, guid: c77b7b20d31180a45aadc6eec947acb0, type: 3}
+  - {fileID: 21300000, guid: 32a86ea00a19d0b4fbb16a00aa77003b, type: 3}
+  - {fileID: 21300000, guid: f545da3ea28d8ff40a8b0718989a28a9, type: 3}
+  - {fileID: 21300000, guid: 3eacabefd95fff64cb1bdef760ccdc86, type: 3}
+  - {fileID: 21300000, guid: 7de3a94d15e5e194c86949a044cf3160, type: 3}

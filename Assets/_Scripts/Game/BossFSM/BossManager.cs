@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class BossManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class BossManager : MonoBehaviour
         public bool bossAlive;
         public bool bossDefeated;
         public BossItem boss;
+        public GameObject itself;
 
         // Creating new bossStats
         static public BossStats New(BossItem bossItem)
@@ -58,9 +60,29 @@ public class BossManager : MonoBehaviour
         float y = 20f * Mathf.Sin(angle);
         Vector2 spawnPos = new Vector2(x, y);
 
-        Instantiate(bossList[summonedBossName].boss.bossPrefab, new Vector2(playerTransform.position.x, playerTransform.position.y)
+        bossList[summonedBossName].itself = Instantiate(bossList[summonedBossName].boss.bossPrefab, new Vector2(playerTransform.position.x, playerTransform.position.y)
             + spawnPos, Quaternion.identity);
+        bossList[summonedBossName].itself.GetComponent<BossFSM>().bossName = summonedBossName;
 
         return true;
+    }
+
+    public void KillBoss(string summonedBossName)
+    {
+        if (!bossList[summonedBossName].bossAlive)
+            return;
+
+        // If no more bosses alive then change the bgm back to normal
+        foreach (BossItem bossItem in Resources.LoadAll<BossItem>("Items/BossSummons/"))
+        {
+            if (bossList[bossItem.bossName].bossAlive)
+                break;
+
+            SoundManager.Instance.PlayBGM(0);
+        }
+
+        bossList[summonedBossName].bossAlive = false;
+        bossList[summonedBossName].bossDefeated = true;
+        Destroy(bossList[summonedBossName].itself);
     }
 }

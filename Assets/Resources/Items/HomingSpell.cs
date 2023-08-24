@@ -13,7 +13,7 @@ public class HomingSpell : Item
     private void OnEnable()
     {
         // Find and assign the player's transform using the tag "Player"
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        GameObject playerObject = PlayerManager.Instance.gameObject;
         if (playerObject != null)
         {
             playerTransform = playerObject.transform;
@@ -27,6 +27,9 @@ public class HomingSpell : Item
             Debug.LogWarning("Player transform is not assigned.");
             return;
         }
+
+        // Shooting sound
+        SoundManager.Instance.PlaySound(4);
 
         // Get the mouse position in world coordinates
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

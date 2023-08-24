@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: PlanteraTransform
   m_EditorClassIdentifier: 
   isTransformState: 1
+  gorePrefab: {fileID: 2676641096534526394, guid: bc3cfec39b0f0c648ae66ba728756586, type: 3}
+  gore:
+  - {fileID: 21300000, guid: 18ddc2b95ab6b9b458380edffd585f59, type: 3}
+  - {fileID: 21300000, guid: 370cce4e88b32ad49889c8e0860b7e42, type: 3}
+  - {fileID: 21300000, guid: 6ad49c1a813821c4bacd16b19baa17c1, type: 3}
