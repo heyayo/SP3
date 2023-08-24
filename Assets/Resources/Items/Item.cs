@@ -7,6 +7,7 @@ public class Item : ScriptableObject
     [Header("Item Data")]
     [SerializeField] public string itemName;
     [SerializeField] public Sprite itemSprite;
+    [SerializeField] public bool droppable = true;
     [TextArea] [SerializeField]
     public string itemDescription = "null";
 
