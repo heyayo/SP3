@@ -1024,6 +1024,7 @@ GameObject:
   - component: {fileID: 356968736687717019}
   - component: {fileID: 4184924878811296553}
   - component: {fileID: 3024495546009432811}
+  - component: {fileID: 4981868833424106512}
   m_Layer: 7
   m_Name: Player
   m_TagString: Damagable
@@ -1216,6 +1217,9 @@ MonoBehaviour:
   mortality: {fileID: 1579393493429420541}
   immunityTime: 0.5
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6733982612956102854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1390,6 +1394,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.97, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &4981868833424106512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674558161679562206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05d935b36d6b0b9589c968cc27990f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 120
+  enemies:
+  - {fileID: 7222542775091152465, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
+  count: 01000000
+  range: 25
 --- !u!1 &5819656711076087618
 GameObject:
   m_ObjectHideFlags: 0
