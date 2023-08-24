@@ -72,6 +72,16 @@ public class BossManager : MonoBehaviour
         if (!bossList[summonedBossName].bossAlive)
             return;
 
+        // If no more bosses alive then change the bgm back to normal
+        foreach (BossItem bossItem in Resources.LoadAll<BossItem>("Items/BossSummons/"))
+        {
+            if (bossList[bossItem.bossName].bossAlive)
+                break;
+
+            SoundManager.Instance.PlayBGM(0);
+        }
+
+        SoundManager.Instance.PlaySound(0);
         bossList[summonedBossName].bossAlive = false;
         bossList[summonedBossName].bossDefeated = true;
         Destroy(bossList[summonedBossName].itself);

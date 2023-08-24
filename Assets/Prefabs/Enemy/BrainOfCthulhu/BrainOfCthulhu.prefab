@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6702952746360175442}
   m_Layer: 0
   m_Name: BrainOfCthulhu
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,6 +239,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
   - {fileID: 11400000, guid: 5cc7a989e09e8764eb8f22eab45278df, type: 2}
   - {fileID: 11400000, guid: 6aabe78b304e0f54fb8fbae2630ccd66, type: 2}
+  hitSoundIndex: 2
 --- !u!114 &6250245784602867205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,15 +255,17 @@ MonoBehaviour:
   hpDamage: 0
   activeEnergyDamage: 250
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 0
+  nativeActiveEnergyDamage: 250
   armourPen: 10
   resistPen: 10
-  nativeArmourPen: 0
-  nativeResistPen: 0
+  nativeArmourPen: 100
+  nativeResistPen: 100
   armourPenType: 2
   resistPenType: 2
   bleedOverPercentage: 30
-  nativeBleedOverPercentage: 0
+  nativeBleedOverPercentage: 30
+  isFriendly: 0
+  isHostile: 1
 --- !u!58 &8282469030179773914
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -313,6 +316,9 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6702952746360175442
 MonoBehaviour:
   m_ObjectHideFlags: 0

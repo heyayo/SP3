@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -24,6 +22,15 @@ public class InventoryManager : MonoBehaviour
         _config = Configuration.FetchConfig();
         inventoryParent.SetActive(false);
         _player = PlayerManager.Instance;
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            slot.slotEdited.AddListener(UpdatePlayerStats);
+        }
+
+        foreach (ArmorSlot slot in armourSlots)
+        {
+            slot.slotEdited.AddListener(UpdatePlayerStats);
+        }
     }
 
     private void Awake()
@@ -34,16 +41,6 @@ public class InventoryManager : MonoBehaviour
             Debug.Break();
         }
         Instance = this;
-
-        foreach (InventorySlot slot in inventorySlots)
-        {
-            slot.slotEdited.AddListener(UpdatePlayerStats);
-        }
-
-        foreach (ArmorSlot slot in armourSlots)
-        {
-            slot.slotEdited.AddListener(UpdatePlayerStats);
-        }
     }
     
     public void Add(Item item)
@@ -109,10 +106,12 @@ public class InventoryManager : MonoBehaviour
 
     private void UpdatePlayerStats()
     {
+        Mortality playerMortality = _player.GetComponent<Mortality>();
+        
         // Default values
-        float healthMax = 250;
-        float armor = 0;
-        float resist = 0;
+        float healthMax = playerMortality.__NativeHealthMax;
+        float armor = playerMortality.__NativeArmour;
+        float resist = playerMortality.__NativeResist;
         float attack = 0;
 
         foreach (ArmorSlot slot in armourSlots)
@@ -131,7 +130,6 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        Mortality playerMortality = _player.GetComponent<Mortality>();
         playerMortality.__HealthMax = healthMax;
         playerMortality.Armour = armor;
         playerMortality.Resist = resist;

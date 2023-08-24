@@ -5,10 +5,20 @@ using UnityEngine.Events;
 public class BossItem : Item
 {
     [Header("Spawns this boss")]
-    [SerializeField] public string bossName;
+    [SerializeField] 
+    public string bossName;
+
     [SerializeField]
     public GameObject bossPrefab;
 
+    [Header("Audios")]
+    [SerializeField]
+    private int spawnSoundIndex = 0;
+
+    [SerializeField]
+    private int bgmIndex = 1;
+
+    [HideInInspector]
     public UnityEvent summon;
 
     private void OnEnable()
@@ -34,6 +44,13 @@ public class BossItem : Item
         
         consumed.Invoke();
         if (BossManager.Instance.SummonBoss(bossName))
+        {
+            // Play sound
+            SoundManager.Instance.PlaySound(spawnSoundIndex);
+            SoundManager.Instance.PlayBGM(bgmIndex);
+
+            // Consumed event
             consumed.Invoke();
+        }
     }
 }

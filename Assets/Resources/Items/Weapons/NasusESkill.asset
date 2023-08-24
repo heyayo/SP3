@@ -26,4 +26,4 @@ MonoBehaviour:
       m_Calls: []
   skillEffectPrefab: {fileID: 8955546734637590800, guid: 7ee624d0e52d4af49886202b522da613, type: 3}
   skillLayoutVisualization: {fileID: 3087688843574789050, guid: 693df6415675ed6458c0a63085064ad8, type: 3}
-  skillCooldown: 5
+  skillCooldown: 2

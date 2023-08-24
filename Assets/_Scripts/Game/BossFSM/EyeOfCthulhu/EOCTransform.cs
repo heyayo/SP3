@@ -26,6 +26,7 @@ public class EOCTransform : BossState
         if (rotatedAmount >= rotationAmount && rb.angularVelocity <= 20f)
         {
             animator.SetBool("Enraged", true);
+            SoundManager.Instance.PlaySound(0);
             return true;
         }
 

@@ -273,6 +273,7 @@ MonoBehaviour:
   resistPenType: 0
   bleedOverPercentage: 0
   nativeBleedOverPercentage: 50
+  isFriendly: 0
 --- !u!212 &328323684
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -880,10 +881,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3757492552347763816, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4102196765861065779, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -995,6 +992,10 @@ PrefabInstance:
     - target: {fileID: 4841000490442659015, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003501400459959472, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5122517595179698967, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1282,7 +1283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8524608458343320816, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: -0.00015258789
       objectReference: {fileID: 0}
     - target: {fileID: 9035415779551321226, guid: 8e59c7b09057e459fba420c30c21265d, type: 3}
       propertyPath: m_AnchorMax.y
