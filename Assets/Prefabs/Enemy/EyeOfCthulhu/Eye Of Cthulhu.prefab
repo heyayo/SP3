@@ -272,15 +272,15 @@ MonoBehaviour:
   hpDamage: 0
   activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 100
-  armourPen: 15
-  resistPen: 15
-  nativeArmourPen: 0
-  nativeResistPen: 0
+  nativeActiveEnergyDamage: 200
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 10
+  nativeResistPen: 10
   armourPenType: 2
   resistPenType: 2
   bleedOverPercentage: 0
-  nativeBleedOverPercentage: 25
+  nativeBleedOverPercentage: 15
   isFriendly: 0
   isHostile: 1
 --- !u!58 &4105138690058095621
@@ -373,4 +373,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 320f3610c5807e2438dba77798826552, type: 2}
   - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
   - {fileID: 11400000, guid: 7a206d577cf38494c9786073ea0616a3, type: 2}
-  chances: 64000000640000003200000032000000640000000c000000
+  - {fileID: 11400000, guid: c046792026caab643933c0def6d35ceb, type: 2}
+  chances: 64000000640000003200000032000000640000000c00000032000000

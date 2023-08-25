@@ -147,7 +147,7 @@ MonoBehaviour:
   nativeRegen: 0
   regen: 0
   healthMax: 0
-  nativeHealthMax: 9900
+  nativeHealthMax: 10200
   nativeArmour: 300
   nativeResist: 300
   effectiveArmour: 0
@@ -274,17 +274,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpDamage: 0
-  activeEnergyDamage: 250
+  activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 250
-  armourPen: 10
-  resistPen: 10
-  nativeArmourPen: 100
-  nativeResistPen: 100
+  nativeActiveEnergyDamage: 300
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 25
+  nativeResistPen: 25
   armourPenType: 2
   resistPenType: 2
-  bleedOverPercentage: 30
-  nativeBleedOverPercentage: 30
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 25
   isFriendly: 0
   isHostile: 1
 --- !u!58 &8282469030179773914
@@ -403,4 +403,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7ccbfe1910eca94696816a1e1a5a23e, type: 2}
   - {fileID: 11400000, guid: a484a99f999e41445935e32b850d301b, type: 2}
   - {fileID: 11400000, guid: 1838bb0ef458dbb41960ca83fc2de576, type: 2}
-  chances: 640000006400000064000000320000003200000064000000190000000c000000
+  - {fileID: 11400000, guid: c046792026caab643933c0def6d35ceb, type: 2}
+  - {fileID: 11400000, guid: c046792026caab643933c0def6d35ceb, type: 2}
+  chances: 640000006400000064000000320000003200000064000000190000000c0000003200000032000000

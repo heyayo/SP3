@@ -15,6 +15,8 @@ public class PlanteraTransform : BossState
     {
         Vector2 dir;
 
+        damageSource.activeEnergyDamage += 200;
+
         foreach (Sprite sprite in gore)
         {
             dir = new Vector2(Random.Range(-360, 360), Random.Range(-360, 360)).normalized;

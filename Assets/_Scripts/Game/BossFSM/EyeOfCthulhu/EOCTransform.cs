@@ -5,11 +5,27 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "EOC States/Transform")]
 public class EOCTransform : BossState
 {
+    [SerializeField]
+    private GameObject gorePrefab;
+
+    [SerializeField]
+    private Sprite[] gore;
+
     private float rotatedAmount;
 
     override public void EnterState()
     {
         rotatedAmount = 0f;
+        damageSource.activeEnergyDamage += 50;
+
+        foreach (Sprite sprite in gore)
+        {
+            dir = new Vector2(Random.Range(-360, 360), Random.Range(-360, 360)).normalized;
+            GameObject go = Instantiate(gorePrefab, transform.position, Quaternion.identity);
+            go.GetComponent<Rigidbody2D>().AddForce(dir * Random.Range(3, 6), ForceMode2D.Impulse);
+            go.GetComponent<SpriteRenderer>().sprite = sprite;
+            go.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-200, 200));
+        }
     }
 
     override public bool DoState()

@@ -241,15 +241,15 @@ MonoBehaviour:
   hpDamage: 0
   activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 125
+  nativeActiveEnergyDamage: 150
   armourPen: 0
-  resistPen: 12
-  nativeArmourPen: 0
-  nativeResistPen: 0
-  armourPenType: 0
+  resistPen: 0
+  nativeArmourPen: 25
+  nativeResistPen: 25
+  armourPenType: 2
   resistPenType: 2
   bleedOverPercentage: 0
-  nativeBleedOverPercentage: 5
+  nativeBleedOverPercentage: 25
   isFriendly: 0
   isHostile: 1
 --- !u!58 &475562366175048771

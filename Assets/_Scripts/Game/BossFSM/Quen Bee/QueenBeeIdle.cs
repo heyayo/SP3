@@ -59,7 +59,5 @@ public class QueenBeeIdle : BossState
         {
             sr.flipX = false;
         }
-
-
     }
 }
