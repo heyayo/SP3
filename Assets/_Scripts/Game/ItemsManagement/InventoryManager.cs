@@ -57,6 +57,16 @@ public class InventoryManager : MonoBehaviour
         DropItem(item);
     }
 
+    public void Drop(Item item, Vector2 pos)
+    {
+        PickupItem pickupItem = Instantiate(pickupItemPrefab,
+            pos,
+            Quaternion.identity);
+        pickupItem.item = item; // Assign Item
+        pickupItem.SetSprite(item.itemSprite); // Assign Sprite
+        pickupItem.item.Setup(pickupItem.gameObject);
+    }
+
     private void Update()
     {
         // Dropping items
