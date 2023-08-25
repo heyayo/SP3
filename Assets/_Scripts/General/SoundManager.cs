@@ -15,9 +15,11 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource BGM;
 
-    private void OnEnable()
+    private void Awake()
     {
         Instance = this;
+
+        BGM = GetComponent<AudioSource>();
 
         // BGM
         BGM.loop = true;

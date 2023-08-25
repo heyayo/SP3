@@ -20,7 +20,7 @@ public class KiProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckForCollision();
+        //CheckForCollision();
     }
 
     void CheckForCollision()

@@ -18,11 +18,14 @@ public class HomingSpell : Item
     public override void Use()
     {
         // Find and assign the player's transform using the tag "Player"
-        GameObject playerObject = PlayerManager.Instance.gameObject;
-        if (playerObject != null)
-        {
-            playerTransform = playerObject.transform;
-        }
+        PlayerManager playerObject = PlayerManager.Instance;
+        if (playerObject == null)
+            return;
+        var mortality = playerObject.MortalityScript;
+        if (mortality.ActiveEnergy < 40)
+            return;
+        mortality.ActiveEnergy -= 40;
+        playerTransform = playerObject.transform;
 
         if (playerTransform == null)
         {

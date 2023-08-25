@@ -12,6 +12,7 @@ public class SpiritBombAbility : Item
     public float chargeSpeed = 1f; // Charging speed
 
     public GameObject SpiritBombPrefab; // Reference to the charging indicator GameObject
+    public GameObject activeSpiritBomb;
     private float chargeTime = 0f; // Current charge time
     private bool isCharging = false; // Is the player charging?
 
@@ -22,12 +23,6 @@ public class SpiritBombAbility : Item
     public float cooldownDuration = 5f; // Cooldown duration in seconds
     private bool isOnCooldown = false; // Is the ability on cooldown?
     private float cooldownTimer = 0f; // Timer for tracking cooldown
-
-    void Start()
-    {
-        //SpiritBombPrefab = Instantiate(SpiritBombPrefab);
-        //SpiritBombPrefab.SetActive(false);
-    }
     override public void WhileHolding()
     {
         player = PlayerManager.Instance.gameObject;
@@ -36,7 +31,7 @@ public class SpiritBombAbility : Item
         {
             if (Input.GetMouseButtonDown(0))
             {
-                SpiritBombPrefab = Instantiate(SpiritBombPrefab);
+                activeSpiritBomb = Instantiate(SpiritBombPrefab);
                 isCharging = true;
                 SpiritBombPrefab.SetActive(true);
             }
@@ -48,8 +43,8 @@ public class SpiritBombAbility : Item
                 chargeTime = Mathf.Clamp(chargeTime, 0f, maxChargeTime);
 
 
-                SpiritBombPrefab.transform.localScale = Vector3.one * (chargeTime / maxChargeTime) * scaleFactor;
-                SpiritBombPrefab.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 9, SpiritBombPrefab.transform.position.z);
+                activeSpiritBomb.transform.localScale = Vector3.one * (chargeTime / maxChargeTime) * scaleFactor;
+                activeSpiritBomb.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 9, 0);
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -91,9 +86,6 @@ public class SpiritBombAbility : Item
     {
         isCharging = false;
 
-        // Instantiate the Spirit Bomb prefab
-        GameObject spiritBomb = SpiritBombPrefab;
-
         // Calculate the launch direction based on the mouse position
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 launchDirection = (mousePosition - (Vector2)player.transform.position).normalized;
@@ -102,14 +94,13 @@ public class SpiritBombAbility : Item
         float launchSpeed = chargeTime * 10f; // Adjust the multiplier as needed
 
         // Apply velocity to the Spirit Bomb's Rigidbody2D
-        Rigidbody2D rb = spiritBomb.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = activeSpiritBomb.GetComponent<Rigidbody2D>();
         rb.velocity = launchDirection * launchSpeed;
 
         // Reset charge values
         chargeTime = 0f;
 
-        Destroy(spiritBomb, 10.0f);
-
+        Destroy(activeSpiritBomb, 10.0f);
     }
 
     private void OnDisable()

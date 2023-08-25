@@ -35,6 +35,8 @@ public class PlanteraHookFSM : MonoBehaviour
 
     private void Start()
     {
+        planteraTransform.GetComponent<Mortality>().onHealthZero.AddListener(OnDeath);
+
         EnterState(STATES.IDLE);
 
         playerTransform = PlayerManager.Instance.transform;
@@ -144,5 +146,10 @@ public class PlanteraHookFSM : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, gameObject.transform.position);
         lineRenderer.SetPosition(1, planteraTransform.position);
+    }
+
+    private void OnDeath()
+    {
+        Destroy(gameObject);
     }
 }

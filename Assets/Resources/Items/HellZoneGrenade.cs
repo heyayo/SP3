@@ -48,7 +48,8 @@ public class HellZoneGrenade : Item
     {
         for (int i = 0; i < projectileCount; i++)
         {
-            float angle = spreadAngle * i / (projectileCount - 1) - spreadAngle / 2f;
+            //float angle = spreadAngle * i / (projectileCount - 1) - spreadAngle / 2f;
+            float angle = Random.Range(0, spreadAngle);
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
 
             GameObject projectile = Instantiate(projectilePrefab, player.position, rotation);
@@ -62,6 +63,8 @@ public class HellZoneGrenade : Item
 
             rb.velocity = curvedDirection * launchForce;
 
+            /*
+             * 
             while (Input.GetKey(KeyCode.E))
             {
                 Vector2 currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -81,6 +84,7 @@ public class HellZoneGrenade : Item
                     break; // Exit the loop if the key is released
                 }
             }
+             */
         }
 
     }

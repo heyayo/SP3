@@ -32,13 +32,16 @@ public class NasusESkill : Item
             if (Input.GetMouseButtonDown(0) && skillReady)
             {
                 // Player clicked while holding the skill button and skill is ready
-                // Instantiate the skill effect at the mouse position
-                Instantiate(skillEffectPrefab, mousePosition, Quaternion.identity);
+                if (_playerMortality.ActiveEnergy >= 120)
+                {
+                    _playerMortality.ActiveEnergy -= 120;
+                    // Instantiate the skill effect at the mouse position
+                    Instantiate(skillEffectPrefab, mousePosition, Quaternion.identity);
 
-                _playerMortality.ActiveEnergy -= 120;
-                // Set skill on cooldown
-                skillReady = false;
-                timeSinceLastSkillUse = Time.time;
+                    // Set skill on cooldown
+                    skillReady = false;
+                    timeSinceLastSkillUse = Time.time;
+                }
             }
         }
 

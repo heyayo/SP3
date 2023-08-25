@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: NatureShard
   m_EditorClassIdentifier: 
   recipeR1:
-  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
-  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
-  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
+  - {fileID: 11400000, guid: ef5e0c3d4c4691048a0312f64384b92d, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: ef5e0c3d4c4691048a0312f64384b92d, type: 2}
   recipeR2:
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
   - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
-  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
-  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
   recipeR3:
-  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
-  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
-  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
+  - {fileID: 11400000, guid: ef5e0c3d4c4691048a0312f64384b92d, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: ef5e0c3d4c4691048a0312f64384b92d, type: 2}
   yieldItem: {fileID: 11400000, guid: 16d609832dfbd724c91e8ff84725bfbf, type: 2}

@@ -350,6 +350,8 @@ MonoBehaviour:
   resistPenType: 0
   bleedOverPercentage: 50
   nativeBleedOverPercentage: 0
+  isFriendly: 0
+  isHostile: 1
 --- !u!114 &509093764599334504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,7 +381,7 @@ MonoBehaviour:
   moveSpeed: 8
   spike: {fileID: 0}
   spikeAnim: {fileID: 0}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 7674341760411402464, guid: 023345b76eafa654a87a9423b1041aa3, type: 3}
   bulletSpeed: 10
   warningText: {fileID: 0}
 --- !u!1 &9074437512380596661

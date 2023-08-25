@@ -141,19 +141,33 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
-<<<<<<< HEAD
-  healthMax: 2800
-=======
   healthMax: 0
->>>>>>> 9887bfb885653e819f69292dd2c0a12231a2e67e
-  nativeHealthMax: 2800
-  nativeArmour: 100
-  nativeResist: 100
-  effectiveArmour: 100
-  effectiveResist: 100
+  nativeHealthMax: 9900
+  nativeArmour: 300
+  nativeResist: 300
+  effectiveArmour: 0
+  effectiveResist: 0
   scaling:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

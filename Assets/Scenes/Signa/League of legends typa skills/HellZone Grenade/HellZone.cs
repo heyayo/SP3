@@ -20,7 +20,6 @@ public class HellZone : MonoBehaviour
 
     private IEnumerator MoveRoutine()
     {
-        // Move the projectile initially (you can replace this with your own movement code)
         rb2D.velocity = new Vector2(originalForce.x, originalForce.y);
 
         yield return new WaitForSeconds(1.5f);  // Wait for 3 seconds
@@ -62,7 +61,6 @@ public class HellZone : MonoBehaviour
                 }
             }
         }
-
         if (closestEnemy != null)
         {
             targetEnemy = closestEnemy.transform;

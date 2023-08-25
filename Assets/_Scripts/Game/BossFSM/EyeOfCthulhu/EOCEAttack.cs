@@ -11,7 +11,16 @@ public class EOCEAttack : BossState
     override public void EnterState()
     {
         attackTimer = 50;
-        attackCount = 6;
+
+        // Based on hp
+        if (mortality.Health / mortality.__HealthMax > 0.35f)
+            attackCount = 3;
+        else if (mortality.Health / mortality.__HealthMax > 0.2f)
+            attackCount = 4;
+        else if (mortality.Health / mortality.__HealthMax > 0.05f)
+            attackCount = 5;
+        else
+            attackCount = 6;
     }
 
     override public bool DoState()
@@ -23,10 +32,20 @@ public class EOCEAttack : BossState
             // Dash
             FacePlayer();
             rb.velocity = Vector2.zero;
-            rb.AddForce(dir * 1200);
-            attackTimer = 40;
+            rb.AddForce(dir * 1600);
+
+            // Based on hp
+            if (mortality.Health / mortality.__HealthMax > 0.35f)
+                attackTimer = 45;
+            else if (mortality.Health / mortality.__HealthMax > 0.2f)
+                attackTimer = 40;
+            else if (mortality.Health / mortality.__HealthMax > 0.05f)
+                attackTimer = 30;
+            else
+                attackTimer = 25;
+
             attackCount--;
-            SoundManager.Instance.PlaySound(0);
+            SoundManager.Instance.PlaySound(6);
         }
 
         if (attackCount <= 0)

@@ -8,8 +8,15 @@ using UnityEngine.Events;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] protected TMP_Text description;
-    [SerializeField] protected Image descriptionImg;
+    [SerializeField] 
+    protected TMP_Text description;
+
+    [SerializeField] 
+    protected Image descriptionImg;
+
+    [SerializeField]
+    protected GameObject descriptionScrollable;
+
 
     public bool isArmorSlot = false;  // Hardcode to check, find a better fix if have time
 
@@ -94,14 +101,36 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         // Update item description and image
         if (GetComponentInChildren<InventoryItem>() != null)
         {
-            description.text = GetComponentInChildren<InventoryItem>().item.itemDescription;
+
+            InventoryItem inventoryItem = GetComponentInChildren<InventoryItem>();
+            Item curr = inventoryItem.item;
+
+            // Stats texts
+            string healthText = "";
+            string armorText = "";
+            string resistText = "";
+            string attackText = "";
+
+            if (curr.health > 0)
+                healthText = $"Health + {curr.health}";
+            if (curr.armor > 0)
+                armorText = $"Armor + {curr.armor}";
+            if (curr.resist > 0)
+                resistText = $"Resist + {curr.resist}";
+            if (curr.attack > 0)
+                attackText = $"Attack + {curr.attack}";
+
+            description.text = inventoryItem.item.itemDescription + "\n" + healthText + "\n" + 
+                armorText + "\n" + resistText + "\n" + attackText;
             descriptionImg.gameObject.SetActive(true);
-            descriptionImg.sprite = GetComponentInChildren<InventoryItem>().item.itemSprite;
+            descriptionScrollable.SetActive(false);
+            descriptionImg.sprite = inventoryItem.item.itemSprite;
             return;
         }
 
         description.text = "";
         descriptionImg.gameObject.SetActive(false);
+        descriptionScrollable.SetActive(false);
         slotEdited.Invoke();
     }
 }

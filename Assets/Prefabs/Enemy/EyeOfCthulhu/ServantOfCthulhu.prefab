@@ -187,7 +187,25 @@ MonoBehaviour:
   effectiveResist: 0
   scaling:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -278,17 +296,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpDamage: 0
   activeEnergyDamage: 0
-  nativeHPDamage: 10
-  nativeActiveEnergyDamage: 25
-  armourPen: 40
+  nativeHPDamage: 20
+  nativeActiveEnergyDamage: 20
+  armourPen: 0
   resistPen: 0
-  nativeArmourPen: 0
-  nativeResistPen: 0
+  nativeArmourPen: 10
+  nativeResistPen: 10
   armourPenType: 2
-  resistPenType: 0
+  resistPenType: 2
   bleedOverPercentage: 0
   nativeBleedOverPercentage: 0
   isFriendly: 0
+  isHostile: 1
 --- !u!114 &8395608231710294201
 MonoBehaviour:
   m_ObjectHideFlags: 0

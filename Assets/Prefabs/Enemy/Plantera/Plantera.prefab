@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2857372127231226052}
   - component: {fileID: -3318826772667500046}
   - component: {fileID: 3619573926867420713}
+  - component: {fileID: -8916753238563408371}
   m_Layer: 0
   m_Name: Plantera
   m_TagString: Damagable
@@ -66,14 +67,32 @@ MonoBehaviour:
   nativeRegen: 0
   regen: 0
   healthMax: 0
-  nativeHealthMax: 9500
+  nativeHealthMax: 24000
   nativeArmour: 400
   nativeResist: 400
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -145,18 +164,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpDamage: 40
-  activeEnergyDamage: 1200
+  hpDamage: 0
+  activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 0
-  armourPen: 25
-  resistPen: 60
-  nativeArmourPen: 0
-  nativeResistPen: 0
+  nativeActiveEnergyDamage: 300
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 35
+  nativeResistPen: 35
   armourPenType: 2
   resistPenType: 2
-  bleedOverPercentage: 40
-  nativeBleedOverPercentage: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 30
   isFriendly: 0
   isHostile: 1
 --- !u!212 &4329072901403845588
@@ -315,6 +334,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fdce4a1fd47749247846dc8a07c18f0e, type: 2}
   - {fileID: 11400000, guid: 88ffeb9672b355940bb79f63193bb52b, type: 2}
   hitSoundIndex: 1
+  deathSound: 3
 --- !u!114 &3619573926867420713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,3 +358,28 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6fc6255a974b9b045852907bcd056eac, type: 3}
   - {fileID: 21300000, guid: d0cec43f5570e594ea970ee8aab40de0, type: 3}
   - {fileID: 21300000, guid: 2524a9d0fada3524d9581cd3ba6ca408, type: 3}
+--- !u!114 &-8916753238563408371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408207500018932619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
+  items:
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
+  - {fileID: 11400000, guid: e225d325d5a8857468144bac0f29883a, type: 2}
+  - {fileID: 11400000, guid: 2271ae7006116c149aa61f8221784f9a, type: 2}
+  - {fileID: 11400000, guid: a58e629d188b8a24ab8b0e446b4b955c, type: 2}
+  chances: 640000006400000064000000320000003200000032000000640000000c0000006400000032000000

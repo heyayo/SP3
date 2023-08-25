@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 6345614515910949646}
   - component: {fileID: 7459000618348374872}
   - component: {fileID: 2733038960304278668}
+  - component: {fileID: 3266196164180135296}
   m_Layer: 0
   m_Name: FlyingBat (1)
   m_TagString: Damagable
@@ -351,7 +352,7 @@ MonoBehaviour:
   _damageSource: {fileID: 0}
   _sr: {fileID: 0}
   wanderRange: 8
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 1204334416158425772, guid: 63e95665131b50c49958a3811efb68ad, type: 3}
   bulletSpeed: 10
   deviationMagnitude: 5
   target: {fileID: 0}
@@ -380,6 +381,26 @@ MonoBehaviour:
   resistPenType: 0
   bleedOverPercentage: 20
   nativeBleedOverPercentage: 0
+  isFriendly: 0
+  isHostile: 1
+--- !u!114 &3266196164180135296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826171656258085652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
+  items:
+  - {fileID: 11400000, guid: 5568859c15b51734cb97d0f7d6f3c78a, type: 2}
+  - {fileID: 11400000, guid: 5568859c15b51734cb97d0f7d6f3c78a, type: 2}
+  - {fileID: 11400000, guid: ef5e0c3d4c4691048a0312f64384b92d, type: 2}
+  chances: 5a000000320000000a000000
 --- !u!1 &5691504721927099256
 GameObject:
   m_ObjectHideFlags: 0

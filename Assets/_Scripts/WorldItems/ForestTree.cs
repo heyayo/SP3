@@ -24,18 +24,14 @@ public class ForestTree : Interactable
     private async void StartToRespawn()
     {
         gameObject.SetActive(false);
+        inventoryManager.Drop(yieldItem,transform.position);
+        _mortality.ResetToMax();
         await Task.Delay((int)(respawnTimer * 1000f));
         gameObject.SetActive(true);
     }
 
     public override void OnInteract()
     {
-        ++chopProgress;
-        if (chopProgress >= treeStrength)
-        {
-            inventoryManager.Add(yieldItem);
-            Destroy(gameObject);
-        }
     }
 
     public override void OnMouseEnter()

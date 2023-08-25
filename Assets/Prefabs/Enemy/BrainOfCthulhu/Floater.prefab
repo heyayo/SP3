@@ -158,19 +158,33 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
-<<<<<<< HEAD
-  healthMax: 150
-=======
-  healthMax: 0
->>>>>>> 9887bfb885653e819f69292dd2c0a12231a2e67e
-  nativeHealthMax: 150
+  healthMax: 200
+  nativeHealthMax: 200
   nativeArmour: 250
   nativeResist: 250
-  effectiveArmour: 250
-  effectiveResist: 250
+  effectiveArmour: 0
+  effectiveResist: 0
   scaling:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -227,15 +241,15 @@ MonoBehaviour:
   hpDamage: 0
   activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 125
+  nativeActiveEnergyDamage: 150
   armourPen: 0
-  resistPen: 12
-  nativeArmourPen: 0
-  nativeResistPen: 0
-  armourPenType: 0
+  resistPen: 0
+  nativeArmourPen: 25
+  nativeResistPen: 25
+  armourPenType: 2
   resistPenType: 2
   bleedOverPercentage: 0
-  nativeBleedOverPercentage: 5
+  nativeBleedOverPercentage: 25
   isFriendly: 0
   isHostile: 1
 --- !u!58 &475562366175048771

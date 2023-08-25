@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Knights Sword
   itemSprite: {fileID: 21300000, guid: 453b5d4269a4ead409b64a9711e8d00f, type: 3}
+  droppable: 1
   itemDescription: 'Knight''s Sword:
 
-    Standard issue knight sword.'
+    Standard issue knight sword. Forged with
+    pure iron and demonite.'
   EquipType: 1
   health: 0
   armor: 0
   resist: 0
-  attack: 35
+  attack: 20
   consumed:
     m_PersistentCalls:
       m_Calls: []

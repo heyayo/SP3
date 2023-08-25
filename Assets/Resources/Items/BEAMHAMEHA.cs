@@ -18,7 +18,6 @@ public class BEAMHAMEHA : Item
     public float maxScale = 20f; // Maximum scale of the beam
     public float chargeRate = 70.5f; // Rate at which the beam grows
     private CameraController cameraController;
-    
 
     public override void WhileHolding()
     {
@@ -29,14 +28,14 @@ public class BEAMHAMEHA : Item
             Debug.LogError("CameraController not found in the scene.");
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && !charging && !beamActive)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !charging && !beamActive)
         {
             charging = true;
             chargeStartTime = Time.time;
             //kamehamehaParticleEffect.SetActive(true);
         }
 
-        if (Input.GetKeyUp(KeyCode.R) && charging && !beamActive)
+        if (Input.GetKeyUp(KeyCode.Mouse0) && charging && !beamActive)
         {
             charging = false;
             beamActive = true;
@@ -85,6 +84,9 @@ public class BEAMHAMEHA : Item
         if (beamActive && currentBeam != null)
         {
             beamExistenceTime -= Time.deltaTime;
+            float cost = 250 * Time.deltaTime;
+            PlayerManager.Instance.MortalityScript.ActiveEnergy -= cost;
+            if (PlayerManager.Instance.MortalityScript.ActiveEnergy < cost) beamExistenceTime = 0;
             if (beamExistenceTime <= 0f)
             {
                 beamActive = false;

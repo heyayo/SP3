@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Zealots Handbook
   itemSprite: {fileID: 21300000, guid: af25b9f714c649b47b3e3553248e8d34, type: 3}
+  droppable: 1
   itemDescription: 'Zealot''s Handbook:
 
     Scribbled all over with pentagrams.'
   EquipType: 1
-  health: 6
+  health: 66
   armor: 6
   resist: 6
   attack: 6

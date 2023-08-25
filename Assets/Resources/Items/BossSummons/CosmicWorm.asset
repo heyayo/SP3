@@ -26,7 +26,7 @@ MonoBehaviour:
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  bossName: destroyerofgods
+  bossName: DestroyerOfGods
   bossPrefab: {fileID: 2979375369494042091, guid: 1e2d09ce289772a478fb29d7b3bc94ef, type: 3}
   spawnSoundIndex: 0
   bgmIndex: 4

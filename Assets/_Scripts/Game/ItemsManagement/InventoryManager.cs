@@ -57,6 +57,16 @@ public class InventoryManager : MonoBehaviour
         DropItem(item);
     }
 
+    public void Drop(Item item, Vector2 pos)
+    {
+        PickupItem pickupItem = Instantiate(pickupItemPrefab,
+            pos,
+            Quaternion.identity);
+        pickupItem.item = item; // Assign Item
+        pickupItem.SetSprite(item.itemSprite); // Assign Sprite
+        pickupItem.item.Setup(pickupItem.gameObject);
+    }
+
     private void Update()
     {
         // Dropping items
@@ -133,7 +143,7 @@ public class InventoryManager : MonoBehaviour
         playerMortality.__HealthMax = healthMax;
         playerMortality.Armour = armor;
         playerMortality.Resist = resist;
-        // Attack = attack;
+        PlayerManager.Instance.AttackDamage = attack;
 
         // Reset health if it is above the max health
         if (playerMortality.Health > playerMortality.__HealthMax)

@@ -30,4 +30,5 @@ MonoBehaviour:
   maxChargeTime: 5
   chargeSpeed: 3
   SpiritBombPrefab: {fileID: 5185956268830763623, guid: fea48c90557c9b3429b243ad4d2e42c3, type: 3}
-  cooldownDuration: 5
+  activeSpiritBomb: {fileID: 0}
+  cooldownDuration: 1

@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Chainmail Tunic
   itemSprite: {fileID: 21300000, guid: 818c5db2ca1cc624bb88a7e889cb12b8, type: 3}
+  droppable: 1
   itemDescription: 'Chainmail Tunic:
 
     Very effective for it''s cost.'
   EquipType: 1
   health: 0
-  armor: 10
-  resist: 2
+  armor: 25
+  resist: 5
   attack: 0
   consumed:
     m_PersistentCalls:

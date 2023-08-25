@@ -11,10 +11,14 @@ GameObject:
   - component: {fileID: 5161438704007758948}
   - component: {fileID: 2303308723608435683}
   - component: {fileID: 7618474523200900481}
-  - component: {fileID: 5577286415698085918}
   - component: {fileID: 4169085944274943980}
   - component: {fileID: 2560456766531810955}
   - component: {fileID: 3354454354884885366}
+  - component: {fileID: -7694321915084888542}
+  - component: {fileID: -266403797539953592}
+  - component: {fileID: 3343095454480214704}
+  - component: {fileID: -319499694845457174}
+  - component: {fileID: 1031294492679457634}
   m_Layer: 0
   m_Name: NPC_222_4 (1)
   m_TagString: Untagged
@@ -117,26 +121,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5577286415698085918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033128662227735868}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c1bd1a28efc0c4db67717fef0930d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPoint: {fileID: 0}
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  moveForce: 10
-  maxVelocityMagnitude: 10
-  detectionRadius: 1.57
-  activate: 1
 --- !u!58 &4169085944274943980
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -187,7 +171,7 @@ MonoBehaviour:
   bossInit: {fileID: 0}
   bossName: 
   states:
-  - {fileID: 11400000, guid: 1b484f101a584eb4f8d8d0d122a82e6f, type: 2}
+  - {fileID: 11400000, guid: 6647810f109e70248b1c1660c47d7f39, type: 2}
   - {fileID: 11400000, guid: c06d9d6c137e572408c12d0d16edd4bb, type: 2}
   - {fileID: 11400000, guid: 5f08354a8e2b0f14487f25e35d37a11a, type: 2}
   - {fileID: 11400000, guid: 4158996bdbac7694e9a00c2afbb38fc3, type: 2}
@@ -214,6 +198,182 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 77e5210395ecd5f43b477ae18c16a0c6, type: 3}
   - {fileID: 21300000, guid: 4186eccca2d079f4ba260faca3adca18, type: 3}
   - {fileID: 21300000, guid: 9157964c0be9a9b479eb74735e217bc8, type: 3}
+--- !u!114 &-7694321915084888542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033128662227735868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeEnergy: 0
+  nativeActiveRegen: 0
+  activeRegen: 0
+  activeMax: 0
+  nativeActiveMax: 0
+  storedEnergy: 0
+  nativeStoredRegen: 0
+  storedRegen: 0
+  storedMax: 0
+  nativeStoredMax: 0
+  health: 0
+  nativeRegen: 0
+  regen: 0
+  healthMax: 0
+  nativeHealthMax: 14500
+  nativeArmour: 500
+  nativeResist: 500
+  effectiveArmour: 0
+  effectiveResist: 0
+  scaling:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  immune: 0
+  onHealthAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onActiveEnergyAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onStoredEnergyAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onArmourAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onResistAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
+    m_PersistentCalls:
+      m_Calls: []
+  DEBUG_EnergyDamage: 0
+  DEBUG_EnergyPierce: 0
+  DEBUG_EnergyPierceType: 0
+  DEBUG_HealthDamage: 0
+  DEBUG_HealthPierce: 0
+  DEBUG_HealthPierceType: 0
+  DEBUG_AdjustedArmour: 0
+  DEBUG_AdjustedResist: 0
+  DEBUG_AddArmour: 0
+  DEBUG_AddResist: 0
+--- !u!114 &-266403797539953592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033128662227735868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 0
+  nativeHPDamage: 0
+  nativeActiveEnergyDamage: 350
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 30
+  nativeResistPen: 30
+  armourPenType: 2
+  resistPenType: 2
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 40
+  isFriendly: 0
+  isHostile: 1
+--- !u!114 &3343095454480214704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033128662227735868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
+  items:
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 7bd93f88a2c6be34fae0000456e2a153, type: 2}
+  - {fileID: 11400000, guid: a58e629d188b8a24ab8b0e446b4b955c, type: 2}
+  chances: 640000006400000064000000
+--- !u!114 &-319499694845457174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033128662227735868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.1
+  immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!95 &1031294492679457634
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033128662227735868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cde7c311c327f084f83cba3c8ebb8fba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1904450803578110164
 GameObject:
   m_ObjectHideFlags: 0

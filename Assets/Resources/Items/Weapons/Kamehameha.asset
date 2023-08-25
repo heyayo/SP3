@@ -25,5 +25,5 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   beamPrefab: {fileID: 208654551276931365, guid: 69d802fe7344f8f45973d679d0a3dccd, type: 3}
-  maxScale: 20
+  maxScale: 5
   chargeRate: 70.5
