@@ -1311,7 +1311,7 @@ PrefabInstance:
     - target: {fileID: 4683811891614670668, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: spawnItem
       value: 
-      objectReference: {fileID: 11400000, guid: 0b0e9e1632465f441bcc2a88bb584e29, type: 2}
+      objectReference: {fileID: 11400000, guid: 7b2f2c690e4c8fe41964371a1f81b2ad, type: 2}
     - target: {fileID: 4683811891614670668, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: deathMenuAnchor
       value: 
