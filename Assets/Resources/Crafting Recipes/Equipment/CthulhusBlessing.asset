@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeR1:
   - {fileID: 0}
-  - {fileID: 11400000, guid: c7ccbfe1910eca94696816a1e1a5a23e, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   recipeR2:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a484a99f999e41445935e32b850d301b, type: 2}
   - {fileID: 11400000, guid: 16d609832dfbd724c91e8ff84725bfbf, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
   recipeR3:
   - {fileID: 0}
-  - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   yieldItem: {fileID: 11400000, guid: e71885bc0b2ee064bad924632d75e946, type: 2}

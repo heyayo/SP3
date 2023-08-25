@@ -143,7 +143,7 @@ public class InventoryManager : MonoBehaviour
         playerMortality.__HealthMax = healthMax;
         playerMortality.Armour = armor;
         playerMortality.Resist = resist;
-        // Attack = attack;
+        PlayerManager.Instance.AttackDamage = attack;
 
         // Reset health if it is above the max health
         if (playerMortality.Health > playerMortality.__HealthMax)

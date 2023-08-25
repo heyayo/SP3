@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Knight Gear
   itemSprite: {fileID: 21300000, guid: 128cf5c912f48074daf77827630135fc, type: 3}
+  droppable: 1
   itemDescription: 'Knight''s Gear:
 
-    Standard issue knight armor set.'
+    Standard issue knight armor set. Forged
+    with pure iron and demonite.'
   EquipType: 1
-  health: 0
-  armor: 40
-  resist: 5
+  health: 10
+  armor: 50
+  resist: 10
   attack: 0
   consumed:
     m_PersistentCalls:

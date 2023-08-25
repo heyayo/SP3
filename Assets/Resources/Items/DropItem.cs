@@ -16,30 +16,33 @@ public class DropItem : MonoBehaviour
     private int[] chances;
 
     // Private variables
-    private Dictionary<Item, int> itemList = new Dictionary<Item, int>();
+    private Dictionary<int, int> itemList = new Dictionary<int, int>();
 
     private void Start()
     {
+        GetComponent<Mortality>().onHealthZero.AddListener(OnDeath);
+
         // Init the itemList
         int i = 0;
         foreach (Item item in items)
         {
-            itemList.Add(item, chances[i]);
+            itemList.Add(i, chances[i]);
             i++;
         }
     }
 
     public void OnDeath()
     {
-        int rng = Random.Range(1, 101);
+        for(int i = 0; i < items.Length; i++)
+        {
+            int rng = Random.Range(1, 101);
 
-        foreach (Item item in items)
-        { 
-            if (itemList[item] <= rng)
+            if (itemList[i] >= rng)
             {
-                Vector2 dir = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2)).normalized;
+                Vector2 dir = new Vector2(Random.Range(-360, 360), Random.Range(-360, 360)).normalized;
                 GameObject dropped = Instantiate(pickupItemPrefab, transform.position, Quaternion.identity);
-                dropped.GetComponent<Rigidbody2D>().AddForce(dir * 20);
+                dropped.GetComponent<Rigidbody2D>().AddForce(dir * Random.Range(1f, 2f), ForceMode2D.Impulse);
+                dropped.GetComponent<PickupItem>().item = items[i].Clone();
             }
         }
     }
