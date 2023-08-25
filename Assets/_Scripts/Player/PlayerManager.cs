@@ -62,6 +62,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    [SerializeField] private GameObject deathMenuAnchor;
+
     private void Awake()
     {
         if (Instance != null)
@@ -81,6 +83,7 @@ public class PlayerManager : MonoBehaviour
     {
         UpdateSprites();
         MortalityScript.onHealthZero.AddListener(KillPlayer);
+        deathMenuAnchor.SetActive(false);
     }
 
     private Sprite LoadSprite(string name)
@@ -124,6 +127,7 @@ public class PlayerManager : MonoBehaviour
         AnimationScript.enabled = false;
         _animator.CrossFade(AnimationController.animDeath,0,0);
         WaitForDeath();
+        ShowDeathMenu();
     }
 
     public void RespawnPlayer(Vector2 position = new Vector2())
@@ -133,6 +137,12 @@ public class PlayerManager : MonoBehaviour
         transform.position = position;
         gameObject.SetActive(true);
         MortalityScript.ResetToMax();
+        HideDeathMenu();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        LoadingScreen.LoadScene("MainMenu");
     }
 
     [ContextMenu("Respawn")]
@@ -161,5 +171,15 @@ public class PlayerManager : MonoBehaviour
     private void SpawnNasus()
     {
         InventoryManager.Instance.Add(Resources.Load<Item>("Items/Weapons/NasusESkill"));
+    }
+
+    private void ShowDeathMenu()
+    {
+        deathMenuAnchor.SetActive(true);
+    }
+
+    private void HideDeathMenu()
+    {
+        deathMenuAnchor.SetActive(false);
     }
 }
