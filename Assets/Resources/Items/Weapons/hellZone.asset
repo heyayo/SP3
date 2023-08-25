@@ -25,10 +25,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   projectilePrefab: {fileID: 5544551745646549440, guid: 2aa3fb2e08b3d274b822be4b806df6be, type: 3}
-  projectileCount: 8
+  projectileCount: 32
   spreadAngle: 360
   minLaunchForce: 5
   maxLaunchForce: 15
   maxCurveAmount: 3
-  abilityCooldown: 3
+  abilityCooldown: 2
   launchDelay: 0.5
