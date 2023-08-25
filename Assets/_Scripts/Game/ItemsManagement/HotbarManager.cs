@@ -50,7 +50,7 @@ public class HotbarManager : MonoBehaviour
         
         // Using item
         if (
-            Input.GetKeyDown(_config.interact) && 
+            Input.GetKeyDown(_config.attack) && 
             (activeSlot.GetComponentInChildren<InventoryItem>() != null))
             activeSlot.GetComponentInChildren<InventoryItem>().item.Use();
     }

@@ -1073,6 +1073,8 @@ MonoBehaviour:
   rightShoulder: {fileID: 1007323534026443080}
   rightHand: {fileID: 5513320795371619546}
   rightBoot: {fileID: 1015513625048715509}
+  deathMenuAnchor: {fileID: 0}
+  spawnItem: {fileID: 0}
 --- !u!114 &1579393493429420541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,12 +1088,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeEnergy: 0
-  nativeActiveRegen: 20
+  nativeActiveRegen: 80
   activeRegen: 0
   activeMax: 0
   nativeActiveMax: 500
   storedEnergy: 0
-  nativeStoredRegen: 0
+  nativeStoredRegen: 20
   storedRegen: 0
   storedMax: 0
   nativeStoredMax: 200
@@ -1406,10 +1408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05d935b36d6b0b9589c968cc27990f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 120
+  frequency: 180
   enemies:
-  - {fileID: 7222542775091152465, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
-  count: 01000000
+  - {fileID: 4784597489851820815, guid: 4bcad790f4626d94c8219c122a6ded42, type: 3}
+  count: 03000000
   range: 25
 --- !u!1 &5819656711076087618
 GameObject:

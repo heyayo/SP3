@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class NaturalEnemySpawning : MonoBehaviour
 {
+    private WorldGenOptions _options;
     private float _lastSpawnTime;
     private int _enemyIndex;
     [SerializeField] private float frequency;
@@ -15,6 +16,7 @@ public class NaturalEnemySpawning : MonoBehaviour
     {
         _lastSpawnTime = Time.time;
         _enemyIndex = 0;
+        _options = WorldGenOptions.FetchConfig();
     }
 
     // Update is called once per frame
@@ -36,7 +38,14 @@ public class NaturalEnemySpawning : MonoBehaviour
             double step = (Math.PI * 2.0) / (double)count[_enemyIndex];
             double x = Math.Cos(step * (double)i) * range;
             double y = Math.Sin(step * (double)i) * range;
-            Instantiate(enemies[_enemyIndex], new Vector2((float)x, (float)y), Quaternion.identity);
+            Vector2 pos = new Vector2((float)x, (float)y) + (Vector2)transform.position;
+            float halfX = _options.worldSize.x / 2;
+            float halfY = _options.worldSize.y / 2;
+            if (pos.x > halfX) pos.x = halfX-1;
+            if (pos.y > halfY) pos.y = halfY-1;
+            if (pos.x < -halfX) pos.x = -halfX+1;
+            if (pos.y < -halfY) pos.y = -halfY+1;
+            Instantiate(enemies[_enemyIndex], pos, Quaternion.identity);
         }
     }
 }
