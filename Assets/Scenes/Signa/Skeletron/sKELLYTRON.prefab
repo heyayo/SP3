@@ -1236,7 +1236,7 @@ MonoBehaviour:
   orbitRadius: 5
   orbitSpeed: 1
   waypointSwitchInterval: 5
-  Skelly: {fileID: 0}
+  Skelly: {fileID: 4787735364634832851}
 --- !u!1 &2905837190977085262
 GameObject:
   m_ObjectHideFlags: 0
