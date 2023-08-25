@@ -1073,6 +1073,8 @@ MonoBehaviour:
   rightShoulder: {fileID: 1007323534026443080}
   rightHand: {fileID: 5513320795371619546}
   rightBoot: {fileID: 1015513625048715509}
+  deathMenuAnchor: {fileID: 0}
+  spawnItem: {fileID: 0}
 --- !u!114 &1579393493429420541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,12 +1088,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeEnergy: 0
-  nativeActiveRegen: 20
+  nativeActiveRegen: 80
   activeRegen: 0
   activeMax: 0
   nativeActiveMax: 500
   storedEnergy: 0
-  nativeStoredRegen: 0
+  nativeStoredRegen: 20
   storedRegen: 0
   storedMax: 0
   nativeStoredMax: 200
@@ -1401,7 +1403,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5674558161679562206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f05d935b36d6b0b9589c968cc27990f6, type: 3}
   m_Name: 

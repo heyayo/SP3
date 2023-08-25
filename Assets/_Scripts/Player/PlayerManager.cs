@@ -84,6 +84,7 @@ public class PlayerManager : MonoBehaviour
         UpdateSprites();
         MortalityScript.onHealthZero.AddListener(KillPlayer);
         deathMenuAnchor.SetActive(false);
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/Weapons/KiBlast"));
     }
 
     private Sprite LoadSprite(string name)
@@ -181,5 +182,15 @@ public class PlayerManager : MonoBehaviour
     private void HideDeathMenu()
     {
         deathMenuAnchor.SetActive(false);
+    }
+
+    [SerializeField] private Item spawnItem;
+
+    [ContextMenu("Spawn Item")]
+    private void SpawnItem()
+    {
+        if (spawnItem == null)
+            return;
+        InventoryManager.Instance.Add(spawnItem);
     }
 }
