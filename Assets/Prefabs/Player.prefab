@@ -1403,15 +1403,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5674558161679562206}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f05d935b36d6b0b9589c968cc27990f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 120
+  frequency: 180
   enemies:
-  - {fileID: 7222542775091152465, guid: 01a0dfed98fe0904baefb11b077fa152, type: 3}
-  count: 01000000
+  - {fileID: 4784597489851820815, guid: 4bcad790f4626d94c8219c122a6ded42, type: 3}
+  count: 03000000
   range: 25
 --- !u!1 &5819656711076087618
 GameObject:

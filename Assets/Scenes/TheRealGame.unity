@@ -1312,6 +1312,26 @@ PrefabInstance:
       propertyPath: deathMenuAnchor
       value: 
       objectReference: {fileID: 317757913}
+    - target: {fileID: 4981868833424106512, guid: f3c803d799c246f4891250d317eac094, type: 3}
+      propertyPath: range
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981868833424106512, guid: f3c803d799c246f4891250d317eac094, type: 3}
+      propertyPath: frequency
+      value: 3600
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981868833424106512, guid: f3c803d799c246f4891250d317eac094, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981868833424106512, guid: f3c803d799c246f4891250d317eac094, type: 3}
+      propertyPath: count.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981868833424106512, guid: f3c803d799c246f4891250d317eac094, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 4784597489851820815, guid: 4bcad790f4626d94c8219c122a6ded42, type: 3}
     - target: {fileID: 5674558161679562206, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: m_Name
       value: Player
