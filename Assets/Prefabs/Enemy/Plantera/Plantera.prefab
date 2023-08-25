@@ -74,7 +74,25 @@ MonoBehaviour:
   effectiveResist: 0
   scaling:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -146,18 +164,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpDamage: 40
-  activeEnergyDamage: 1200
+  hpDamage: 0
+  activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 0
-  armourPen: 25
-  resistPen: 60
-  nativeArmourPen: 0
-  nativeResistPen: 0
+  nativeActiveEnergyDamage: 300
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 35
+  nativeResistPen: 35
   armourPenType: 2
   resistPenType: 2
-  bleedOverPercentage: 40
-  nativeBleedOverPercentage: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 30
   isFriendly: 0
   isHostile: 1
 --- !u!212 &4329072901403845588
@@ -363,4 +381,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
   - {fileID: 11400000, guid: e225d325d5a8857468144bac0f29883a, type: 2}
   - {fileID: 11400000, guid: 2271ae7006116c149aa61f8221784f9a, type: 2}
-  chances: 640000006400000064000000320000003200000032000000640000000c00000064000000
+  - {fileID: 11400000, guid: a58e629d188b8a24ab8b0e446b4b955c, type: 2}
+  chances: 640000006400000064000000320000003200000032000000640000000c0000006400000032000000

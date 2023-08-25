@@ -16,13 +16,14 @@ public class BossState : ScriptableObject
 
     // Private variables
     protected Vector2 dir;
-    public Rigidbody2D rb;
+    protected Rigidbody2D rb;
     protected Animator animator;
     protected Transform transform;
     protected SpriteRenderer sr;
+    protected DamageSource damageSource;
 
     public void InitState(Mortality mortality, Transform playerTransform, Mortality playerMortality, 
-        Rigidbody2D rb, Transform transform, LayerMask playerLayer, Animator animator, SpriteRenderer sr)
+        Rigidbody2D rb, Transform transform, LayerMask playerLayer, Animator animator, SpriteRenderer sr, DamageSource damageSource)
     {
         // GetComponents
         this.mortality = mortality;
@@ -33,6 +34,7 @@ public class BossState : ScriptableObject
         this.playerLayer = playerLayer;
         this.animator = animator;
         this.sr = sr;
+        this.damageSource = damageSource;
     }
 
     virtual public void EnterState()

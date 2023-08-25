@@ -45,6 +45,9 @@ public class BossFSM : MonoBehaviour
 
     private void Start()
     {
+        if (states.Length == 0)
+            return;
+
         // GetComponents
         mortality = gameObject.GetComponent<Mortality>();
         playerTransform = PlayerManager.Instance.transform;
@@ -53,6 +56,7 @@ public class BossFSM : MonoBehaviour
         damageSource = GetComponent<DamageSource>();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        damageSource = GetComponent<DamageSource>();
 
         // Init boss stuff
         if (bossInit != null)
@@ -61,16 +65,17 @@ public class BossFSM : MonoBehaviour
             bossInit.BossInitialize();
         }
 
+        // Init the states
+        foreach (BossState state in states)
+        {
+            state.InitState(mortality, playerTransform, playerMortality, rb, transform, playerLayer, animator, sr, damageSource);
+        }
+
         // Settling FSM and indexes
         currentIndex = 1;
         currentState = states[currentIndex - 1];
         currentState.EnterState();
         resetToState = currentIndex;
-
-        foreach (BossState state in states)
-        {
-            state.InitState(mortality, playerTransform, playerMortality, rb, transform, playerLayer, animator, sr);
-        }
 
         GetComponent<Damagable>().hit.AddListener(HitSound);
         mortality.onHealthZero.AddListener(Death);
@@ -78,6 +83,9 @@ public class BossFSM : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (states.Length == 0)
+            return;
+
         // Always check if can transform
         doTransform();
 
@@ -99,7 +107,7 @@ public class BossFSM : MonoBehaviour
 
     private bool canTransform()
     {
-        for (int i = resetToState - 1; i < states.Length; i++)
+        for (int i = resetToState; i < states.Length; i++)
         {
             if (states[i].isTransformState)
             {

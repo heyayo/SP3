@@ -39,7 +39,6 @@ public class BossManager : MonoBehaviour
         foreach (BossItem bossItem in Resources.LoadAll<BossItem>("Items/BossSummons/"))
         {
             bossList.Add(bossItem.bossName, BossStats.New(bossItem));
-            Debug.Log(bossItem.bossName);   
         }
     }
 
