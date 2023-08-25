@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590ff68ca95ca3d4eb2150b9f0eabe20, type: 3}
+  m_Name: JuggernautBreastplate
+  m_EditorClassIdentifier: 
+  itemName: Juggernaut Breastplate
+  itemSprite: {fileID: 21300000, guid: 6349653368e0abe48b4e971401fac4ad, type: 3}
+  droppable: 1
+  itemDescription: 'Juggernaut Breastplate:
+
+    Worn only by the strongest warriors.'
+  EquipType: 1
+  health: 25
+  armor: 125
+  resist: 25
+  attack: 0
+  consumed:
+    m_PersistentCalls:
+      m_Calls: []

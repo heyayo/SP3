@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridBehaviour : MonoBehaviour
 {
-    public string playerTag = "Player"; // Tag of the player object
+   
     public float offsetXRange = 2.0f; // Range for random X offset
     public float offsetYRange = 2.0f; // Range for random Y offset
     public float colorChangeDelay = 0.5f; // Delay before changing color
@@ -13,7 +13,7 @@ public class GridBehaviour : MonoBehaviour
     void Start()
     {
         // Find the player object using the specified tag
-        GameObject player = GameObject.FindWithTag(playerTag);
+        GameObject player = PlayerManager.Instance.gameObject;
 
         if (player != null)
         {
@@ -33,7 +33,7 @@ public class GridBehaviour : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Player object not found with tag: " + playerTag);
+           
         }
     }
 
@@ -57,7 +57,7 @@ public class GridBehaviour : MonoBehaviour
             if (spriteRenderer != null)
             {
                 // Change the sprite's color to red
-                spriteRenderer.color = Color.red;
+                spriteRenderer.color = new Color(0.6f, 0.0f, 0.8f); // Purple color
             }
         }
     }

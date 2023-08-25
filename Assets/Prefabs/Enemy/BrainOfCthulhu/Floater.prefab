@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 945037876097957136}
   - component: {fileID: 6349849785477697231}
   - component: {fileID: 475562366175048771}
+  - component: {fileID: -634174203619082805}
   m_Layer: 0
   m_Name: Floater
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +105,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.4
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -148,21 +149,42 @@ MonoBehaviour:
   nativeActiveRegen: 0
   activeRegen: 0
   activeMax: 0
+  nativeActiveMax: 0
   storedEnergy: 0
   nativeStoredRegen: 0
   storedRegen: 0
   storedMax: 0
+  nativeStoredMax: 0
   health: 0
   nativeRegen: 0
   regen: 0
-  healthMax: 150
+  healthMax: 200
+  nativeHealthMax: 200
   nativeArmour: 250
   nativeResist: 250
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -183,6 +205,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
     m_PersistentCalls:
       m_Calls: []
   DEBUG_EnergyDamage: 0
@@ -207,13 +238,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpDamage: 20
+  hpDamage: 0
   activeEnergyDamage: 0
-  armourPen: 50
+  nativeHPDamage: 0
+  nativeActiveEnergyDamage: 150
+  armourPen: 0
   resistPen: 0
+  nativeArmourPen: 25
+  nativeResistPen: 25
   armourPenType: 2
-  resistPenType: 0
+  resistPenType: 2
   bleedOverPercentage: 0
+  nativeBleedOverPercentage: 25
+  isFriendly: 0
+  isHostile: 1
 --- !u!58 &475562366175048771
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -249,3 +287,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.19
+--- !u!114 &-634174203619082805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123581209840884539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.25
+  immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []

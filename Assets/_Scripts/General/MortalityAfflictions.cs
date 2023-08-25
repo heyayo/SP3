@@ -62,7 +62,10 @@ public class ActiveEnergyDrain : MortalityDrain
 [Serializable]
 public class HealthDrain : MortalityDrain
 {
-    public HealthDrain(float total, float lifetime, Mortality target) : base(total, lifetime, target) {}
+    public HealthDrain(float total, float lifetime, Mortality target) : base(total, lifetime, target)
+    {
+        icon = Resources.Load<Sprite>("Sprites/Afflictions/HealthDrain");
+    }
     public override void Begin() { }
     public override void Update()
     {

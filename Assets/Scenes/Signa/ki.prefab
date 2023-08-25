@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: -913144590033648509}
   - component: {fileID: 8659839103870192255}
   - component: {fileID: -7251688781196703666}
-  m_Layer: 0
+  - component: {fileID: 106301617556114567}
+  m_Layer: 11
   m_Name: ki
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -166,3 +167,29 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &106301617556114567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069333162547341947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 0
+  nativeHPDamage: 50
+  nativeActiveEnergyDamage: 0
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 100
+  nativeResistPen: 0
+  armourPenType: 0
+  resistPenType: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 0
+  isFriendly: 1
+  isHostile: 0

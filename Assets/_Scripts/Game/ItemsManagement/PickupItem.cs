@@ -9,6 +9,10 @@ public class PickupItem : MonoBehaviour
     private InventoryManager inventoryManager;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
+    private bool canBePickedUp = true;
+
+    // Timer
+    private int despawnTimer;
 
     private void Awake()
     {
@@ -26,6 +30,9 @@ public class PickupItem : MonoBehaviour
 
         // Set sprite
         _spriteRenderer.sprite = item.itemSprite;
+
+        // Timer
+        despawnTimer = 18000;  // 5 minutes
     }
 
     public void SetSprite(Sprite sprite)
@@ -34,16 +41,27 @@ public class PickupItem : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 dir = PlayerManager.Instance.transform.position - transform.position;
-        if (dir.magnitude < 3f)
+        if (dir.magnitude < 4f)
         {
             _rb.AddForce(dir / 2);
+        }
+
+        if ((PlayerManager.Instance.transform.position - transform.position).magnitude > 15)
+        {
+            despawnTimer--;
+            if (despawnTimer <= 0)
+                Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (item == null) return;
+        if (!canBePickedUp)
+            return;
+        
         inventoryManager.Add(item);
+        canBePickedUp = false;
+        SoundManager.Instance.PlaySound(9);
         Destroy(gameObject);
     }
 

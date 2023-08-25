@@ -5,7 +5,7 @@ using UnityEngine;
 public class MotionHand : MonoBehaviour
 {
     public Transform pivotPoint; // Set this in the Inspector to the pivot point GameObject
-    public Transform player; // Set this in the Inspector to the player GameObject
+    private Transform player; // Set this in the Inspector to the player GameObject
     public float amplitude = 1.0f; // The amount of vertical movement
     public float frequency = 1.0f; // The speed of the vertical movement
     public float semiCircleRadius = 2.0f; // Radius of the semi-circle movement around the player
@@ -31,6 +31,7 @@ public class MotionHand : MonoBehaviour
 
     private void Start()
     {
+        player = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody component attached to this object
         //initialPosition = (Vector2)transform.position - (Vector2)pivotPoint.position;
         currentState = MotionState.Vertical;
@@ -96,30 +97,30 @@ public class MotionHand : MonoBehaviour
 
     private void MoveInSemiCircle()
     {
-        float angle = Time.time * semiCircleSpeed;
-        float x = Mathf.Cos(angle) * orbitRadius;
-        float y = Mathf.Sin(angle) * orbitRadius;
+        //float angle = Time.time * semiCircleSpeed;
+        //float x = Mathf.Cos(angle) * orbitRadius;
+        //float y = Mathf.Sin(angle) * orbitRadius;
+
+        //Vector2 newPosition = pivotPoint.position + new Vector3(x, y, 0f);
+        //transform.position = newPosition;
+
+        float angle = Time.time * 5;
+        float x = Mathf.Sin(angle) * orbitRadius;
+        float y = Mathf.Abs(Mathf.Cos(angle)) * orbitRadius;
+
+        // Check if the calculated 'y' is below the pivot point's 'y'
+        if (player.position.y < pivotPoint.position.y)
+        {
+            y *= -1; // Add '-' to the 'y' coordinate
+        }
+
+        else
+        {
+            y *= 1;
+        }
 
         Vector2 newPosition = pivotPoint.position + new Vector3(x, y, 0f);
         transform.position = newPosition;
-
-        //float angle = Time.time * 5;
-        //float x = Mathf.Sin(angle) * orbitRadius;
-        //float y = Mathf.Abs(Mathf.Cos(angle)) * orbitRadius;
-
-        //// Check if the calculated 'y' is below the pivot point's 'y'
-        //if (player.position.y < pivotPoint.position.y)
-        //{
-        //    y *= -1; // Add '-' to the 'y' coordinate
-        //}
-
-        //else
-        //{
-        //    y *= 1;
-        //}
-
-        //Vector2 newPosition = (Vector2)player.position + new Vector2(x, y);
-        //transform.position = newPosition;
     }
 
     private void RandomlyChangeState()

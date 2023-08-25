@@ -5,13 +5,27 @@ using UnityEngine;
 public class BossFSM : MonoBehaviour
 {
     [Header("Init Boss")]
-    [SerializeField]
+    [SerializeField] 
     private BossInit bossInit;
+    
+    [HideInInspector]
+    public string bossName;
 
     [Header("States")]
-    [SerializeField]
+    [SerializeField] 
     private BossState[] states;
 
+    [Header("Sounds")]
+    [SerializeField]
+    protected int hitSoundIndex = 1;
+
+    [SerializeField]
+    protected int deathSound = 3;
+
+    // Audio Source
+    protected AudioSource audioSource;
+
+    // Indexes
     private int currentIndex;
     private BossState currentState;
     private int resetToState;
@@ -31,6 +45,9 @@ public class BossFSM : MonoBehaviour
 
     private void Start()
     {
+        if (states.Length == 0)
+            return;
+
         // GetComponents
         mortality = gameObject.GetComponent<Mortality>();
         playerTransform = PlayerManager.Instance.transform;
@@ -39,6 +56,7 @@ public class BossFSM : MonoBehaviour
         damageSource = GetComponent<DamageSource>();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        damageSource = GetComponent<DamageSource>();
 
         // Init boss stuff
         if (bossInit != null)
@@ -47,21 +65,27 @@ public class BossFSM : MonoBehaviour
             bossInit.BossInitialize();
         }
 
+        // Init the states
+        foreach (BossState state in states)
+        {
+            state.InitState(mortality, playerTransform, playerMortality, rb, transform, playerLayer, animator, sr, damageSource);
+        }
+
         // Settling FSM and indexes
         currentIndex = 1;
         currentState = states[currentIndex - 1];
         currentState.EnterState();
         resetToState = currentIndex;
 
-        foreach (BossState state in states)
-        {
-            state.InitState(mortality, playerTransform, playerMortality, rb, transform, playerLayer, animator, sr);
-        }
+        GetComponent<Damagable>().hit.AddListener(HitSound);
+        mortality.onHealthZero.AddListener(Death);
     }
 
     private void FixedUpdate()
     {
-        Debug.Log(currentIndex);
+        if (states.Length == 0)
+            return;
+
         // Always check if can transform
         doTransform();
 
@@ -83,7 +107,7 @@ public class BossFSM : MonoBehaviour
 
     private bool canTransform()
     {
-        for (int i = resetToState - 1; i < states.Length; i++)
+        for (int i = resetToState; i < states.Length; i++)
         {
             if (states[i].isTransformState)
             {
@@ -110,10 +134,22 @@ public class BossFSM : MonoBehaviour
                     currentState = states[currentIndex - 1];
                     currentState.EnterState();
 
-                    currentState.isTransformState = false;  // So it no longer checks for transformation on this state
+                    //currentState.isTransformState = false;  // So it no longer checks for transformation on this state
                     break;
                 }
             }
         }
+    }
+    
+    private void HitSound()
+    {
+        SoundManager.Instance.PlaySound(hitSoundIndex);
+    }
+
+    private void Death()
+    {
+        SoundManager.Instance.PlaySound(deathSound);
+        BossManager.Instance.KillBoss(bossName);
+        Destroy(gameObject);
     }
 }

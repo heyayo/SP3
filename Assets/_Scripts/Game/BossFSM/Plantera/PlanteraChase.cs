@@ -31,6 +31,7 @@ public class PlanteraChase : BossState
             GameObject bullet = Instantiate(bulletSeed, transform.position + new Vector3(dir.x, dir.y, 0) * 3, transform.rotation);
             bullet.GetComponent<Rigidbody2D>().AddForce(dir * 300f);
             shootTimer = 70;
+            SoundManager.Instance.PlaySound(5);
         }
 
         if (chaseTimer <= 0)

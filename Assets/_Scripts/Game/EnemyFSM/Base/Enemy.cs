@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
     public bool isInStrikingDistance { get; set; }
 
     #endregion
-
+        
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -67,9 +67,10 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
     #region Movement functions
     public void MoveEnemy(Vector2 velocity)
     {
+        if (rb == null) return;
         rb.velocity = velocity;
         CheckLeftOrRightFacing(velocity);
-        enemyAnimator.SetTrigger("isWalking");
+        //enemyAnimator.SetTrigger("isWalking");
     }
 
     public void CheckLeftOrRightFacing(Vector2 velocity)

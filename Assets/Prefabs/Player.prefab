@@ -417,7 +417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2552985080041677374
 Transform:
   m_ObjectHideFlags: 0
@@ -1024,6 +1024,7 @@ GameObject:
   - component: {fileID: 356968736687717019}
   - component: {fileID: 4184924878811296553}
   - component: {fileID: 3024495546009432811}
+  - component: {fileID: 4981868833424106512}
   m_Layer: 7
   m_Name: Player
   m_TagString: Damagable
@@ -1060,7 +1061,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MortalityScript>k__BackingField: {fileID: 0}
-  <InteractorScript>k__BackingField: {fileID: 0}
   <MovementScript>k__BackingField: {fileID: 0}
   <AnimationScript>k__BackingField: {fileID: 0}
   hood: {fileID: 7605803115173508422}
@@ -1073,6 +1073,8 @@ MonoBehaviour:
   rightShoulder: {fileID: 1007323534026443080}
   rightHand: {fileID: 5513320795371619546}
   rightBoot: {fileID: 1015513625048715509}
+  deathMenuAnchor: {fileID: 0}
+  spawnItem: {fileID: 0}
 --- !u!114 &1579393493429420541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,19 +1088,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeEnergy: 0
-  nativeActiveRegen: 0
+  nativeActiveRegen: 80
   activeRegen: 0
-  activeMax: 500
+  activeMax: 0
+  nativeActiveMax: 500
   storedEnergy: 0
-  nativeStoredRegen: 0
+  nativeStoredRegen: 20
   storedRegen: 0
-  storedMax: 200
+  storedMax: 0
+  nativeStoredMax: 200
   health: 0
-  nativeRegen: 0
+  nativeRegen: 5
   regen: 0
-  healthMax: 250
-  nativeArmour: 0
-  nativeResist: 0
+  healthMax: 0
+  nativeHealthMax: 250
+  nativeArmour: 10
+  nativeResist: 10
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
@@ -1180,6 +1185,15 @@ MonoBehaviour:
   onImmunityChange:
     m_PersistentCalls:
       m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
+    m_PersistentCalls:
+      m_Calls: []
   DEBUG_EnergyDamage: 0
   DEBUG_EnergyPierce: 0
   DEBUG_EnergyPierceType: 0
@@ -1205,6 +1219,9 @@ MonoBehaviour:
   mortality: {fileID: 1579393493429420541}
   immunityTime: 0.5
   immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6733982612956102854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,6 +1396,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.97, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &4981868833424106512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674558161679562206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05d935b36d6b0b9589c968cc27990f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 180
+  enemies:
+  - {fileID: 4784597489851820815, guid: 4bcad790f4626d94c8219c122a6ded42, type: 3}
+  count: 03000000
+  range: 25
 --- !u!1 &5819656711076087618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8088398736191123372}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: 2.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -2048,7 +2082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1587806990817025532
 Transform:
   m_ObjectHideFlags: 0

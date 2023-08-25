@@ -5,9 +5,6 @@ using UnityEngine.EventSystems;
 
 public class CraftingTable : MonoBehaviour
 {
-    [Header("Put all the crafting recipes here")]
-    [SerializeField]
-    private CraftingRecipe[] recipes;
 
     [Header("Everything else")]
     [SerializeField]
@@ -18,6 +15,7 @@ public class CraftingTable : MonoBehaviour
 
     // Private Variables
     private string[][] craftingSlots;
+    private CraftingRecipe[] recipes;
 
     void Start()
     {
@@ -33,6 +31,9 @@ public class CraftingTable : MonoBehaviour
                 craftingSlots[i][n] = "null";
             }
         }
+
+        // Put everything into here
+        recipes = Resources.LoadAll<CraftingRecipe>("Crafting Recipes/");
     }
 
     public void Craft()

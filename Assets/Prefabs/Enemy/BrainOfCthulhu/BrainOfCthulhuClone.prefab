@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 89944322685959117}
   - component: {fileID: 7366817579502344289}
   - component: {fileID: 5353361528195015525}
+  - component: {fileID: -6584038826735476024}
   m_Layer: 0
   m_Name: BrainOfCthulhuClone
   m_TagString: Untagged
@@ -131,21 +132,42 @@ MonoBehaviour:
   nativeActiveRegen: 0
   activeRegen: 0
   activeMax: 0
+  nativeActiveMax: 0
   storedEnergy: 0
   nativeStoredRegen: 0
   storedRegen: 0
   storedMax: 0
+  nativeStoredMax: 0
   health: 0
   nativeRegen: 0
   regen: 0
-  healthMax: 2800
-  nativeArmour: 100
-  nativeResist: 100
+  healthMax: 0
+  nativeHealthMax: 9900
+  nativeArmour: 300
+  nativeResist: 300
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -159,6 +181,24 @@ MonoBehaviour:
   onStoredEnergyAdjust:
     m_PersistentCalls:
       m_Calls: []
+  onArmourAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onResistAdjust:
+    m_PersistentCalls:
+      m_Calls: []
+  onImmunityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  onAfflictionExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthZero:
+    m_PersistentCalls:
+      m_Calls: []
   DEBUG_EnergyDamage: 0
   DEBUG_EnergyPierce: 0
   DEBUG_EnergyPierceType: 0
@@ -167,6 +207,8 @@ MonoBehaviour:
   DEBUG_HealthPierceType: 0
   DEBUG_AdjustedArmour: 0
   DEBUG_AdjustedResist: 0
+  DEBUG_AddArmour: 0
+  DEBUG_AddResist: 0
 --- !u!95 &7366817579502344289
 Animator:
   serializedVersion: 5
@@ -204,3 +246,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   opacity: 0.7
+--- !u!114 &-6584038826735476024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4402271865196467914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.1
+  immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []

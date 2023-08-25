@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: EOCTransform
   m_EditorClassIdentifier: 
   isTransformState: 1
+  gorePrefab: {fileID: 2676641096534526394, guid: bc3cfec39b0f0c648ae66ba728756586, type: 3}
+  gore:
+  - {fileID: 21300000, guid: 7bed411ad7d761e4aa9f8c7186c3ff81, type: 3}
+  - {fileID: 21300000, guid: 68727e01511481e4bbce923c6092052a, type: 3}
+  - {fileID: 21300000, guid: 68727e01511481e4bbce923c6092052a, type: 3}

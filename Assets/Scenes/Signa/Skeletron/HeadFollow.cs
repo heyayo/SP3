@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeadFollow : MonoBehaviour
 {
-    public Transform playerTag; // Reference to the player's tag object
+    private Transform playerTag; // Reference to the player's tag object
     public float orbitRadius = 5f; // Radius of the semicircle orbit
     public float orbitSpeed = 1f; // Speed of the boss's orbit
     public float waypointSwitchInterval = 5f; // Interval to switch between states
@@ -23,6 +23,7 @@ public class HeadFollow : MonoBehaviour
 
     private void Start()
     {
+        playerTag = PlayerManager.Instance.transform;
         initialPosition = transform.position;
         currentState = BossState.Orbiting;
     }

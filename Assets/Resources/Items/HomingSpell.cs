@@ -12,21 +12,29 @@ public class HomingSpell : Item
 
     private void OnEnable()
     {
-        // Find and assign the player's transform using the tag "Player"
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
-        {
-            playerTransform = playerObject.transform;
-        }
+       
     }
 
     public override void Use()
     {
+        // Find and assign the player's transform using the tag "Player"
+        PlayerManager playerObject = PlayerManager.Instance;
+        if (playerObject == null)
+            return;
+        var mortality = playerObject.MortalityScript;
+        if (mortality.ActiveEnergy < 40)
+            return;
+        mortality.ActiveEnergy -= 40;
+        playerTransform = playerObject.transform;
+
         if (playerTransform == null)
         {
             Debug.LogWarning("Player transform is not assigned.");
             return;
         }
+
+        // Shooting sound
+        SoundManager.Instance.PlaySound(4);
 
         // Get the mouse position in world coordinates
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

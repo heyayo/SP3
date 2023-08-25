@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FloaterFSM : MonoBehaviour
@@ -26,17 +24,27 @@ public class FloaterFSM : MonoBehaviour
     Vector2 dir;
     Rigidbody2D rb;
 
-    // Hitbox stats
-    Vector2 hitboxPos;
-
     private void Start()
     {
         EnterState(STATES.FLOATING);
 
         gameObject.GetComponent<Mortality>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        playerMortality = GameObject.FindGameObjectWithTag("Player").GetComponent<Mortality>();
+        playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
+
+        GetComponent<Damagable>().hit.AddListener(HitSound);
+        GetComponent<Mortality>().onHealthZero.AddListener(Death);
+    }
+
+    private void HitSound()
+    {
+        SoundManager.Instance.PlaySound(2);
+    }
+
+    private void Death()
+    {
+        SoundManager.Instance.PlaySound(3);
+        Destroy(gameObject);
     }
 
     private void FixedUpdate()
@@ -62,7 +70,7 @@ public class FloaterFSM : MonoBehaviour
     private void DetermineState()
     {
         // If the brain dies then perma chase the player
-        if (currentState == STATES.FLOATING && brainTransform == null)
+        if (brainTransform == null)
         {
             EnterState(STATES.CHASE); 
         }
@@ -110,12 +118,12 @@ public class FloaterFSM : MonoBehaviour
     private void FloatingState()
     {
         FaceBrain();
-        rb.AddForce(dir * 60f);
+        rb.AddForce(dir * 50f);
     }
 
     private void ChaseState()
     {
         FacePlayer();
-        rb.AddForce(dir * 80f);
+        rb.AddForce(dir * 70f);
     }
 }

@@ -32,18 +32,21 @@ public class Mortality : MonoBehaviour
     [SerializeField] private float nativeActiveRegen;
     [SerializeField] private float activeRegen;
     [SerializeField] private float activeMax;
+    [SerializeField] private float nativeActiveMax;
 
     [Header("Stored Energy")]
     [SerializeField] private float storedEnergy;
     [SerializeField] private float nativeStoredRegen;
     [SerializeField] private float storedRegen;
     [SerializeField] private float storedMax;
+    [SerializeField] private float nativeStoredMax;
 
     [Header("Health")]
     [SerializeField] private float health;
     [SerializeField] private float nativeRegen;
     [SerializeField] private float regen;
     [SerializeField] private float healthMax;
+    [SerializeField] private float nativeHealthMax;
 
     [Header("Resistances")] 
     [SerializeField] private float nativeArmour;
@@ -86,6 +89,8 @@ public class Mortality : MonoBehaviour
             health = value;
             health = Math.Clamp(health, 0, healthMax);
             onHealthAdjust.Invoke();
+            if (health <= 0)
+                onHealthZero.Invoke();
         }
     }
     
@@ -111,17 +116,32 @@ public class Mortality : MonoBehaviour
     public float __NativeHealthRegen
     {
         get => nativeRegen;
-        set { nativeRegen = value; }
+        set
+        {
+            float delta = value - nativeRegen;
+            regen += delta;
+            nativeRegen = value;
+        }
     }
     public float __NativeStoredRegen
     {
         get => nativeStoredRegen;
-        set { nativeStoredRegen = value; }
+        set
+        {
+            float delta = value - nativeStoredRegen;
+            storedRegen += delta;
+            nativeStoredRegen = value;
+        }
     }
     public float __NativeActiveRegen
     {
         get => nativeActiveRegen;
-        set { nativeActiveRegen = value; }
+        set
+        {
+            float delta = value - nativeActiveRegen;
+            activeRegen += delta;
+            nativeActiveRegen = value;
+        }
     }
     
     // Max Stat Properties
@@ -140,6 +160,36 @@ public class Mortality : MonoBehaviour
     {
         get => activeMax;
         set { activeMax = value; }
+    }
+    public float __NativeHealthMax
+    {
+        get => nativeHealthMax;
+        set
+        {
+            float delta = value - nativeHealthMax;
+            __HealthMax += delta;
+            nativeHealthMax = value;
+        }
+    }
+    public float __NativeStoredEnergyMax
+    {
+        get => nativeStoredMax;
+        set
+        {
+            float delta = value - nativeStoredMax;
+            __StoredEnergyMax += delta;
+            nativeStoredMax = value;
+        }
+    }
+    public float __NativeActiveEnergyMax
+    {
+        get => nativeActiveMax;
+        set
+        {
+            float delta = value - nativeActiveMax;
+            __ActiveEnergyMax += delta;
+            nativeActiveMax = value;
+        }
     }
 
     // Resistances Properties
@@ -199,7 +249,9 @@ public class Mortality : MonoBehaviour
     public UnityEvent onArmourAdjust;
     public UnityEvent onResistAdjust;
     public UnityEvent onImmunityChange;
-    // Make UnityEvent for Armour and Resist Increase
+    public UnityEvent onAfflictionAdd;
+    public UnityEvent onAfflictionExpire;
+    public UnityEvent onHealthZero;
     
     private List<Affliction> _afflictions = new List<Affliction>();
 
@@ -225,15 +277,28 @@ public class Mortality : MonoBehaviour
         onArmourAdjust = new UnityEvent();
         onResistAdjust = new UnityEvent();
         onImmunityChange = new UnityEvent();
+        onAfflictionAdd = new UnityEvent();
+        onAfflictionExpire = new UnityEvent();
+        onHealthZero = new UnityEvent();
     }
     
     private void Start()
     {
+        __HealthMax = __NativeHealthMax;
+        HealthRegen = __NativeHealthRegen;
+        __ActiveEnergyMax = __NativeActiveEnergyMax;
+        ActiveRegen = __NativeActiveRegen;
+        __StoredEnergyMax = __NativeStoredEnergyMax;
+        StoredRegen = __NativeStoredRegen;
+        Armour = __NativeArmour;
+        Resist = __NativeResist;
         activeEnergy = activeMax;
         storedEnergy = storedMax;
         health = healthMax;
 
         immune = false;
+        
+        
     }
 
     private void Update()
@@ -248,7 +313,11 @@ public class Mortality : MonoBehaviour
             _afflictions[i].Update();
             _afflictions[i].lifetime -= Time.deltaTime;
             if (_afflictions[i].lifetime <= 0)
+            {
+                _afflictions[i].End();
                 _afflictions.RemoveAt(i);
+                onAfflictionExpire.Invoke();
+            }
         }
     }
 
@@ -256,6 +325,8 @@ public class Mortality : MonoBehaviour
     public void ApplyAffliction(Affliction affliction)
     {
         _afflictions.Add(affliction);
+        affliction.Begin();
+        onAfflictionAdd.Invoke();
     }
     
     /*
@@ -304,17 +375,31 @@ public class Mortality : MonoBehaviour
     // Apply StoredEnergyDrain Affliction (Deals True StoredEnergy Damage)
     public void DrainStoredEnergy(float cost, float rate)
     {
-        _afflictions.Add(new StoredEnergyDrain(cost,rate,this));
+        ApplyAffliction(new StoredEnergyDrain(cost,rate,this));
     }
     // Apply ActiveEnergy Affliction (Deals True ActiveEnergy Damage)
     public void DrainActiveEnergy(float cost, float rate)
     {
-        _afflictions.Add(new ActiveEnergyDrain(cost,rate,this));
+        ApplyAffliction(new ActiveEnergyDrain(cost,rate,this));
     }
     // Apply HealthDrain Affliction (Deals True Health Damage)
     public void DrainHealth(float cost, float rate)
     {
-        _afflictions.Add(new HealthDrain(cost,rate,this));
+        ApplyAffliction(new HealthDrain(cost,rate,this));
+    }
+    
+    // External Affliction Access
+    public Affliction[] GetAfflictions()
+    {
+        return _afflictions.ToArray();
+    }
+    
+    // Respawning
+    public void ResetToMax()
+    {
+        Health = __HealthMax;
+        StoredEnergy = __StoredEnergyMax;
+        ActiveEnergy = __ActiveEnergyMax;
     }
     
     // Calculate Damage Reduction

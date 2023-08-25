@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1dc659c35891c42b825d369c0329b3, type: 3}
+  m_Name: RedPotion1
+  m_EditorClassIdentifier: 
+  itemName: Red Potion
+  itemSprite: {fileID: 21300000, guid: 9a3cfa4edacb96242a8136c2008610a5, type: 3}
+  droppable: 1
+  itemDescription: 'Red Potion:
+
+    Has restorative properties.'
+  EquipType: 0
+  health: 0
+  armor: 0
+  resist: 0
+  attack: 0
+  consumed:
+    m_PersistentCalls:
+      m_Calls: []
+  healAmount: 50

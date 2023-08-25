@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Mortality))]
 [RequireComponent(typeof(Interactor))]
@@ -39,6 +37,33 @@ public class PlayerManager : MonoBehaviour
     public static Sprite RightHandSprite;
     public static Sprite RightBootSprite;
 
+    private Animator _animator;
+
+    [Header("Player Specific Attack Stats")]
+    private float _attackStat;
+    private float _nativeAttackStat;
+    public float AttackDamage
+    {
+        get => _attackStat;
+        set
+        {
+            _attackStat = value;
+        }
+    }
+
+    public float __NativeAttackDamage
+    {
+        get => _nativeAttackStat;
+        set
+        {
+            float delta = value - _nativeAttackStat;
+            AttackDamage += delta;
+            _nativeAttackStat = value;
+        }
+    }
+
+    [SerializeField] private GameObject deathMenuAnchor;
+
     private void Awake()
     {
         if (Instance != null)
@@ -51,11 +76,15 @@ public class PlayerManager : MonoBehaviour
         MortalityScript = GetComponent<Mortality>();
         MovementScript = GetComponent<Movement>();
         AnimationScript = GetComponent<AnimationController>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
         UpdateSprites();
+        MortalityScript.onHealthZero.AddListener(KillPlayer);
+        deathMenuAnchor.SetActive(false);
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/Weapons/KiBlast"));
     }
 
     private Sprite LoadSprite(string name)
@@ -90,5 +119,78 @@ public class PlayerManager : MonoBehaviour
     {
         MortalityScript.enabled = true;
         MovementScript.enabled = true;
+    }
+
+    [ContextMenu("Kill")]
+    public void KillPlayer()
+    {
+        FreezePlayer();
+        AnimationScript.enabled = false;
+        _animator.CrossFade(AnimationController.animDeath,0,0);
+        WaitForDeath();
+        ShowDeathMenu();
+    }
+
+    public void RespawnPlayer(Vector2 position = new Vector2())
+    {
+        UnFreezePlayer();
+        AnimationScript.enabled = true;
+        transform.position = position;
+        gameObject.SetActive(true);
+        MortalityScript.ResetToMax();
+        HideDeathMenu();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        LoadingScreen.LoadScene("MainMenu");
+    }
+
+    [ContextMenu("Respawn")]
+    private void Respawn()
+    {
+        RespawnPlayer();
+    }
+    
+    private async void WaitForDeath()
+    {
+        await Task.Delay((int)(AnimationController.durDeath * 1000f));
+        gameObject.SetActive(false);
+    }
+
+    [ContextMenu("Give SLE")]
+    private void SpawnEOC()
+    {
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/BossSummons/SuspiciousLookingEye"));
+    }
+    [ContextMenu("Give BS")]
+    private void SpawnBS()
+    {
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/BossSummons/BloodySpine"));
+    }
+    [ContextMenu("Give Nasus E Skill")]
+    private void SpawnNasus()
+    {
+        InventoryManager.Instance.Add(Resources.Load<Item>("Items/Weapons/NasusESkill"));
+    }
+
+    private void ShowDeathMenu()
+    {
+        deathMenuAnchor.SetActive(true);
+    }
+
+    private void HideDeathMenu()
+    {
+        deathMenuAnchor.SetActive(false);
+    }
+
+    [SerializeField] private Item spawnItem;
+
+    [ContextMenu("Spawn Item")]
+    private void SpawnItem()
+    {
+        if (spawnItem == null)
+            return;
+        InventoryManager.Instance.Add(spawnItem);
     }
 }

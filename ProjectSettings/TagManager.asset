@@ -9,6 +9,7 @@ TagManager:
   - Damagable
   - DragonBall
   - ShenronSummon
+  - SkeletronHead
   layers:
   - Default
   - TransparentFX
@@ -19,10 +20,10 @@ TagManager:
   - Enemy
   - Player
   - Interactable
-  - 
-  - 
-  - 
-  - 
+  - baseball
+  - bat
+  - Ability
+  - WorldResource
   - 
   - 
   - 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ServantOfCthulhuFSM : MonoBehaviour
@@ -31,10 +29,24 @@ public class ServantOfCthulhuFSM : MonoBehaviour
         EnterState(STATES.CHASE);
 
         gameObject.GetComponent<Mortality>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        playerMortality = GameObject.FindGameObjectWithTag("Player").GetComponent<Mortality>();
+        playerTransform = PlayerManager.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        mortality = GetComponent<Mortality>();
+        mortality.onHealthZero.AddListener(Death);
+        GetComponent<Damagable>().hit.AddListener(HitSound);
+    }
+
+    private void HitSound()
+    {
+        SoundManager.Instance.PlaySound(1);
+    }
+
+    private void Death()
+    {
+        SoundManager.Instance.PlaySound(3);
+        Destroy(gameObject);
     }
 
     private void FixedUpdate()
@@ -80,6 +92,6 @@ public class ServantOfCthulhuFSM : MonoBehaviour
     {
         FacePlayer();
         rb.velocity = Vector2.zero;
-        rb.AddForce(dir * 70f);
+        rb.AddForce(dir * 75f);
     }
 }

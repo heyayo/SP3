@@ -1,37 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Items/Boss Item")]
 public class BossItem : Item
 {
     [Header("Spawns this boss")]
-    [SerializeField]
-    private GameObject bossPrefab;
+    [SerializeField] 
+    public string bossName;
 
-    private Transform playerTransform; // Reference to the player's transform
+    [SerializeField]
+    public GameObject bossPrefab;
+
+    [Header("Audios")]
+    [SerializeField]
+    private int spawnSoundIndex = 0;
+
+    [SerializeField]
+    private int bgmIndex = 1;
+
+    [HideInInspector]
+    public UnityEvent summon;
 
     private void OnEnable()
     {
-        // Find and assign the player's transform using the tag "Player"
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
-        {
-            playerTransform = playerObject.transform;
-        }
+        if (summon == null)
+            summon = new UnityEvent();
     }
 
     public override void Use()
     {
+        Transform playerTransform = PlayerManager.Instance.transform;
+
         // Spawn Randomly around player
         float angle = Random.Range(0f, 360f);
         float x = 20f * Mathf.Cos(angle);
         float y = 20f * Mathf.Sin(angle);
         Vector2 spawnPos = new Vector2(x, y);
 
+        /*
         Instantiate(bossPrefab, new Vector2(playerTransform.position.x, playerTransform.position.y)
             + spawnPos, Quaternion.identity);
-
+         */
+        
         consumed.Invoke();
+        if (BossManager.Instance.SummonBoss(bossName))
+        {
+            // Play sound
+            SoundManager.Instance.PlaySound(spawnSoundIndex);
+            SoundManager.Instance.PlayBGM(bgmIndex);
+
+            // Consumed event
+            consumed.Invoke();
+        }
     }
 }

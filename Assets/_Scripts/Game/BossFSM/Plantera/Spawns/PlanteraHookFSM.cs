@@ -20,6 +20,8 @@ public class PlanteraHookFSM : MonoBehaviour
     private STATES currentState;
     private Transform playerTransform;
     private LineRenderer lineRenderer;
+
+    [SerializeField] 
     private Animator animator;
 
     // Private variables
@@ -27,22 +29,20 @@ public class PlanteraHookFSM : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 hookPosition;  // Set in EnterState
 
-    // Hitbox stats
-    private Vector2 hitboxPos;
-
     // Timers
     private int idleTimer;
     private int moveTimer;
 
     private void Start()
     {
-        gameObject.GetComponent<Mortality>();
+        planteraTransform.GetComponent<Mortality>().onHealthZero.AddListener(OnDeath);
+
+        EnterState(STATES.IDLE);
+
         playerTransform = PlayerManager.Instance.transform;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         lineRenderer = GetComponent<LineRenderer>();
-
-        EnterState(STATES.IDLE);
     }
 
     private void FixedUpdate()
@@ -146,5 +146,10 @@ public class PlanteraHookFSM : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, gameObject.transform.position);
         lineRenderer.SetPosition(1, planteraTransform.position);
+    }
+
+    private void OnDeath()
+    {
+        Destroy(gameObject);
     }
 }

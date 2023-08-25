@@ -9,7 +9,8 @@ public class BOCTransform : BossState
 
     override public void EnterState()
     {
-        opacity = 0.7f;
+        opacity = 0.6f + (mortality.Health / mortality.__HealthMax) / 2;
+        damageSource.activeEnergyDamage += 100;
     }
 
     override public bool DoState()

@@ -14,10 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bloody Spine
   itemSprite: {fileID: 21300000, guid: bb3fa9c694d1aaf4fac9faba71aa8989, type: 3}
+  droppable: 1
   itemDescription: 'Bloody Spine:
 
     Disgusting... Summons the Brain Of Cthulhu'
   EquipType: 0
+  health: 0
   armor: 0
   resist: 0
+  attack: 0
+  consumed:
+    m_PersistentCalls:
+      m_Calls: []
+  bossName: BrainOfCthulhu
   bossPrefab: {fileID: 1948531592001244772, guid: efa3b18e0257362478d33d4acfe7135b, type: 3}
+  spawnSound: {fileID: 0}
+  bgmIndex: 2
+  summon:
+    m_PersistentCalls:
+      m_Calls: []

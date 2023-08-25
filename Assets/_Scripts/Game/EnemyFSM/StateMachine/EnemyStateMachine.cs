@@ -15,7 +15,8 @@ public class EnemyStateMachine
     {
         currentEnemyState.ExitState();
         currentEnemyState = newState;
-        Debug.Log("CHANGING TO | " + newState);
+        //Debug.Log("CHANGING TO | " + newState);
         currentEnemyState.EnterState();
     }
 }
+    
