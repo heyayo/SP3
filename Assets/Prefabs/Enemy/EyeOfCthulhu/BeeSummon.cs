@@ -22,11 +22,6 @@ public class BeeSummon : MonoBehaviour
 
     Vector2 dir;
     Rigidbody2D rb;
-    private Animator animator;
-    private float rotatedAmount;
-
-    // Hitbox stats
-    Vector2 hitboxPos;
 
     private void Start()
     {
@@ -34,10 +29,9 @@ public class BeeSummon : MonoBehaviour
 
         sr = GetComponent<SpriteRenderer>();
         gameObject.GetComponent<Mortality>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        playerMortality = GameObject.FindGameObjectWithTag("Player").GetComponent<Mortality>();
+        playerTransform = PlayerManager.Instance.transform;
+        playerMortality = PlayerManager.Instance.GetComponent<Mortality>();
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
