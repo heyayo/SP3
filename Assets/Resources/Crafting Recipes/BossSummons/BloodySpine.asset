@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76a326507efbd68479baaeba27b7ab24, type: 3}
-  m_Name: EmberCrystal
+  m_Name: BloodySpine
   m_EditorClassIdentifier: 
   recipeR1:
   - {fileID: 0}
-  - {fileID: 11400000, guid: a484a99f999e41445935e32b850d301b, type: 2}
+  - {fileID: 11400000, guid: 90bd29a9bbe197843ae3301d1173c0a5, type: 2}
   - {fileID: 0}
   recipeR2:
-  - {fileID: 11400000, guid: a484a99f999e41445935e32b850d301b, type: 2}
-  - {fileID: 11400000, guid: a484a99f999e41445935e32b850d301b, type: 2}
-  - {fileID: 11400000, guid: a484a99f999e41445935e32b850d301b, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 90bd29a9bbe197843ae3301d1173c0a5, type: 2}
+  - {fileID: 0}
   recipeR3:
   - {fileID: 0}
-  - {fileID: 11400000, guid: a484a99f999e41445935e32b850d301b, type: 2}
+  - {fileID: 11400000, guid: 90bd29a9bbe197843ae3301d1173c0a5, type: 2}
   - {fileID: 0}
-  yieldItem: {fileID: 11400000, guid: c7ccbfe1910eca94696816a1e1a5a23e, type: 2}
+  yieldItem: {fileID: 11400000, guid: 6b3c5e2bd0f12ad49a68a74f1b93ff7d, type: 2}

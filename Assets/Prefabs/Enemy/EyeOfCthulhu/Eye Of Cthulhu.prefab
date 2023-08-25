@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 5035288113788546619}
   - component: {fileID: 4105138690058095621}
   - component: {fileID: -3647736539750749664}
-  - component: {fileID: 603751215503075951}
   - component: {fileID: 5937734995611010540}
+  - component: {fileID: 417546813395108750}
   m_Layer: 0
   m_Name: Eye Of Cthulhu
   m_TagString: Damagable
@@ -167,14 +167,32 @@ MonoBehaviour:
   nativeRegen: 0
   regen: 0
   healthMax: 0
-  nativeHealthMax: 1200
-  nativeArmour: 60
-  nativeResist: 60
+  nativeHealthMax: 3200
+  nativeArmour: 200
+  nativeResist: 200
   effectiveArmour: 0
   effectiveResist: 0
   scaling:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -238,6 +256,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0d8d33bb5a12ea94395d78ec3a91e744, type: 2}
   - {fileID: 11400000, guid: e1c3249fb054349448e6990aa63f8910, type: 2}
   hitSoundIndex: 1
+  deathSound: 3
 --- !u!114 &5035288113788546619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +272,7 @@ MonoBehaviour:
   hpDamage: 0
   activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 120
+  nativeActiveEnergyDamage: 100
   armourPen: 15
   resistPen: 15
   nativeArmourPen: 0
@@ -263,6 +282,7 @@ MonoBehaviour:
   bleedOverPercentage: 0
   nativeBleedOverPercentage: 25
   isFriendly: 0
+  isHostile: 1
 --- !u!58 &4105138690058095621
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -316,22 +336,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &603751215503075951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7222542775091152465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
-  items:
-  - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
-  chances: 64000000
 --- !u!114 &5937734995611010540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,3 +353,24 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7bed411ad7d761e4aa9f8c7186c3ff81, type: 3}
   - {fileID: 21300000, guid: 68727e01511481e4bbce923c6092052a, type: 3}
   - {fileID: 21300000, guid: 14177fc79e7fe954ebcf9e449e1dd536, type: 3}
+--- !u!114 &417546813395108750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222542775091152465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
+  items:
+  - {fileID: 11400000, guid: 320f3610c5807e2438dba77798826552, type: 2}
+  - {fileID: 11400000, guid: 320f3610c5807e2438dba77798826552, type: 2}
+  - {fileID: 11400000, guid: 320f3610c5807e2438dba77798826552, type: 2}
+  - {fileID: 11400000, guid: 320f3610c5807e2438dba77798826552, type: 2}
+  - {fileID: 11400000, guid: 23ebdf4e5bbb0b24e96042a093c978c9, type: 2}
+  - {fileID: 11400000, guid: 7a206d577cf38494c9786073ea0616a3, type: 2}
+  chances: 64000000640000003200000032000000640000000c000000

@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Cthulhus Blessing
   itemSprite: {fileID: 21300000, guid: d2c10160e9346d445a16e202c679fe68, type: 3}
+  droppable: 1
   itemDescription: 'Cthulhu''s Blessing:
 
     Unfathomable amounts of power has been
     bestowed upon you.'
   EquipType: 1
-  health: 140
-  armor: 40
-  resist: 40
-  attack: 40
+  health: 110
+  armor: 30
+  resist: 30
+  attack: 30
   consumed:
     m_PersistentCalls:
       m_Calls: []

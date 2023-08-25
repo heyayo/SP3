@@ -70,7 +70,7 @@ public class FloaterFSM : MonoBehaviour
     private void DetermineState()
     {
         // If the brain dies then perma chase the player
-        if (currentState == STATES.FLOATING && brainTransform == null)
+        if (brainTransform == null)
         {
             EnterState(STATES.CHASE); 
         }
@@ -118,12 +118,12 @@ public class FloaterFSM : MonoBehaviour
     private void FloatingState()
     {
         FaceBrain();
-        rb.AddForce(dir * 60f);
+        rb.AddForce(dir * 50f);
     }
 
     private void ChaseState()
     {
         FacePlayer();
-        rb.AddForce(dir * 80f);
+        rb.AddForce(dir * 70f);
     }
 }

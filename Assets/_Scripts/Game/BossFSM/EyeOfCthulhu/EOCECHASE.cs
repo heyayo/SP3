@@ -6,31 +6,25 @@ using UnityEngine;
 public class EOCEChase : BossState
 {
     private int chaseTimer;
-    private int dashTimer;
 
     override public void EnterState()
     {
-        chaseTimer = 350;
-        dashTimer = 120;
+        if (mortality.Health / mortality.__HealthMax > 0.35f)
+            chaseTimer = 350;
+        else if (mortality.Health / mortality.__HealthMax > 0.2f)
+            chaseTimer = 275;
+        else if (mortality.Health / mortality.__HealthMax > 0.05f)
+            chaseTimer = 200;
+        else
+            chaseTimer = 0;
     }
 
     override public bool DoState()
     {
         chaseTimer--;
-        dashTimer--;
 
-        // Move toward player
-        if (dashTimer <= 0)
-        {
-            rb.AddForce(dir * 250f);
-            dashTimer = 60;
-        }
-        // Wait awhile before continuing to pursue player
-        else if (dashTimer < 45)
-        {
-            FacePlayer();
-            rb.AddForce(dir * 10f);
-        }
+        FacePlayer();
+        rb.AddForce(dir * 10f);
 
         if (chaseTimer <= 0)
             return true;

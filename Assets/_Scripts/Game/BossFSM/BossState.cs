@@ -16,7 +16,7 @@ public class BossState : ScriptableObject
 
     // Private variables
     protected Vector2 dir;
-    protected Rigidbody2D rb;
+    public Rigidbody2D rb;
     protected Animator animator;
     protected Transform transform;
     protected SpriteRenderer sr;

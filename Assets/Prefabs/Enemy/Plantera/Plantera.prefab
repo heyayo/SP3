@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2857372127231226052}
   - component: {fileID: -3318826772667500046}
   - component: {fileID: 3619573926867420713}
+  - component: {fileID: -8916753238563408371}
   m_Layer: 0
   m_Name: Plantera
   m_TagString: Damagable
@@ -66,7 +67,7 @@ MonoBehaviour:
   nativeRegen: 0
   regen: 0
   healthMax: 0
-  nativeHealthMax: 9500
+  nativeHealthMax: 24000
   nativeArmour: 400
   nativeResist: 400
   effectiveArmour: 0
@@ -315,6 +316,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fdce4a1fd47749247846dc8a07c18f0e, type: 2}
   - {fileID: 11400000, guid: 88ffeb9672b355940bb79f63193bb52b, type: 2}
   hitSoundIndex: 1
+  deathSound: 3
 --- !u!114 &3619573926867420713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,3 +340,27 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6fc6255a974b9b045852907bcd056eac, type: 3}
   - {fileID: 21300000, guid: d0cec43f5570e594ea970ee8aab40de0, type: 3}
   - {fileID: 21300000, guid: 2524a9d0fada3524d9581cd3ba6ca408, type: 3}
+--- !u!114 &-8916753238563408371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408207500018932619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
+  items:
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 2f0a36fdd572db046ab26d19f314d700, type: 2}
+  - {fileID: 11400000, guid: 547c77364faabd842aadea81391848ab, type: 2}
+  - {fileID: 11400000, guid: e225d325d5a8857468144bac0f29883a, type: 2}
+  - {fileID: 11400000, guid: 2271ae7006116c149aa61f8221784f9a, type: 2}
+  chances: 640000006400000064000000320000003200000032000000640000000c00000064000000
