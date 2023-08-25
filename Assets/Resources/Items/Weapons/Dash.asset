@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88b37e5c0a92cc468cc123ec7f02020, type: 3}
-  m_Name: boomerang
+  m_Script: {fileID: 11500000, guid: c29d882a7f3842042ae7bbb0a791eb1f, type: 3}
+  m_Name: Dash
   m_EditorClassIdentifier: 
-  itemName: Boomerang
-  itemSprite: {fileID: 21300000, guid: 58e5851be3bddf64ea6b606c2186d209, type: 3}
+  itemName: dash
+  itemSprite: {fileID: 21300000, guid: c21e18372d5455143b7e72e0e7000e26, type: 3}
   droppable: 0
-  itemDescription: Boomerang;Let it RIPPP
+  itemDescription: 'dash: fiwp!'
   EquipType: 0
   health: 0
   armor: 0
@@ -24,6 +24,3 @@ MonoBehaviour:
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  boomerangPrefab: {fileID: 2457879194376414857, guid: 32917c200efce8e48a067a29247279f3, type: 3}
-  throwForce: 10
-  returnSpeed: 5

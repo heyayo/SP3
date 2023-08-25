@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[CreateAssetMenu(menuName = "Items/Teleportskill")]
 public class Teleport : Item
 {
     private bool isTeleporting = false;

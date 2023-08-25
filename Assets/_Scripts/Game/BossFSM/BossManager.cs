@@ -7,7 +7,7 @@ public class BossManager : MonoBehaviour
 {
     static public BossManager Instance;
 
-    private class BossStats 
+    public class BossStats 
     {
         public bool bossAlive;
         public bool bossDefeated;
@@ -29,8 +29,8 @@ public class BossManager : MonoBehaviour
         }
     }
 
-    // Private Variables
-    private Dictionary<string, BossStats> bossList = new Dictionary<string, BossStats>();
+    [HideInInspector]
+    public Dictionary<string, BossStats> bossList = new Dictionary<string, BossStats>();
 
     private void Start()
     {

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[CreateAssetMenu(menuName = "Items/Dash")]
 public class Dashspell : Item
 {
     private Rigidbody2D rb;
@@ -12,19 +14,19 @@ public class Dashspell : Item
     private float dashEndTime = 0.0f;
     private GameObject player;
 
-    private void Start()
-    {
-        player = PlayerManager.Instance.gameObject;
-        rb = PlayerManager.Instance.GetComponent<Rigidbody2D>();
-    }
+ 
 
+
+   
     public override void Use()
     {
-
+        
     }
 
     public override void WhileHolding()
     {
+        player = PlayerManager.Instance.gameObject;
+        rb = PlayerManager.Instance.GetComponent<Rigidbody2D>();
         // Update cooldown timer
         cooldownTimer -= Time.deltaTime;
 
@@ -36,7 +38,7 @@ public class Dashspell : Item
         }
 
         // Check if the dash duration has passed
-        if (Time.time >= dashEndTime)
+        if (cooldownTimer >= dashEndTime)
         {
             rb.velocity = Vector2.zero; // Stop the player's movement
         }
@@ -44,6 +46,9 @@ public class Dashspell : Item
 
     private void DashTowardsMousePosition()
     {
+        player = PlayerManager.Instance.gameObject;
+        rb = PlayerManager.Instance.GetComponent<Rigidbody2D>();
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f; // Assuming your game is 2D, adjust if it's 3D
 
@@ -54,6 +59,6 @@ public class Dashspell : Item
         rb.velocity = dashDirection * dashForce;
 
         // Set the time when the dash will end
-        dashEndTime = Time.time + dashDuration;
+        dashEndTime = cooldownTimer;
     }
 }

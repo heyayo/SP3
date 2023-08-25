@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9184379d73c8c542849258adbb2a559, type: 3}
   m_Name: hellZone
   m_EditorClassIdentifier: 
-  itemName: 
-  itemSprite: {fileID: 0}
-  droppable: 1
-  itemDescription: null
+  itemName: Hellzone
+  itemSprite: {fileID: 21300000, guid: ac8f93ccd7147f34298ca0bf8bb96bc7, type: 3}
+  droppable: 0
+  itemDescription: 'hellZone: Yare yare thwomp san, dattebayo nigoi suni deska ima
+    raighto behindayou haha desu SINE'
   EquipType: 0
   health: 0
   armor: 0
