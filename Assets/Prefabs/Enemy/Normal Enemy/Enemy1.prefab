@@ -189,7 +189,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2edc19f3896893741964bd00b83b49a2, type: 2}
   - {fileID: 11400000, guid: ef5e0c3d4c4691048a0312f64384b92d, type: 2}
   - {fileID: 11400000, guid: 718c87cd0014f934da852ea3b041beb7, type: 2}
-  chances: 010000000a00000064000000
+  chances: 010000000a00000032000000
 --- !u!50 &8264874321449958290
 Rigidbody2D:
   serializedVersion: 4

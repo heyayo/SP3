@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76a326507efbd68479baaeba27b7ab24, type: 3}
-  m_Name: KnightSword
+  m_Name: KnightsSword
   m_EditorClassIdentifier: 
   recipeR1:
   - {fileID: 0}
@@ -22,6 +22,6 @@ MonoBehaviour:
   - {fileID: 0}
   recipeR3:
   - {fileID: 0}
-  - {fileID: 11400000, guid: 26661be1792a49e498a0bf819207110b, type: 2}
+  - {fileID: 11400000, guid: db9834970bdf3954c9e3f0e0b95bdb52, type: 2}
   - {fileID: 0}
   yieldItem: {fileID: 11400000, guid: eabb6ffcd85bfb54282a865fc17e973a, type: 2}

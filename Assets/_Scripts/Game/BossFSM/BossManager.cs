@@ -36,10 +36,10 @@ public class BossManager : MonoBehaviour
     {
         // Global
         Instance = this;
-
         foreach (BossItem bossItem in Resources.LoadAll<BossItem>("Items/BossSummons/"))
         {
             bossList.Add(bossItem.bossName, BossStats.New(bossItem));
+            Debug.Log(bossItem.bossName);   
         }
     }
 
@@ -59,8 +59,9 @@ public class BossManager : MonoBehaviour
         float y = 20f * Mathf.Sin(angle);
         Vector2 spawnPos = new Vector2(x, y);
 
-        Instantiate(bossList[summonedBossName].boss.bossPrefab, new Vector2(playerTransform.position.x, playerTransform.position.y)
+        GameObject summoned = Instantiate(bossList[summonedBossName].boss.bossPrefab, new Vector2(playerTransform.position.x, playerTransform.position.y)
             + spawnPos, Quaternion.identity);
+        summoned.GetComponent<BossFSM>().bossName = summonedBossName;
 
         return true;
     }
@@ -70,16 +71,19 @@ public class BossManager : MonoBehaviour
         if (!bossList[summonedBossName].bossAlive)
             return;
 
+        bossList[summonedBossName].bossAlive = false;
+        bossList[summonedBossName].bossDefeated = true;
+        Debug.Log("SHOULD");
+
         // If no more bosses alive then change the bgm back to normal
         foreach (BossItem bossItem in Resources.LoadAll<BossItem>("Items/BossSummons/"))
         {
+            Debug.Log(bossItem.bossName + ": " + bossList[bossItem.bossName].bossAlive);
+
             if (bossList[bossItem.bossName].bossAlive)
                 break;
 
             SoundManager.Instance.PlayBGM(0);
         }
-
-        bossList[summonedBossName].bossAlive = false;
-        bossList[summonedBossName].bossDefeated = true;
     }
 }

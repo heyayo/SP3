@@ -26,6 +26,7 @@ public class IronOre : Interactable
     {
         gameObject.SetActive(false);
         inventoryManager.Add(yieldItem);
+        _mortality.ResetToMax();
         await Task.Delay((int)(respawnTimer * 1000f));
         gameObject.SetActive(true);
     }
