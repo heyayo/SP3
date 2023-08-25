@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2924845809207945679}
   - component: {fileID: 3388539539440246518}
   - component: {fileID: 1309162412990376092}
-  - component: {fileID: 2162309659943253013}
+  - component: {fileID: 3284466839994494757}
+  - component: {fileID: -7175952228628372603}
   m_Layer: 0
   m_Name: HELLZONNNEEE
   m_TagString: Untagged
@@ -149,7 +150,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2162309659943253013
+--- !u!114 &3284466839994494757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544551745646549440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 0
+  nativeHPDamage: 150
+  nativeActiveEnergyDamage: 0
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 0
+  nativeResistPen: 0
+  armourPenType: 0
+  resistPenType: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 0
+  isFriendly: 1
+  isHostile: 0
+--- !u!114 &-7175952228628372603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
