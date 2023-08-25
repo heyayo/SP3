@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mortality: {fileID: 0}
-  immunityTime: 1
+  immunityTime: 0.1
   immune: 0
   hit:
     m_PersistentCalls:

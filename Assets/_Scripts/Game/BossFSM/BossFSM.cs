@@ -141,7 +141,7 @@ public class BossFSM : MonoBehaviour
     private void Death()
     {
         SoundManager.Instance.PlaySound(deathSound);
-        mortality.onHealthZero.AddListener(()=>{BossManager.Instance.KillBoss(bossName);});
+        BossManager.Instance.KillBoss(bossName);
         Destroy(gameObject);
     }
 }
