@@ -17,17 +17,17 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        Vector3 targetPosition = targetLock.position;
+        targetPosition.z = transform.position.z;
         if (shakeTimer > 0)
         {
             Vector3 shakeOffset = Random.insideUnitSphere * shakeIntensity;
-            transform.position += shakeOffset;
+            transform.position = targetPosition + shakeOffset;
 
             shakeTimer -= Time.deltaTime;
         }
         else
         {
-            Vector3 targetPosition = targetLock.position;
-            targetPosition.z = transform.position.z;
             transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
         }
     }
