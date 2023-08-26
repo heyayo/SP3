@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
@@ -38,6 +39,7 @@ public class PlayerManager : MonoBehaviour
     public static Sprite RightBootSprite;
 
     private Animator _animator;
+    private Configuration _config;
 
     [Header("Player Specific Attack Stats")]
     private float _attackStat;
@@ -77,6 +79,7 @@ public class PlayerManager : MonoBehaviour
         MovementScript = GetComponent<Movement>();
         AnimationScript = GetComponent<AnimationController>();
         _animator = GetComponent<Animator>();
+        _config = Configuration.FetchConfig();
     }
 
     private void Start()
@@ -85,6 +88,13 @@ public class PlayerManager : MonoBehaviour
         MortalityScript.onHealthZero.AddListener(KillPlayer);
         deathMenuAnchor.SetActive(false);
         InventoryManager.Instance.Add(Resources.Load<Item>("Items/Weapons/KiBlast"));
+        pauseMenu.SetActive(false);
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(_config.pause))
+            PauseMenu();
     }
 
     private Sprite LoadSprite(string name)
@@ -182,6 +192,19 @@ public class PlayerManager : MonoBehaviour
     private void HideDeathMenu()
     {
         deathMenuAnchor.SetActive(false);
+    }
+
+    [SerializeField] private GameObject pauseMenu;
+    
+    public void PauseMenu()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
+        Time.timeScale = Convert.ToSingle(!pauseMenu.activeInHierarchy);
+    }
+
+    public void QuitToMainMenu()
+    {
+        LoadingScreen.LoadScene("MainMenu");
     }
 
     [SerializeField] private Item spawnItem;

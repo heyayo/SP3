@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
@@ -12,6 +13,10 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField]
     private AudioClip[] bgms;
+
+    [SerializeField] private AudioMixer mixer;
+    [SerializeField] private AudioMixerGroup bgmGroup;
+    [SerializeField] private AudioMixerGroup sfxGroup;
 
     private AudioSource BGM;
 
@@ -31,6 +36,7 @@ public class SoundManager : MonoBehaviour
         if (audios[index] != null)
         {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.outputAudioMixerGroup = sfxGroup;
             audioSource.clip = audios[index];
             audioSource.Play();
         }
@@ -40,6 +46,7 @@ public class SoundManager : MonoBehaviour
     {
         if (bgms[index] != null)
         {
+            BGM.outputAudioMixerGroup = bgmGroup;
             BGM.Stop();
             BGM.clip = bgms[index];
             BGM.Play();

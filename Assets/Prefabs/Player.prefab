@@ -1075,7 +1075,8 @@ MonoBehaviour:
   rightHand: {fileID: 5513320795371619546}
   rightBoot: {fileID: 1015513625048715509}
   deathMenuAnchor: {fileID: 0}
-  spawnItem: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  spawnItem: {fileID: 11400000, guid: 7b2f2c690e4c8fe41964371a1f81b2ad, type: 2}
 --- !u!114 &1579393493429420541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,7 +1221,7 @@ MonoBehaviour:
   mortality: {fileID: 1579393493429420541}
   immunityTime: 0.5
   immune: 0
-  hit:
+  onHit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &6733982612956102854
