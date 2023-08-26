@@ -19,8 +19,14 @@ public class BEAMHAMEHA : Item
     public float chargeRate = 70.5f; // Rate at which the beam grows
     private CameraController cameraController;
 
+    [SerializeField] private GameObject particle;
+    private GameObject particlefollow;
+
+
     public override void WhileHolding()
     {
+        // Find the GameObject with the "ChargingParticle" tag
+        
         firePoint = PlayerManager.Instance.gameObject.transform;
         cameraController = FindObjectOfType<CameraController>();
         if (cameraController == null)
@@ -30,13 +36,25 @@ public class BEAMHAMEHA : Item
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && !charging && !beamActive)
         {
+            particlefollow = Instantiate(particle, firePoint.position, Quaternion.identity);
+
+
             charging = true;
             chargeStartTime = Time.time;
             //kamehamehaParticleEffect.SetActive(true);
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0) && charging && !beamActive)
+        if (particlefollow != null)
         {
+            particlefollow.transform.position = firePoint.position;
+        }
+
+            if (Input.GetKeyUp(KeyCode.Mouse0) && charging && !beamActive)
+        {
+            if(particlefollow != null)
+            {
+                Destroy(particlefollow);
+            }
             charging = false;
             beamActive = true;
             currentBeam = Instantiate(beamPrefab, firePoint.position, Quaternion.identity);
@@ -76,6 +94,7 @@ public class BEAMHAMEHA : Item
 
             if (cameraController != null)
             {
+               
                 cameraController.StartCameraShake();
             }
         }
@@ -84,6 +103,7 @@ public class BEAMHAMEHA : Item
         {
             if (cameraController != null)
             {
+                
                 cameraController.EndCameraShake();
             }
         }

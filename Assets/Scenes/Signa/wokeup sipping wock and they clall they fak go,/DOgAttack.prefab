@@ -128,9 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   damageAmount: 10
-  damn: 0
 --- !u!95 &8420120064175369543
 Animator:
   serializedVersion: 5

@@ -18,10 +18,7 @@ public class SkeletronAI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            activate = !activate;
-        }
+        
 
 
 

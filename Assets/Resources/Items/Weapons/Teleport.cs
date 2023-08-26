@@ -25,6 +25,7 @@ public class Teleport : Item
         // Check for teleport input if cooldown is not active
         if (cooldownTimer <= 0.0f && Input.GetMouseButtonDown(0)) // Assuming left mouse button triggers teleport
         {
+            SoundManager.Instance.PlaySound(12);
             TeleportToMousePosition();
             cooldownTimer = teleportCooldown; // Set the cooldown
         }

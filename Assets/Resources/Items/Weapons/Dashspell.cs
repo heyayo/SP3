@@ -7,11 +7,11 @@ using UnityEngine;
 public class Dashspell : Item
 {
     private Rigidbody2D rb;
-    private float dashForce = 10.0f; // Adjust this value as needed
-    private float dashDuration = 1.5f; // Adjust this value as needed
+    private float dashForce = 8000.0f; // Adjust this value as needed
+   
     private float dashCooldown = 2.0f; // Adjust this value as needed
-    private float cooldownTimer = 0.0f;
-    private float dashEndTime = 0.0f;
+    private float cooldownTimer = 1.0f;
+    private float dashEndTime = 2.0f;
     private GameObject player;
 
  
@@ -30,10 +30,23 @@ public class Dashspell : Item
         // Update cooldown timer
         cooldownTimer -= Time.deltaTime;
 
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f; // Assuming your game is 2D, adjust if it's 3D
         // Check for dash input if cooldown is not active
         if (cooldownTimer <= 0.0f && Input.GetMouseButtonDown(0)) // Assuming left mouse button triggers dash
         {
-            DashTowardsMousePosition();
+            player = PlayerManager.Instance.gameObject;
+            rb = PlayerManager.Instance.GetComponent<Rigidbody2D>();
+
+
+            SoundManager.Instance.PlaySound(13);
+            // Calculate the direction to dash towards
+            Vector3 dashDirection = (mousePos - player.transform.position).normalized;
+
+            // Apply force for dashing
+            rb.AddForce(dashDirection * dashForce);
+
+          
             cooldownTimer = dashCooldown; // Set the cooldown
         }
 
@@ -44,21 +57,5 @@ public class Dashspell : Item
         }
     }
 
-    private void DashTowardsMousePosition()
-    {
-        player = PlayerManager.Instance.gameObject;
-        rb = PlayerManager.Instance.GetComponent<Rigidbody2D>();
-
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f; // Assuming your game is 2D, adjust if it's 3D
-
-        // Calculate the direction to dash towards
-        Vector3 dashDirection = (mousePos - player.transform.position).normalized;
-
-        // Apply force for dashing
-        rb.velocity = dashDirection * dashForce;
-
-        // Set the time when the dash will end
-        dashEndTime = cooldownTimer;
-    }
+    
 }

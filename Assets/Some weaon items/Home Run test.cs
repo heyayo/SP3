@@ -19,6 +19,9 @@ public class HomeRunTest : MonoBehaviour
 
     private SpriteRenderer sr;
 
+
+    private float Timertime = 0f;
+
     GameObject player;
 
     private void Start()
@@ -48,16 +51,26 @@ public class HomeRunTest : MonoBehaviour
         }
         if (Input.GetMouseButton(0)) // Left click
         {
+            Timertime += Time.deltaTime;
+
+            if(Timertime >= 0.23f)
+            {
+                SoundManager.Instance.PlaySound(14);
+                Timertime = 0f;
+            }
+
             Vector3 mousePosition = Input.mousePosition;
             Vector3 playerPosition = Camera.main.WorldToScreenPoint(player.transform.position); ;
             Vector3 directionToMouse = mousePosition - playerPosition;
             if (directionToMouse.x >= 0)
             {
-               sr.flipX = false;
+               
+                sr.flipX = false;
                 targetRotation = targetRotationRightClick; // Rotate left
             }
             else
             {
+               
                 sr.flipX = true;
                 targetRotation = targetRotationLeftClick;
             }
