@@ -14,11 +14,15 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private TMP_InputField seedInput;
     [SerializeField] private TMP_Dropdown worldSizeChooser;
 
+    [Header("Settings Menu")]
+    [SerializeField] private GameObject settingsMenu;
+
     private Animator _worldMenuAnimator;
 
     private void Awake()
     {
         _worldMenuAnimator = worldMenuAnchor.GetComponent<Animator>();
+        settingsMenu.SetActive(false);
     }
     public void LoadGame()
     {
@@ -43,8 +47,7 @@ public class MainMenu : MonoBehaviour
         }
         WorldGenOptions.seedString = seedInput.text;
         if (seedInput.text.Length == 0)
-            WorldGenOptions.seedString = "BREENSEERAYYANG";
-        Debug.Log(WorldGenOptions.worldSize);
+            WorldGenOptions.seedString = new string("BREENSEERAYYANG");
         
         LoadingScreen.LoadPlayerCustomizer();
     }
@@ -65,5 +68,10 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ToggleOptions()
+    {
+        settingsMenu.SetActive(!settingsMenu.activeInHierarchy);
     }
 }
