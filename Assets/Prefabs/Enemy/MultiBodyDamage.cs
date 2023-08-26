@@ -16,7 +16,7 @@ public class MultiBodyDamage : MonoBehaviour
 
         foreach (GameObject go in GetComponentsInChildren<GameObject>())
         {
-            go.GetComponent<Damagable>().hit.AddListener(SyncHealth);
+            go.GetComponent<Damagable>().onHit.AddListener(SyncHealth);
             go.GetComponent<Mortality>().onHealthZero.AddListener(Death);
         }
     }
