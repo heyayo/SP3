@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    private WorldGenOptions _options;
-    
     [Header("UI Elements")]
     [Header("Main Menu")]
     [SerializeField] private TMP_Text title;
@@ -20,8 +18,6 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        _options = WorldGenOptions.FetchConfig();
-
         _worldMenuAnimator = worldMenuAnchor.GetComponent<Animator>();
     }
     public void LoadGame()
@@ -31,22 +27,24 @@ public class MainMenu : MonoBehaviour
         {
             case 0:
             {
-                _options.worldSize = new Vector2Int(250, 250);
+                WorldGenOptions.worldSize = new Vector2Int(250, 250);
                 break;
             }
             case 1:
             {
-                _options.worldSize = new Vector2Int(750, 750);
+                WorldGenOptions.worldSize = new Vector2Int(750, 750);
                 break;
             }
             case 2:
             {
-                _options.worldSize = new Vector2Int(1500, 1500);
+                WorldGenOptions.worldSize = new Vector2Int(1500, 1500);
                 break;
             }
         }
-        _options.seedString = seedInput.text;
-        Debug.Log(_options.worldSize);
+        WorldGenOptions.seedString = seedInput.text;
+        if (seedInput.text.Length == 0)
+            WorldGenOptions.seedString = "BREENSEERAYYANG";
+        Debug.Log(WorldGenOptions.worldSize);
         
         LoadingScreen.LoadPlayerCustomizer();
     }

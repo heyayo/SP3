@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HomingMissile : MonoBehaviour
@@ -25,8 +26,16 @@ public class HomingMissile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        Destroy(gameObject, 5.0f);
+        Destroy(gameObject, 1.0f);
         FindClosestEnemy();
+        GetComponent<DamageSource>().onHit.AddListener(()=>
+        {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            animator.SetTrigger("Boom");
+            Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+            currentState = MissileState.Hit;
+        });
     }
 
     void Update()
@@ -52,14 +61,15 @@ public class HomingMissile : MonoBehaviour
             case MissileState.Hit:
                 // Play "Boom" animation and then destroy the projectile
                 // Disable the Rigidbody to stop movement
+                /*
+                 * 
                 rb.velocity = Vector2.zero;
                 rb.angularVelocity = 0f;
                 animator.SetTrigger("Boom");
                 Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+                 */
                 break;
         }
-
-        CheckForCollision();
     }
 
     void FindClosestEnemy()
@@ -70,6 +80,10 @@ public class HomingMissile : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
+            if (enemy.TryGetComponent(out PlayerManager player))
+                continue;
+            if (enemy.TryGetComponent(out Interactable interactable))
+                continue;
             float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < closestDistance)
             {

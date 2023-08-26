@@ -2,6 +2,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Mortality))]
 public class Damagable : MonoBehaviour
@@ -10,13 +11,12 @@ public class Damagable : MonoBehaviour
     [SerializeField] private float immunityTime = 1;
     [SerializeField] private bool immune;
 
-    [HideInInspector]
-    public UnityEvent hit;
+    [FormerlySerializedAs("hit")] public UnityEvent onHit;
 
     private void Awake()
     {
-        if (hit == null)
-            hit = new UnityEvent();
+        if (onHit == null)
+            onHit = new UnityEvent();
 
         mortality = GetComponent<Mortality>();
     }
@@ -35,7 +35,7 @@ public class Damagable : MonoBehaviour
         if (immune) return;
         mortality.ApplyEnergyDamage(eDamage,mp,ePierce,bleed,ap,hpPierce);
         mortality.ApplyHealthDamage(hpDamage,ap,hpPierce);
-        hit.Invoke();
+        onHit.Invoke();
         WaitImmunity();
     }
 

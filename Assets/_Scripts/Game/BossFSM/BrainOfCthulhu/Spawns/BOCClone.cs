@@ -40,7 +40,7 @@ public class BOCCloneFSM : MonoBehaviour
 
         sr.color *= new Color(1, 1, 1, opacity);  // Set opacity
 
-        GetComponent<Damagable>().hit.AddListener(HitSound);
+        GetComponent<Damagable>().onHit.AddListener(HitSound);
         GetComponent<Mortality>().onHealthZero.AddListener(Death);
     }
 

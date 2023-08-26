@@ -21,6 +21,8 @@ public class ResistanceStats : MonoBehaviour
         
         mortality.onArmourAdjust.AddListener(UpdateArmourStat);
         mortality.onResistAdjust.AddListener(UpdateResistStat);
+        var inveSlots = InventoryManager.Instance.inventorySlots;
+        var armSlots = InventoryManager.Instance.armourSlots;
     }
 
     private void UpdateArmourStat()

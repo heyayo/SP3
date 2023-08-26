@@ -13,13 +13,7 @@ public class FragmentScatter : MonoBehaviour
 
     private GameObject _shenronSummon;
     
-    private WorldGenOptions _options;
     private WorldGenerator _generator;
-
-    private void Awake()
-    {
-        _options = WorldGenOptions.FetchConfig();
-    }
 
     private void Start()
     {
@@ -33,8 +27,8 @@ public class FragmentScatter : MonoBehaviour
         var positions = new Vector2Int[7];
         for (int i = 0; i < 7; ++i)
         {
-            float x = (Random.value-0.5f) * _options.worldSize.x;
-            float y = (Random.value-0.5f) * _options.worldSize.y;
+            float x = (Random.value-0.5f) * WorldGenOptions.worldSize.x;
+            float y = (Random.value-0.5f) * WorldGenOptions.worldSize.y;
             positions[i] = new Vector2Int((int)x, (int)y);
         }
 
