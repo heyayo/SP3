@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 837e3e28b03d76545b82d776de01db13, type: 3}
+  m_Color: {r: 0.8867924, g: 0.6812127, b: 0.34635097, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -176,6 +176,9 @@ MonoBehaviour:
   nativeBleedOverPercentage: 0
   isFriendly: 1
   isHostile: 0
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-7175952228628372603
 MonoBehaviour:
   m_ObjectHideFlags: 0

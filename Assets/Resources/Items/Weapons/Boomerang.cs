@@ -15,13 +15,13 @@ public class Boomerang :Item
     private GameObject activeBoomerang;
     private bool isReturning = false;
 
+    public override void Use()
+    {
+        ThrowBoomerang();
+    }
+
     public override void WhileHolding()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            ThrowBoomerang();
-        }
-
         if (Input.GetMouseButtonUp(0))
         {
             DestroyActiveBoomerang();

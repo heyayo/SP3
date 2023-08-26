@@ -28,21 +28,21 @@ public class BEAMHAMEHA : Item
             Debug.LogError("CameraController not found in the scene.");
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !charging && !beamActive)
-        {
-            charging = true;
-            chargeStartTime = Time.time;
-            //kamehamehaParticleEffect.SetActive(true);
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse0) && !charging && !beamActive)
+        //{
+        //    charging = true;
+        //    chargeStartTime = Time.time;
+        //    //kamehamehaParticleEffect.SetActive(true);
+        //}
 
-        if (Input.GetKeyUp(KeyCode.Mouse0) && charging && !beamActive)
-        {
-            charging = false;
-            beamActive = true;
-            currentBeam = Instantiate(beamPrefab, firePoint.position, Quaternion.identity);
-            // Play the charging particle effect
-            //kamehamehaParticleEffect.SetActive(false);
-        }
+        //if (Input.GetKeyUp(KeyCode.Mouse0) && charging && !beamActive)
+        //{
+        //    charging = false;
+        //    beamActive = true;
+        //    currentBeam = Instantiate(beamPrefab, firePoint.position, Quaternion.identity);
+        //    // Play the charging particle effect
+        //    //kamehamehaParticleEffect.SetActive(false);
+        //}
         if (beamActive && currentBeam != null)
         {
             // Calculate the direction from firePoint to mouse position
@@ -102,10 +102,21 @@ public class BEAMHAMEHA : Item
                 beamExistenceTime = 5f; // Reset beam existence time
             }
         }
-
-
-        
     }
 
+    override public void Use()
+    {
+        if (!charging && !beamActive)
+        {
+            charging = true;
+            chargeStartTime = Time.time;
+        }
 
+        if (charging && !beamActive)
+        {
+            charging = false;
+            beamActive = true;
+            currentBeam = Instantiate(beamPrefab, firePoint.position, Quaternion.identity);
+        }
+    }
 }

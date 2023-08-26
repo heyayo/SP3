@@ -20,7 +20,11 @@ public class Dashspell : Item
    
     public override void Use()
     {
-        
+        if (cooldownTimer <= 0.0f)
+        {
+            DashTowardsMousePosition();
+            cooldownTimer = dashCooldown; // Set the cooldown
+        }
     }
 
     public override void WhileHolding()
@@ -29,13 +33,6 @@ public class Dashspell : Item
         rb = PlayerManager.Instance.GetComponent<Rigidbody2D>();
         // Update cooldown timer
         cooldownTimer -= Time.deltaTime;
-
-        // Check for dash input if cooldown is not active
-        if (cooldownTimer <= 0.0f && Input.GetMouseButtonDown(0)) // Assuming left mouse button triggers dash
-        {
-            DashTowardsMousePosition();
-            cooldownTimer = dashCooldown; // Set the cooldown
-        }
 
         // Check if the dash duration has passed
         if (cooldownTimer >= dashEndTime)

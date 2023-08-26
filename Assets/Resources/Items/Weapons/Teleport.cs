@@ -14,20 +14,18 @@ public class Teleport : Item
 
     public override void Use()
     {
-     
+        // Check for teleport input if cooldown is not active
+        if (cooldownTimer <= 0.0f) // Assuming left mouse button triggers teleport
+        {
+            TeleportToMousePosition();
+            cooldownTimer = teleportCooldown; // Set the cooldown
+        }
     }
 
     public override void WhileHolding()
     {
         // Update cooldown timer
         cooldownTimer -= Time.deltaTime;
-
-        // Check for teleport input if cooldown is not active
-        if (cooldownTimer <= 0.0f && Input.GetMouseButtonDown(0)) // Assuming left mouse button triggers teleport
-        {
-            TeleportToMousePosition();
-            cooldownTimer = teleportCooldown; // Set the cooldown
-        }
     }
 
     private void TeleportToMousePosition()
