@@ -21,6 +21,12 @@ public class MultiBodyDamage : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        foreach (Mortality mortality in mortalities)
+            Debug.Log(mortality.Health);
+    }
+
     private void SyncHealth()
     {
         foreach (Mortality mortality in mortalities)

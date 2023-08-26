@@ -12,20 +12,14 @@ public class EOCTransform : BossState
     private Sprite[] gore;
 
     private float rotatedAmount;
+    private bool turned;
+    private int waitTimer;
 
     override public void EnterState()
     {
         rotatedAmount = 0f;
         damageSource.activeEnergyDamage += 50;
-
-        foreach (Sprite sprite in gore)
-        {
-            dir = new Vector2(Random.Range(-360, 360), Random.Range(-360, 360)).normalized;
-            GameObject go = Instantiate(gorePrefab, transform.position, Quaternion.identity);
-            go.GetComponent<Rigidbody2D>().AddForce(dir * Random.Range(3, 6), ForceMode2D.Impulse);
-            go.GetComponent<SpriteRenderer>().sprite = sprite;
-            go.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-200, 200));
-        }
+        turned = false;
     }
 
     override public bool DoState()
@@ -41,9 +35,28 @@ public class EOCTransform : BossState
 
         if (rotatedAmount >= rotationAmount && rb.angularVelocity <= 20f)
         {
+            // Wait for a little while after spinning before continuing to pursue the player
+            if (turned)
+            {
+                waitTimer--;
+                if (waitTimer <= 0)
+                    return true;
+            }
+
             animator.SetBool("Enraged", true);
             SoundManager.Instance.PlaySound(0);
-            return true;
+
+            foreach (Sprite sprite in gore)
+            {
+                dir = new Vector2(Random.Range(-360, 360), Random.Range(-360, 360)).normalized;
+                GameObject go = Instantiate(gorePrefab, transform.position, Quaternion.identity);
+                go.GetComponent<Rigidbody2D>().AddForce(dir * Random.Range(3, 6), ForceMode2D.Impulse);
+                go.GetComponent<SpriteRenderer>().sprite = sprite;
+                go.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-200, 200));
+            }
+
+            waitTimer = 100;
+            turned = true;
         }
 
         return false;

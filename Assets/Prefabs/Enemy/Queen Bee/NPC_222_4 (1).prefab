@@ -306,7 +306,7 @@ MonoBehaviour:
   hpDamage: 0
   activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 350
+  nativeActiveEnergyDamage: 450
   armourPen: 0
   resistPen: 0
   nativeArmourPen: 30

@@ -2199,6 +2199,7 @@ GameObject:
   - component: {fileID: 1117668027402620826}
   - component: {fileID: 1518829961716579409}
   - component: {fileID: 8760913514971599215}
+  - component: {fileID: 3563280503949869505}
   m_Layer: 0
   m_Name: DOGHead
   m_TagString: Untagged
@@ -2477,6 +2478,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSoundIndex: 8
   deathSoundIndex: 12
+--- !u!114 &3563280503949869505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2502722998022303545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
+  items:
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: c046792026caab643933c0def6d35ceb, type: 2}
+  - {fileID: 11400000, guid: c046792026caab643933c0def6d35ceb, type: 2}
+  - {fileID: 11400000, guid: c046792026caab643933c0def6d35ceb, type: 2}
+  chances: 6400000064000000640000003200000032000000640000003200000032000000
 --- !u!1 &2979375369494042091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,8 +2515,6 @@ GameObject:
   - component: {fileID: 2024534560672272994}
   - component: {fileID: 2609863476050460229}
   - component: {fileID: -2773938047578355211}
-  - component: {fileID: -6368447711623997397}
-  - component: {fileID: -2333407062324016435}
   - component: {fileID: 2446398278227372167}
   m_Layer: 0
   m_Name: Bosss Body
@@ -2684,41 +2706,6 @@ MonoBehaviour:
   states: []
   hitSoundIndex: 8
   deathSound: 3
---- !u!114 &-6368447711623997397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2979375369494042091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
-  items:
-  - {fileID: 11400000, guid: a58e629d188b8a24ab8b0e446b4b955c, type: 2}
-  - {fileID: 11400000, guid: a58e629d188b8a24ab8b0e446b4b955c, type: 2}
-  - {fileID: 11400000, guid: a58e629d188b8a24ab8b0e446b4b955c, type: 2}
-  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
-  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
-  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
-  chances: 640000003200000032000000640000003200000032000000
---- !u!114 &-2333407062324016435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2979375369494042091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitSoundIndex: 8
-  deathSoundIndex: 12
 --- !u!114 &2446398278227372167
 MonoBehaviour:
   m_ObjectHideFlags: 0
