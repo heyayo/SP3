@@ -47,7 +47,7 @@ public class OnOffGui : MonoBehaviour
         }
 
         // Check for Esc key press only if the player is in range
-        if (distanceToPlayer <= interactionRange && Input.GetKeyDown(KeyCode.Escape))
+        if (distanceToPlayer <= interactionRange && Input.GetKeyDown(KeyCode.P))
         {
 
            

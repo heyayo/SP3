@@ -10305,7 +10305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press "Esc" To Open Up Skill Tree
+  m_text: 'Press "P" To Open Up Skill Tree
 
 '
   m_isRightToLeft: 0

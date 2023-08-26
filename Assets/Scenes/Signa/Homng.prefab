@@ -120,7 +120,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpDamage: 0
   activeEnergyDamage: 0
-  nativeHPDamage: 120
+  nativeHPDamage: 10
   nativeActiveEnergyDamage: 0
   armourPen: 25
   resistPen: 0
@@ -181,6 +181,9 @@ MonoBehaviour:
   nativeBleedOverPercentage: 0
   isFriendly: 1
   isHostile: 0
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &-4799309757102121275
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -39,12 +39,16 @@ public class SpiritBombAbility : Item
             if (isCharging)
             {
                 // Increase charge time up to the maximum
-                chargeTime += Time.deltaTime * chargeSpeed;
-                chargeTime = Mathf.Clamp(chargeTime, 0f, maxChargeTime);
+                Mortality mort = PlayerManager.Instance.MortalityScript;
+                float rate = 1000 * Time.deltaTime;
+                if (mort.ActiveEnergy >= rate)
+                {
+                    chargeTime += Time.deltaTime * chargeSpeed;
+                    chargeTime = Mathf.Clamp(chargeTime, 0f, maxChargeTime);
 
-
-                activeSpiritBomb.transform.localScale = Vector3.one * (chargeTime / maxChargeTime) * scaleFactor;
-                activeSpiritBomb.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 9, 0);
+                    activeSpiritBomb.transform.localScale = Vector3.one * (chargeTime / maxChargeTime) * scaleFactor;
+                    activeSpiritBomb.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 9, 0);
+                }
             }
 
             if (Input.GetMouseButtonUp(0))

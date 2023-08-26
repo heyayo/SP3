@@ -53,11 +53,10 @@ public class SaveGame : MonoBehaviour
     [ContextMenu("DEBUG_SAVE")]
     public void Save()
     {
-        WorldGenOptions config = WorldGenOptions.FetchConfig();
         WorldGenerator generator = WorldGenerator.instance;
         saveName = "TESTSAVE";
-        width = config.worldSize.x;
-        height = config.worldSize.y;
+        width = WorldGenOptions.worldSize.x;
+        height = WorldGenOptions.worldSize.y;
         groundTiles = generator.GetGroundMapTileIDs();
         environmentTiles = generator.GetEnvironmentMapTileIDs();
 
