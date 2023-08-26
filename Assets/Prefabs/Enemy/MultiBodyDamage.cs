@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DOGDamage : MonoBehaviour
+public class MultiBodyDamage : MonoBehaviour
 {
     private GameObject[] body;
     private List<Mortality> mortalities = new List<Mortality>();
