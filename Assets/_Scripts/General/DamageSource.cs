@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DamageSource : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class DamageSource : MonoBehaviour
     [Header("Friendly Fire Fix")]
     public bool isFriendly = false;
     public bool isHostile = true;
+
+    [Header("Events")]
+    public UnityEvent onHit;
 
     public float __NativeHPDamage
     {
@@ -80,6 +84,11 @@ public class DamageSource : MonoBehaviour
     public delegate Affliction[] Afflicter();
     public Afflicter afflicter = null;
 
+    private void Awake()
+    {
+        onHit = new UnityEvent();
+    }
+    
     private void Start()
     {
         hpDamage = __NativeHPDamage;
@@ -106,6 +115,8 @@ public class DamageSource : MonoBehaviour
             }
             var dmg = other.GetComponent<Damagable>();
             dmg.TakeDamage(gameObject,hpDamage,armourPen,armourPenType,activeEnergyDamage,resistPen,resistPenType,bleedOverPercentage);
+            dmg.onHit.Invoke();
+            onHit.Invoke();
             if (afflicter != null)
             {
                 var afflictions = afflicter();
