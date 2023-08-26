@@ -17,10 +17,13 @@ public class HomeRunTest : MonoBehaviour
     public Vector2 boxSize = new Vector2(1f, 1f);
     public float hitForce = 5f; // Adjust the force as needed
 
+    private SpriteRenderer sr;
+
     GameObject player;
 
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         player = PlayerManager.Instance.gameObject;
 
         if (player == null)
@@ -50,10 +53,12 @@ public class HomeRunTest : MonoBehaviour
             Vector3 directionToMouse = mousePosition - playerPosition;
             if (directionToMouse.x >= 0)
             {
+               sr.flipX = false;
                 targetRotation = targetRotationRightClick; // Rotate left
             }
             else
             {
+                sr.flipX = true;
                 targetRotation = targetRotationLeftClick;
             }
             rotating = true;

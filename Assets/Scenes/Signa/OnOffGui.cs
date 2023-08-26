@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class OnOffGui : MonoBehaviour
 {
-    public GameObject guiPanel; // Reference to your GUI panel
+    [SerializeField] private GameObject guiPanel; // Reference to your GUI panel
+    [SerializeField] private GameObject Instrunctionopen;
+    [SerializeField] private GameObject Regeneffect;
+
     private Transform player;    // Reference to the player object
     public float interactionRange = 2.0f; // Range within which the player can interact
 
@@ -15,6 +18,8 @@ public class OnOffGui : MonoBehaviour
 
     private void Start()
     {
+
+       
         player = PlayerManager.Instance.transform;
 
         playerhp = PlayerManager.Instance.MortalityScript;
@@ -29,8 +34,16 @@ public class OnOffGui : MonoBehaviour
 
         if (distanceToPlayer <= interactionRange)
         {
+            Regeneffect.SetActive(true);
+            Regeneffect.transform.position = PlayerManager.Instance.transform.position;
+            Instrunctionopen.SetActive(true);
             playerhp.Health += 1.0f * Time.deltaTime;
 
+        }
+        else
+        {
+            Regeneffect.SetActive(false);
+            Instrunctionopen.SetActive(false);
         }
 
         // Check for Esc key press only if the player is in range

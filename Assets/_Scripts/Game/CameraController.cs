@@ -7,8 +7,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float shakeDuration = 5.0f;
     [SerializeField] private float shakeIntensity = 0.1f;
 
+    public bool shake;
+
     private Vector3 originalPosition;
-    private float shakeTimer = 0f;
+   
 
     private void Start()
     {
@@ -19,12 +21,12 @@ public class CameraController : MonoBehaviour
     {
         Vector3 targetPosition = targetLock.position;
         targetPosition.z = transform.position.z;
-        if (shakeTimer > 0)
+        if (shake == true)
         {
             Vector3 shakeOffset = Random.insideUnitSphere * shakeIntensity;
             transform.position = targetPosition + shakeOffset;
 
-            shakeTimer -= Time.deltaTime;
+           
         }
         else
         {
@@ -35,6 +37,14 @@ public class CameraController : MonoBehaviour
     public void StartCameraShake()
     {
         originalPosition = transform.position;
-        shakeTimer = shakeDuration;
+        shake = true;
+    }
+
+
+    public void EndCameraShake()
+    {
+        originalPosition = transform.position;
+        shake = false;
+
     }
 }
