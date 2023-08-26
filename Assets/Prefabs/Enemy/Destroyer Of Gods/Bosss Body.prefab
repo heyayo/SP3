@@ -1330,6 +1330,7 @@ GameObject:
   - component: {fileID: 2609863476050460229}
   - component: {fileID: -2773938047578355211}
   - component: {fileID: -6368447711623997397}
+  - component: {fileID: -2333407062324016435}
   m_Layer: 0
   m_Name: Bosss Body
   m_TagString: Untagged
@@ -1541,6 +1542,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
   - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
   chances: 640000003200000032000000640000003200000032000000
+--- !u!114 &-2333407062324016435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979375369494042091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSoundIndex: 8
+  deathSoundIndex: 12
 --- !u!1 &3017647893310854347
 GameObject:
   m_ObjectHideFlags: 0

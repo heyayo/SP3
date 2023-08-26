@@ -128,6 +128,9 @@ GameObject:
   - component: {fileID: 8451281761362125006}
   - component: {fileID: 2035077643869958229}
   - component: {fileID: 509093764599334504}
+  - component: {fileID: 8278871285931618915}
+  - component: {fileID: 7241948482307476881}
+  - component: {fileID: -5176648586964435459}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Damagable
@@ -273,18 +276,36 @@ MonoBehaviour:
   storedRegen: 0
   storedMax: 0
   nativeStoredMax: 0
-  health: 100
+  health: 0
   nativeRegen: 0
   regen: 0
   healthMax: 0
-  nativeHealthMax: 0
+  nativeHealthMax: 200
   nativeArmour: 0
   nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
+  effectiveArmour: 20
+  effectiveResist: 20
   scaling:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -384,6 +405,54 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7674341760411402464, guid: 023345b76eafa654a87a9423b1041aa3, type: 3}
   bulletSpeed: 10
   warningText: {fileID: 0}
+--- !u!114 &8278871285931618915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7429195161834839952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.1
+  immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7241948482307476881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7429195161834839952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848256827dc1e32478fd91e2c7793424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupItemPrefab: {fileID: 7817240600221091429, guid: 8844f7ea2b6982b44b4633f1a69b69a2, type: 3}
+  items:
+  - {fileID: 11400000, guid: e91d58deb57ecf445b9d5b5bf19f8868, type: 2}
+  chances: 64000000
+--- !u!114 &-5176648586964435459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7429195161834839952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSoundIndex: 8
+  deathSoundIndex: 12
 --- !u!1 &9074437512380596661
 GameObject:
   m_ObjectHideFlags: 0

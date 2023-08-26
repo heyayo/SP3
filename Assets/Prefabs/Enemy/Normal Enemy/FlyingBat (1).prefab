@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 7459000618348374872}
   - component: {fileID: 2733038960304278668}
   - component: {fileID: 3266196164180135296}
+  - component: {fileID: -5895827806481020610}
   m_Layer: 0
   m_Name: FlyingBat (1)
   m_TagString: Damagable
@@ -274,7 +275,7 @@ MonoBehaviour:
   storedRegen: 0
   storedMax: 0
   nativeStoredMax: 0
-  health: 80
+  health: 0
   nativeRegen: 0
   regen: 0
   healthMax: 0
@@ -401,6 +402,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5568859c15b51734cb97d0f7d6f3c78a, type: 2}
   - {fileID: 11400000, guid: ef5e0c3d4c4691048a0312f64384b92d, type: 2}
   chances: 5a000000320000000a000000
+--- !u!114 &-5895827806481020610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826171656258085652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSoundIndex: 1
+  deathSoundIndex: 3
 --- !u!1 &5691504721927099256
 GameObject:
   m_ObjectHideFlags: 0
