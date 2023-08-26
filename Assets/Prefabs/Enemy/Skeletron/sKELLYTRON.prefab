@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3177310673757445139}
   - component: {fileID: 8379125581883777426}
   - component: {fileID: 6476044311672220399}
+  - component: {fileID: 3327899782828292131}
   m_Layer: 0
   m_Name: SKellyHands 1
   m_TagString: Damagable
@@ -291,7 +292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 7
+  deathSoundTrue: 1
   deathSoundIndex: 12
 --- !u!114 &6476044311672220399
 MonoBehaviour:
@@ -311,6 +314,51 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!61 &3327899782828292131
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065650747699237809}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.56, y: 0.76}
+    newSize: {x: 0.56, y: 0.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7}
+  m_EdgeRadius: 0
 --- !u!1 &1205574189194228344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1722,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8377437270921074980}
   - component: {fileID: 4801309316630586447}
-  - component: {fileID: 680565044276019602}
   m_Layer: 0
   m_Name: sKELLYTRON
   m_TagString: Untagged
@@ -1721,18 +1768,6 @@ MonoBehaviour:
   states: []
   hitSoundIndex: 7
   deathSound: 3
---- !u!114 &680565044276019602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3414364164768285658}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0a0f640044d6db408852b5cf2095dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4787735364634832851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,7 +1780,6 @@ GameObject:
   - component: {fileID: 7484116169344207839}
   - component: {fileID: 9039586926878742030}
   - component: {fileID: 928611760015736585}
-  - component: {fileID: 3236212487027169961}
   - component: {fileID: 4714582888265861507}
   - component: {fileID: 2558299063841696049}
   - component: {fileID: 6368049666533419322}
@@ -1753,7 +1787,7 @@ GameObject:
   - component: {fileID: 3044527210277885565}
   m_Layer: 0
   m_Name: RIZZDEMON
-  m_TagString: SkeletronHead
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1881,19 +1915,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3236212487027169961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4787735364634832851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01c3256ad35789d4db881571f8c7ad45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPoint: {fileID: 1896417100045145796}
 --- !u!114 &4714582888265861507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2046,7 +2067,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 7
+  deathSoundTrue: 1
   deathSoundIndex: 12
 --- !u!114 &3044527210277885565
 MonoBehaviour:
@@ -2753,6 +2776,7 @@ GameObject:
   - component: {fileID: 7240800098738050698}
   - component: {fileID: 3850660087564553269}
   - component: {fileID: 8706332695428296990}
+  - component: {fileID: 8261734298087086862}
   m_Layer: 0
   m_Name: SKellyHands 1
   m_TagString: Damagable
@@ -3027,7 +3051,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 7
+  deathSoundTrue: 1
   deathSoundIndex: 12
 --- !u!114 &8706332695428296990
 MonoBehaviour:
@@ -3047,6 +3073,51 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!61 &8261734298087086862
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9093703421504916176}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.56, y: 0.76}
+    newSize: {x: 0.56, y: 0.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7}
+  m_EdgeRadius: 0
 --- !u!1 &9197255746563041844
 GameObject:
   m_ObjectHideFlags: 0

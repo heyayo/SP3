@@ -23,6 +23,8 @@ public class HeadFollow : MonoBehaviour
 
     private void Start()
     {
+        Skelly.GetComponent<Mortality>().onHealthZero.AddListener(Death);
+
         playerTag = PlayerManager.Instance.transform;
         initialPosition = transform.position;
         currentState = BossState.Orbiting;
@@ -108,5 +110,11 @@ public class HeadFollow : MonoBehaviour
 
         // Set the waypoint to the player's position
         transform.position = playerTag.position;
+    }
+
+    private void Death()
+    {
+        BossManager.Instance.KillBoss("Skeletron");
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class DamagedSounds : MonoBehaviour
 {
+    [Header("Hit Sound")]
+    [SerializeField]
+    private bool hitSoundTrue = true;
+
     [SerializeField]
     private int hitSoundIndex = 1;
+
+    [Header("Death Sound")]
+    [SerializeField]
+    private bool deathSoundTrue = true;
 
     [SerializeField]
     private int deathSoundIndex = 3;
@@ -18,11 +26,13 @@ public class DamagedSounds : MonoBehaviour
 
     private void HitSound()
     {
-        SoundManager.Instance.PlaySound(hitSoundIndex);
+        if (hitSoundTrue)
+            SoundManager.Instance.PlaySound(hitSoundIndex);
     }
 
     private void DeathSound()
     {
-        SoundManager.Instance.PlaySound(deathSoundIndex);
+        if (deathSoundTrue)
+            SoundManager.Instance.PlaySound(deathSoundIndex);
     }
 }
