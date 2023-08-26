@@ -176,6 +176,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f08354a8e2b0f14487f25e35d37a11a, type: 2}
   - {fileID: 11400000, guid: 4158996bdbac7694e9a00c2afbb38fc3, type: 2}
   - {fileID: 11400000, guid: c06d9d6c137e572408c12d0d16edd4bb, type: 2}
+  - {fileID: 11400000, guid: 5f08354a8e2b0f14487f25e35d37a11a, type: 2}
+  - {fileID: 11400000, guid: e1ceb8c1833a120488b9c244eb18fca7, type: 2}
+  - {fileID: 11400000, guid: c06d9d6c137e572408c12d0d16edd4bb, type: 2}
   hitSoundIndex: 1
   deathSound: 3
 --- !u!114 &3354454354884885366
@@ -317,6 +320,9 @@ MonoBehaviour:
   nativeBleedOverPercentage: 40
   isFriendly: 0
   isHostile: 1
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3343095454480214704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +356,7 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
-  hit:
+  onHit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!95 &1031294492679457634

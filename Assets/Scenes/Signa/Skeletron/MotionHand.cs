@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MotionHand : MonoBehaviour
 {
-    public Transform pivotPoint; // Set this in the Inspector to the pivot point GameObject
+   [SerializeField] private Transform pivotPoint; // Set this in the Inspector to the pivot point GameObject
     private Transform player; // Set this in the Inspector to the player GameObject
     public float amplitude = 1.0f; // The amount of vertical movement
     public float frequency = 1.0f; // The speed of the vertical movement

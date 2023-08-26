@@ -30,3 +30,4 @@ MonoBehaviour:
   beamPrefab: {fileID: 208654551276931365, guid: 69d802fe7344f8f45973d679d0a3dccd, type: 3}
   maxScale: 5
   chargeRate: 70.5
+  particle: {fileID: 8423933494904584081, guid: 4216bf85ade33ec4c9824f2c0ebadf30, type: 3}

@@ -19,8 +19,14 @@ public class BEAMHAMEHA : Item
     public float chargeRate = 70.5f; // Rate at which the beam grows
     private CameraController cameraController;
 
+    [SerializeField] private GameObject particle;
+    private GameObject particlefollow;
+
+
     public override void WhileHolding()
     {
+        // Find the GameObject with the "ChargingParticle" tag
+        
         firePoint = PlayerManager.Instance.gameObject.transform;
         cameraController = FindObjectOfType<CameraController>();
         if (cameraController == null)
@@ -28,6 +34,7 @@ public class BEAMHAMEHA : Item
             Debug.LogError("CameraController not found in the scene.");
         }
 
+<<<<<<< HEAD
         //if (Input.GetKeyDown(KeyCode.Mouse0) && !charging && !beamActive)
         //{
         //    charging = true;
@@ -43,6 +50,35 @@ public class BEAMHAMEHA : Item
         //    // Play the charging particle effect
         //    //kamehamehaParticleEffect.SetActive(false);
         //}
+=======
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !charging && !beamActive)
+        {
+            particlefollow = Instantiate(particle, firePoint.position, Quaternion.identity);
+
+
+            charging = true;
+            chargeStartTime = Time.time;
+            //kamehamehaParticleEffect.SetActive(true);
+        }
+
+        if (particlefollow != null)
+        {
+            particlefollow.transform.position = firePoint.position;
+        }
+
+            if (Input.GetKeyUp(KeyCode.Mouse0) && charging && !beamActive)
+        {
+            if(particlefollow != null)
+            {
+                Destroy(particlefollow);
+            }
+            charging = false;
+            beamActive = true;
+            currentBeam = Instantiate(beamPrefab, firePoint.position, Quaternion.identity);
+            // Play the charging particle effect
+            //kamehamehaParticleEffect.SetActive(false);
+        }
+>>>>>>> aa58a3db220286bb4cb2b93a388f68cab9f397e4
         if (beamActive && currentBeam != null)
         {
             // Calculate the direction from firePoint to mouse position
@@ -76,6 +112,7 @@ public class BEAMHAMEHA : Item
 
             if (cameraController != null)
             {
+               
                 cameraController.StartCameraShake();
             }
         }
@@ -84,6 +121,7 @@ public class BEAMHAMEHA : Item
         {
             if (cameraController != null)
             {
+                
                 cameraController.EndCameraShake();
             }
         }

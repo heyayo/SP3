@@ -63,28 +63,7 @@ public class HellZoneGrenade : Item
 
             rb.velocity = curvedDirection * launchForce;
 
-            /*
-             * 
-            while (Input.GetKey(KeyCode.E))
-            {
-                Vector2 currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 updatedLaunchDirection = (currentMousePosition - (Vector2)player.position).normalized;
-
-                rb.velocity = updatedLaunchDirection * launchForce;
-            }
-
-            rb.velocity = Vector2.zero; // Make sure the velocity is set to zero when not holding the key
-
-            float waitTime = launchDelay;
-            while (waitTime > 0f)
-            {
-                waitTime -= Time.deltaTime;
-                if (!Input.GetKey(KeyCode.J))
-                {
-                    break; // Exit the loop if the key is released
-                }
-            }
-             */
+           
         }
 
     }
