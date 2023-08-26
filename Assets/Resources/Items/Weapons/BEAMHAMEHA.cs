@@ -80,6 +80,14 @@ public class BEAMHAMEHA : Item
             }
         }
 
+        else
+        {
+            if (cameraController != null)
+            {
+                cameraController.EndCameraShake();
+            }
+        }
+
         // Countdown and delete beam when its existence time runs out
         if (beamActive && currentBeam != null)
         {
@@ -94,7 +102,10 @@ public class BEAMHAMEHA : Item
                 beamExistenceTime = 5f; // Reset beam existence time
             }
         }
+
+
+        
     }
 
-  
+
 }
