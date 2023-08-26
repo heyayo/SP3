@@ -12,10 +12,8 @@ public class DamagedSounds : MonoBehaviour
 
     void Start()
     {
-        Mortality mortality = GetComponent<Mortality>();
-
-        mortality.onHealthAdjust.AddListener(HitSound);
-        mortality.onHealthZero.AddListener(DeathSound);
+        GetComponent<Damagable>().hit.AddListener(HitSound);
+        GetComponent<Mortality>().onHealthZero.AddListener(DeathSound);
     }
 
     private void HitSound()
