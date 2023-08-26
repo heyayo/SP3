@@ -1,23 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
-using System.Threading.Tasks;
-using TMPro;
-using Unity.Collections;
-using Unity.Jobs;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
 public class WorldGenerator : MonoBehaviour
 {
     public static WorldGenerator instance { get; private set; }
-    
-    [Header("Options Scriptable Object")]
-    [SerializeField] WorldGenOptions options;
     
     [Header("Tilemaps")]
     [SerializeField] private Tilemap groundMap;
@@ -89,8 +80,9 @@ public class WorldGenerator : MonoBehaviour
 
         Vector2 offset = new Vector2(0.5f, 0.5f);
         
-        int halfX = options.worldSize.x / 2;
-        int halfY = options.worldSize.y / 2;
+        Debug.Log(WorldGenOptions.worldSize);
+        int halfX = WorldGenOptions.worldSize.x / 2;
+        int halfY = WorldGenOptions.worldSize.y / 2;
 
         for (int x = -halfX; x < halfX; ++x)
         {
@@ -109,15 +101,15 @@ public class WorldGenerator : MonoBehaviour
                 Vector3Int tileLoc = new Vector3Int(x, y, 0);
                 
                 // Place Ground Tiles
-                if (groundLevel > options.seaLevel)
+                if (groundLevel > WorldGenOptions.seaLevel)
                     groundMap.SetTile(tileLoc, grassTile);
                 else
                     groundMap.SetTile(tileLoc, waterTile);
                 
                 // Prevent Environment Tiles on Water
-                if (groundLevel <= options.seaLevel) continue;
+                if (groundLevel <= WorldGenOptions.seaLevel) continue;
 
-                if (environmentLevel >= options.grassLevel && natureLevel > options.natureLevel && biomeLevel > 0.4f && biomeLevel < 0.6f)
+                if (environmentLevel >= WorldGenOptions.grassLevel && natureLevel > WorldGenOptions.natureLevel && biomeLevel > 0.4f && biomeLevel < 0.6f)
                 {
                     environmentMap.SetTile(tileLoc, tallGrassTile);
                     continue;
@@ -127,12 +119,12 @@ public class WorldGenerator : MonoBehaviour
                 // Place Tree Tiles
                 if (biomeLevel < 0.2f)
                 {
-                    if (natureLevel < options.natureLevel)
+                    if (natureLevel < WorldGenOptions.natureLevel)
                         Instantiate(ironOre, offsetedTileLoc, Quaternion.identity);
                 }
                 else if (biomeLevel > 0.65f)
                 {
-                    if (groundLevel > options.treeLevel && natureLevel > options.natureLevel)
+                    if (groundLevel > WorldGenOptions.treeLevel && natureLevel > WorldGenOptions.natureLevel)
                     {
                         Instantiate(forestTree, offsetedTileLoc, Quaternion.identity);
                     }
@@ -151,11 +143,11 @@ public class WorldGenerator : MonoBehaviour
     private void MatchBorder()
     {
         List<Vector2> points = new List<Vector2>();
-        points.Add(new Vector2(-options.worldSize.x, options.worldSize.y)/2);
-        points.Add(new Vector2(options.worldSize.x, options.worldSize.y)/2);
-        points.Add(new Vector2(options.worldSize.x, -options.worldSize.y)/2);
-        points.Add(new Vector2(-options.worldSize.x, -options.worldSize.y)/2);
-        points.Add(new Vector2(-options.worldSize.x, options.worldSize.y)/2);
+        points.Add(new Vector2(-WorldGenOptions.worldSize.x, WorldGenOptions.worldSize.y)/2);
+        points.Add(new Vector2(WorldGenOptions.worldSize.x, WorldGenOptions.worldSize.y)/2);
+        points.Add(new Vector2(WorldGenOptions.worldSize.x, -WorldGenOptions.worldSize.y)/2);
+        points.Add(new Vector2(-WorldGenOptions.worldSize.x, -WorldGenOptions.worldSize.y)/2);
+        points.Add(new Vector2(-WorldGenOptions.worldSize.x, WorldGenOptions.worldSize.y)/2);
         _border.SetPoints(points);
     }
 
@@ -166,11 +158,11 @@ public class WorldGenerator : MonoBehaviour
         PlayerManager.Instance.FreezePlayer();
         SaveGame.Instance.Load();
         
-        for (int i = 0; i < options.worldSize.x; ++i)
+        for (int i = 0; i < WorldGenOptions.worldSize.x; ++i)
         {
-            for (int j = 0; j < options.worldSize.y; ++j)
+            for (int j = 0; j < WorldGenOptions.worldSize.y; ++j)
             {
-                Vector3Int tileLoc = new Vector3Int(i - options.worldSize.x/2, j - options.worldSize.y/2, 0);
+                Vector3Int tileLoc = new Vector3Int(i - WorldGenOptions.worldSize.x/2, j - WorldGenOptions.worldSize.y/2, 0);
                 SaveGame.GroundTileID groundTileID = SaveGame.Instance.groundTiles[i][j];
                 switch (groundTileID)
                 {
@@ -192,13 +184,13 @@ public class WorldGenerator : MonoBehaviour
 
     public void ConvertSeed()
     {
-        if (options.seedString.Length <= 0)
+        if (WorldGenOptions.seedString.Length <= 0)
         {
             seedFloat = Random.value * Single.MaxValue;
             return;
         }
 
-        foreach (var letter in options.seedString)
+        foreach (var letter in WorldGenOptions.seedString)
         {
             seedFloat += Convert.ToInt32(letter);
         }
@@ -207,12 +199,12 @@ public class WorldGenerator : MonoBehaviour
     public List<List<SaveGame.GroundTileID>> GetGroundMapTileIDs()
     {
         List<List<SaveGame.GroundTileID>> result = new List<List<SaveGame.GroundTileID>>();
-        for (int i = 0; i < options.worldSize.x; ++i)
+        for (int i = 0; i < WorldGenOptions.worldSize.x; ++i)
         {
             result.Add(new List<SaveGame.GroundTileID>());
-            for (int j = 0; j < options.worldSize.y; ++j)
+            for (int j = 0; j < WorldGenOptions.worldSize.y; ++j)
             {
-                Vector3Int tileLoc = new Vector3Int(i - options.worldSize.x/2, j - options.worldSize.y/2, 0);
+                Vector3Int tileLoc = new Vector3Int(i - WorldGenOptions.worldSize.x/2, j - WorldGenOptions.worldSize.y/2, 0);
                 var tile = groundMap.GetTile(tileLoc);
 
                 if (tile == grassTile)
@@ -228,12 +220,12 @@ public class WorldGenerator : MonoBehaviour
     public List<List<SaveGame.EnvironmentTileID>> GetEnvironmentMapTileIDs()
     {
         List<List<SaveGame.EnvironmentTileID>> result = new List<List<SaveGame.EnvironmentTileID>>();
-        for (int i = 0; i < options.worldSize.x; ++i)
+        for (int i = 0; i < WorldGenOptions.worldSize.x; ++i)
         {
             result.Add(new List<SaveGame.EnvironmentTileID>());
-            for (int j = 0; j < options.worldSize.y; ++j)
+            for (int j = 0; j < WorldGenOptions.worldSize.y; ++j)
             {
-                Vector3Int tileLoc = new Vector3Int(i - options.worldSize.x/2, j - options.worldSize.y/2, 0);
+                Vector3Int tileLoc = new Vector3Int(i - WorldGenOptions.worldSize.x/2, j - WorldGenOptions.worldSize.y/2, 0);
                 var tile = environmentMap.GetTile(tileLoc);
 
                 if (tile == tallGrassTile)
