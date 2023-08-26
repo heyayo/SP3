@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HotbarManager : MonoBehaviour
 {
@@ -49,9 +50,9 @@ public class HotbarManager : MonoBehaviour
             Select(4);
         
         // Using item
-        if (
-            Input.GetKeyDown(_config.attack) && 
-            (activeSlot.GetComponentInChildren<InventoryItem>() != null))
+        if (Input.GetKeyDown(_config.attack) && 
+            (activeSlot.GetComponentInChildren<InventoryItem>() != null) &&
+            !IsPointerOverUIElement())
             activeSlot.GetComponentInChildren<InventoryItem>().item.Use();
     }
 
@@ -65,5 +66,25 @@ public class HotbarManager : MonoBehaviour
 
         // Change selector position
         selector.transform.position = activeSlot.transform.position;
+    }
+
+    private bool IsPointerOverUIElement()
+    {
+        // Check if there is an EventSystem in the scene
+        if (EventSystem.current == null)
+            return false;
+
+        // Create a pointer event data with the current mouse position
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+
+        // Create a list to receive raycast results
+        var results = new System.Collections.Generic.List<RaycastResult>();
+
+        // Raycast against the UI using the pointer event data
+        EventSystem.current.RaycastAll(eventData, results);
+
+        // Check if any UI elements were hit
+        return results.Count > 0;
     }
 }

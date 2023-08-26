@@ -10,13 +10,20 @@ public class DeathGore : MonoBehaviour
     [SerializeField]
     private Sprite[] gore;
 
+    private bool spawnedGore;
+
     private void Start()
     {
+        spawnedGore = false;
         GetComponent<Mortality>().onHealthZero.AddListener(SpawnGore);
     }
 
     private void SpawnGore()
     {
+        // To prevent event for happening for multiple frames
+        if (spawnedGore)
+            return;
+
         Vector2 dir;
 
         foreach (Sprite sprite in gore)
@@ -27,5 +34,7 @@ public class DeathGore : MonoBehaviour
             go.GetComponent<SpriteRenderer>().sprite = sprite;
             go.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-200, 200));
         }
+
+        spawnedGore = true;
     }
 }

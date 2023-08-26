@@ -158,8 +158,8 @@ MonoBehaviour:
   health: 0
   nativeRegen: 0
   regen: 0
-  healthMax: 200
-  nativeHealthMax: 200
+  healthMax: 0
+  nativeHealthMax: 250
   nativeArmour: 250
   nativeResist: 250
   effectiveArmour: 0

@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ce112df73013604790691748e057a03, type: 3}
-  m_Name: Baseball
+  m_Script: {fileID: 11500000, guid: 590ff68ca95ca3d4eb2150b9f0eabe20, type: 3}
+  m_Name: Flint
   m_EditorClassIdentifier: 
-  itemName: BaseballBat
-  itemSprite: {fileID: 21300000, guid: ebe83b5c1153b7044b6ab7208523aa91, type: 3}
-  droppable: 0
-  itemDescription: 'BaseballBat: GAME OVERRR!!!'
+  itemName: Flint
+  itemSprite: {fileID: 21300000, guid: 1f519a7adb96fee44bd0c9d1937a17c2, type: 3}
+  droppable: 1
+  itemDescription: 'Flint:
+
+    Can be used to light a fire.'
   EquipType: 0
   health: 0
   armor: 0
@@ -24,4 +26,3 @@ MonoBehaviour:
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  BBALLBATPrefab: {fileID: 1406219699421713130, guid: 0ce5ff19fedbd2c4fb85af91d8b18c09, type: 3}

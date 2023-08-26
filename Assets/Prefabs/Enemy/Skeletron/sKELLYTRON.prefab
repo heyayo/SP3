@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 2667054526903534537}
   - component: {fileID: 8101747047010220163}
   - component: {fileID: 3177310673757445139}
+  - component: {fileID: 8379125581883777426}
+  - component: {fileID: 6476044311672220399}
   m_Layer: 0
   m_Name: SKellyHands 1
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,6 +279,38 @@ MonoBehaviour:
   DEBUG_AdjustedResist: 0
   DEBUG_AddArmour: 0
   DEBUG_AddResist: 0
+--- !u!114 &8379125581883777426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065650747699237809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSoundIndex: 7
+  deathSoundIndex: 12
+--- !u!114 &6476044311672220399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065650747699237809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.1
+  immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1205574189194228344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,6 +1674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8377437270921074980}
   - component: {fileID: 4801309316630586447}
+  - component: {fileID: 680565044276019602}
   m_Layer: 0
   m_Name: sKELLYTRON
   m_TagString: Untagged
@@ -1686,6 +1721,18 @@ MonoBehaviour:
   states: []
   hitSoundIndex: 7
   deathSound: 3
+--- !u!114 &680565044276019602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414364164768285658}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a0f640044d6db408852b5cf2095dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4787735364634832851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,6 +1749,8 @@ GameObject:
   - component: {fileID: 4714582888265861507}
   - component: {fileID: 2558299063841696049}
   - component: {fileID: 6368049666533419322}
+  - component: {fileID: 4002256116779856876}
+  - component: {fileID: 3044527210277885565}
   m_Layer: 0
   m_Name: RIZZDEMON
   m_TagString: SkeletronHead
@@ -1985,6 +2034,38 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cc1598c50ef346b41ae110849283052f, type: 2}
   - {fileID: 11400000, guid: 64e99c1e5d62e3f4fbef16e9c60b3825, type: 2}
   chances: 64000000640000003200000032000000320000000c000000
+--- !u!114 &4002256116779856876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787735364634832851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSoundIndex: 7
+  deathSoundIndex: 12
+--- !u!114 &3044527210277885565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787735364634832851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.1
+  immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5193080431277098344
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,9 +2751,11 @@ GameObject:
   - component: {fileID: 2502813223578070773}
   - component: {fileID: 5029926009798884468}
   - component: {fileID: 7240800098738050698}
+  - component: {fileID: 3850660087564553269}
+  - component: {fileID: 8706332695428296990}
   m_Layer: 0
   m_Name: SKellyHands 1
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2932,6 +3015,38 @@ MonoBehaviour:
   DEBUG_AdjustedResist: 0
   DEBUG_AddArmour: 0
   DEBUG_AddResist: 0
+--- !u!114 &3850660087564553269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9093703421504916176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSoundIndex: 7
+  deathSoundIndex: 12
+--- !u!114 &8706332695428296990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9093703421504916176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.1
+  immune: 0
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9197255746563041844
 GameObject:
   m_ObjectHideFlags: 0
