@@ -16,11 +16,10 @@ GameObject:
   - component: {fileID: 8800158305394334907}
   - component: {fileID: 3401595668985396610}
   - component: {fileID: 6272198001771611608}
-  - component: {fileID: 4927418910450602588}
   - component: {fileID: 2068016738535931756}
   m_Layer: 6
   m_Name: DevourerofGodsBody (6)
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,99 +307,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4927418910450602588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071129644656750001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &2068016738535931756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12
 --- !u!1 &1665039129344756634
 GameObject:
@@ -537,11 +445,10 @@ GameObject:
   - component: {fileID: 7081831508387588841}
   - component: {fileID: 3684467913213410014}
   - component: {fileID: 8179258772790855301}
-  - component: {fileID: 17862645300455925}
   - component: {fileID: 1199241759963639376}
   m_Layer: 6
   m_Name: DevourerofGodsBody (4)
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -829,99 +736,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &17862645300455925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764136557423315293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &1199241759963639376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,7 +748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12
 --- !u!1 &2022012666923997363
 GameObject:
@@ -952,11 +768,10 @@ GameObject:
   - component: {fileID: 9148888143551540318}
   - component: {fileID: 374522462801232855}
   - component: {fileID: 6217992159708824243}
-  - component: {fileID: 8475695548696299435}
   - component: {fileID: 3070298642951858365}
   m_Layer: 6
   m_Name: DevourerofGodsBody (1)
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1244,99 +1059,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8475695548696299435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022012666923997363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &3070298642951858365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,7 +1071,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12
 --- !u!1 &2184164013092260976
 GameObject:
@@ -1367,11 +1091,10 @@ GameObject:
   - component: {fileID: 6865888545962204029}
   - component: {fileID: 2223604682509774413}
   - component: {fileID: 4540067318647876262}
-  - component: {fileID: 6503551443768261400}
   - component: {fileID: 918120247295746735}
   m_Layer: 6
   m_Name: DevourerofGodsTail
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1659,99 +1382,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6503551443768261400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2184164013092260976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &918120247295746735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1764,7 +1394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12
 --- !u!1 &2336364658021281163
 GameObject:
@@ -1782,11 +1414,10 @@ GameObject:
   - component: {fileID: 9028031233440501267}
   - component: {fileID: 1906414439427656026}
   - component: {fileID: 5314683320044697248}
-  - component: {fileID: 1433501873771161015}
   - component: {fileID: 9115958392910698188}
   m_Layer: 6
   m_Name: DevourerofGodsBody
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2074,99 +1705,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1433501873771161015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2336364658021281163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &9115958392910698188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2179,7 +1717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12
 --- !u!1 &2502722998022303545
 GameObject:
@@ -2202,7 +1742,7 @@ GameObject:
   - component: {fileID: 3563280503949869505}
   m_Layer: 0
   m_Name: DOGHead
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2328,7 +1868,7 @@ MonoBehaviour:
   storedRegen: 0
   storedMax: 0
   nativeStoredMax: 0
-  health: 0
+  health: 80000
   nativeRegen: 0
   regen: 0
   healthMax: 0
@@ -2476,7 +2016,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 1
   deathSoundIndex: 12
 --- !u!114 &3563280503949869505
 MonoBehaviour:
@@ -2718,6 +2260,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a0f640044d6db408852b5cf2095dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body:
+  - {fileID: 2502722998022303545}
+  - {fileID: 2336364658021281163}
+  - {fileID: 2022012666923997363}
+  - {fileID: 3721581244155437722}
+  - {fileID: 8710004612593102024}
+  - {fileID: 1764136557423315293}
+  - {fileID: 8185716706638972420}
+  - {fileID: 1071129644656750001}
+  - {fileID: 3017647893310854347}
+  - {fileID: 6052738304393918844}
+  - {fileID: 2184164013092260976}
+  bossName: DestroyerOfGods
+  mortalities: []
 --- !u!1 &3017647893310854347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,11 +2290,10 @@ GameObject:
   - component: {fileID: 3144620250079542519}
   - component: {fileID: 7500193191977100501}
   - component: {fileID: 7460545681893906985}
-  - component: {fileID: 6927456069501074375}
   - component: {fileID: 5180069534763829858}
   m_Layer: 6
   m_Name: DevourerofGodsBody (7)
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3026,99 +2581,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6927456069501074375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017647893310854347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &5180069534763829858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3131,7 +2593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12
 --- !u!1 &3721581244155437722
 GameObject:
@@ -3149,11 +2613,10 @@ GameObject:
   - component: {fileID: 2828623858674266982}
   - component: {fileID: 6244658079920060617}
   - component: {fileID: 2798458673746268005}
-  - component: {fileID: 3577119753566855656}
   - component: {fileID: 5977244355222160438}
   m_Layer: 6
   m_Name: DevourerofGodsBody (2)
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3441,99 +2904,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3577119753566855656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3721581244155437722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &5977244355222160438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3546,7 +2916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12
 --- !u!1 &6052738304393918844
 GameObject:
@@ -3564,11 +2936,10 @@ GameObject:
   - component: {fileID: 6796551986396588222}
   - component: {fileID: 5142488328003773009}
   - component: {fileID: 5336790959808057699}
-  - component: {fileID: 4773663052618579688}
   - component: {fileID: 8633056861734392691}
   m_Layer: 6
   m_Name: DevourerofGodsBody (8)
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3856,99 +3227,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4773663052618579688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6052738304393918844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &8633056861734392691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3961,7 +3239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12
 --- !u!1 &8185716706638972420
 GameObject:
@@ -3979,11 +3259,10 @@ GameObject:
   - component: {fileID: 361180479464727346}
   - component: {fileID: 1391074402840780913}
   - component: {fileID: 8112395712428204562}
-  - component: {fileID: 4306691956488703939}
   - component: {fileID: 95397114865222630}
   m_Layer: 6
   m_Name: DevourerofGodsBody (5)
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4271,99 +3550,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4306691956488703939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8185716706638972420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &95397114865222630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4376,7 +3562,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12
 --- !u!1 &8666621712525018088
 GameObject:
@@ -4478,11 +3666,10 @@ GameObject:
   - component: {fileID: 4207962435135329224}
   - component: {fileID: 2462977541399829434}
   - component: {fileID: 5934707331489568534}
-  - component: {fileID: 3365529492923794204}
   - component: {fileID: 8463742907396790471}
   m_Layer: 6
   m_Name: DevourerofGodsBody (3)
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4770,99 +3957,6 @@ MonoBehaviour:
   hit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3365529492923794204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8710004612593102024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d22bff28386ef0419ac8e5c5fc22d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeEnergy: 0
-  nativeActiveRegen: 0
-  activeRegen: 0
-  activeMax: 0
-  nativeActiveMax: 0
-  storedEnergy: 0
-  nativeStoredRegen: 0
-  storedRegen: 0
-  storedMax: 0
-  nativeStoredMax: 0
-  health: 0
-  nativeRegen: 0
-  regen: 0
-  healthMax: 0
-  nativeHealthMax: 0
-  nativeArmour: 0
-  nativeResist: 0
-  effectiveArmour: 0
-  effectiveResist: 0
-  scaling:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  immune: 0
-  onHealthAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onActiveEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onStoredEnergyAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onArmourAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onResistAdjust:
-    m_PersistentCalls:
-      m_Calls: []
-  onImmunityChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfflictionExpire:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthZero:
-    m_PersistentCalls:
-      m_Calls: []
-  DEBUG_EnergyDamage: 0
-  DEBUG_EnergyPierce: 0
-  DEBUG_EnergyPierceType: 0
-  DEBUG_HealthDamage: 0
-  DEBUG_HealthPierce: 0
-  DEBUG_HealthPierceType: 0
-  DEBUG_AdjustedArmour: 0
-  DEBUG_AdjustedResist: 0
-  DEBUG_AddArmour: 0
-  DEBUG_AddResist: 0
 --- !u!114 &8463742907396790471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4875,5 +3969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 8
+  deathSoundTrue: 0
   deathSoundIndex: 12

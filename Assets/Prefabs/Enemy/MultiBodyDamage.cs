@@ -4,39 +4,38 @@ using UnityEngine;
 
 public class MultiBodyDamage : MonoBehaviour
 {
+    [SerializeField]
     private GameObject[] body;
+
+    [SerializeField]
+    private string bossName;
+
     private List<Mortality> mortalities = new List<Mortality>();
 
     void Start()
     {
-        foreach (Mortality mortality in GetComponentsInChildren<Mortality>())
+        foreach (GameObject go in body)
         {
-            mortalities.Add(mortality);
-        }
+            mortalities.Add(go.GetComponent<Mortality>());
 
-        foreach (GameObject go in GetComponentsInChildren<GameObject>())
-        {
             go.GetComponent<Damagable>().onHit.AddListener(SyncHealth);
             go.GetComponent<Mortality>().onHealthZero.AddListener(Death);
         }
     }
 
-    private void FixedUpdate()
-    {
-        foreach (Mortality mortality in mortalities)
-            Debug.Log(mortality.Health);
-    }
-
     private void SyncHealth()
     {
+        float leastHealth = LeastHealth();
+
         foreach (Mortality mortality in mortalities)
         {
-            mortality.Health = LeastHealth();
+            mortality.Health = leastHealth;
         }
     }
 
     private void Death()
     {
+        BossManager.Instance.KillBoss(bossName);
         Destroy(gameObject);
     }
 
@@ -44,11 +43,11 @@ public class MultiBodyDamage : MonoBehaviour
     {
         float lowestHealth = mortalities[0].Health;
         
-        foreach(Mortality mortality in mortalities)
+        for (int i = 0; i < mortalities.Count; i++)
         {
-            if (mortality.Health < lowestHealth)
+            if (lowestHealth > mortalities[i].Health)
             {
-                lowestHealth = mortality.Health;
+                lowestHealth = mortalities[i].Health;
             }
         }
 

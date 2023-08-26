@@ -18,6 +18,9 @@ public class HandAttack : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Mortality>().onHealthZero.AddListener(() => 
+        { Destroy(transform.parent.gameObject); });
+
         rb = GetComponent<Rigidbody2D>();
     }
 
