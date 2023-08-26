@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HomingSpell
   m_EditorClassIdentifier: 
   itemName: Homing Missile
-  itemSprite: {fileID: -616207719, guid: 57acef7bcb8efff4e9d5d139c136943e, type: 3}
+  itemSprite: {fileID: 21300000, guid: 36ebd19a84577394a8038a554325c628, type: 3}
   droppable: 0
   itemDescription: 'Homing Missile:
 
