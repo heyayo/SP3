@@ -123,7 +123,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
             description.text = inventoryItem.item.itemDescription + "\n" + healthText + "\n" + 
                 armorText + "\n" + resistText + "\n" + attackText;
             descriptionImg.gameObject.SetActive(true);
-            descriptionScrollable.SetActive(false);
+            descriptionScrollable.SetActive(true);
             descriptionImg.sprite = inventoryItem.item.itemSprite;
             return;
         }

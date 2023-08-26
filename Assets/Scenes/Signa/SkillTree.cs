@@ -3,63 +3,148 @@ using UnityEngine.UI;
 
 public class SkillTree : MonoBehaviour
 {
-    public Button button1;
-    public Button button2;
-    public Button button3;
+
 
     private bool isButton1Clicked = false;
     private bool Unlocked1 = false;
 
-    
+    [SerializeField] GameObject inv;
 
-    [SerializeField] GameObject player;
+    private InventoryManager invmanager;
 
+    [SerializeField] Item kamehameha;
+
+    [SerializeField] Item HomingSkill;
+
+    [SerializeField] Item Spiritbomb;
+
+    [SerializeField] Item Baseball;
+
+    [SerializeField] Item Boomerang;
+
+    [SerializeField] Item Dash;
+
+    [SerializeField] Item Teleport;
+
+    [SerializeField] Item Eskill;
+
+    [SerializeField] Item Hellzone;
 
 
     private void Start()
     {
-      
-        // Add click listeners to the buttons
-        button1.onClick.AddListener(OnClickButton1);
-        button2.onClick.AddListener(OnClickButton2);
-        button3.onClick.AddListener(OnClickButton3);
+        invmanager = inv.GetComponent<InventoryManager>();
+
     }
 
 
-    public void OnClickButton1()
-    {
-        if (!isButton1Clicked)
-        {
-            // Enable buttons 2 and 3
-            button2.gameObject.SetActive(true);
-            button3.gameObject.SetActive(true);
-
-            // Update the state
-            isButton1Clicked = true;
-
-            Unlocked1 =  true;
-            // Deactivate button 1
-            button1.gameObject.SetActive(false);
-        }
-    }
-
-    public void OnClickButton2()
-    {
-        if (Unlocked1 == true)
-        {
-           
-            // Deactivate button 2
-            button2.gameObject.SetActive(false);
-        }
-    }
-
-        public void OnClickButton3()
+    public void OnClickButtonHoming()
     {
 
-        if (Unlocked1 == true)
+
+        if (BossManager.Instance.bossList["Skeletron"].bossDefeated)
         {
-            // Deactivate button 3
-            button3.gameObject.SetActive(false);
-        }
+
+            invmanager.Add(HomingSkill.Clone());
         }
     }
+
+    public void OnClickButtonDash()
+    {
+        if (BossManager.Instance.bossList["EyeOfCthulhu"].bossDefeated)
+        {
+            invmanager.Add(Dash.Clone());
+
+        }
+    }
+
+    public void OnClickButtonTP()
+    {
+
+        if (BossManager.Instance.bossList["EyeOfCthulhu"].bossDefeated)
+        {
+            invmanager.Add(Teleport.Clone());
+        }
+    }
+
+    public void OnClickButtonESKILL()
+    {
+
+
+        if (BossManager.Instance.bossList["BrainOfCthulhu"].bossDefeated)
+        {
+
+            invmanager.Add(Eskill.Clone());
+        }
+    }
+
+    public void OnClickButtonBOOMERANG()
+    {
+
+
+        if (BossManager.Instance.bossList["BrainOfCthulhu"].bossDefeated)
+        {
+
+            invmanager.Add(Boomerang.Clone());
+        }
+    }
+
+    public void OnClickButtonHellzone()
+    {
+
+
+        if (BossManager.Instance.bossList["QueenBee"].bossDefeated)
+        {
+
+            invmanager.Add(Hellzone.Clone());
+        }
+    }
+
+    public void OnClickButtonBASEBALL()
+    {
+
+
+        if (BossManager.Instance.bossList["QueenBee"].bossDefeated)
+        {
+
+            invmanager.Add(Baseball.Clone());
+        }
+    }
+
+    public void OnClickButtonSPIRITBOMB()
+    {
+
+
+        if (BossManager.Instance.bossList["Plantera"].bossDefeated)
+        {
+
+            invmanager.Add(Spiritbomb.Clone());
+        }
+    }
+
+    public void OnClickButtonKAMEHAMEHA()
+    {
+
+
+        if (BossManager.Instance.bossList["Plantera"].bossDefeated)
+        {
+
+            invmanager.Add(kamehameha.Clone());
+        }
+    }
+}
+
+//using UnityEngine;
+//using UnityEngine.UI;
+//using System.Collections.Generic;
+
+//public class SkillTree : MonoBehaviour
+//{
+
+//    private void Start()
+//    {
+//        BossManager.Instance.bossList[“EyeOfCthulhu”].isDefeated;
+//    }
+
+
+//}

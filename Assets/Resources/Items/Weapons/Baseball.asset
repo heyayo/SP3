@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce112df73013604790691748e057a03, type: 3}
   m_Name: Baseball
   m_EditorClassIdentifier: 
-  itemName: 
-  itemSprite: {fileID: 0}
-  droppable: 1
-  itemDescription: null
+  itemName: BaseballBat
+  itemSprite: {fileID: 21300000, guid: ebe83b5c1153b7044b6ab7208523aa91, type: 3}
+  droppable: 0
+  itemDescription: 'BaseballBat: GAME OVERRR!!!'
   EquipType: 0
   health: 0
   armor: 0
@@ -24,4 +24,4 @@ MonoBehaviour:
   consumed:
     m_PersistentCalls:
       m_Calls: []
-  BBALLBAT: {fileID: 1406219699421713130, guid: 0ce5ff19fedbd2c4fb85af91d8b18c09, type: 3}
+  BBALLBAT: {fileID: 0}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6903ec615e995484cb73d88974247bc7, type: 3}
   m_Name: SPIRITBOMB
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Spiritbomb
   itemSprite: {fileID: -478216566, guid: 7bd55b882ce1def478bdd3794a2d71e5, type: 3}
-  droppable: 1
-  itemDescription: 'LEND ME YOUR ENERGY!!!!!!!!!!!!
+  droppable: 0
+  itemDescription: 'Spiritbomb: LEND ME YOUR ENERGY!!!!!!!!!!!!
 
 '
   EquipType: 0

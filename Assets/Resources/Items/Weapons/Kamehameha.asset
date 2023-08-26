@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323880a3005231d4db470ea02710278e, type: 3}
   m_Name: Kamehameha
   m_EditorClassIdentifier: 
-  itemName: kameha
-  itemSprite: {fileID: 21300000, guid: 2b6e58e066a469c499d930cd4a4ceade, type: 3}
-  droppable: 1
-  itemDescription: null
+  itemName: kamehameHAAAAAA
+  itemSprite: {fileID: 21300000, guid: 03b94ae300d865c43973cc656c4c90f3, type: 3}
+  droppable: 0
+  itemDescription: 'Kamehameha: now listen to me boy, remember these words work hard
+    study well and eat and sleep plenty that is the turtle Hermit Way! we must master
+    the art of peace in addition to the art of war. The Turtle hermit school will
+    be with you always... This WILL BE MY COURAGEOUS MOST POWERFUL KKAAAMEEHAAAMEEEHAAAAAAA!!!!!!!!!!!!!!!!!!!!!!!!!!'
   EquipType: 0
   health: 0
   armor: 0
