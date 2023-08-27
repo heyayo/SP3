@@ -42,8 +42,8 @@ public class PlayerManager : MonoBehaviour
     private Configuration _config;
 
     [Header("Player Specific Attack Stats")]
-    private float _attackStat;
-    private float _nativeAttackStat;
+    [SerializeField] private float _attackStat;
+    [SerializeField] private float _nativeAttackStat;
     public float AttackDamage
     {
         get => _attackStat;
@@ -64,6 +64,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    [Header("UI")]
     [SerializeField] private GameObject deathMenuAnchor;
 
     private void Awake()

@@ -15,6 +15,7 @@ public class BBallsBat : Item
         if (instantiatedBat == null && active && BBALLBATPrefab != null)
         {
             instantiatedBat = Instantiate(BBALLBATPrefab);
+            instantiatedBat.GetComponent<DamageSource>().__NativeHPDamage += PlayerManager.Instance.AttackDamage;
             //instantiatedBat.SetActive(true);
         }
 

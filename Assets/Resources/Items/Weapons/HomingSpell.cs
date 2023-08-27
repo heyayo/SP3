@@ -45,6 +45,7 @@ public class HomingSpell : Item
 
         // Instantiate the selected projectile prefab
         GameObject projectile = Instantiate(projectilePrefabs, playerTransform.position, Quaternion.identity);
+        projectile.GetComponent<DamageSource>().__NativeHPDamage += playerObject.AttackDamage;
 
         // Get the Rigidbody2D of the projectile
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();

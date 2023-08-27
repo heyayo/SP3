@@ -34,8 +34,6 @@ public class Dashspell : Item
         // Update cooldown timer
         cooldownTimer -= Time.deltaTime;
 
-<<<<<<< HEAD
-=======
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f; // Assuming your game is 2D, adjust if it's 3D
         // Check for dash input if cooldown is not active
@@ -55,14 +53,28 @@ public class Dashspell : Item
           
             cooldownTimer = dashCooldown; // Set the cooldown
         }
-
->>>>>>> aa58a3db220286bb4cb2b93a388f68cab9f397e4
         // Check if the dash duration has passed
         if (cooldownTimer >= dashEndTime)
         {
             rb.velocity = Vector2.zero; // Stop the player's movement
         }
     }
-
     
+    private void DashTowardsMousePosition()
+    {
+        player = PlayerManager.Instance.gameObject;
+        rb = PlayerManager.Instance.GetComponent<Rigidbody2D>();
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f; // Assuming your game is 2D, adjust if it's 3D
+
+        // Calculate the direction to dash towards
+        Vector3 dashDirection = (mousePos - player.transform.position).normalized;
+
+        // Apply force for dashing
+        rb.velocity = dashDirection * dashForce;
+
+        // Set the time when the dash will end
+        dashEndTime = cooldownTimer;
+    }
 }

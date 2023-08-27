@@ -37,6 +37,7 @@ public class Boomerang :Item
         throwOrigin = PlayerManager.Instance.transform;
         
         activeBoomerang = Instantiate(boomerangPrefab, throwOrigin.position, Quaternion.identity);
+        activeBoomerang.GetComponent<DamageSource>().__NativeHPDamage += PlayerManager.Instance.AttackDamage;
     }
 
     void DestroyActiveBoomerang()
