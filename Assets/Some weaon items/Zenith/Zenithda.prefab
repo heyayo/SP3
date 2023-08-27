@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8044819514886468778}
   - component: {fileID: -7826429283279766083}
   - component: {fileID: -5009375707567887233}
+  - component: {fileID: -758767559978367933}
   m_Layer: 0
   m_Name: Zenithda
   m_TagString: Untagged
@@ -166,6 +167,35 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &-758767559978367933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2457879194376414857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 0
+  nativeHPDamage: 75
+  nativeActiveEnergyDamage: 0
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 0
+  nativeResistPen: 0
+  armourPenType: 0
+  resistPenType: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 0
+  isFriendly: 0
+  isHostile: 1
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8536337812976605803
 GameObject:
   m_ObjectHideFlags: 0

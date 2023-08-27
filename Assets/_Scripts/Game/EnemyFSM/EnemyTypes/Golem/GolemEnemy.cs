@@ -25,7 +25,7 @@ public class GolemEnemy : Enemy
     [field:Header("Player Settinsgs")]
     public Transform target;
     public float moveSpeed = 8f;
-
+    
     [field: Header("Spike Gameobject")]
     public GameObject spike;
     [field: Header("Spike Animator")]
@@ -33,6 +33,7 @@ public class GolemEnemy : Enemy
     [field: Header("Projectile")]
     public Rigidbody2D projectilePrefab;
     public float bulletSpeed;
+    public GameObject golemSpike;
 
     [field: Header("UI Elements")]
     public GameObject warningText;
@@ -50,12 +51,14 @@ public class GolemEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        warningText = InventoryManager.Instance.stuckTexta;
+        spike = Instantiate(golemSpike);
         target = PlayerManager.Instance.transform;
         spawnLocation = transform.position;
         _damageSource = GetComponent<DamageSource>();
         _originalScale = transform.localScale;
         _sr = GetComponent<SpriteRenderer>();
-        spikeAnim = GameObject.Find("GolemSpikes").GetComponent<Animator>();
+        spikeAnim = spike.GetComponent<Animator>();
         stateMachine.Init(IdleState);
         spike.SetActive(false);
     }

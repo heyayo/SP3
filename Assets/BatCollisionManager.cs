@@ -29,6 +29,7 @@ public class BatCollisionManager : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Animator>().SetTrigger("isExplode");
         yield return new WaitForSeconds(0.5f);
+        InventoryManager.Instance.stuckTexta.SetActive(false);
         Destroy(gameObject);
     }
 }

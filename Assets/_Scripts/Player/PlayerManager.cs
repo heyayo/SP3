@@ -65,6 +65,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     [Header("UI")]
+    [SerializeField] private RecipeBook recipeBook;
     [SerializeField] private GameObject deathMenuAnchor;
 
     private void Awake()
@@ -90,12 +91,15 @@ public class PlayerManager : MonoBehaviour
         deathMenuAnchor.SetActive(false);
         InventoryManager.Instance.Add(Resources.Load<Item>("Items/Weapons/KiBlast"));
         pauseMenu.SetActive(false);
+        recipeBook.gameObject.SetActive(false);
     }
 
     public void Update()
     {
         if (Input.GetKeyDown(_config.pause))
             PauseMenu();
+        if (Input.GetKeyDown(_config.recipeBook))
+            recipeBook.ToggleRecipeBook();
     }
 
     private Sprite LoadSprite(string name)

@@ -56,5 +56,7 @@ public class UnicornEnemy : Enemy
         {
             stateMachine.ChangeState(DeathState);
         });
+
+        stuckText = InventoryManager.Instance.stuckTexta;
     }
 }
