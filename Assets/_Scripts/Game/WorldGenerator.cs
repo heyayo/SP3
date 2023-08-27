@@ -80,7 +80,6 @@ public class WorldGenerator : MonoBehaviour
 
         Vector2 offset = new Vector2(0.5f, 0.5f);
         
-        Debug.Log(WorldGenOptions.worldSize);
         int halfX = WorldGenOptions.worldSize.x / 2;
         int halfY = WorldGenOptions.worldSize.y / 2;
 

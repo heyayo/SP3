@@ -12,6 +12,8 @@ public class MultiBodyDamage : MonoBehaviour
 
     private List<Mortality> mortalities = new List<Mortality>();
 
+    public GameObject endCreditScene;
+
     void Start()
     {
         foreach (GameObject go in body)
@@ -19,7 +21,9 @@ public class MultiBodyDamage : MonoBehaviour
             mortalities.Add(go.GetComponent<Mortality>());
 
             go.GetComponent<Damagable>().onHit.AddListener(SyncHealth);
-            go.GetComponent<Mortality>().onHealthZero.AddListener(Death);
+            var mortality = go.GetComponent<Mortality>();
+            
+            mortality.onHealthZero.AddListener(Death);
         }
     }
 
