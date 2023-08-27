@@ -283,6 +283,9 @@ MonoBehaviour:
   nativeBleedOverPercentage: 15
   isFriendly: 0
   isHostile: 1
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &4105138690058095621
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -333,7 +336,7 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
-  hit:
+  onHit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &5937734995611010540

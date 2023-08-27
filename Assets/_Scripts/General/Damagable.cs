@@ -33,8 +33,8 @@ public class Damagable : MonoBehaviour
     public void TakeDamage(GameObject dealer, float hpDamage, float ap, Mortality.PierceType hpPierce, float eDamage, float mp, Mortality.PierceType ePierce, float bleed)
     {
         if (immune) return;
-        mortality.ApplyEnergyDamage(eDamage,mp,ePierce,bleed,ap,hpPierce);
-        mortality.ApplyHealthDamage(hpDamage,ap,hpPierce);
+        mortality.ApplyEnergyDamage(eDamage, mp, ePierce, bleed, ap, hpPierce);
+        mortality.ApplyHealthDamage(hpDamage, ap, hpPierce);
         onHit.Invoke();
         WaitImmunity();
     }
@@ -53,7 +53,7 @@ public class Damagable : MonoBehaviour
         immune = false;
     }
 
-    public static void LogDamage(GameObject target,GameObject dealer,float hpDamage,float ap,float eDamage,float mp,Mortality.PierceType hpPierce,Mortality.PierceType ePierce,float bleed)
+    public static void LogDamage(GameObject target, GameObject dealer, float hpDamage, float ap, float eDamage, float mp, Mortality.PierceType hpPierce, Mortality.PierceType ePierce, float bleed)
     {
         StringBuilder a = new StringBuilder();
         a.Append("DAMAGE LOG | TARGET: ");
