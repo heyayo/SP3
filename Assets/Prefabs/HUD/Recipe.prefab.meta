@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/HUD/Recipe.prefab.meta
 guid: 9ad349b28b02cb947891a9b829282816
 PrefabImporter:
+========
+guid: 8225a10cc703af34dbdc1bd0728cfde6
+NativeFormatImporter:
+>>>>>>>> 8a1cb1492f0c214f5bb6abc6134c595137888822:Assets/Resources/Items/Equipments/DivineBlessing.asset.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
