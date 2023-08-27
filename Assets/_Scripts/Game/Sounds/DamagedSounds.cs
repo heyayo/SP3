@@ -23,17 +23,13 @@ public class DamagedSounds : MonoBehaviour
         GetComponent<Damagable>().onHit.AddListener(HitSound);
         GetComponent<Mortality>().onHealthZero.AddListener(DeathSound);
 
-        hitSoundTrue = true;
-        hitSoundTrue = true;
+        deathSoundTrue = true;
     }
 
     private void HitSound()
     {
         if (hitSoundTrue)
-        {
             SoundManager.Instance.PlaySound(hitSoundIndex);
-            deathSoundTrue = false;
-        }
     }
 
     private void DeathSound()
