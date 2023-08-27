@@ -17,10 +17,12 @@ public class DropItem : MonoBehaviour
 
     // Private variables
     private Dictionary<int, int> itemList = new Dictionary<int, int>();
+    private bool itemsDropped;
 
     private void Start()
     {
         GetComponent<Mortality>().onHealthZero.AddListener(OnDeath);
+        itemsDropped = false;
 
         // Init the itemList
         int i = 0;
@@ -33,6 +35,9 @@ public class DropItem : MonoBehaviour
 
     public void OnDeath()
     {
+        if (itemsDropped)
+            return;
+
         for(int i = 0; i < items.Length; i++)
         {
             int rng = Random.Range(1, 101);
@@ -45,5 +50,7 @@ public class DropItem : MonoBehaviour
                 dropped.GetComponent<PickupItem>().item = items[i].Clone();
             }
         }
+
+        itemsDropped = true;
     }
 }
