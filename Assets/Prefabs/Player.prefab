@@ -1079,7 +1079,7 @@ MonoBehaviour:
   recipeBook: {fileID: 0}
   deathMenuAnchor: {fileID: 0}
   pauseMenu: {fileID: 0}
-  spawnItem: {fileID: 11400000, guid: 7b2f2c690e4c8fe41964371a1f81b2ad, type: 2}
+  spawnItem: {fileID: 11400000, guid: 837324d30e19e814cb63a30b11ba5d83, type: 2}
 --- !u!114 &1579393493429420541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,13 +1413,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05d935b36d6b0b9589c968cc27990f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 180
+  frequency: 30
   enemies:
   - {fileID: 4784597489851820815, guid: 4bcad790f4626d94c8219c122a6ded42, type: 3}
   - {fileID: 4826171656258085652, guid: f93724c3e51001743b00f3f7e7c933d1, type: 3}
   - {fileID: 7429195161834839952, guid: 40b5a07919a985540ac93a70ad514c21, type: 3}
   - {fileID: 7429195161834839952, guid: ab59c8975b4b5cf458e970ca0920c35b, type: 3}
-  count: 05000000020000000100000002000000
+  count: 03000000020000000100000002000000
   range: 25
 --- !u!114 &6654522525801414269
 MonoBehaviour:

@@ -1642,10 +1642,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 95501985}
     - target: {fileID: 4683811891614670668, guid: f3c803d799c246f4891250d317eac094, type: 3}
-      propertyPath: spawnItem
-      value: 
-      objectReference: {fileID: 11400000, guid: 837324d30e19e814cb63a30b11ba5d83, type: 2}
-    - target: {fileID: 4683811891614670668, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: recipeBook
       value: 
       objectReference: {fileID: 1777931004}
@@ -1653,10 +1649,6 @@ PrefabInstance:
       propertyPath: deathMenuAnchor
       value: 
       objectReference: {fileID: 317757913}
-    - target: {fileID: 4981868833424106512, guid: f3c803d799c246f4891250d317eac094, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5674558161679562206, guid: f3c803d799c246f4891250d317eac094, type: 3}
       propertyPath: m_Name
       value: Player
