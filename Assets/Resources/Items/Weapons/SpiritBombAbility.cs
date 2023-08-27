@@ -18,8 +18,6 @@ public class SpiritBombAbility : Item
 
     private GameObject player;
 
-
-
     public float cooldownDuration = 5f; // Cooldown duration in seconds
     private bool isOnCooldown = false; // Is the ability on cooldown?
     private float cooldownTimer = 0f; // Timer for tracking cooldown
@@ -103,6 +101,8 @@ public class SpiritBombAbility : Item
 
         // Reset charge values
         chargeTime = 0f;
+        
+        WeaponBuff();
 
         Destroy(activeSpiritBomb, 10.0f);
     }
@@ -110,5 +110,11 @@ public class SpiritBombAbility : Item
     private void OnDisable()
     {
         
+    }
+
+    public void WeaponBuff()
+    {
+        var player = PlayerManager.Instance;
+        activeSpiritBomb.GetComponent<DamageSource>().__NativeHPDamage += player.AttackDamage;
     }
 }

@@ -34,11 +34,6 @@ public class HotbarManager : MonoBehaviour
 
     void Update()
     {
-        // "Update function" for the items
-        InventoryItem activeItem = activeSlot.GetComponentInChildren<InventoryItem>();
-        if (activeItem != null)
-            activeItem.item.WhileHolding();
-
         // Changing inventory slots
         if (Input.GetKeyDown(_config.hotbar1))
             Select(1);
@@ -49,11 +44,23 @@ public class HotbarManager : MonoBehaviour
         else if (Input.GetKeyDown(_config.hotbar4))
             Select(4);
         
+        // "Update function" for the items
+        InventoryItem activeItem = activeSlot.GetComponentInChildren<InventoryItem>();
+        if (activeItem == null)
+            return;
+        
+        activeItem.item.WhileHolding();
+        
         // Using item
-        if (Input.GetKeyDown(_config.attack) && 
-            (activeSlot.GetComponentInChildren<InventoryItem>() != null) &&
+        if (Input.GetKeyDown(_config.attack) &&
             !IsPointerOverUIElement())
-            activeSlot.GetComponentInChildren<InventoryItem>().item.Use();
+        {
+            if (activeItem.item.weapon)
+            {
+                
+            }
+            activeItem.item.Use();
+        }
     }
 
     private void Select(int index)

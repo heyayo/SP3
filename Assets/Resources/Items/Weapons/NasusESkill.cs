@@ -36,7 +36,8 @@ public class NasusESkill : Item
                 {
                     _playerMortality.ActiveEnergy -= 120;
                     // Instantiate the skill effect at the mouse position
-                    Instantiate(skillEffectPrefab, mousePosition, Quaternion.identity);
+                    var attack = Instantiate(skillEffectPrefab, mousePosition, Quaternion.identity);
+                    attack.GetComponent<DamageSource>().__NativeHPDamage += PlayerManager.Instance.AttackDamage;
 
                     // Set skill on cooldown
                     skillReady = false;

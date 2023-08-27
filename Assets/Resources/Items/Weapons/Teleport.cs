@@ -26,8 +26,6 @@ public class Teleport : Item
     {
         // Update cooldown timer
         cooldownTimer -= Time.deltaTime;
-<<<<<<< HEAD
-=======
 
         // Check for teleport input if cooldown is not active
         if (cooldownTimer <= 0.0f && Input.GetMouseButtonDown(0)) // Assuming left mouse button triggers teleport
@@ -36,7 +34,6 @@ public class Teleport : Item
             TeleportToMousePosition();
             cooldownTimer = teleportCooldown; // Set the cooldown
         }
->>>>>>> aa58a3db220286bb4cb2b93a388f68cab9f397e4
     }
 
     private void TeleportToMousePosition()

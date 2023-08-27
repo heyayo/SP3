@@ -54,6 +54,7 @@ public class HellZoneGrenade : Item
 
             GameObject projectile = Instantiate(projectilePrefab, player.position, rotation);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            projectile.GetComponent<DamageSource>().__NativeHPDamage += PlayerManager.Instance.AttackDamage;
 
             float launchForce = Random.Range(minLaunchForce, maxLaunchForce);
             float curveAmount = Random.Range(-maxCurveAmount, maxCurveAmount);

@@ -1,28 +1,26 @@
+using UnityEditor.Build.Player;
 using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Items/Item")]
 public class Item : ScriptableObject
 {
-    [Header("Item Data")]
-    [SerializeField] public string itemName;
+    [Header("Item Data")] [SerializeField] public string itemName;
     [SerializeField] public Sprite itemSprite;
     [SerializeField] public bool droppable = true;
-    [TextArea] [SerializeField]
-    public string itemDescription = "null";
+    [SerializeField] public bool weapon = false;
+    [TextArea] [SerializeField] public string itemDescription = "null";
 
-    [Header("Equipment")]
-    [SerializeField] public EQUIPTYPE EquipType;
+    [Header("Equipment")] [SerializeField] public EQUIPTYPE EquipType;
     [SerializeField] public float health = 0f;
     [SerializeField] public float armor = 0f;
     [SerializeField] public float resist = 0f;
     [SerializeField] public float attack = 0f;
 
-    [HideInInspector]
-    public UnityEvent consumed;
+    [HideInInspector] public UnityEvent consumed;
 
     public enum EQUIPTYPE
-    { 
+    {
         NONE,
         EQUIPPABLE
     }
@@ -53,6 +51,6 @@ public class Item : ScriptableObject
 
     public virtual void Setup(GameObject pickupItem)
     {
-        
+
     }
 }
