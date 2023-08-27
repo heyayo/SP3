@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4396642750692814675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8379041377115238084}
+  - component: {fileID: 1496245035280790226}
+  m_Layer: 0
+  m_Name: SkillTree Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8379041377115238084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396642750692814675}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 476.81992, y: 207, z: -0.8447773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1496245035280790226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396642750692814675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c01858d79c96348bd225b97c97b242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inv: {fileID: 0}
+  kamehameha: {fileID: 11400000, guid: 837324d30e19e814cb63a30b11ba5d83, type: 2}
+  HomingSkill: {fileID: 11400000, guid: 7b2f2c690e4c8fe41964371a1f81b2ad, type: 2}
+  Spiritbomb: {fileID: 11400000, guid: ea370aae73a6b1f4898a57fe5dcddf6c, type: 2}
+  Baseball: {fileID: 11400000, guid: 713bfd5179b06c5479f67bd7bb0631ea, type: 2}
+  Boomerang: {fileID: 11400000, guid: 476179e4252bf094ebd54038ca4e1f0c, type: 2}
+  Dash: {fileID: 11400000, guid: ed9279025d503ca44a38af53851228c7, type: 2}
+  Teleport: {fileID: 11400000, guid: c456af478ea6a3b40ba6ed89f5fd3bae, type: 2}
+  Eskill: {fileID: 11400000, guid: 7a25b4becc72b1445b2bddf6b3cca110, type: 2}
+  Hellzone: {fileID: 11400000, guid: 0b0e9e1632465f441bcc2a88bb584e29, type: 2}
