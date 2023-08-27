@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 590ff68ca95ca3d4eb2150b9f0eabe20, type: 3}
-  m_Name: KnightsSword
+  m_Name: Excalibur
   m_EditorClassIdentifier: 
-  itemName: Knights Sword
-  itemSprite: {fileID: 21300000, guid: 86e1e4e44e69bc14aa60cde48ec02ae8, type: 3}
+  itemName: Excalibur
+  itemSprite: {fileID: 21300000, guid: 373b615e1c962bc43b92b3ace5e4f95d, type: 3}
   droppable: 1
   weapon: 0
-  itemDescription: 'Knight''s Sword:
+  itemDescription: 'Excalibur:
 
-    Standard issue knight sword. Forged with
-    pure iron and demonite.'
+    THE Excalibur.'
   EquipType: 1
   health: 0
   armor: 0
   resist: 0
-  attack: 20
+  attack: 150
   consumed:
     m_PersistentCalls:
       m_Calls: []

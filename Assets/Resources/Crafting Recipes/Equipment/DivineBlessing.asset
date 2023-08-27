@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a326507efbd68479baaeba27b7ab24, type: 3}
+  m_Name: DivineBlessing
+  m_EditorClassIdentifier: 
+  recipeR1:
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  recipeR2:
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: e71885bc0b2ee064bad924632d75e946, type: 2}
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  recipeR3:
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  - {fileID: 11400000, guid: f8ef2a5574172d545a8034be4f4404c9, type: 2}
+  yieldItem: {fileID: 11400000, guid: 8225a10cc703af34dbdc1bd0728cfde6, type: 2}
