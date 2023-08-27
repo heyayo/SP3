@@ -18,10 +18,15 @@ public class DamagedSounds : MonoBehaviour
     [SerializeField]
     private int deathSoundIndex = 3;
 
+    // Private Variables
+    private bool died;  // Make sure the sound only plays one time
+
     void Start()
     {
         GetComponent<Damagable>().onHit.AddListener(HitSound);
         GetComponent<Mortality>().onHealthZero.AddListener(DeathSound);
+
+        died = false;
     }
 
     private void HitSound()
@@ -32,7 +37,10 @@ public class DamagedSounds : MonoBehaviour
 
     private void DeathSound()
     {
-        if (deathSoundTrue)
+        if (deathSoundTrue && !died)
+        {
             SoundManager.Instance.PlaySound(deathSoundIndex);
+            died = true;
+        }
     }
 }
