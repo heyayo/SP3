@@ -66,6 +66,7 @@ public class InfiniteEnergy : Affliction
 {
     public InfiniteEnergy(float pLifetime, Mortality pTarget) : base(pLifetime, pTarget)
     {
+        icon = Resources.Load<Sprite>("Sprites/infiniteenergy");
     }
 
     public override void Begin()
