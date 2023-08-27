@@ -13,12 +13,15 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] public InventoryItem inventoryItemPrefab;
     [SerializeField] private GameObject inventoryParent;
     [SerializeField] private PickupItem pickupItemPrefab;
+    public GameObject stuckTexta;
 
     // Private Variables
     private bool toggle = false;
 
     private void Start()
     {
+        stuckTexta = GameObject.Find("Warning Text");
+        stuckTexta.SetActive(false);
         _config = Configuration.FetchConfig();
         inventoryParent.SetActive(false);
         _player = PlayerManager.Instance;

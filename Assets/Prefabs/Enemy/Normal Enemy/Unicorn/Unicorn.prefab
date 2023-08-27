@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 2517559310701065423}
   - component: {fileID: 1308433089016116169}
   - component: {fileID: 6964854114325088494}
+  - component: {fileID: 1910899783548092299}
   m_Layer: 0
   m_Name: Unicorn
   m_TagString: Damagable
@@ -361,8 +362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpDamage: 30
   activeEnergyDamage: 40
-  nativeHPDamage: 0
-  nativeActiveEnergyDamage: 0
+  nativeHPDamage: 30
+  nativeActiveEnergyDamage: 40
   armourPen: 0
   resistPen: 0
   nativeArmourPen: 0
@@ -370,9 +371,12 @@ MonoBehaviour:
   armourPenType: 0
   resistPenType: 0
   bleedOverPercentage: 50
-  nativeBleedOverPercentage: 0
+  nativeBleedOverPercentage: 50
   isFriendly: 0
   isHostile: 1
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2003635165250737300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +401,7 @@ MonoBehaviour:
   moveSpeed: 8
   bat: {fileID: 7671389968319787405, guid: e20bf0107757b0d4fad337dd6bd7f818, type: 3}
   stuckText: {fileID: 0}
-  barrier: {fileID: 0}
+  barrier: {fileID: 5403777768613560109, guid: 725819f6ed393d04aab7443c71bafd88, type: 3}
   bubblee: {fileID: 0}
 --- !u!114 &2517559310701065423
 MonoBehaviour:
@@ -414,7 +418,7 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
-  hit:
+  onHit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1308433089016116169
@@ -447,8 +451,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 11
+  deathSoundTrue: 1
   deathSoundIndex: 12
+--- !u!58 &1910899783548092299
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7429195161834839952}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.18499999
 --- !u!1 &9074437512380596661
 GameObject:
   m_ObjectHideFlags: 0

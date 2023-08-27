@@ -130,6 +130,8 @@ GameObject:
   - component: {fileID: 2733038960304278668}
   - component: {fileID: 3266196164180135296}
   - component: {fileID: -5895827806481020610}
+  - component: {fileID: -3036251596510894683}
+  - component: {fileID: -8985682961009189272}
   m_Layer: 0
   m_Name: FlyingBat (1)
   m_TagString: Damagable
@@ -373,17 +375,20 @@ MonoBehaviour:
   hpDamage: 0
   activeEnergyDamage: 80
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 0
+  nativeActiveEnergyDamage: 80
   armourPen: 0
   resistPen: 0
   nativeArmourPen: 0
   nativeResistPen: 0
   armourPenType: 0
   resistPenType: 0
-  bleedOverPercentage: 20
-  nativeBleedOverPercentage: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 20
   isFriendly: 0
   isHostile: 1
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3266196164180135296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,8 +419,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 1
+  deathSoundTrue: 1
   deathSoundIndex: 3
+--- !u!114 &-3036251596510894683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826171656258085652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b1e06e468c986b98c39515cb954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mortality: {fileID: 0}
+  immunityTime: 0.75
+  immune: 0
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!58 &-8985682961009189272
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826171656258085652}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.36
 --- !u!1 &5691504721927099256
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class NaturalEnemySpawning : MonoBehaviour
         {
             _lastSpawnTime = Time.time;
             SpawnEnemies();
-            _enemyIndex++;
+            _enemyIndex = (_enemyIndex + 1) % enemies.Length;
         }
     }
 

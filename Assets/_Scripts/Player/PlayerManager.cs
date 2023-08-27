@@ -91,6 +91,7 @@ public class PlayerManager : MonoBehaviour
         deathMenuAnchor.SetActive(false);
         InventoryManager.Instance.Add(Resources.Load<Item>("Items/Weapons/KiBlast"));
         pauseMenu.SetActive(false);
+        recipeBook.gameObject.SetActive(false);
     }
 
     public void Update()

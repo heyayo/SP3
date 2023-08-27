@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpDamage: 0
   activeEnergyDamage: 0
-  nativeHPDamage: 50
+  nativeHPDamage: 10
   nativeActiveEnergyDamage: 0
   armourPen: 0
   resistPen: 0
@@ -193,3 +193,6 @@ MonoBehaviour:
   nativeBleedOverPercentage: 0
   isFriendly: 1
   isHostile: 0
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []

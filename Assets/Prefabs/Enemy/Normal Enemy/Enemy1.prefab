@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3710679460209303977}
   - component: {fileID: -6319193965166376972}
   - component: {fileID: -2808238345193702783}
+  - component: {fileID: 9133085629522718034}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Damagable
@@ -367,7 +368,7 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
-  hit:
+  onHit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!70 &-6319193965166376972
@@ -417,8 +418,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 1
+  deathSoundTrue: 1
   deathSoundIndex: 3
+--- !u!114 &9133085629522718034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784597489851820815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDamage: 0
+  activeEnergyDamage: 0
+  nativeHPDamage: 0
+  nativeActiveEnergyDamage: 100
+  armourPen: 0
+  resistPen: 0
+  nativeArmourPen: 0
+  nativeResistPen: 0
+  armourPenType: 0
+  resistPenType: 0
+  bleedOverPercentage: 0
+  nativeBleedOverPercentage: 15
+  isFriendly: 0
+  isHostile: 1
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5473789959453241438
 GameObject:
   m_ObjectHideFlags: 0

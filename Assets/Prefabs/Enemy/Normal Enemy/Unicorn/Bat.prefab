@@ -277,10 +277,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a451d7823184fa578899e2a5bced62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpDamage: 20
+  hpDamage: 0
   activeEnergyDamage: 0
   nativeHPDamage: 0
-  nativeActiveEnergyDamage: 0
+  nativeActiveEnergyDamage: 400
   armourPen: 0
   resistPen: 0
   nativeArmourPen: 0
@@ -291,6 +291,9 @@ MonoBehaviour:
   nativeBleedOverPercentage: 5
   isFriendly: 0
   isHostile: 1
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-6124233247206100274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +309,7 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.1
   immune: 0
-  hit:
+  onHit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &260825061583267421
@@ -321,5 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSoundTrue: 1
   hitSoundIndex: 1
+  deathSoundTrue: 1
   deathSoundIndex: 3
