@@ -20,7 +20,7 @@ public class MultiBodyDamage : MonoBehaviour
         {
             mortalities.Add(go.GetComponent<Mortality>());
 
-            go.GetComponent<Damagable>().onHit.AddListener(SyncHealth);
+            go.GetComponent<Damagable>().hit.AddListener(SyncHealth);
             var mortality = go.GetComponent<Mortality>();
             
             mortality.onHealthZero.AddListener(Death);

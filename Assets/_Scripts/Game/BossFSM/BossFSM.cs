@@ -77,7 +77,7 @@ public class BossFSM : MonoBehaviour
         currentState.EnterState();
         resetToState = currentIndex;
 
-        GetComponent<Damagable>().onHit.AddListener(HitSound);
+        GetComponent<Damagable>().hit.AddListener(HitSound);
         mortality.onHealthZero.AddListener(Death);
     }
 

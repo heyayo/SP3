@@ -11,12 +11,12 @@ public class Damagable : MonoBehaviour
     [SerializeField] private float immunityTime = 1;
     [SerializeField] private bool immune;
 
-    [FormerlySerializedAs("hit")] public UnityEvent onHit;
+    public UnityEvent hit;
 
     private void Awake()
     {
-        if (onHit == null)
-            onHit = new UnityEvent();
+        if (hit == null)
+            hit = new UnityEvent();
 
         mortality = GetComponent<Mortality>();
     }
@@ -35,7 +35,7 @@ public class Damagable : MonoBehaviour
         if (immune) return;
         mortality.ApplyEnergyDamage(eDamage, mp, ePierce, bleed, ap, hpPierce);
         mortality.ApplyHealthDamage(hpDamage, ap, hpPierce);
-        onHit.Invoke();
+        hit.Invoke();
         WaitImmunity();
     }
 

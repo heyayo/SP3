@@ -419,8 +419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c5c985687f304dbd31f7f3ce3a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSoundTrue: 1
-  hitSoundIndex: 1
   deathSoundTrue: 1
   deathSoundIndex: 3
 --- !u!114 &-3036251596510894683
@@ -438,6 +436,7 @@ MonoBehaviour:
   mortality: {fileID: 0}
   immunityTime: 0.75
   immune: 0
+  hitSoundIndex: 1
   onHit:
     m_PersistentCalls:
       m_Calls: []

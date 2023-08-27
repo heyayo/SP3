@@ -115,7 +115,7 @@ public class DamageSource : MonoBehaviour
             }
             var dmg = other.GetComponent<Damagable>();
             dmg.TakeDamage(gameObject,hpDamage,armourPen,armourPenType,activeEnergyDamage,resistPen,resistPenType,bleedOverPercentage);
-            dmg.onHit.Invoke();
+            //dmg.hit.Invoke();
             onHit.Invoke();
             if (afflicter != null)
             {

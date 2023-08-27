@@ -10,7 +10,7 @@ public class DamageText : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Damagable>().onHit.AddListener(DmgText);
+        GetComponent<Damagable>().hit.AddListener(DmgText);
     }
 
     private void DmgText()

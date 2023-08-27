@@ -6,24 +6,22 @@ public class DamagedSounds : MonoBehaviour
 {
     [Header("Hit Sound")]
     [SerializeField]
-    private bool hitSoundTrue;
+    private bool hitSoundTrue = true;
 
     [SerializeField]
     private int hitSoundIndex = 1;
 
     [Header("Death Sound")]
     [SerializeField]
-    private bool deathSoundTrue;
+    private bool deathSoundTrue = true;
 
     [SerializeField]
     private int deathSoundIndex = 3;
 
     void Start()
     {
-        GetComponent<Damagable>().onHit.AddListener(HitSound);
+        GetComponent<Damagable>().hit.AddListener(HitSound);
         GetComponent<Mortality>().onHealthZero.AddListener(DeathSound);
-
-        deathSoundTrue = true;
     }
 
     private void HitSound()
