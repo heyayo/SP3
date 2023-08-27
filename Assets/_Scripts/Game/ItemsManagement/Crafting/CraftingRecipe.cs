@@ -62,4 +62,26 @@ public class CraftingRecipe : ScriptableObject
     {
         return yieldItem;
     }
+
+    public Sprite[] ItemRecipe()
+    {
+        Sprite[] sprites = new Sprite[9];
+        for (int i = 0; i < recipeR1.Length; ++i)
+        {
+            if (recipeR1[i] != null)
+                sprites[i] = recipeR1[i].itemSprite;
+        }
+        for (int i = 0; i < recipeR2.Length; ++i)
+        {
+            if (recipeR2[i] != null)
+                sprites[i+3] = recipeR2[i].itemSprite;
+        }
+        for (int i = 0; i < recipeR3.Length; ++i)
+        {
+            if (recipeR3[i] != null)
+               sprites[i+6] = recipeR3[i].itemSprite;
+        }
+
+        return sprites;
+    }
 }

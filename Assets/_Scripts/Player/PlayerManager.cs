@@ -65,6 +65,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     [Header("UI")]
+    [SerializeField] private RecipeBook recipeBook;
     [SerializeField] private GameObject deathMenuAnchor;
 
     private void Awake()
@@ -96,6 +97,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (Input.GetKeyDown(_config.pause))
             PauseMenu();
+        if (Input.GetKeyDown(_config.recipeBook))
+            recipeBook.ToggleRecipeBook();
     }
 
     private Sprite LoadSprite(string name)

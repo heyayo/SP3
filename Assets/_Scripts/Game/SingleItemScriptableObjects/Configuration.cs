@@ -23,4 +23,5 @@ public class Configuration : ScriptableObject
 	public KeyCode dropItem = KeyCode.G;
 	public KeyCode openInventory = KeyCode.Tab;
 	public KeyCode consoleOpen = KeyCode.BackQuote;
+	public KeyCode recipeBook = KeyCode.C;
 }
