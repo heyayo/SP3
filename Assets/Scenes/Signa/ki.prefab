@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpDamage: 0
   activeEnergyDamage: 0
-  nativeHPDamage: 10
+  nativeHPDamage: 50
   nativeActiveEnergyDamage: 0
   armourPen: 0
   resistPen: 0
